@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="12px" viewBox="0 0 16 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_reply_g</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-980.000000, -2027.000000)" fill="#ffffff">
+            <g id="ic_reply_g" transform="translate(980.000000, 2027.000000)">
+                <path d="M11,5 C9.27,4.146 6,4 6,4 L6,0 L0,6 L6,12 L6,8 C6,8 11.75,7.656 16,10.875 C16,10.875 15.688,7.312 11,5" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

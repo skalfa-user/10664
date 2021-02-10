@@ -1,0 +1,15 @@
+.sk-join-questions-page {
+    background-color: color($colors, sk-page-bg);
+    .sk-tos {
+        button {
+            padding: 0;
+        }
+        ion-label {
+            button {
+                span {
+                    height: auto;
+                }
+            }
+        }
+    }
+}

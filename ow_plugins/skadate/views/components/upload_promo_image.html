@@ -1,0 +1,50 @@
+{style}
+.promo_image_upload div {
+
+}
+
+.promo_image_upload .ow_preloader {
+    width: 20px;
+}
+
+.promo_image_upload .percent_value {
+    padding-top:4px;
+    border-box:inherit;
+    height: 20px;
+}
+.promo_image_upload img {
+    max-width:400px;
+    max-width:450px;
+}
+
+.promo_image_upload .image {
+    height: auto;
+    position: relative;
+}
+
+.promo_image_upload .promo_image_delete_image_icon_div {
+    
+    background-repeat: no-repeat;
+    filter: unset;
+    height: 12px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 12px;
+}
+
+.promo_image_upload .promo_image_delete_image_icon_div:hover {
+    cursor:pointer;
+}
+
+{/style}
+<div class="promo_image_upload " >
+<div class="image ow_smallmargin" {if !$src}style="display:none;"{/if}>
+    <a title="{text key='admin+delete'}" class="promo_image_delete_image_icon_div ow_miniic_delete" >
+    </a>
+    <img {if $src}src="{$src}"{/if}>
+</div>
+<div class="input" >{$image}</div>
+</div>
+<div class="preload" style="display:none;"><div class="ow_preloader ow_left" ></div><div class="percent_value ow_left" ></div></div>
+</div>

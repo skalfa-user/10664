@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="skmobileapp" label="Skadate Mobile APP" language_tag="en" language_label="English">
+    <key name="video_upload_privacy_everybody"><value>Everybody</value></key>
+    <key name="video_upload_privacy_only_owner"><value>Only owner</value></key>
+    <key name="video_upload_privacy_certain_users"><value>Certain users</value></key>
+    <key name="privacy_settings_input"><value>Privacy settings</value></key>
+    <key name="privacy_settings_input_placeholder"><value>Certain users</value></key>
+</prefix>

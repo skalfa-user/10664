@@ -1,0 +1,110 @@
+.ul_mosaic_item {
+    float: left;
+}
+.ul_mosaic_avatar {
+    width: 166px;
+    height: 166px;
+    float: left;
+}
+.ul_mosaic_ralign .ul_mosaic_avatar {
+    float: right;
+}
+.ul_mosaic_info {
+    position: relative; 
+    background: #fff; 
+    border: 1px solid #fff; 
+    padding: 33px 24px;
+    width: 116px;
+    height: 98px;
+    float: left;
+    font-size: 14px;
+    color: #666;
+    word-wrap: break-word;
+}
+/* arrow left*/
+.ul_mosaic_info:after, 
+.ul_mosaic_info:before { 
+    right: 100%; 
+    top: 50%; 
+    border: solid transparent; 
+    content: " "; 
+    height: 0; 
+    width: 0; 
+    position: absolute; 
+    pointer-events: none; 
+} 
+.ul_mosaic_info:after { 
+    border-color: rgba(255, 255, 255, 0); 
+    border-right-color: #fff; 
+    border-width: 8px; 
+    margin-top: -8px; 
+}
+.ul_mosaic_info:before { 
+    border-color: rgba(255, 255, 255, 0); 
+    border-right-color: #fff; 
+    border-width: 9px; 
+    margin-top: -9px; 
+}
+/* */
+
+/*arrow right */
+.ul_mosaic_ralign .ul_mosaic_info:after, 
+.ul_mosaic_ralign .ul_mosaic_info:before { 
+    left: 100%; 
+    top: 50%; 
+    border: solid transparent; 
+    content: " "; 
+    height: 0; 
+    width: 0; 
+    position: absolute; 
+    pointer-events: none; 
+} 
+.ul_mosaic_ralign .ul_mosaic_info:after { 
+    border-color: rgba(255, 255, 255, 0); 
+    border-left-color: #fff; 
+    border-width: 8px; 
+    margin-top: -8px; 
+}
+.ul_mosaic_ralign .ul_mosaic_info:before { 
+    border-color: rgba(255, 255, 255, 0); 
+    border-left-color: #fff; 
+    border-width: 9px; 
+    margin-top: -9px; 
+}
+/* */
+.ul_mosaic_info_row {
+    margin-bottom: 3px;
+    overflow: hidden;
+}
+.ul_mosaic_info_name {
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    color: #333;
+    max-height: 38px;
+}
+.ul_mosaic_info_name a {
+    color: #333;
+}
+.ul_mosaic_info_name a:hover {
+    color: #d76243;
+    text-decoration: none;
+}
+.ul_mosaic_info_line {
+    height: 2px;
+    width: 40px;
+    margin: 13px 0px;
+    background: #d76243;
+}
+.ul_mosaic_info_row.info_sex_age {
+    max-height: 18px;
+}
+.ul_mosaic_info_row.info_address {
+    max-height: 36px;
+}
+.ul_mosaic_avatar {
+    background-size: cover;
+}
+.ul_mosaic_avatar a {
+    display: block;
+    height: 166px;
+}

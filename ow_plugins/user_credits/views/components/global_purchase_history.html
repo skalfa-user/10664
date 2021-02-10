@@ -1,0 +1,36 @@
+<div id="global_purchace_history_wrapper">
+    {if $items}
+        {style}
+            {literal}
+                .ow_credits { margin-bottom: 0px; }
+            {/literal}
+        {/style}
+
+        <table class="ow_table_1 ow_credits" id="credits-history-tbl">
+            <tbody>
+            <tr class="ow_tr_first">
+                <th>{text key='usercredits+user'}</th>
+                <th>{text key='usercredits+credit_pack'}</th>
+                <th>{text key='usercredits+amount'}</th>
+                <th>{text key='usercredits+date'}</th>
+            </tr>
+            {foreach from=$items item='item'}
+                <tr data-lid="{$item.id}">
+                    <td><a href="{$users[$item.userId].url}">{$users[$item.userId].title}</a></td>
+                    <td>{$item.entityDescription}</td>
+                    <td>{$item.price} {$item.currency}</td>
+                    <td>{format_date timestamp=$item.timeStamp}</td>
+                </tr>
+            {/foreach}
+            </tbody>
+        </table>
+        {if !empty($paging)}
+            <div id="user_credits_history_paging">
+                <br />
+                {$paging}
+            </div>
+        {/if}
+    {else}
+        <p>{text key="usercredits+history_empty"}</p>
+    {/if}
+</div>

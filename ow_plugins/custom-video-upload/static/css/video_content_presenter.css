@@ -1,0 +1,22 @@
+.video_playing .ow_newsfeed_item_picture {
+    margin-left: 0;
+    float: none;
+    width: auto;
+    margin-right: 0;
+}
+.video_playing .video-js {
+    height: 100%;
+    max-width: 100%;
+}
+.video_playing.ow_newsfeed_oembed_atch {
+    padding-left: 0;
+}
+.custom_video_upload .ow_newsfeed_item_picture {
+    width: 100%;
+}
+.custom_video_upload .ow_newsfeed_oembed_atch {
+    padding-left: 0;
+}
+.custom_video_upload .ow_newsfeed_oembed_atch .ow_newsfeed_item_picture {
+    margin-left: 0;
+}

@@ -1,0 +1,11 @@
+[{
+    "id": 1,
+    "avatar": null,
+    "user":{
+        "id": 191062,
+        "userName": "Tester",
+        "isOnline": true,
+        "age": 34
+    }
+ }]
+ 

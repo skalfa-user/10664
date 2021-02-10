@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar [hideBackButton]="isRequestLoading">
+        <ion-title>
+            {{ 'forgot_password_new_password_page_title' | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button class="sk-forgot-new-password-button" ion-button clear [disabled]="isRequestLoading || questionControl.isFormPending(form)" (click)="submit()">
+                <ion-spinner *ngIf="isRequestLoading" name="ios-small"></ion-spinner>
+                <span *ngIf="!isRequestLoading">
+                    {{ 'next' | translate }}
+                </span>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [attr.page-blocker]="isRequestLoading ? 'true' : ''" class="sk-forgot-pass-new-password-page sk-forgot-pass-page">
+    <!-- form -->
+    <div text-wrap padding class="sk-description">
+        {{ 'forgot_password_new_password_desc' | translate }}
+    </div>
+    <question *ngFor="let question of questions" [question]="question" [form]="form"></question>
+
+</ion-content>

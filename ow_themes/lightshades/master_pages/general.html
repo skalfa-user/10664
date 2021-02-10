@@ -1,0 +1,49 @@
+<style type="text/css">@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed&subset=latin,cyrillic-ext,latin-ext,cyrillic,greek-ext,vietnamese,greek);</style>
+<div class="ow_page_wrap">
+    <div class="ow_page_padding">
+        <div class="ow_site_panel_wrap">
+            <div class="ow_site_panel">
+                {component class='BASE_CMP_Console'}
+                <div class="ow_logo_wrap">
+                    <a href="{$siteUrl}"></a>
+                </div>
+            </div>
+        </div>    
+        <div class="ow_header">
+            {*print_var var=$imageControlValues*}
+            <div class="ow_header_pic_wrap">
+                <div class="ow_header_pic"><a href="{$siteUrl}" class="logo_url"></a></div>
+            </div>
+            <div class="ow_menu_wrap">{$main_menu}</div>
+        </div>
+        <div class="ow_page_container">
+            <div class="ow_canvas">
+                <div class="ow_page ow_bg_color clearfix">
+                    {if !empty($heading)}<h1 class="ow_stdmargin {$heading_icon_class}">{$heading}</h1>{/if}
+                    <div class="ow_content">
+                        {add_content key='base.add_page_top_content'}
+                        {$content}
+                        {add_content key='base.add_page_bottom_content'}
+                    </div>
+                    <div class="ow_sidebar">
+                        {component class="BASE_CMP_Sidebar"}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ow_footer">
+    <div class="ow_canvas">
+        <div class="ow_page clearfix">
+            {$bottom_menu}
+            <div class="ow_copyright">
+                {text key='base+copyright'}
+            </div>
+            <div style="float:right;">
+                {$bottomPoweredByLink}
+            </div>
+        </div>
+    </div>
+</div>    
+{decorator name='floatbox'}

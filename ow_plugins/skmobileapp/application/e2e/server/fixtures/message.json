@@ -1,0 +1,18 @@
+{
+    "attachments": [],
+    "conversation": {
+        "id": "191062_1000"
+    },
+    "date": "2018-12-26",
+    "dateLabel": "Today",
+    "id": 1,
+    "isAuthor": true,
+    "isAuthorized": true,
+    "isRecipientRead": false,
+    "isSystem": false,
+    "opponentId": 1000,
+    "text": "test",
+    "time": "04:08AM",
+    "timeStamp": 1545815308,
+    "updateStamp": 1545815308
+}

@@ -1,0 +1,40 @@
+<div class="privacy-settings-page">
+    {$contentMenu}
+
+    <div class="privacy-description ow_stdmargin">
+        <p>{text key='privacy+privacy_description'}</p>
+    </div>
+
+    {if empty($actionList)}
+        <div class="privacy-no-items">
+            <p>{text key="privacy+no_items"}</p>
+        </div>
+    {else}
+        {form name='privacyForm'}
+            <div class="ow_custom_form ow_privacy_form ow_stdmargin">
+                {foreach from=$actionList item='action'}
+                    <div class="ow_row">
+                        <div class="ow_custom_form_label">
+                            {label name=$action}
+                        </div>
+                        <div class="ow_custom_form_field">
+                            {input name=$action}
+                        </div>
+                    </div>
+                {/foreach}
+            </div>
+            <div class="ow_anno ow_center ow_custom_warning_box ow_stdmargin">
+                <p>{text key='privacy+bottom warning'}</p>
+            </div>
+            <div class="ow_row ow_submit_row clearfix">
+                <div class="ow_submit_field ow_right">
+                    {submit name='privacySubmit' class='ow_ic_save'}
+                </div>
+            </div>
+        {/form}
+    {/if}
+</div>
+
+{script}
+$(document).ready(function() { window.jcf ? jcf.replaceAll() : console.warn('JCF is not initialized properly.'); });
+{/script}

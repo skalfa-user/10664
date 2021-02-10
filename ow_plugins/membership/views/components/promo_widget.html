@@ -1,0 +1,34 @@
+{style}
+{literal}
+.ow_mship_widget_block {
+    line-height: 16px;
+}
+.ow_mship_widget_benefits ul {
+    margin-bottom: 0px;
+}
+.ow_mship_widget_more {
+    padding-left: 16px;
+}
+{/literal}
+{/style}
+
+<div class="ow_mship_widget_block">
+    {if isset($title)}
+    <div class="ow_mship_widget_current">
+        <span class="ow_mship_widget_label">{text key='membership+your_membership'}: </span>
+        <span class="ow_mship_widget_value ow_outline">{$title}</span>
+    </div>
+    {/if}
+    <div class="ow_mship_widget_txt ow_smallmargin">{text key='membership+consider_upgrading'}</div>
+    <div class="ow_mship_widget_benefits ow_smallmargin">
+        <ul class="ow_regular">
+            {foreach from=$actions item='a'}
+            <li>{$a}</li>
+            {/foreach}
+        </ul>
+        {if $showMore}<div class="ow_mship_widget_more">{text key='membership+and_more'}</div>{/if}
+    </div>
+    <div class="ow_mship_widget_btn ow_center">
+        {decorator name='button' class='ow_ic_up_arrow' id='btn-sidebar-upgrade' langLabel='membership+upgrade'}
+    </div>
+</div>

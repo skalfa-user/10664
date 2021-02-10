@@ -1,0 +1,134 @@
+<div class="ow_videoim_confirmation_window" id="videoim-confirmation-window-{$senderId}">
+    <div class="ow_videoim_bg" style="background-image: url('{$senderAvatar}');"></div>
+    <div class="ow_videoim_overlay"></div>
+    <div class="ow_videoim_cont">
+        <h1>{text key="videoim+incoming_call_from"} {$senderName}</h1>
+        <div class="ow_videoim_caller_avatar animation_pulse" style="background-image: url('{$senderAvatar}');">
+            <a href="{$senderUrl}" class="ow_videoim_caller_avatar_link"></a>
+        </div>
+        <div class="ow_videoim_controls">
+            <a class="ow_videoim_btn ow_videoim_accept_btn" href="javascript://" data-action="accept">
+                <span class="ow_videoim_btn_icon">{text key="videoim+accept"}</span>
+            </a>
+            <a class="ow_videoim_btn ow_videoim_decline_btn" href="javascript://" data-action="decline">
+                <span class="ow_videoim_btn_icon"></span>
+                <span class="ow_videoim_hint_btn">{text key="videoim+decline"}</span>
+            </a>
+            <a class="ow_videoim_btn ow_videoim_mute_btn ow_videoim_mute_btn_active" href="javascript://" data-action="sound_off">
+                <span class="ow_videoim_btn_icon"></span>
+                <span class="ow_videoim_hint_btn_sound_off">{text key="videoim+sound_off"}</span>
+                <span class="ow_videoim_hint_btn_sound_on">{text key="videoim+sound_on"}</span>
+            </a>
+            {if !$isSuperModerator}
+                <a class="ow_videoim_btn ow_videoim_block_btn" href="javascript://" data-action="block">
+                    <span class="ow_videoim_btn_icon"></span>
+                    <span class="ow_videoim_hint_btn">{text key="videoim+block"}</span>
+                </a>
+            {/if}
+        </div>
+    </div>
+</div>
+
+{script}
+    var isRequestAnswered = false;
+
+    // close the window automatically
+    var closeInterval = setTimeout(function()
+    {
+        showMissedCallNotification();
+    }, {$closeTime});
+
+    if ( !videoImRequest.isSoundManualMuted() )
+    {
+        videoImRequest.startSound();
+    }
+    else {
+        // make a mute button as inactive
+        $(".ow_videoim_mute_btn").removeClass("ow_videoim_mute_btn_active").addClass("ow_videoim_mute_btn_not_active");
+    }
+
+    // stop the audio signaling
+    _scope.floatBox.bind("close", function(params)
+    {
+        if ( params && typeof params.sender != "undefined" && params.sender == "canvas" )
+        {
+            return false;
+        }
+
+        videoImRequest.stopSound();
+        videoImRequest.setProcessingNotifications(true);
+        clearTimeout(closeInterval);
+        OW.unbind("videoim.request_dialog_end");
+
+        if ( !isRequestAnswered ) {
+            videoImRequest.declineRequest({$senderId}, "{$sessionId}");
+        }
+    });
+
+    // hide the current confirmation window
+    OW.bind("videoim.request_dialog_end", function(data)
+    {
+        if (data.user == {$senderId})
+        {
+            showMissedCallNotification();
+        }
+    });
+
+    /**
+     * Show missed incoming calling notification
+     *
+     * @return void
+     */
+    function showMissedCallNotification()
+    {
+        _scope.floatBox && _scope.floatBox.close();
+        OW.message('{text key="videoim+missed_incoming_call_from" escape="quotes" url=$senderUrl name=$senderName}', "warning", 10000000000);
+    }
+
+    // init confirmation links
+    $("#videoim-confirmation-window-{$senderId}").find("a").unbind().click(function(e)
+    {
+        switch ( $(this).attr("data-action") )
+        {
+            case "accept" :
+                isRequestAnswered = true;
+                videoImRequest.getChatWindow({$senderId}, false, "{$sessionId}");
+                _scope.floatBox && _scope.floatBox.close();
+                break;
+
+            case "decline" :
+                isRequestAnswered = true;
+                videoImRequest.declineRequest({$senderId}, "{$sessionId}");
+                _scope.floatBox && _scope.floatBox.close();
+                break;
+
+            case "block" :
+                isRequestAnswered = true;
+                if ( confirm("{text key="videoim+block_user_confirmation" escape="quotes"}") )
+                {
+                    videoImRequest.blockUser({$senderId}, "{$sessionId}");
+                    _scope.floatBox && _scope.floatBox.close();
+                }
+                break;
+
+            case "sound_off" :
+                if ( !videoImRequest.isSoundManualMuted() )
+                {
+                    videoImRequest.muteSound();
+                    videoImRequest.stopSound();
+
+                    $(".ow_videoim_mute_btn").removeClass("ow_videoim_mute_btn_active").addClass("ow_videoim_mute_btn_not_active");
+                }
+                else
+                {
+                    videoImRequest.unmuteSound();
+                    videoImRequest.startSound();
+
+                    $(".ow_videoim_mute_btn").removeClass("ow_videoim_mute_btn_not_active").addClass("ow_videoim_mute_btn_active");
+                }
+                break;
+
+            default :
+        }
+    });
+{/script}

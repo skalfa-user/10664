@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="16px" viewBox="0 0 14 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_music</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-814.000000, -2029.000000)" fill="#ffffff">
+            <g id="ic_music" transform="translate(814.000000, 2029.000000)">
+                <path d="M4,2 L4,3.5 L4,5.5 L4,11.153 C3.686,11.06 3.353,11 3,11 C1.343,11 0,12.119 0,13.5 C0,14.881 1.343,16 3,16 C4.657,16 6,14.881 6,13.5 L6,6.167 L12,4.834 L12,9.154 C11.686,9.06 11.353,9 11,9 C9.344,9 8,10.119 8,11.5 C8,12.881 9.344,14 11,14 C12.656,14 14,12.881 14,11.5 L14,3.5 L14,0.5 L14,0 L4,2" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

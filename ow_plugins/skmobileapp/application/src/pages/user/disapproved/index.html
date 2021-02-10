@@ -1,0 +1,26 @@
+<ion-content class="sk-user-disapproved-page sk-blank-state" padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <div class="sk-blank-state-wrap">
+        <img class="sk-blank-state-icon" src="./assets/img/user/disapproved/ic-alert.svg" alt="" />
+        <div class="sk-blank-state-cont" *ngIf="isSuspended">
+            <h2>{{ 'profile_suspended' | translate }}</h2>
+            <p>{{ 'reason' | translate }}: {{ description }}</p>
+        </div>
+
+        <div *ngIf="!isSuspended" class="sk-blank-state-cont">
+            <h2>{{ 'profile_is_pending_approval' | translate }}</h2>
+        </div>
+    </div>
+</ion-content>
+
+<ion-footer class="sk-back-footer sk-blank-state-footer">
+    <ion-toolbar>
+        <button type="button" class="sk-leave-user-disapproved-button" ion-button block clear icon-start (click)="logout()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+            <span class="sk-text-overflow">{{ 'back_to_starter_page_button' | translate }}</span>
+        </button>
+    </ion-toolbar>
+</ion-footer>

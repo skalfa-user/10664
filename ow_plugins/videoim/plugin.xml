@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+    <name>Video Instant Messenger</name>
+    <key>videoim</key>
+    <description>Standalone video chat module to enable private video conversations between two users, based on WebRTC technology.</description>
+    <author>Skalfa</author>
+    <authorEmail>oxwallplugins@skalfa.com</authorEmail>
+    <authorUrl>http://www.skalfa.com</authorUrl>
+    <developerKey>99d6bdd5bb6468beaf118c4664dd92ff</developerKey>
+    <build>11110</build>
+    <copyright>(C) 2015 Skalfa LLC. All rights reserved.</copyright>
+    <license>OSCL</license>
+    <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+</plugin>

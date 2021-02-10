@@ -1,0 +1,52 @@
+{$contentMenu}
+{form name='usearch_general_settings'}
+    <table class="ow_table_1 ow_form">
+        <tr class="ow_tr_first">
+            <th class="ow_name ow_txtleft" colspan="3">
+                <span class="ow_section_icon ow_ic_file">{text key='usearch+search_options'}</span>
+            </th>
+        </tr>
+        <tr>
+            <td class="ow_label">{label name='enable_username_search'}</td>
+            <td class="ow_value">{input name='enable_username_search'} {error name='enable_username_search'}</td>
+            <td class="ow_desc">&nbsp;</td>
+        </tr>
+        <tr class="ow_tr_first">
+            <th class="ow_name ow_txtleft" colspan="3">
+                <span class="ow_section_icon ow_ic_file">{text key='usearch+sort_setting'}</span>
+            </th>
+        </tr>
+        <tr >
+            <td class="ow_label">{label name='latest_activity'}</td>
+            <td class="ow_value">{input name='latest_activity'} {error name='latest_activity'}</td>
+            <td class="ow_desc">&nbsp;</td>
+        </tr>
+        <tr >
+            <td class="ow_label">{label name='recently_joined'}</td>
+            <td class="ow_value">{input name='recently_joined'} {error name='recently_joined'}</td>
+            <td class="ow_desc">&nbsp;</td>
+        </tr>
+        <tr >
+            <td class="ow_label">{label name='match_compatibitity'}</td>
+            <td class="ow_value">{input name='match_compatibitity'} {error name='match_compatibitity'}</td>
+            <td class="ow_desc">{text key="usearch+match_compatibitity_description"}</td>
+        </tr>
+        <tr>
+            <td class="ow_label">{label name='distance'}</td>
+            <td class="ow_value">{input name='distance'} {error name='distance'}</td>
+            <td class="ow_desc">{text key="usearch+distance_description"}</td>
+        </tr>
+        <tr class="ow_tr_delimiter"><td colspan="3" ></td></tr>
+        <tr class="ow_tr_first">
+            <th class="ow_name ow_txtleft" colspan="3">
+                <span class="ow_section_icon ow_ic_picture">{text key='usearch+view_settings'}</span>
+            </th>
+        </tr>
+        <tr>
+            <td class="ow_label">{label name='hide_user_activity_after'}</td>
+            <td class="ow_value">{input name='hide_user_activity_after'}&nbsp;<span>{text key="usearch+days_ago"}</span> {error name='hide_user_activity_after'}</td>
+            <td class="ow_desc">&nbsp;</td>
+        </tr>
+    </table>
+<div class="clearfix ow_stdmargin"><div class="ow_right">{submit name='save' class='ow_ic_save ow_positive'}</div></div>
+{/form}

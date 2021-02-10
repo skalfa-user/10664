@@ -1,0 +1,32 @@
+{if isset($authMessage)}
+    <div class="ow_anno ow_std_margin ow_nocontent">{$authMessage}</div>
+{else}
+
+
+<div class="ow_superwide ow_automargin ow_stdmargin">
+
+    {form name=$formName}
+
+    <div class="clearfix ow_stdmargin">
+        {input name='custom_video_upload_input'}{error name='custom_video_upload_input'}
+    </div>
+
+    <div class="clearfix ow_stdmargin">
+        {input name='privacy'}
+        {error name='privacy'}
+    </div>
+
+    <div class="ow_stdmargin certain_users_enabled_settings {if $userSearchEnabled}{else}ow_hidden{/if}">
+        <div class="clearfix">
+            {input name='custom_user_search_input'}
+            {error name='custom_user_search_input'}
+        </div>
+    </div>
+
+    <div class="clearfix ow_stdmargin"><div class="ow_right">{submit name='save' class='ow_ic_edit ow_positive'}</div></div>
+    {/form}
+
+</div>
+
+
+{/if}

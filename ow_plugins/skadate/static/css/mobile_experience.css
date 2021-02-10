@@ -1,0 +1,31 @@
+.ow_index_app_banner a {
+    display: inline-block;
+    width: 119px;
+    height: 41px;
+    background: url(../images/app_banner_and.png) no-repeat left top;
+}
+.ow_index_app_banner .ow_index_app_banner_ios {
+    background-image: url(../images/app_banner_ios.png);
+}
+.ow_index_app_banner a:first-child {
+    margin-right: 8px;
+}
+.ow_supernarrow .ow_index_app_banner a,
+.ow_sidebar .ow_index_app_banner a  {
+    width: auto;
+    height: 56px;
+    display: block;
+    margin: 0px 8px 0px;
+    background-image: url(../images/app_banner_and_big.png);
+}
+.ow_supernarrow .ow_index_app_banner .ow_index_app_banner_ios,
+.ow_sidebar .ow_index_app_banner .ow_index_app_banner_ios {
+    background-image: url(../images/app_banner_ios_big.png);
+}
+.ow_sidebar .ow_index_app_banner a {
+    background-size: contain;
+}
+.ow_supernarrow .ow_index_app_banner a:first-child,
+.ow_sidebar .ow_index_app_banner a:first-child {
+    margin-bottom: 8px;
+}

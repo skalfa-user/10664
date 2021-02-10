@@ -1,0 +1,187 @@
+.sk-messages-page {
+    background-color: color($colors, sk-page-bg);
+
+    .sk-new-conversation {
+        user-avatar {
+            width: 48vw;
+            height: 48vw;
+            margin-bottom: 0;
+            border-radius: 50%;
+            background-color: color($colors, light);
+
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .sk-blank-state-cont {
+            margin: 0 15% 2rem;
+
+            h4 {
+                color: color($colors, dark);
+            }
+        }
+    }
+
+    .sk-messages {
+        margin-bottom: 80px;
+
+        .sk-message-wrap {
+            @include flex(flex, column, flex-start, stretch);
+            position: relative;
+            margin-bottom: 1.6rem;
+
+            .sk-unread-message-divider {
+                text-align: center;
+                overflow: hidden;
+                color: color($colors, primary);
+                font-size: 1.1rem;
+                text-transform: uppercase;
+                margin: 1.6rem 0 1rem;
+
+                &:after, &:before {
+                    background-color: color($colors, primary);
+                    content: " ";
+                    display: inline-block;
+                    height: 1px;
+                    position: relative;
+                    vertical-align: middle;
+                    width: 50%;
+                    @include position(null, auto, null, 1.5rem);
+                    @include margin(null, -50%, null, null)
+                }
+
+                &:before {
+                    @include position(null, 1.5rem, null, auto);
+                    @include margin(null, 0, null, -50%)
+                }
+            }
+
+            &.sk-message-error {
+                .sk-message-sent {
+                    transform: translateX(-35px);
+                    @include transition(translateX 0.3s ease-i)
+                }
+
+                .sk-message-deliver-error {
+                    opacity: 1;
+                    @include transition(opacity 0.4s ease-in);
+                }
+            }
+
+            .sk-message-deliver-error {
+                position: absolute;
+                @include position(50%, 0, null, null);
+                transform: translateY(-50%);
+                opacity: 0;
+
+                img {
+                    vertical-align: top;
+                }
+            }
+
+            .sk-message-date {
+                text-align: center;
+                margin: 1rem 0;
+                font-size: 1.3rem;
+                text-transform: uppercase;
+                color: $sk-message-date-color;
+            }
+        }
+    }
+}
+
+.sk-messages-down {
+    position: absolute;
+    @include position(null, 1rem, 10rem, null);
+    @include flex(flex, row, center, center);
+    border: 1px solid $sk-messages-down-border;
+    border-radius: 100%;
+    z-index: 10;
+    height: 4.5rem;
+    width: 4.5rem;
+    background-color: color($colors, light);
+
+    .icon {
+        margin-top: 1px;
+        font-size: 3.5rem;
+        color: $sk-messages-down-icon;
+    }
+
+    .sk-messages-down-counter {
+        @include flex(flex, row, center, center);
+        position: absolute;
+        z-index: 11;
+        min-width: 22px;
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1.2rem;
+        @include position(-0.7rem, -0.5rem, null, null);
+        background-color: $sk-messages-down-counter-bg;
+        color: color($colors, light);
+        border-radius: 50%;
+
+    }
+}
+
+.sk-messages-footer {
+    .toolbar-content {
+        @include flex(flex, row, flex-start, center);   
+
+        ion-textarea {
+            @include flex(flex, row, center, center);
+            padding: 10px 0;
+
+            textarea {
+                height: 3.2rem;
+                margin: 0;
+                padding: 0.8rem 1rem;
+                border-radius: 0.5rem;
+                background-color: $sk-search-input-bg;
+                font-size: 1.4rem;
+                resize: none;
+            }
+        }
+
+        button {
+            border: 0;
+            background: transparent;
+            font-size: 1.7rem;
+            color: color($colors, primary);
+            padding: 0 1.2rem;
+            box-shadow: none;
+
+            &.activated {
+                opacity: 0.7;
+                background: transparent;
+            }
+
+            &.sk-messages-footer-attach {
+                padding: 0 1rem;
+
+                img {
+                    height: 3rem;
+                }
+            }
+        }
+    }
+
+    &.sk-messages-footer-promoted {
+        .toolbar-background {
+            background-color: $sk-messages-footer-promoted-bg;
+        }
+        button {
+            color: $sk-messages-footer-promoted-button-bg;
+        }
+        .sk-messages-footer-attach {
+            opacity: 0.25;
+        }
+        ion-textarea textarea {
+            height: auto;
+            background-color: $sk-messages-footer-promoted-button-bg;
+            @include placeholder($sk-messages-footer-promoted-placeholder);
+        }
+    }
+}

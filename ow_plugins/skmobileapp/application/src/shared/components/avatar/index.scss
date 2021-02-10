@@ -1,0 +1,12 @@
+ion-avatar {
+    display: flex;
+}
+
+user-avatar {
+    width: 100%;
+    background-color: color($colors, sk-user-avatar-bg);
+
+    img {
+        border-radius: 100%;
+    }
+}

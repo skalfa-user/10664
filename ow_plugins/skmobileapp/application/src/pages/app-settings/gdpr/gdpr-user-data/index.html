@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ 'gdpr_user_data_page_title' | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content *ngIf="my$ | async as my" class="sk-gdpr-user-data-page sk-gdpr-page">
+    <div class="sk-user-data-note sk-description" text-uppercase padding>
+        <div [innerHTML]="'gdpr_user_data_note' | translate"></div>
+    </div>
+    <div class="sk-user-data-sections">  
+        <div class="sk-user-data-section sk-profile-section">
+            <div class="sk-section-head">
+                {{ 'gdpr_user_displayName' | translate }}
+            </div>
+            <p class="sk-section-text">
+                {{ my.user.userName }}
+            </p>
+        </div>
+        <div class="sk-user-data-section sk-profile-section">
+            <div class="sk-section-head">
+                {{ 'gdpr_user_password' | translate }}
+            </div>
+            <p class="sk-section-text">
+                {{ 'gdpr_user_password_value' | translate }}
+            </p>
+        </div>
+        <div class="sk-user-data-section sk-profile-section">
+            <div class="sk-section-head">
+                {{ 'gdpr_user_username' | translate }}
+            </div>
+            <p class="sk-section-text">
+                {{ my.user.userName }}
+            </p>
+        </div>
+        <div class="sk-user-data-section sk-profile-section">
+            <div class="sk-section-head">
+                {{ 'gdpr_user_email' | translate }}
+            </div>
+            <p class="sk-section-text">
+                {{ my.user.email }}
+            </p>
+        </div>
+    </div>
+    <button mode="ios" class="sk-gdpr-profile-edit-btn" ion-button full [navPush]="profileEditPage">
+        {{ 'gdpr_edit_profile' | translate }}
+    </button>
+  </ion-content>
+
+<ion-footer class="sk-gdpr-footer">
+    <ion-toolbar transparent>
+        <div class="sk-buttons">
+            <button mode="ios" class="sk-user-data-download-btn" ion-button full (click)="requestUserDataToDownload()">
+                {{ 'gdpr_user_data_download_btn' | translate }}
+            </button>
+            <button mode="ios" class="sk-user-data-deletion-btn" ion-button full (click)="requestUserDataToDelete()">
+                {{ 'gdpr_user_data_deletion_btn' | translate }}
+            </button>
+        </div>
+    </ion-toolbar>
+</ion-footer>

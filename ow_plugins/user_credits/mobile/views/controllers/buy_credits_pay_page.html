@@ -1,0 +1,22 @@
+{form name='buy-credits-form'}
+<section id="content">
+    <div class="owm_subscribe_page">
+        <div class="owm_padding">
+            <div class="owm_info owm_small_margin_top">
+                {text key='usercredits+your_selection'}
+                <span class="owm_subscribe_plan_name">
+                    '{$packTitle}'
+                </span>
+                <span class="owm_subscribe_plan_cost"></span>
+                {text key='usercredits+payment_method'}
+            </div>
+        </div>
+        <div class="owm_payment_provider_list">
+            {input name='gateway'}
+        </div>
+        <div class="owm_payment_btn owm_btn_wide">
+            <input type="submit" label="{text key='usercredits+proceed'}" value="{text key='usercredits+proceed'}" name="submit">
+        </div>
+    </div>
+</section>
+{/form}

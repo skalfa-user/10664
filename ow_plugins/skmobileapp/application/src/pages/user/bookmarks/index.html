@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ 'bookmarks_page_header' | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-bookmarks-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="!(isBookmarksFetched$ | async)" name="circle-string-list" repeatTimes="6"></skeleton-preloader>
+
+    <div *ngIf="isBookmarksFetched$ | async" class="sk-height-wrap">
+        <!-- nothing found wrapper  -->
+        <div *ngIf="!(bookmarkList$ | async)?.length" class="sk-nothing-found sk-blank-state-wrap">
+            <img class="sk-blank-state-icon" src="./assets/img/ic-not-found.svg" alt="" />
+            <div class="sk-blank-state-cont">
+                <h2>{{ 'empty_user_search_header' | translate }}</h2>
+            </div>
+        </div>
+
+        <!-- users wrapper -->
+        <ng-container *ngIf="bookmarkList$ | async; let bookmarkList">
+            <ion-list *ngIf="bookmarkList.length" class="sk-userlist sk-height-wrap">
+                <virtual-scroller #bookmarksScroller [items]="bookmarkList" executeRefreshOutsideAngularZone="true" (vsUpdate)="ref.detectChanges()">
+                    <ion-item-sliding *ngFor="let bookmarkData of bookmarksScroller.viewPortItems; trackBy: trackBookmarkList">
+                        <ion-item (tap)="viewProfile(bookmarkData)">
+                            <ion-avatar item-left>
+                                <user-avatar
+                                    [url]="bookmarkData.avatar?.url"
+                                    [isAvatarActive]="bookmarkData.avatar?.active">
+                                </user-avatar>
+                            </ion-avatar>
+                            <h2>{{ bookmarkData.user.userName }}</h2>
+                        </ion-item>
+                        <ion-item-options side="{{ application.isLanguageDirectionLtr() ? 'right' : 'left' }}">
+                            <button *ngIf="!bookmarkData.matchAction?.id" ion-button color="green" (click)="likeUser(bookmarkData)">
+                                {{ 'like' | translate }}
+                            </button>
+                            <button *ngIf="messages.isChatAllowed(bookmarkData.user.id)" ion-button color="primary" (click)="showChat(bookmarkData)">
+                                {{ 'send_message' | translate }}
+                            </button>
+                            <button ion-button color="secondary" (click)="removeBookmarkConfirmation(bookmarkData)">
+                                {{ 'unmark' | translate }}
+                            </button>
+                        </ion-item-options>
+                    </ion-item-sliding>
+                </virtual-scroller>
+            </ion-list>
+        </ng-container>
+
+        <!-- match actions component -->
+        <match-actions></match-actions>
+    </div>
+</ion-content>

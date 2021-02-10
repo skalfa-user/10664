@@ -1,0 +1,57 @@
+{style}
+{literal}
+.ow_banner_list tr{
+border-top:1px solid #ccc;
+}
+.ow_banner_controls{
+display:none;
+}
+.banner_label{
+    padding-bottom:5px;
+    font-weight:bold;
+}
+.banner_locations{
+    font-size:11px;
+    padding-top:10px;
+}
+.banner_code{
+width:550px;
+overflow:hidden;
+}
+{/literal}
+{/style}
+{$menu}
+<div>
+    <div class="ow_stdmargin" style="text-align: right;">{decorator name='button' langLabel='ads+ads_add_banner' extraString=" onclick=\"window.location='`$addUrl`'\""}</div>
+    {block_decorator name='box' type='empty' addClass='ow_stdmargin' iconClass='ow_ic_files' langLabel='ads+ads_index_list_box_cap_label'}
+       <table class="ow_banner_list" style="width:100%;">
+        {foreach from=$banners item='banner'}
+            <tr class="ow_high1 {if $smarty.foreach.banner.first}ow_tr_first{/if} {if $smarty.foreach.banner.last}ow_tr_last{/if}" {literal}onmouseover="$('span.ow_banner_controls', $(this)).css({display:'block'});" onmouseout="$('span.ow_banner_controls', $(this)).css({display:'none'});"{/literal}>
+                <td style="padding: 10px 15px; width: 68%;">
+                    <div class="banner_label">{$banner.label}</div>
+                    <div class="banner_code">{$banner.code}</div>
+             </td>
+             <td style="width: 20%;">
+                 <div class="banner_locations">
+                 {if empty($banner.location)}
+                    {text key='ads+ads_manage_global_label'}
+                 {else}
+                    <ul>
+                    {foreach from=$banner.location item='loc'}
+                        <li>{$loc}</li>
+                    {/foreach}
+                    </ul>
+                 {/if}
+                 </div>
+             </td>
+             <td class="ow_small" style="text-align:right;width:12%;vertical-align:middle;">
+                 <span class="ow_banner_controls">
+                     <a class="ow_lbutton" href="{$banner.editUrl}">{text key='ads+ads_edit_banner_button_label'}</a>
+                     <a onclick="return confirm('{text key='ads+ads_delete_banner_confirm_message'}');" class="ow_lbutton ow_red" href="{$banner.deleteUrl}">{text key='ads+ads_delete_button_label'}</a>
+                    </span>
+             </td>
+          </tr>
+          {/foreach}
+       </table>
+    {/block_decorator}
+</div>

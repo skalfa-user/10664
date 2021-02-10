@@ -1,0 +1,21 @@
+AddEncoding gzip .gzip
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP:Accept-encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}.gzip -f
+    RewriteRule ^(.*)$ $1.gzip [QSA,L]
+</IfModule>
+
+# Disable ETags
+<IfModule mod_headers.c>
+	Header unset ETag
+    Header set Connection keep-alive
+    Header set Cache-Control "max-age=5184000, public"
+</IfModule>
+FileETag None
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 60 days"
+</IfModule>

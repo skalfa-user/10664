@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="videoim" label="Video Instant Messenger" language_tag="en" language_label="English">
+    <key name="settings_update_unavailable"><value>Modifying STUN/TURN server list is unavailable</value></key>
+    <key name="safari_supports_webrtc"><value>Your device supports webRTC only through the Safari browser.</value></key>
+    <key name="user_browser_doesnt_support_webrtc"><value>Your browser doesn't support webRTC technology.</value></key>
+    <key name="incoming_call"><value>Incoming call</value></key>
+    <key name="calling"><value>Calling</value></key>
+    <key name="talking"><value>Talking to</value></key>
+    <key name="no_answer"><value>No answer</value></key>
+    <key name="call_ended"><value>Call ended with</value></key>
+</prefix>

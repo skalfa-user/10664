@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8" />
+        <title>${name}</title>
+        <base href="./" />
+        <link rel="manifest" href="manifest.json" id="theManifest" />
+        <link rel="apple-touch-icon" sizes="${appleIconSize}" href="${appleIcon}" />
+        <link rel="preconnect" href="${serverUrl}" />
+        <meta name="viewport" content="viewport-fit=cover, width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="apple-mobile-web-app-title" content="${name}" />
+        <meta name="theme-color" content="${pwaThemeColor}" />
+        <meta name="description" content="${description}" />
+
+        <script>
+            // TODO: remove this hack when Safari works with cross-origin window.open()
+            // in a PWA: https://github.com/nolanlawson/pinafore/issues/45
+            if (/iP(?:hone|ad|od)/.test(navigator.userAgent)) {
+                document.head.removeChild(document.getElementById('theManifest'))
+            }
+        </script>
+
+        <!-- cordova.js required for cordova apps -->
+        <script src="cordova.js" async></script>
+
+        <link href="build/main.css" rel="stylesheet">
+
+        <!-- The polyfills js is generated during the build process -->
+        <script src="build/polyfills.js" defer></script>
+
+        <!-- The vendor js is generated during the build process
+        It contains all of the dependencies in node_modules -->
+        <script src="build/vendor.js" defer></script>
+
+        <!-- The main bundle js is generated during the build process -->
+        <script src="build/main.js" defer></script>
+
+        <!-- The Stripe.js -->
+        <script src="https://js.stripe.com/v3/" defer></script>
+    </head>
+    <body>
+        <!-- Ionic's root component and where the app will load -->
+        <ion-app></ion-app>
+
+        <!-- a device orientation wrapper -->
+        <div id="sk-app-orientation-overlay-wrapper" style="display: none">
+            <div class="sk-app-orientation-overlay">
+                <img src="./assets/img/ic_switch_to_portrait.png" alt="" />
+            </div>
+        </div>
+
+        <!-- register a device orientation handler -->
+        <script type="text/javascript">
+            function processOrientationOverlay() {
+                window.orientation == 90 || window.orientation == -90
+                    ? document.getElementById("sk-app-orientation-overlay-wrapper").style.display = "block"
+                    : document.getElementById("sk-app-orientation-overlay-wrapper").style.display = "none";
+            }
+
+            var supportsOrientationChange = "onorientationchange" in window, 
+                    orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+
+            window.addEventListener(orientationEvent, function() {
+                processOrientationOverlay();
+            }, false);
+
+            processOrientationOverlay();
+        </script>
+
+        <!-- inobounce.js fix for ios scrolling -->
+        <script type="text/javascript">
+            if (window.location.protocol && window.location.protocol.startsWith('http') && !document.URL.startsWith('http://localhost:8080')) {
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "https://cdnjs.cloudflare.com/ajax/libs/inobounce/0.1.6/inobounce.min.js";
+                script.async = false;
+                document.getElementsByTagName("head")[0].appendChild(script);
+            }
+        </script>
+
+        <!-- register service workers -->
+        <script type="text/javascript">
+            if (window.location.protocol && (window.location.protocol.startsWith('https') || window.location.host.startsWith('localhost')) && 'serviceWorker' in navigator) {
+                navigator.serviceWorker.register('ServiceWorker.js')
+                .then(() => console.log('service worker installed'))
+                .catch(err => console.error('service worker error', err));
+            }
+        </script>
+    </body>
+</html>

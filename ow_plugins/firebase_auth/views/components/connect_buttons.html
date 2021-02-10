@@ -1,0 +1,23 @@
+<div class="firebaseauth-auth-wrapper">
+    {if $isLongProviderList}
+        <a href="javascript:void(0)" class="firebaseauth-button firebaseauth-common-button"></a>
+    
+        <div class="firebaseauth-button-wrap">
+            {foreach from=$enabledProviders item=provider}
+                <a href="javascript:void(0)" class="firebaseauth-button firebaseauth-connect-button" data-provider="{$provider}"></a>
+            {/foreach}
+        </div>
+    {else}
+        {foreach from=$enabledProviders item=provider}
+            <a href="javascript:void(0)" class="firebaseauth-button firebaseauth-connect-button" data-provider="{$provider}"></a>
+        {/foreach}
+    {/if}
+</div>
+
+{style}
+    {if $isLongProviderList}
+        .firebaseauth-auth-wrapper .firebaseauth-button-wrap {
+            display: none;
+        }
+    {/if}
+{/style}

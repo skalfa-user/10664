@@ -1,0 +1,23 @@
+{form name='subscribe-form'}
+    <section id="content">
+        <div class="owm_subscribe_page">
+            <div class="owm_padding">
+                <div class="owm_info owm_small_margin_top">
+                    {text key='membership+your_selection'}
+                    <span class="owm_subscribe_plan_name">
+                        '{$membershipTitle}'
+                    </span>
+                    <span class="owm_subscribe_plan_cost">
+                        {$planFormat}
+                    </span>. {text key='membership+payment_method'}:
+                </div>
+            </div>
+            <div class="owm_payment_provider_list">
+                {input name='gateway'}
+            </div>
+            <div class="owm_payment_btn owm_btn_wide">
+                <input type="submit" label="{text key='membership+proceed' escape=true}" value="{text key='membership+proceed' escape=true}" name="submit">
+            </div>
+        </div>
+    </section>
+{/form}

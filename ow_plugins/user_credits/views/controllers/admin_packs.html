@@ -1,0 +1,66 @@
+{$menu}
+
+{block_decorator name='box' addClass='ow_std_margin'}{text key='usercredits+packs_description'}{/block_decorator}
+
+{if $types}
+<div class="ow_anno ow_center ow_stdmargin">
+    {text key='usercredits+select_account_type'}: &nbsp;
+    <select name="acc_type" onchange="location.href = '{$route}?type='+this.value;">
+        {foreach from=$types item='type' key='name'}
+        <option value="{$name}"{if $name == $accType} selected="selected"{/if}>{$type}</option>
+        {/foreach}
+    </select>
+</div>
+{/if}
+
+<div class="ow_wide ow_automargin">
+{if $packs}
+	{block_decorator name='box' iconClass='ow_ic_folder' langLabel='usercredits+pack_list' type='empty'}
+	<form method="post">
+	<input type="hidden" name="form_name" value="update-packs-form" />
+	<table class="ow_table_1 ow_smallmargin">
+	    <tr class="ow_alt2 ow_tr_first">
+	        <td><b>{text key='usercredits+credits'}</b></td>
+	        <td><b>{text key='usercredits+price'}</b></td>
+            {if !empty($packs.0.productId)}<td><b>{text key='usercredits+product_id'}</b></td>{/if}
+	        <td></td>
+	    </tr>
+	    {foreach from=$packs item='pack' name='pack'}
+	        <tr class="ow_alt1 {if $smarty.foreach.pack.last}ow_tr_last{/if}" onmouseover="$('span.del-cont', this).show();" onmouseout="$('span.del-cont', this).hide();">
+	            <td><input type="text" name="credits[{$pack.id}]" value="{$pack.credits}" style="width: 80px;" /></td>
+	            <td><input type="text" name="price[{$pack.id}]" value="{$pack.price}" style="width: 80px;" /> {$currency}</td>
+                {if !empty($pack.productId)}<td class="ow_small">{$pack.productId}</td>{/if}
+	            <td width="1" class="ns-hover-block ow_center">
+	            <div style="width: 50px;">
+	                <span class="del-cont" style="display: none;">
+	                    <a class="ow_lbutton ow_red" href="{url_for for="USERCREDITS_CTRL_Admin:packs"}?delPack={$pack.id}"
+	                            onclick="return(confirm('{text key="admin+are_you_sure"}'));">{text key="admin+delete"}</a>
+	                </span>
+	            </div>
+	            </td>
+	        </tr>
+	    {/foreach}
+	</table>
+	<div class="clearfix ow_stdmargin"><div class="ow_right">{decorator name="button" type="submit" langLabel='admin+save_btn_label' class='ow_ic_save ow_positive'}</div></div>
+	</form>
+	{/block_decorator}
+{else}
+    {block_decorator name='box' addClass='ow_stdmargin'}
+        <div class="ow_nocontent">{text key='usercredits+no_packs'}</div>
+    {/block_decorator}
+{/if}
+
+{block_decorator name='box' iconClass='ow_ic_add' langLabel='usercredits+add_pack'}
+    {form name='add-pack-form'}
+    <table class="ow_table_3">
+        <tr ow_tr_first>
+            <td class="ow_label ow_supernarrow">{label name='credits'}</td><td class="ow_value">{input name='credits'}</td>
+        </tr>
+        <tr ow_tr_last>
+            <td class="ow_label ow_supernarrow">{label name='price'}</td><td class="ow_value">{input name='price'}</td>
+        </tr>
+    </table>
+    <div class="clearfix"><div class="ow_right">{submit name='add' class='ow_ic_add ow_positive'}</div></div>
+    {/form}
+{/block_decorator}   
+</div>

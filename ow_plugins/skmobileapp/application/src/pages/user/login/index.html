@@ -1,0 +1,72 @@
+<ion-content [attr.page-blocker]="isFacebookInProcess ? 'true' : ''" class="sk-login-page" padding>
+    <div class="sk-login-page-cont">
+        <div class="sk-logo-wrap">
+            <img src="./assets/img/logo.png" alt="" class="sk-logo" />
+        </div>
+
+        <!-- form -->
+        <form [formGroup]="form">
+            <!-- regular login -->
+            <ion-list class="sk-inputs" no-lines>
+                <question *ngFor="let question of questions" [question]="question" [form]="form"></question>
+            </ion-list>
+            <div class="sk-buttons">
+                <div class="sk-buttons-inline">
+                <button type="button" ion-button clear [navPush]="forgotPasswordPage" class="sk-fpass">
+                        <span class="sk-text-overflow">
+                            {{ 'forgot_password' | translate }}
+                        </span>
+                    </button>
+                    <button type="button" ion-button clear [navPush]="joinPage" class="sk-signup">
+                        <span class="sk-text-overflow">
+                            {{ 'sign_up' | translate }}
+                        </span>
+                    </button>
+                </div>
+                
+                <button type="submit" ion-button block round [disabled]="loginInProcessing || !form.valid" class="sk-login" (click)="login()">
+                    <span class="sk-text-overflow">{{ 'login' | translate }}</span>
+                    <ion-spinner *ngIf="loginInProcessing" class="sk-spinner-btn" name="ios-small"></ion-spinner>
+                </button>
+
+                <!-- auth providers -->
+                <div *ngIf="authProviders$ | async; let authProviders" class="sk-firebase">
+                    <ng-container *ngIf="authProviders.length">
+                        <!-- auth providers label -->
+                        <div class="sk-firebase-label">
+                            <span *ngIf="isFirebaseLongProviderList">
+                                {{ 'firebaseauth_connect_via_different_network_label' | translate }}
+                            </span>
+                            <span *ngIf="!isFirebaseLongProviderList">
+                                {{ 'firebaseauth_connect_via_label' | translate }}
+                            </span>
+                        </div>
+                    </ng-container>
+
+                    <!-- all provider list -->
+                    <div *ngIf="!isFirebaseLongProviderList" class="sk-firebase-list">
+                        <button *ngFor="let authProvider of authProviders" class="sk-firebase-button" [attr.data-firebase-provider]="authProvider" type="button" ion-button clear (click)="showFirebaseProvider(authProvider)"></button>
+                    </div>
+
+                    <!-- providers component -->
+                    <div *ngIf="isFirebaseLongProviderList" class="sk-firebase-common-button">
+                        <button class="sk-firebase-button sk-firebase-common" type="button" ion-button clear (click)="showFirebaseProvidersModal()">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</ion-content>
+
+<!-- change app url -->
+<ion-footer *ngIf="isGenericSiteUrl" class="sk-login-url" no-border>
+    <ion-toolbar transparent>
+        <button type="button" ion-button block clear icon-start class="sk-site-url" [navPush]="appUrlPage">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+            <span class="sk-text-overflow">
+                {{ 'change_site_url' | translate }}
+            </span>
+        </button>
+    </ion-toolbar>
+</ion-footer>

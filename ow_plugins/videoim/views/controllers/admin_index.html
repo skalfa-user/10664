@@ -1,0 +1,174 @@
+{$menu}
+
+<div class="ow_box ow_std_margin ow_no_cap ow_break_word">
+    {text key='videoim+admin_settings_description'}
+    <div class="ow_box_bottom_left"></div>
+    <div class="ow_box_bottom_right"></div>
+    <div class="ow_box_bottom_body"></div>
+    <div class="ow_box_bottom_shadow"></div>
+</div>
+
+<form name="settings" method="post" id="videoim-servers-wrapper">
+
+    <div class="ow_left">
+        {decorator name="button" label={text key="videoim+add_server_config" escape="quotes"} type="button" class="ow_ic_add" id="videoim-add-server"}
+    </div>
+    <div class="ow_right" id="videoim-second-save-button">
+        {decorator name="button" label={text key="base+edit_button" escape="quotes"} type="submit"}
+    </div>
+    <div class="clearfix"></div>
+    <br />
+
+    <table class="ow_table_1 ow_form">
+        <tbody id="videim-server-item">
+            <tr class="ow_tr_first">
+                <th class="ow_name ow_txtleft" colspan="3">
+                    <span class="ow_section_icon ow_ic_script">{text key='videoim+admin_server_info'}</span>
+                </th>
+            </tr>
+            <tr class="ow_alt1">
+                <td class="ow_label">{text key='videoim+admin_server_url'}</td>
+                <td class="ow_value">
+                    <input type="text" name="urls[]" value="" />
+                </td>
+                <td class="ow_desc ow_small">
+                    <a href="javascript://" title="{text key="videoim+delete_server_config" escape="quotes"}" class="videoim-delete-servers"></a>
+                </td>
+            </tr>
+            <tr class="ow_alt1">
+                <td class="ow_label">{text key='videoim+admin_server_user'}</td>
+                <td class="ow_value">
+                    <input type="text" name="username[]" value="" />
+                </td>
+                <td class="ow_desc ow_small"></td>
+            </tr>
+            <tr class="ow_alt1">
+                <td class="ow_label">{text key='videoim+admin_server_password'}</td>
+                <td class="ow_value">
+                    <input type="text" name="credential[]" value="" />
+                </td>
+                <td class="ow_desc ow_small"></td>
+            </tr>
+            <tr class="ow_tr_delimiter"><td></td></tr>
+        </tbody>
+
+        {if $serverList}
+            {foreach from=$serverList item=item}
+                <tbody>
+                    <tr class="ow_tr_first">
+                        <th class="ow_name ow_txtleft" colspan="3">
+                            <span class="ow_section_icon ow_ic_script">{text key='videoim+admin_server_info'}</span>
+                        </th>
+                    </tr>
+                    <tr class="ow_alt1">
+                        <td class="ow_label">{text key='videoim+admin_server_url'}</td>
+                        <td class="ow_value">
+                            <input type="text" name="urls[]" value="{$item->urls|escape}" />
+                        </td>
+                        <td class="ow_desc ow_sid="videoim-second-save-button"mall">
+                              <a href="javascript://" title="{text key="videoim+delete_server_config" escape="quotes"}" class="videoim-delete-servers"></a>
+                        </td>
+                    </tr>
+                    <tr class="ow_alt1">
+                        <td class="ow_label">{text key='videoim+admin_server_user'}</td>
+                        <td class="ow_value">
+                            <input type="text" name="username[]" value="{$item->username|escape}" />
+                        </td>
+                        <td class="ow_desc ow_small"></td>
+                    </tr>
+                    <tr class="ow_alt1">
+                        <td class="ow_label">{text key='videoim+admin_server_password'}</td>
+                        <td class="ow_value">
+                            <input type="text" name="credential[]" value="{$item->credential|escape}" />
+                        </td>
+                        <td class="ow_desc ow_small"></td>
+                    </tr>
+                    <tr class="ow_tr_delimiter"><td></td></tr>
+                </tbody>
+            {/foreach}
+        {/if}
+    </table>
+
+    <div class="ow_right">
+        {decorator name="button" label={text key="base+edit_button" escape="quotes"} type="submit"}
+    </div>
+    <div class="clearfix"></div>
+
+</form>
+
+{script}
+    /**
+     * Init delete server callback
+     *
+     * @return void
+     */
+    function initDeleteServerCallback()
+    {
+        $("#videoim-servers-wrapper").find(".videoim-delete-servers").unbind().click(function() {
+            deleteServer($(this));
+        });
+    }
+
+    /**
+     * Add server
+     *
+     * @return void
+     */
+    function addServer()
+    {
+        var $serverItem = $("#videoim-servers-wrapper #videim-server-item");
+        var $section = $serverItem.clone()
+            .removeAttr("id")
+            .css("display", "none");
+
+        $serverItem.after($section);
+        initDeleteServerCallback();
+        $section.fadeIn();
+
+        showSecondSubmitButton();
+    }
+
+    /**
+     * Delete server
+     *
+     * @param object jquery $link
+     * @return void
+     */
+    function deleteServer($link)
+    {
+        if ( confirm("{text key="videoim+confirm_delete_server" escape="quotes"}") )
+        {
+            $link.parents("tbody:first").fadeOut(function(){
+                $(this).remove();
+                showSecondSubmitButton();
+            });
+        }
+    }
+
+    /**
+     * Show the second submit button
+     *
+     * @return void
+     */
+    function showSecondSubmitButton()
+    {
+        if ( $("#videoim-servers-wrapper .ow_table_1 tbody").length - 1 > 3 )
+        {
+            $("#videoim-second-save-button").show();
+            return;
+        }
+
+        $("#videoim-second-save-button").hide();
+    }
+
+    // init an adding new server callback
+    $("#videoim-servers-wrapper #videoim-add-server").click(function(){
+        addServer();
+    });
+
+    // init a delete server callback
+    initDeleteServerCallback();
+
+    // show the seond submit button
+    showSecondSubmitButton();
+{/script}

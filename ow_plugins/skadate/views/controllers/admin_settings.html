@@ -1,0 +1,22 @@
+<div class="ow_wide ow_automargin">
+<table class="ow_form ow_table_1 theme_controls">
+   <tr class="ow_tr_first">
+	   <th colspan="10" style="text-align: left;">{text key='skadate+admin_license_info_cap'}</th>
+   </tr>
+   {foreach from=$data item='item' key='key' name='i'}
+	<tr class="{cycle values='ow_alt1,ow_alt2'}">
+      <td class="ow_label">{$key}</td>
+      <td class="ow_value">{$item}</td>
+   </tr>
+   {/foreach}
+   <tr class="{cycle values='ow_alt1,ow_alt2'} ow_tr_last">
+       <td colspan="2">    
+           {text key='skadate+admin_bottom_text'}
+       </td>
+   </tr>
+   <tr class="ow_tr_delimiter"><td></td></tr>
+</table>
+<div class="clearfix ow_smallmargin">
+    <div class="ow_right">{decorator onclick="location.href='`$validateUrl`'" name="button" langLabel="skadate+validate_license" class="ow_button ow_ic_key"}</div>
+</div>
+</div>

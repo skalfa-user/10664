@@ -1,0 +1,9 @@
+<div id="custom-video-preview-wrapper">
+    {if !empty($video) && !empty($video->videos)}
+        <video preload="auto" controls poster="{$video->coverImage}">
+            {foreach from=$video->videos item=video}
+            <source src="{$video.url}" type="{$video.type}">
+            {/foreach}
+        </video>
+    {/if}
+</div>

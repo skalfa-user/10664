@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="14px" viewBox="0 0 12 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_refresh</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-949.000000, -2027.000000)" fill="#ffffff">
+            <g id="ic_refresh" transform="translate(949.000000, 2027.000000)">
+                <path d="M11,7 C10.447,7 10,7.448 10,8 C10,10.206 8.206,12 6,12 C3.794,12 2,10.206 2,8 C2,5.794 3.794,4 6,4 L6,6 L10.167,3 L6,0 L6,2 C2.686,2 0,4.686 0,8 C0,11.313 2.686,14 6,14 C9.313,14 12,11.313 12,8 C12,7.448 11.553,7 11,7" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

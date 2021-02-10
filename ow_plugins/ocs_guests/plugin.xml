@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin>
+    <name>Who Viewed Me</name>
+    <key>ocsguests</key>
+    <description>Displays guests visited user profile</description>
+    <author>Skalfa LLC</author>
+    <authorEmail>oxwallplugins@skalfa.com</authorEmail>
+    <authorUrl>http://www.skalfa.com/</authorUrl>
+    <developerKey>99d6bdd5bb6468beaf118c4664dd92ff</developerKey>
+    <build>11000</build>
+    <copyright>(C) 2009 Skalfa LLC. All rights reserved.</copyright>
+    <license>The BSD License</license>
+    <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
+</plugin>

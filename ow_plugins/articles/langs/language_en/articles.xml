@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="articles" label="Articles" language_tag="en" language_label="English">
+    <key name="title_label"><value>Title</value></key>
+    <key name="subtitle_label"><value>Subtitle</value></key>
+    <key name="description_label"><value>Description</value></key>
+    <key name="image_label"><value>Image</value></key>
+    <key name="submit_button"><value>Submit</value></key>
+    <key name="image_error_msg"><value>Avatar required!</value></key>
+    <key name="create_article"><value>Create Article</value></key>
+    <key name="articles_title"><value>Articles</value></key>
+    <key name="all_articles"><value>All Articles</value></key>
+    <key name="success_add"><value>Article successfully added</value></key>
+    <key name="no_data"><value>No articles</value></key>
+    <key name="view_all"><value>View all</value></key>
+    <key name="make_featured"><value>Make featured</value></key>
+    <key name="make_not_featured"><value>Make not featured</value></key>
+    <key name="new_image_error_msg"><value>Your new Avatar is not valid!</value></key>
+    <key name="delete_button"><value>Delete</value></key>
+    <key name="edit_button"><value>Edit</value></key>
+    <key name="edit_article"><value>Edit Article</value></key>
+    <key name="success_delete"><value>Article successfully deleted</value></key>
+    <key name="success_edit"><value>Article successfully edited</value></key>
+</prefix>

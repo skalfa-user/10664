@@ -1,0 +1,51 @@
+<div class="ow_page_wrap index_master_page">
+    <div class="ow_page_padding">
+        <div class="ow_header_wrap">
+            <div class="ow_site_panel">
+                <div class="ow_console_right">{component class='BASE_CMP_Console'}</div>
+            </div>       
+            <div class="ow_header clearfix">
+                <div class="ow_header_pic"><a href="{$siteUrl}" class="logo_url"></a></div>
+                <div class="index_join_text">{text key='skadate+turquoise_index_join_text'}</div>
+                <div class="index_qs_widget">
+                    {component class='USEARCH_CMP_QuickSearchIndex'}
+                    {component class='BASE_CMP_JoinButton' cssClass='index_join_button'}
+                </div>          
+            </div>
+        </div>
+        <div class="ow_page_container clearfix">
+            <div class="ow_canvas">
+                <div class="ow_page ow_bg_color clearfix">
+                    <div class="index_icon_wrap">
+                        <div class="index_icon index_match">{text key='skadate+turquoise_index_match'}</div>
+                        <div class="index_icon index_mobile">{text key='skadate+turquoise_index_mobile'}</div>
+                        <div class="index_icon index_join"><a href="{url_for_route for="base_join"}">{text key='skadate+turquoise_index_join'}</a></div>
+                    </div>
+                    <div class="index_join_wrap">
+                        <a href="{url_for_route for="base_join"}" class="index_join_btn"></a>
+                    </div>
+                    {$content}
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ow_footer">
+    <div class="ow_canvas">
+        <div class="ow_page clearfix">
+            {$bottom_menu}
+            <div class="ow_copyright">
+                {text key='base+copyright'}
+            </div>
+            <div style="float:right;">
+                {$bottomPoweredByLink}
+            </div>
+        </div>
+    </div>
+</div>
+{decorator name='floatbox'}
+
+<script type="text/javascript" src="{$themeStaticUrl}/images/libs/jquery.simpleselect.js"></script>
+<link rel="stylesheet" type="text/css" href="{$themeStaticUrl}/images/libs/jquery.simpleselect.css" media="all">
+
+<script type="text/javascript" src="{$themeStaticUrl}/images/js/script.js"></script>

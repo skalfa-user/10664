@@ -1,0 +1,7 @@
+
+<div class="owm_btn_wide hotlist_buttons" {if $userInList}style="display:none;"{/if} >
+    {decorator name='button' langLabel='hotlist+label_add_yourself_to_hotlist' class='owm_btn_big hotlist_add_button' }
+</div>
+<div class="owm_btn_wide hotlist_buttons" {if !$userInList}style="display:none;"{/if} >
+    {decorator name='button' langLabel='hotlist+label_remove_yourself_from_hotlist' class='owm_btn_big hotlist_remove_button' }
+</div>

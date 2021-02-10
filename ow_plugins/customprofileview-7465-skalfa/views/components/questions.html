@@ -1,0 +1,143 @@
+    {if $aboutMeContent}
+        <div class="custom-profile-question-block ow_stdmargin">
+            <h3>{$aboutMeTitle}</h3>
+            <div class="ow_center">{$aboutMeContent}</div>
+        </div>
+    {/if}
+
+{foreach from=$questionsBySections key='section' item='questions'}
+    {if ($section != $sectionDetailed)}
+    <div class="custom-profile-question-block ow_stdmargin">
+        <h3>
+            {if $section}
+                {text key="base+questions_section_`$section`_label"}
+            {else}
+                {text key="base+questions_no_section_label"}
+            {/if}
+        </h3>
+        {if isset($questions)}
+            {if ($section == $sectionDetailed)}
+                {$i = 0}
+                <table>
+                    {foreach from=$questions item='question' name='question'}
+                        {if isset( $questionsData[$questions[$i].name] ) }
+                            <tr>
+                                <td>
+                                    <b>
+                                        {if empty($labels[$questions[$i].name])}
+                                            {text key="base+questions_question_`$questions[$i].name`_label"}
+                                        {else}
+                                            {$labels[$questions[$i].name]}
+                                        {/if}
+                                    </b>:
+                                    
+                                </td>
+                                <td>{$questionsData[$questions[$i].name]}</td>
+                            </tr>
+                        {/if}
+                        {$i = $i + 1}
+                    {/foreach}
+                </table>
+            {else if ($section == $sectionPartnerPreference)}
+                {$i = 0}
+                <table>
+                    {foreach from=$questions item='question' name='question'}
+                        {if isset( $questionsData[$questions[$i].name] ) }
+                            <tr>
+                                {if ($questions[$i].name == $questionPartnerDescription) }
+                                    <td class="custom-textarea-question">
+                                        <div class="custom-textarea-question-cont">
+                                            <b>{$labels[$questions[$i].name]}</b>: 
+                                        </div>
+                                    </td>
+                                    <td colspan="3">
+                                        <div>{$questionsData[$questions[$i].name]}</div>
+                                    </td>
+                                {else}
+                                    <td>
+                                        <b>
+                                            {if empty($labels[$questions[$i].name])}
+                                                {text key="base+questions_question_`$questions[$i].name`_label"}
+                                            {else}
+                                                {$labels[$questions[$i].name]}
+                                            {/if}
+                                        </b>:
+                                        
+                                    </td>
+                                    <td>{$questionsData[$questions[$i].name]}</td>
+                                {/if}
+
+                                {$i = $i + 1}
+
+                                {if isset( $questionsData[$questions[$i].name] ) }
+                                    {if ($questions[$i].name == $questionPartnerDescription) }
+                                        <td class="custom-textarea-question">
+                                            <div class="custom-textarea-question-cont">
+                                                <b>{$labels[$questions[$i].name]}</b>:
+                                            </div>
+                                        </td>
+                                        <td><div>{$questionsData[$questions[$i].name]}</div></td>
+                                    {else}
+                                        <td>
+                                            <b>
+                                                {if empty($labels[$questions[$i].name])}
+                                                    {text key="base+questions_question_`$questions[$i].name`_label"}
+                                                {else}
+                                                    {$labels[$questions[$i].name]}
+                                                {/if}
+                                            </b>:
+                                            
+                                        </td>
+                                        <td>{$questionsData[$questions[$i].name]}</td>
+                                    {/if}
+                                {/if}
+                            </tr>
+                        {/if}
+                        {$i = $i + 1}
+                    {/foreach}
+                </table>
+            {else}
+                {$i = 0}
+                <table>
+                    {foreach from=$questions item='question' name='question'}
+                        {if isset( $questionsData[$questions[$i].name] ) }
+                            <tr>
+                                <td>
+                                    <b>
+                                        {if empty($labels[$questions[$i].name])}
+                                            {text key="base+questions_question_`$questions[$i].name`_label"}
+                                        {else}
+                                            {$labels[$questions[$i].name]}
+                                        {/if}
+                                    </b>:
+                                    
+                                </td>
+                                <td>{$questionsData[$questions[$i].name]}</td>
+
+                                {$i = $i + 1}
+
+                                {if isset( $questionsData[$questions[$i].name] ) }
+                                    <td>
+                                        <b>
+                                            {if empty($labels[$questions[$i].name])}
+                                                {text key="base+questions_question_`$questions[$i].name`_label"}
+                                            {else}
+                                                {$labels[$questions[$i].name]}
+                                            {/if}
+                                        </b>:
+                                        
+                                    </td>
+                                    <td>{$questionsData[$questions[$i].name]}</td>
+                                {/if}
+                            </tr>
+                        {/if}
+                        {$i = $i + 1}
+                    {/foreach}
+                </table>
+            {/if}
+        {/if}
+    </div>
+    {/if}
+{/foreach}
+
+

@@ -1,0 +1,57 @@
+{style}
+form .ow_matchmaking_distance_field input {
+    width: 50px;
+    padding-right:10px;
+}
+
+form .ow_matchmaking_distance_field {
+    padding-right:10px;
+}
+
+{/style}
+
+<div class="ow_box_empty ow_superwide ow_automargin ow_no_cap ow_break_word" style="">
+    {if $noQuestions}
+    <div class="ow_stdmargin">
+        {text key='matchmaking+no_questions'}
+    </div>
+    {else}
+    <div class="ow_stdmargin">
+        {text key='matchmaking+preferences_invitation'}
+    </div>
+
+    {form name='MATCHMAKING_PreferencesForm'}
+        <table class="ow_table_1 ow_form ow_stdmargin">
+            <tbody>
+                <tr class="ow_tr_first"><th colspan="3">{text key="base+questions_section_about_my_match_label"}</th></tr>
+                {foreach from=$questionArray key='section' item='questions' name="q"}
+
+                {foreach from=$questions item='question' name='question'}
+                {if $question.name == 'googlemap_location'}
+                    {assign var="questionName" value='distance_from_my_location'}
+                {else}
+                    {assign var="questionName" value=$question.name}
+                {/if}
+                
+                <tr class="{cycle values='ow_alt1, ow_alt2'} {if $smarty.foreach.q.last}ow_tr_last{/if}">
+                    <td class="ow_label">{label name=$questionName}</td>
+                    <td class="ow_value">{input name=$questionName}<div style="height:1px;"></div>{error name=$questionName}</td>
+                    <td class="ow_desc ow_small ow_txtcenter">{$question.acc_type_label}</td>
+                </tr>
+                {/foreach}
+                {/foreach}
+
+                <tr class="ow_tr_delimiter"><td></td></tr>
+            </tbody>
+        </table>
+
+        <!------------ ---------->
+
+        <div class="clearfix ow_stdmargin">
+            <div class="ow_right">
+                {submit name='save' class='ow_ic_save'}
+            </div>
+        </div>
+    {/form}
+    {/if}
+</div>

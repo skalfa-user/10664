@@ -1,0 +1,17 @@
+{if !$userInList}
+    {form name='addToHotListForm'}
+    <div class="ow_std_margin ow_center">{$floatbox_text}</div>
+
+    <div class="clearfix ow_submit ow_stdmargin ow_center">
+        {submit name="add"}
+    </div>
+    {/form}
+{else}
+    {form name='removeFromHotListForm'}
+    <div class="ow_std_margin ow_center">{text key='hotlist+floatbox_text_remove_from_list'}</div>
+
+    <div class="clearfix ow_submit ow_stdmargin ow_center">
+        {submit name="remove"}
+    </div>
+    {/form}
+{/if}

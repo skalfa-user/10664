@@ -1,0 +1,27 @@
+.sk-message-type-wink {
+    .sk-message {
+        @include flex(flex, row, flex-start, center);
+        padding: 0;
+        background-color: transparent;
+        
+        .sk-message-wink-img {
+            width: 10rem;
+            height: 10rem;
+            @include margin(null, 1.6rem, null, null);
+        }
+    }
+    .sk-message-sent {
+        flex-direction: row-reverse;
+        color: color($colors, dark);
+
+        .sk-message-wink-img {
+            width: 5.6rem;
+            height: 5.6rem;
+            @include margin(null, 0, null, 1rem);
+        }
+
+        .sk-message-time {
+            color: $sk-message-time-color;
+        }
+    }
+}

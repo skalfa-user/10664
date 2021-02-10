@@ -1,0 +1,11 @@
+@mixin badge($badge-border-color,$badge-width,$badge-height,$badge-bg,$badge-top, $badge-right, $badge-bottom, $badge-left) {
+    content: ' ';
+    position: absolute;
+    display: block;
+    border: 3px solid $badge-border-color;
+    border-radius: 50%;
+    width: $badge-width;
+    height: $badge-height;
+    background-color: $badge-bg;   
+    @include position($badge-top, $badge-right, $badge-bottom, $badge-left);
+}

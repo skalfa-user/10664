@@ -1,0 +1,36 @@
+<section class="articles articles_page_list">
+    <div class="title">
+        {text key='articles+all_articles'}
+    </div>
+
+    <div class="articles_cards_list">
+        {foreach from=$articles item="article"}
+        <div class="articles_card_wrap">
+            <a href='{url_for_route for="articles-view:[id=>`$article->id`]"}' class="articles_card">
+                <div class="articles_card_img" style="background-image: url('{$article->getImageNameUrl()}');"></div>
+                <div class="articles_card_info">
+                    <div class="articles_card_info_title">{$article->title}</div>
+                    <div class="articles_card_info_subtitle">{$article->subtitle|truncate:70:"...":true}</div>
+                </div>
+            </a>
+            {if $isAdmin}
+                <button class="admin_articles_button {if $article->featured == 0}no_featured{/if}" onclick="makeFeaturedOrNot('{$article->id}', '{$article->featured}')">
+                    {if $article->featured == 0}
+                    {text key='articles+make_featured'}
+                    {else}
+                    {text key='articles+make_not_featured'}
+                    {/if}
+                </button>
+            {/if}
+        </div>
+        {foreachelse}
+        <div class="ow_center">{text key='articles+no_data'}</div>
+        {/foreach}
+    </div>
+
+    <div class="buttons_group">
+        {if $isAdmin}
+        <a class="theme_button" href="{$createLink}">{text key='articles+create_article'}</a>
+        {/if}
+    </div>
+</section>

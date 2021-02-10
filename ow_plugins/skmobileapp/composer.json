@@ -1,0 +1,35 @@
+{
+    "name": "skadate/skmobileapp",
+    "authors": [
+        {
+            "name": "skadate",
+            "email": "info@skadate.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Skadate\\Mobile\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "url": "https://github.com/skalfa/NotificationPusher",
+            "type": "vcs"
+        }
+    ],
+    "require": {
+        "silex/silex": "~2.0",
+        "cnam/security-jwt-service-provider": "~2.1",
+        "jdesrosiers/silex-cors-provider": "~1.4",
+        "sngrl/php-firebase-cloud-messaging": "dev-master",
+        "apple/apn-push": "^2.2",
+        "skalfa/notification-pusher": "2.2.14",
+        "firebase/php-jwt": "^4.0",
+        "laminas/laminas-dependency-plugin": "^1.0"
+    },
+    "config": {
+        "platform": {
+            "php": "5.6"
+        }
+    }
+}

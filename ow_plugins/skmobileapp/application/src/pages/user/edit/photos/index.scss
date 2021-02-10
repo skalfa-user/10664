@@ -1,0 +1,19 @@
+.sk-user-photos-edit-page {
+    .sk-photos-approval {
+        @include flex(flex, row, flex-start, center);
+        @include padding(2.2rem, 1.2rem, 1.2rem);
+        font-size: 1.5rem;
+        color: $sk-edit-pending;
+
+        img {
+            width: 6vw;
+            height: 6vw;
+            @include margin(null, 0.8rem, null, null);
+        }
+    }
+
+    .sk-photo-processing {
+        top: 0;
+        border-radius: 16px;
+    }
+}

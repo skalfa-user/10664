@@ -1,0 +1,63 @@
+.sk-verify-phone-check-code-page,
+.sk-verify-phone-check-number-page {
+
+    .sk-blank-state-icon {
+        width: 18vh;
+    }
+
+    .sk-inputs {
+        margin-top: 4vh;
+        width: 70%;
+
+        &.verify-phone-check-code-inputs {
+            ion-item {
+                border-bottom: 1px solid $list-border-color;
+            }
+        }
+
+        .sk-stacked-text-question-presentation {
+            ion-item {
+                border-bottom: 1px solid $list-border-color;
+            }
+        }
+
+        .sk-base-question-presentation {
+            margin-bottom: 1rem;
+
+            ion-item {
+                @include padding(null, null, null, 0);
+
+                ion-input {
+                    input {
+                        @include placeholder($sk-desc-color);
+                        color: color($colors, dark);
+                        //@include padding(null, 2rem, 1rem, null);
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+
+             .sk-question-error,
+             .sk-question-pending {
+                 @include position(35%, 8px, null, null);
+                 transform: translateY(-35%);
+             }
+        }
+
+        .sk-question-validation {
+            .input-wrapper {
+                @include margin(null, 0, null, null);
+            }
+        }
+    }
+
+    .sk-buttons {
+        margin-top: 0;
+
+        h4 {
+            font-size: 1.7rem;
+            color: color($colors, primary);
+            white-space: normal;
+        }
+    }
+}

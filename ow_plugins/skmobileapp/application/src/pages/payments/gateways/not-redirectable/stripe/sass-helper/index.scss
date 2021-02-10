@@ -1,0 +1,23 @@
+// properties prefix for custom CSS
+$propertyPrefix: "--";
+
+// merges a variable name with $prefix
+@function custom-property-name($name) {
+  @return $propertyPrefix + $name;
+}
+
+// defines a custom property
+@mixin define-custom-property($name, $value) {
+  #{custom-property-name($name)}: $value;
+}
+
+body {
+  // append pre-defined colors
+  @include define-custom-property('sk-desc-color', $sk-desc-color);
+  @include define-custom-property('danger', color($colors, danger));
+
+  // example append $colors
+  //@each $name, $value in $colors {
+  //  @include define-custom-property($name, $value);
+  //}
+}

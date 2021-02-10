@@ -1,0 +1,72 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ 'howto_download_pwa' | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button clear (click)="returnBack()">
+                {{ 'done' | translate }}
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-download-pwa-page" >
+    <!-- ios information -->
+    <div *ngIf="isIos" class="sk-steps-wrap sk-height-wrap">
+        <!-- step #1 -->
+        <div class="sk-step">
+            <div class="sk-download-pwa-title">
+                {{ 'guide_step1_ios_title' | translate }}
+            </div>
+            <div class="sk-download-pwa-text">
+                {{ 'guide_step1_ios' | translate }}
+            </div>
+            <div class="sk-download-pwa-img">
+                <img src="./assets/img/guide-step1-ios.jpg" alt="step1" />
+            </div>
+        </div>
+
+        <!-- step #2 -->
+        <div class="sk-step">
+            <div class="sk-download-pwa-title">
+                {{ 'guide_step2_ios_title' | translate }}
+            </div>
+            <div class="sk-download-pwa-text">
+                {{ 'guide_step2_ios' | translate }}
+            </div>
+            <div class="sk-download-pwa-img">
+                <img src="./assets/img/guide-step2-ios.jpg" alt="step2" />
+            </div>
+        </div>
+    </div>
+
+    <!-- android information -->
+    <div *ngIf="!isIos" class="sk-steps-wrap">
+        <!-- step #1 -->
+        <div class="sk-step">
+            <div class="sk-download-pwa-title">
+                {{ 'guide_step1_android_title' | translate }}
+            </div>
+            <div class="sk-download-pwa-text">
+                {{ 'guide_step1_android' | translate }}
+            </div>
+            <div class="sk-download-pwa-img">
+                <img src="./assets/img/guide-step1-android.jpg" alt="step1" />
+            </div>
+        </div>
+
+        <!-- step #2 -->
+        <div class="sk-step">
+            <div class="sk-download-pwa-title">
+                {{ 'guide_step2_android_title' | translate }}
+            </div>
+            <div class="sk-download-pwa-text">
+                {{ 'guide_step2_android' | translate }}
+            </div>
+            <div class="sk-download-pwa-img">
+                <img src="./assets/img/guide-step2-android.jpg" alt="step2" />
+            </div>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,18 @@
+{style}
+
+#{$uniqId} .uhint-avatar-image
+{
+    background-image: url({$avatar.src});
+}
+
+{/style}
+
+<div id="{$uniqId}" class="hint-private-hint uhint-wrap">
+    <div class="uhint-avatar ow_avatar_console ow_bg_color ow_border">
+        <div class="uhint-avatar-image"></div>
+    </div>
+    <div class="ph-info">
+        <div class="ph-info-title">{$avatar.title}</div>
+        <div class="ph-info-content ow_remark">{$content}</div>
+    </div>
+</div>

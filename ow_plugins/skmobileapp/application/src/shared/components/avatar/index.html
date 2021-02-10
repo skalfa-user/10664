@@ -1,0 +1,8 @@
+
+<!-- show a real avatar -->
+<img *ngIf="url && isAvatarStateActive && !isAvatarBroken" [src]="url | trustUrl" (error)="markAvatarAsBroken()" />
+
+<!-- show a default avatar -->
+<div *ngIf="!url || !isAvatarStateActive || isAvatarBroken" class="{{ isBigAvatar ? 'sk-no-big-avatar' : 'sk-no-sm-avatar' }}">
+    <img src="{{ isBigAvatar ? bigDefaultAvatar : defaultAvatar }}" />
+</div>

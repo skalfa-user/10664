@@ -1,0 +1,35 @@
+.bookmarks_wrap
+{
+    overflow: hidden;
+}
+
+.boomarks_ic_wrap
+{
+    height: 10px;
+    width: 8px;
+    margin-top: 7px;
+}
+
+.bookmarks_ic_bookmark_white
+{
+    background-repeat: no-repeat;
+    background-image: url("../images/ic_bookmark_white.png");
+}
+
+.ow_bookmark_icon {
+    background-repeat: no-repeat;
+    height: 16px;
+    position: absolute;
+    right: 4px;
+    top: 3px;
+    width: 16px;
+}
+.ow_ic_bookmark.ow_bookmark_icon_ulist {
+    background-repeat: no-repeat;
+    height: 16px;
+    position: absolute;
+    right: -3px;
+    top: -5px;
+    width: 16px;
+    background-image: url("../images/ic_bookmark.png");
+}

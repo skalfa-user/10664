@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar [hideBackButton]="isUserCreating">
+        <ion-title>
+            {{ 'join_page_header' | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button *ngIf="!isPageLoading" class="sk-join-questions-button" ion-button clear [disabled]="questionControl.isFormPending(form) || isUserCreating" (click)="submit()">
+                <ion-spinner *ngIf="isUserCreating" name="ios-small"></ion-spinner>
+                <span *ngIf="!isUserCreating">
+                    {{ 'done' | translate }}
+                </span>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [attr.page-blocker]="isUserCreating ? 'true' : ''" class="sk-join-questions-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isPageLoading" name="small-set" repeatTimes="2"></skeleton-preloader>
+
+    <!-- join form -->
+    <form *ngIf="!isPageLoading" [formGroup]="form">
+        <ion-list class="sk-join-fields">
+            <!-- questions wrapper -->
+            <div class="sk-question-list-wrap">
+                <div *ngFor="let sectionData of sections" class="sk-question-list">
+                    <!-- questions dividers -->
+                    <ion-item-divider *ngIf="sectionData.section" text-wrap class="sk-question-section">
+                        <span>{{ sectionData.section }}</span>
+                    </ion-item-divider>
+
+                    <!-- questions -->
+                    <question class="sk-question-item" *ngFor="let question of sectionData.questions" [question]="question" [form]="form"></question>
+                </div>
+
+                <!-- tos -->
+                <div *ngIf="isTosActive" class="sk-question-list">
+                    <ion-item-divider  text-wrap class="sk-question-section">
+                        <span>{{ 'tos_section' | translate }}</span>
+                    </ion-item-divider>
+                    <div class="sk-question-item">
+                        <ion-item class="sk-tos sk-base-question-presentation">
+                            <ion-label>
+                                <button ion-button clear (click)="showTosModal()">
+                                    {{ 'tos_agree_button' | translate }}
+                                </button>
+                            </ion-label>
+                            <ion-toggle [(ngModel)]="tosValue" [ngModelOptions]="{standalone: true}"></ion-toggle>
+                        </ion-item>
+                    </div>
+                </div>
+            </div>
+        </ion-list>
+    </form>
+
+</ion-content>

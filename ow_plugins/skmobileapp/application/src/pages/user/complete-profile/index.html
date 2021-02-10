@@ -1,0 +1,51 @@
+
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ 'complete_profile_page_header' | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button clear *ngIf="!isPageLoading" class="sk-complete-profile-button" [disabled]="questionControl.isFormPending(form) || isUpdatingUserProfile" (click)="submit()">
+                <ion-spinner *ngIf="isUpdatingUserProfile" name="ios-small"></ion-spinner>
+                <span *ngIf="!isUpdatingUserProfile">
+                    {{ 'done' | translate }}
+                </span>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [attr.page-blocker]="isUpdatingUserProfile ? 'true' : ''" class="sk-complete-profile-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isPageLoading" name="small-set" repeatTimes="2"></skeleton-preloader>
+
+    <!-- form -->
+    <ng-template [ngIf]="!isPageLoading">
+        <div text-wrap padding class="sk-description">
+            {{ 'complete_account_desc' | translate }}
+        </div>
+        <form [formGroup]="form">
+            <ion-list>
+                <div class="sk-question-list-wrap">
+                    <!-- questions -->
+                    <div class="sk-question-list" *ngFor="let sectionData of sections">
+                        <ion-item-divider text-wrap class="sk-question-section" *ngIf="sectionData.section">
+                            <span>{{ sectionData.section }}</span>
+                        </ion-item-divider>
+                        <question class="sk-question-item" *ngFor="let question of sectionData.questions" [question]="question" [form]="form"></question>
+                    </div>
+                </div>
+            </ion-list>
+        </form>
+    </ng-template>
+
+</ion-content>
+
+<ion-footer class="sk-back-footer sk-blank-state-footer">
+    <ion-toolbar>
+        <button type="button" class="sk-leave-complete-profile-button" ion-button block clear icon-start [disabled]="isUpdatingUserProfile" (click)="logout()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+            <span class="sk-text-overflow">{{ 'back_to_starter_page_button' | translate }}</span>
+        </button>
+    </ion-toolbar>
+</ion-footer>

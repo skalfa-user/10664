@@ -1,0 +1,13 @@
+.sk-app-orientation-overlay {
+    @include flex(flex, row, center, center);
+    position: absolute;
+    background-color: color($colors, light);
+    @include position(0, 0, 0, 0);
+    z-index: 1000;
+
+    img {
+        width: 260px;
+        display: block;
+        margin: 0 auto;
+    }
+}

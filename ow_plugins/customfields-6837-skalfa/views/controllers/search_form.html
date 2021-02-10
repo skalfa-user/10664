@@ -1,0 +1,141 @@
+{script}
+    {literal}
+        $(function(){
+            $("form[name='MainSearchForm'] [name='match_sex']").change(function() {
+                OW.trigger("usearch.lookin_for_changed", $(this).val());
+            });
+        });
+    {/literal}
+{/script}
+
+{if isset($menu)}
+    {$menu}
+{/if}
+
+{if isset($authMessage)}
+    <div class="ow_anno ow_std_margin ow_nocontent">
+        {$authMessage}
+    </div>
+{else}
+    <div class="ow_custom_search">
+        {if $usernameSearchEnabled == true}
+            {form name=UsernameSearchForm}
+                <div class="ow_custom_form ow_username_search_form">
+                    <h3 class="ow_custom_form_header">
+                        {text key="usearch+search_by_username"}
+                    </h3>
+                    <div class="ow_row">
+                        <div class="ow_custom_form_label">
+                            {label name='username'}
+                        </div>
+                        <div class="ow_custom_form_field {$alt}">
+                            {input name='username'}
+                        </div>
+                        <div class="ow_custom_form_error">
+                            {error name='username'}
+                        </div>
+                    </div>
+                    <div class="ow_row ow_submit_row">
+                        <div class="ow_submit_field">
+                            {submit name='SearchFormSubmit'}
+                        </div>
+                    </div>
+                </div>
+            {/form}
+        {/if}
+        {form name=MainSearchForm}
+            <div class="ow_custom_form ow_advanced_search_form">
+                {if $usernameSearchEnabled == true}
+                    <h3 class="ow_custom_form_header">
+                        {text key="usearch+advanced_search"}
+                    </h3>
+                {/if}
+                {if $displayAccountType == true}
+                    {if !empty($displayGender)}
+                        <div class="ow_row">
+                            <div class="ow_custom_form_label">
+                                {label name='sex'}
+                            </div>
+                            <div class="ow_custom_form_field">
+                                {input name='sex'}
+                            </div>
+                            <div class="ow_custom_form_error">
+                                {error name='sex'}
+                            </div>
+                        </div>
+                    {/if}
+                    <div class="ow_row margin-bottom-0">
+                        <div class="ow_custom_form_label">
+                            {label name='match_sex'}
+                        </div>
+                        <div class="ow_custom_form_field input-full-width">
+                            {input name='match_sex'}
+                        </div>
+                        <div class="ow_custom_form_error">
+                            {error name='match_sex'}
+                        </div>
+                    </div>
+                    <div class="ow_row flex align-items-center search-online-photo">
+                        <div class="ow_col flex flex-wrap align-items-start">
+                            <div class="ow_custom_form_field">
+                                {input name='online'}
+                            </div>
+                            <div class="ow_custom_form_label">
+                                {label name='online'}
+                            </div>
+                            <div class="ow_custom_form_error">
+                                {error name='online'}
+                            </div>
+                        </div>
+                        <div class="ow_col flex flex-wrap align-items-start">
+                            <div class="ow_custom_form_field">
+                                {input name='with_photo'}
+                            </div>
+                            <div class="ow_custom_form_label">
+                                {label name='with_photo'}
+                            </div>
+                            <div class="ow_custom_form_error">
+                                {error name='with_photo'}
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+                {if !empty($questionList)}
+                    {foreach from=$questionList key='section' item='questions'}
+                        {if !empty($section)}
+                            <!-- <div class="ow_custom_section">
+                                <span>{text key="base+questions_section_`$section`_label"}</span>
+                            </div> -->
+                        {/if}
+                        {foreach from=$questions item='question' name='question'}
+                            <div class="{$question_prefix}{$question.name} ow_row {if empty($visibilityList['questions'][$question.name])}ow_hidden{/if} {if $question.type == 'datetime'}ow_datetime{/if}">
+                                <div class="ow_custom_form_label">
+                                    {label name=$question.name}
+                                </div>
+                                <div class="ow_custom_form_field">
+                                    {if $question.type == 'datetime'}
+                                        {input name=$question.name class='ow_datetime_field'}
+                                    {else}
+                                        {input name=$question.name}
+                                    {/if}
+                                </div>
+                                <div class="ow_custom_form_error">
+                                    {error name=$question.name}
+                                </div>
+                            </div>
+                        {/foreach}
+                    {/foreach}
+                {/if}
+                <div class="ow_row ow_submit_row clearfix">
+                    <div class="ow_submit_field ow_right">
+                        {submit name='SearchFormSubmit'}
+                    </div>
+                </div>
+            </div>
+        {/form}
+    </div>
+{/if}
+
+{script}
+$(document).ready(function() { window.jcf ? jcf.replaceAll() : console.warn('JCF is not initialized properly.'); });
+{/script}

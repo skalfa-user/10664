@@ -1,0 +1,15 @@
+#videoim-servers-wrapper #videim-server-item {
+    display: none;
+}
+
+#videoim-servers-wrapper .videoim-delete-servers {
+    display:block;
+    width:16px;
+    height:16px;
+    background-repeat: no-repeat;
+    background-image: url("../images/minus.png");
+}
+
+#videoim-servers-wrapper #videoim-second-save-button {
+    display:none;
+}

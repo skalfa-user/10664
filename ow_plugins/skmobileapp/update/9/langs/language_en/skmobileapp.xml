@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="skmobileapp" label="Skadate Mobile APP" language_tag="en" language_label="English">
+    <key name="form_general_error"><value>Please fill the fields correctly to continue</value></key>
+    <key name="membership_trial_error"><value>Trial membership can be used only once</value></key>
+    <key name="purchase_cancelled"><value>The purchase is cancelled. Please try again later.</value></key>
+    <key name="membership_trial_added"><value>You have been granted {{amountDays}} days of the trial membership</value></key>
+    <key name="membership_updated"><value>You have been updated your membership</value></key>
+    <key name="credits_updated"><value>You have been bought {{count}} credits</value></key>
+    <key name="credit_pack"><value>{{currency}} {{price}}</value></key>
+    <key name="membership_plan"><value>&#x3C;span&#x3E;{{currency}} {{price}}&#x3C;/span&#x3E;&#x3C;span&#x3E;per {{period}} {{periodUnits}}&#x3C;/span&#x3E;</value></key>
+    <key name="membership_trial_plan"><value>&#x3C;span&#x3E;Trial&#x3C;/span&#x3E;&#x3C;span&#x3E;{{period}} {{periodUnits}}&#x3C;/span&#x3E;</value></key>
+    <key name="new_guests_counter"><value>{{count}} new guest(s) available </value></key>
+    <key name="app_ios_recurring_information_description"><value>&#x3C;ul&#x3E;&#x3C;li&#x3E;Payment will be charged to iTunes Account at confirmation of purchase&#x3C;/li&#x3E;&#x3C;li&#x3E;Subscription automatically renews unless auto-renew is turned off at least 24-hours before the end of the current period&#x3C;/li&#x3E;&#x3C;li&#x3E;Account will be charged for renewal within 24-hours prior to the end of the current period, and identify the cost of the renewal&#x3C;/li&#x3E;&#x3C;li&#x3E;Subscriptions may be managed by the user and auto-renewal may be turned off by going to the user&#x2019;s Account Settings after purchase&#x3C;/li&#x3E;&#x3C;li&#x3E;Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable&#x3C;/li&#x3E;&#x3C;/ul&#x3E;</value></key>
+    <key name="app_android_recurring_information_description"><value>&#x3C;div class=&#x22;sk-section-description&#x22;&#x3E;&#x3C;ul&#x3E;&#x3C;li&#x3E;Payment will be charged to Google Account at confirmation of purchase&#x3C;/li&#x3E;&#x3C;li&#x3E;To cancel subscription open the Google Play Store from your phone or tablet. Tap &#x22;Menu&#x22; &#x3E;&#x3E; &#x22;Subscriptions&#x22;. Tap the subscription you want to cancel. Tap &#x22;Cancel subscriptions&#x22; and follow the onscreen instructions&#x3C;/li&#x3E;&#x3C;/ul&#x3E;&#x3C;/div&#x3E;</value></key>
+    <key name="app_mobile_recurring_information_description"><value>&#x3C;div class=&#x22;sk-section-description&#x22;&#x3E;&#x3C;ul&#x3E;&#x3C;li&#x3E;To cancel PayPal subscription:Log in to your PayPal account at www.paypal.com. Click the Settings icon next to &#x22;Log out.&#x22; Select Preapproved Payments under &#x22;Payment settings.&#x22; Select the merchant whose agreement you want to cancel and click the Cancel Subscription button.&#x3C;/li&#x3E;&#x3C;li&#x3E;To cancel credit card subscription: Contact the issuer of your credit card.&#x3C;/li&#x3E;&#x3C;/ul&#x3E;&#x3C;/div&#x3E;</value></key>
+    <key name="tinder_about_me"><value>About me</value></key>
+    <key name="gateway_page_title"><value>Payment method</value></key>
+    <key name="billing_page_title"><value>Billing information</value></key>
+    <key name="billing_card_details"><value>Card details</value></key>
+    <key name="billing_card_number"><value>Card number</value></key>
+    <key name="billing_card_number_placeholder"><value>Specify your card number</value></key>
+    <key name="billing_cvc"><value>CVC</value></key>
+    <key name="billing_cvc_placeholder"><value>3 digits one the back of your card</value></key>
+    <key name="billing_expiration_date"><value>Expiration date</value></key>
+    <key name="billing_expiration_date_placeholder"><value>Specify the exact date</value></key>
+    <key name="billing_card_name"><value>Name on card</value></key>
+    <key name="billing_card_name_placeholder"><value>Specify your card name</value></key>
+    <key name="billing_country"><value>Country</value></key>
+    <key name="billing_country_placeholder"><value>Your country</value></key>
+    <key name="billing_address"><value>Address line</value></key>
+    <key name="billing_address_placeholder"><value>Specify your address</value></key>
+    <key name="billing_zip"><value>ZIP code</value></key>
+    <key name="billing_zip_placeholder"><value>Specify your zip code</value></key>
+    <key name="billing_state"><value>State</value></key>
+    <key name="billing_state_placeholder"><value>Your state</value></key>
+    <key name="billing_information"><value>Information</value></key>
+    <key name="profile_cannot_be_viewed"><value>Profile cannot be viewed</value></key>
+    <key name="hot_list_delete_confirmation"><value>Are you sure you want to delete your profile from Hot List list?</value></key>
+    <key name="complete_account_desc"><value>Please fill the fields below to complete your profile.</value></key>
+    <key name="choose_avatar_from_library"><value>Choose avatar from library</value></key>
+    <key name="take_avatar"><value>Take an avatar</value></key>
+    <key name="tos_agree_input_error"><value>Please check the terms of use</value></key>
+    <key name="take_photo"><value>Take photo</value></key>
+    <key name="choose_photo_from_library"><value>Choose photo from library</value></key>
+    <key name="email_input_placeholder"><value>Type your email</value></key>
+    <key name="password_repeat_input_placeholder"><value>Repeat your password</value></key>
+    <key name="avatar_input_error"><value>Please choose an avatar</value></key>
+    <key name="password_input_placeholder"><value>Type the password</value></key>
+    <key name="username_input_placeholder"><value>Type your username</value></key>
+    <key name="forgot_password_email_input_placeholder"><value>Type your email</value></key>
+    <key name="forgot_password_code_input_placeholder"><value>Type the reset code</value></key>
+    <key name="forgot_password_input"><value>New password</value></key>
+    <key name="forgot_password_input_placeholder"><value>Type in new password</value></key>
+    <key name="verify_email_email_input_placeholder"><value>Type your email address</value></key>
+    <key name="verify_email_code_input_placeholder"><value>Type the code</value></key>
+    <key name="conversations_empty_title"><value>Say Hello</value></key>
+    <key name="conversations_empty_descr"><value>Tap on a new match to send message</value></key>
+    <key name="conversations_no_lists_title"><value>Say Hello</value></key>
+    <key name="conversations_no_lists_descr"><value>Tap on a new match to send message</value></key>
+    <key name="missing_push_settings_error"><value>SkaDate Mobile Application requires the &lt;a href="{$url}"&gt;push notifications&lt;/a&gt; settings to be set</value></key>
+    <key name="missing_google_api_setting_error"><value>SkaDate Mobile Application requires the &lt;a href="{$url}"&gt;google map API key&lt;/a&gt; to be set</value></key>
+    <key name="missing_google_monetizations_settings_error"><value>SkaDate Mobile Application requires the &lt;a href="{$url}"&gt;monetizations&lt;/a&gt; settings to be set</value></key>
+    <key name="no_memberships"><value>No memberships to upgrade</value></key>
+    <key name="no_credits"><value>No credit pack to buy</value></key>
+    <key name="credits_info_not_available_title"><value>Credits rewards</value></key>
+    <key name="credits_info_not_available_message"><value>No info available for the current credit rewards page</value></key>
+</prefix>

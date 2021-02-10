@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button ion-button clear (click)="cancel()">{{ 'cancel' | translate }}</button>
+        </ion-buttons>
+
+        <ion-title>{{ 'view_video' | translate }}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-view-video">
+    <div class="sk-video-player-wrap">
+        <video class="sk-video-player" preload="auto" controls poster="{{coverImageUrl}}">
+            <source *ngFor="let video of videoUrls" src="{{video.url}}" type="{{video.type}}" />
+        </video>
+    </div>
+</ion-content>

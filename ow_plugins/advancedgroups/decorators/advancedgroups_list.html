@@ -1,0 +1,44 @@
+<div class="idsbasic_clearfix idsbasic_bxs clear">
+    <ul class="group_video_listing idsbasic_clearfix clear">
+    	{foreach from=$data.list item='item' name='list'}
+        <li class="group_listing_in_grid2 ">
+            <div class="group_listing_in_grid2_thumb group_thumb group_play_btn_wrap">
+                <a href="{$item['url']}" class="group_thumb_img">
+                    <span style="background-image:url({$item['imageSrc']});"></span>
+                </a>
+            </div>
+            <div class="group_listing_in_grid2_title_show group_animation">
+                <a href="{$item['url']}" title="{$item['title']}">{$item['title']|truncate:60}</a>
+			    <div class="idsbasic_text_light">
+	                <span>
+				        <i title="Members" class="fa fa-users "></i> {text key="groups+listing_users_label" count=$item['users']}
+				    </span>
+			    </div>
+            </div>
+            <div class="group_listing_in_grid2_info clear group_animation">
+                <div class="group_listing_in_grid2_title">
+                    <a href="{$item['url']}" title="{$item['title']}">{$item['title']|truncate:60}</a>
+                </div>
+                <div class="group_listing_in_grid2_date group_list_stats idsbasic_text_light">
+                    <span>
+                  		<i class="fa fa-user"></i>{text key="base+by"} {user_link username=$item['group']->getUser()->getUsername() name=$item['group']->getUserDisplayName()}
+                  	</span>
+                </div>
+                {if $item['group']->getCategory()}
+                <div class="group_listing_in_grid2_date group_list_stats idsbasic_text_light">
+				    <span>
+				        <i title="Category" class="fa fa-folder-open"></i> 
+				        <a href="{$item['group']->getCategory()->getHref(false)}">{$item['group']->getCategory()->getTitle()|truncate:60}</a>
+				    </span>
+				</div>
+                {/if}
+				<div class="group_listing_in_grid2_date group_list_stats idsbasic_text_light">
+				    <span>
+				        <i title="Members" class="fa fa-users "></i> {text key="groups+listing_users_label" count=$item['users']}
+				    </span>
+				</div>
+            </div>
+        </li>
+        {/foreach}
+    </ul>
+</div>

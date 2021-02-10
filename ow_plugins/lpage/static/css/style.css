@@ -1,0 +1,133 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    font-size: 100%;
+}
+@font-face {
+    font-family: 'core_sans_e35_light';
+    src: url('images/simplicity_light/simplicity_light-webfont.eot');
+    src: url('images/simplicity_light/simplicity_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('images/simplicity_light/simplicity_light-webfont.woff2') format('woff2'),
+         url('images/simplicity_light/simplicity_light-webfont.woff') format('woff'),
+         url('images/simplicity_light/simplicity_light-webfont.ttf') format('truetype'),
+         url('images/simplicity_light/simplicity_light-webfont.svg#core_sans_e35_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.ow_landing_wrap {
+	background: url(images/bg.jpg) no-repeat 50% center;
+	background-size: cover;
+}
+@media (min-device-width: 320px) {
+	.ow_landing_wrap.right_pos {
+  		background-position: 80% center;
+  	}
+}
+.ow_landing_page {
+	min-height: 100%;
+}
+.ow_landing_header {
+	height: 68px;
+	padding: 5px 0px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.23);
+}
+.ow_landing_logo {
+	vertical-align: top;
+	display: block;
+	height: 68px;
+	background: url(images/logo.png) no-repeat center center;
+}
+.ow_landing_txt_wrap {
+	min-height: 40vh;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-around;
+	padding-bottom: 100px;
+}
+.ow_landing_txt {
+	font-size: 325%;
+	line-height: 51px;
+	color: #fff;
+	text-align: center;
+	font-family: 'core_sans_e35_light', "Trebuchet MS", "Helvetica CY", sans-serif;
+}
+.ow_landing_btn_wrap,
+.ow_landing_btns {
+	text-align: center;
+}
+.ow_landing_btns {
+	display: none;
+}
+.ow_landing_btn_wrap.show_btns .ow_landing_btns {
+	display: block;
+}
+.ow_landing_android_btn,
+.ow_landing_ios_btn {
+	display: inline-block;
+	width: 160px;
+	height: 56px;
+	background: url(images/ios_btn.png) no-repeat 0px 0px;
+	margin-top: 8px;
+}
+.ow_landing_android_btn {
+	margin-right: 16px;
+	background-image: url(images/android_btn.png);
+}
+.ow_landing_btn_fake {
+	display: inline-block;
+	width: 244px;
+	height: 82px;
+	background: url(images/download_btn_pink.png) no-repeat 0px 0px;
+}
+.ow_landing_btn_fake:hover {
+	background-position: 0 -118px;
+}
+.ow_landing_btn_wrap.show_btns .ow_landing_btn_fake {
+	display: none;
+}

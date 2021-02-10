@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_app</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-847.000000, -1998.000000)">
+            <g id="ic_app" transform="translate(846.000000, 1997.000000)">
+                <g id="Group">
+                    <g id="Layer_45_copy_9" transform="translate(1.000000, 1.000000)">
+                        <rect id="Rectangle-path" fill="#ffffff" x="0" y="0" width="16" height="16"></rect>
+                        <rect id="Rectangle-path" fill="#FFFFFF" x="1" y="2" width="14" height="13"></rect>
+                        <rect id="Rectangle-path" fill="#ffffff" x="2" y="3" width="12" height="11"></rect>
+                        <path d="M4.437,12.103 L8.474,4.897 L10.053,4.897 L11.065,12.103 L9.687,12.103 L9.497,10.569 L6.617,10.569 L5.816,12.103 L4.437,12.103 Z M9.007,6.081 L7.195,9.498 L9.386,9.498 L9.007,6.081 Z" id="Shape" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

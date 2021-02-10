@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-navbar [hideBackButton]="isPurchasing">
+        <ion-title>
+            {{ 'billing_page_title' | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button clear *ngIf="!isPageLoading" [disabled]="questionControl.isFormPending(form) || isPurchasing" (click)="submit()">
+                <ion-spinner *ngIf="isPurchasing" name="ios-small"></ion-spinner>
+                <span *ngIf="!isPurchasing">
+                    {{ 'done' | translate }}
+                </span>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [attr.page-blocker]="isPurchasing ? 'true' : ''" class="sk-billing-non-redirect-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isPageLoading" name="small-set" repeatTimes="2"></skeleton-preloader>
+
+    <!-- form -->
+    <form *ngIf="!isPageLoading" [formGroup]="form">
+        <ion-list class="sk-billing-non-redirect-fields">
+            <!-- <div class="wrap"> -->
+                <!-- questions -->
+                <div *ngFor="let sectionData of sections">
+                    <ion-item-divider *ngIf="sectionData.section" text-wrap class="sk-question-section">
+                        <span>{{ sectionData.section | translate }}</span>
+                    </ion-item-divider>
+                    <question *ngFor="let question of sectionData.questions" [question]="question" [form]="form"></question>
+                </div>
+            <!-- </div> -->
+        </ion-list>
+    </form>
+</ion-content>

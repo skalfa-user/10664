@@ -1,0 +1,11 @@
+<ion-content padding class="sk-app-maintenance-page sk-blank-state">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div class="sk-blank-state-wrap">
+        <img class="sk-blank-state-icon" src="./assets/img/app-maintenance/ic-maintenance.svg" alt="">
+        <div class="sk-blank-state-cont">
+            <div [innerHTML]="'maintenance_mode' | translate"></div>
+        </div>
+    </div>
+</ion-content>

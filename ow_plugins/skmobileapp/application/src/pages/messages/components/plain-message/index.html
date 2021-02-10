@@ -1,0 +1,67 @@
+<div class="sk-message-wrap sk-message-type-plain-message {{ messages.isMessageDeliveredWithError(message) ? 'sk-message-error' : ' '}} {{ message?.attachments?.length ? 'sk-message-type-attachment' : '' }}">
+    <!-- date -->
+    <div *ngIf="message.date && (!prevMessage || prevMessage && prevMessage.date != message.date)" class="sk-message-date">
+        {{ message.dateLabel }}
+    </div>
+
+    <!-- message wrapper-->
+    <div class="sk-message {{ message.isAuthor ? 'sk-message-sent' : 'sk-message-received' }}">
+        <!-- message is loading -->
+        <div *ngIf="isMessageLoading || isMessageWaitingForAuthorize" text-center class="sk-message-spinner">
+            <ion-spinner text-center name="ios-small"></ion-spinner>
+        </div>
+
+        <!-- message -->
+        <div *ngIf="(message.isAuthorized || readMessagePermission.isAllowed) && !isMessageLoading" class="sk-message-body">
+            <p *ngIf="!message?.attachments || !message.attachments.length" [innerHTML]="message.text | nlbr | urlify | trustHtml"></p>
+
+            <!-- attachments -->
+            <div *ngFor="let attachment of message.attachments" class="sk-attachments-wrap">
+                <user-image *ngIf="attachment.type == 'image'" 
+                    [url]="attachment.downloadUrl" 
+                    cssClass="sk-attachment-img" 
+                    (click)="viewPhoto(attachment.downloadUrl)">
+                </user-image>
+                <div *ngIf="attachment.type != 'image'" class="sk-attachment-file">
+                    <a [href]="attachment.downloadUrl | trustUrl">
+                        {{ attachment.fileName }}
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- click to read message -->
+        <div *ngIf="!message.isAuthorized && !readMessagePermission.isAllowed && readMessagePermission.isAllowedAfterTracking && !isMessageLoading && !isMessageWaitingForAuthorize" class="sk-message-permisson sk-message-permisson-read">
+            <button class="sk-read-message-button" ion-button clear (click)="showMessage()">
+                <p>{{ 'read_mailbox_message' | translate }}</p>
+            </button>
+        </div>
+
+        <!-- click to upgrade -->
+        <div *ngIf="!message.isAuthorized && !readMessagePermission.isAllowed && readMessagePermission.isPromoted && !readMessagePermission.isAllowedAfterTracking" class="sk-message-permisson sk-message-permisson-upgrade">
+            <button class="sk-read-message-button" ion-button clear (click)="showPurchasesPage()">
+                <p>{{ 'view_mailbox_message_upgrade' | translate }}</p>
+            </button>
+        </div>
+        
+        <!-- permission denied -->
+        <div *ngIf="!message.isAuthorized && !readMessagePermission.isAllowed && !readMessagePermission.isPromoted && !readMessagePermission.isAllowedAfterTracking" class="sk-message-permisson sk-message-permisson-denied">
+            {{ 'view_mailbox_message_denied' | translate }}
+        </div>
+
+        <!-- time -->
+        <div class="sk-message-time">
+            <span *ngIf="!messages.isMessageInPending(message)">
+                {{ message.time }}
+                <img *ngIf="message.isAuthor && !message.isRecipientRead" class="sk-message-sent-icon" src="./assets/img/custom-images/ic-message-sent.svg" alt="" />
+                <img *ngIf="message.isAuthor && message.isRecipientRead" class="sk-message-received-icon"  src="./assets/img/custom-images/ic-message-received.svg" alt="" />
+            </span>
+            <span *ngIf="messages.isMessageInPending(message) && !messages.isMessageDeliveredWithError(message)">
+                <img src="./assets/img/custom-images/ic-clock.svg" alt="" />
+            </span>
+        </div>
+    </div>
+    <div *ngIf="messages.isMessageDeliveredWithError(message)" class="sk-message-deliver-error">
+        <img (click)="showMessageActions()" src="./assets/img/messages/ic-message-error.svg" alt="" />
+    </div>
+</div>

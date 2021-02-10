@@ -1,0 +1,20 @@
+[
+   {
+      "key":"mailbox-new_chat_message",
+      "label":"New Messages",
+      "type":"checkbox",
+      "value":true,
+      "validators":[
+
+      ]
+   },
+   {
+      "key":"skmobileapp-new_match_message",
+      "label":"New Matches",
+      "type":"checkbox",
+      "value":true,
+      "validators":[
+
+      ]
+   }
+]

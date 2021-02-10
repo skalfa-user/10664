@@ -1,0 +1,125 @@
+.sk-conversations-tab {
+    @include text-align('start');
+    @include flex(flex, column, flex-start, stretch);
+    background-color: $sk-conversations-bg;
+
+    .sk-search-bar {
+        background-color: color($colors, light);
+        
+        .searchbar {
+            padding: 0;
+        }
+    }
+  
+    .sk-nothing-found {
+        justify-content: flex-start;
+        padding-top: 4vh;
+    }
+
+    .sk-conversations-wrapper {
+        flex: 1;
+        margin-bottom: 0;
+        height: calc(100% - 44px);
+
+        .sk-conversations-empty {
+            min-height: auto;
+            margin-top: 14vh;
+        }
+
+        .sk-conversations-section {
+            font-size: 1.3rem;
+            color: $sk-conversations-section;
+        }
+
+        .sk-conversations-avatar {
+            position: relative;
+            display: flex;
+            height: 8rem;
+            width: 8rem;
+
+            user-avatar {
+                border-radius: 50%;
+                
+                img {
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .sk-match-item-new,
+        .sk-conversation-item-new {
+            .sk-conversations-avatar {
+                &::after {
+                    @include badge(#fff, 1rem, 1rem, $sk-badge-new, 0.2rem, 0.5rem, null, null);
+                }
+            }
+        }
+
+        .sk-matches-list {
+            @include padding(1.6rem, 0, 1.6rem, 16px);
+            background-color: color($colors, light);
+            margin-bottom: 0.7rem;
+            border-bottom: 1px solid $sk-conversations-bg;
+
+            .scroll-content {
+                padding: 0;
+                position: static;
+                contain: none;
+            }
+
+            .sk-matches-wrap {
+                white-space: nowrap;
+            }
+        }
+
+        .sk-match-item {
+            @include flex(inline-flex, column, center, center);
+            @include margin(0, 1.6rem, 0, 0);
+            vertical-align: middle;
+            
+            span {
+                flex: 1;
+                display: inline-block;
+                max-width: 8rem;              
+                text-align: center;
+                font-size: 1.6rem;
+                margin-top: 0.8rem;
+                @include text-overflow;
+                
+            }
+        }
+    
+        .sk-conversation-list {
+            padding: 2.5rem 16px;
+            
+            .sk-conversation-item {
+                @include flex(flex, row, flex-star, center);
+                
+                &.sk-conversation-item-blocked {
+                    opacity: 0.5;
+                }
+                
+                &-inner {   
+                    flex: 1;
+                    @include text-overflow;
+
+                    div {
+                        @include text-overflow;
+                        font-size: 1.5rem;
+                    }
+
+                    p {
+                        margin: 1vw 0;
+                        @include text-overflow;
+                        font-size: 1.4rem;
+                        color: $sk-conversation-item-descr;
+
+                        img {
+                            @include margin(null, 0.4rem, null, null);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

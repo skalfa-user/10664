@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin>
+	<name>Advanced Groups</name>
+	<key>advancedgroups</key>
+	<description>Advanced Groups plugin with Categories, Tags and more. http://idragonsolution.com</description>
+    <author>iDragonSolution Co., Ltd</author>
+    <authorEmail>dragonit80@gmail.com</authorEmail>
+	<authorUrl>>http://idragonsolution.com</authorUrl>
+	<developerKey>f1554eb716461000beca46d0aa52dd27</developerKey>
+    <build>3</build>
+    <copyright>(C) iDragon Solution Co., Ltd</copyright>
+	<license>The BSD License</license>
+    <licenseUrl>http://idragonsolution.com/license</licenseUrl>
+</plugin>

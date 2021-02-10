@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{ pageTitle | translate }}</ion-title>
+        <ion-buttons end>
+            <button *ngIf="!isPageLoading" class="sk-push-notification-done-button" ion-button clear [disabled]="questionControl.isFormPending(form) || isPreferenceSaving" (click)="submit()">
+                <ion-spinner *ngIf="isPreferenceSaving" name="ios-small"></ion-spinner>
+                <span *ngIf="!isPreferenceSaving">
+                    {{ 'done' | translate }}
+                </span>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [attr.page-blocker]="isPreferenceSaving ? 'true' : ''" class="sk-preferences-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isPageLoading" name="small-set" repeatTimes="2"></skeleton-preloader>
+
+    <!-- preferences form -->
+    <form *ngIf="!isPageLoading" [formGroup]="form">
+        <div text-wrap class="sk-section" margin-top>
+            <span>{{ 'preferences_page_description' | translate }}</span>
+        </div>
+        <question *ngFor="let question of questions" [question]="question" [form]="form"></question>
+    </form>
+</ion-content>

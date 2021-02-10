@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+    <name>Premoderation</name>
+    <key>moderation</key>
+    <description>Moderation tools</description>
+    <author>Skalfa</author>
+    <authorEmail>oxwallplugins@skalfa.com</authorEmail>
+    <authorUrl>http://www.skalfa.com</authorUrl>
+    <developerKey>99d6bdd5bb6468beaf118c4664dd92ff</developerKey>
+    <build>10800</build>
+    <copyright>(C) 2014 Skalfa LLC. All rights reserved.</copyright>
+    <license>OSCL</license>
+    <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+</plugin>

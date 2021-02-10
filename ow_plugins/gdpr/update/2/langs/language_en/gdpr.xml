@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="gdpr" label="GDPR" language_tag="en" language_label="English">
+    <key name="title"><value>General data protection regulation</value></key>
+    <key name="user_data_page"><value>Your data</value></key>
+    <key name="user_data_page_title"><value>Your data</value></key>
+    <key name="party_services_page"><value>3rd party services</value></key>
+    <key name="third_party_page_title"><value>3rd party services</value></key>
+    <key name="user_data_note"><value>You have entrusted us with the following personal data (including you detailed Profile information). &lt;p&gt;NOTE: This information is essential for proper account functioning. Here you can review, edit, update, download or delete this information as you wish.&lt;/p&gt;&#13;</value></key>
+    <key name="user_displayName"><value>Name</value></key>
+    <key name="user_password"><value>Password</value></key>
+    <key name="user_password_value"><value>****</value></key>
+    <key name="user_username"><value>Username</value></key>
+    <key name="user_email"><value>Email</value></key>
+    <key name="edit_profile"><value>Edit profile</value></key>
+    <key name="user_data_download_btn"><value>Request personal data download</value></key>
+    <key name="user_data_deletion_btn"><value>Request personal data deletion</value></key>
+    <key name="request_download_feedback"><value>You have successfully sent a request</value></key>
+    <key name="request_deletion_feedback"><value>You have successfully sent a request.</value></key>
+    <key name="request_download_email_subject"><value>Request download</value></key>
+    <key name="request_download_email_content"><value>User {$username} requested to download all personal data associated with his profile.</value></key>
+    <key name="request_deletion_email_subject"><value>Request deletion</value></key>
+    <key name="request_deletion_email_content"><value>User {$username} requested to delete his profile from the site.</value></key>
+    <key name="third_party_note_title"><value>For business, analytical and administrative purposes, our website also employs the following 3rd party services.</value></key>
+    <key name="request_deletion_btn"><value>Request manual deletion</value></key>
+    <key name="third_party_popup_title"><value>Request</value></key>
+    <key name="message_input"><value>Send message to admin</value></key>
+    <key name="message_input_placeholder"><value>Your message</value></key>
+    <key name="send_message_subject"><value>Dear admin!</value></key>
+    <key name="third_party_send_btn"><value>Send</value></key>
+    <key name="popup_back"><value>Back</value></key>
+    <key name="message_error"><value>Please fill the form</value></key>
+    <key name="third_party_message_feedback"><value>You have successfully sent a request.</value></key>
+    <key name="third_party_note"><value>
+        &lt;p&gt;
+        Scheduled updates / newsletter are handled by MailChimp and may have your email, IP addresses used to open entails and geographical data as provided by browsers.
+        &lt;/p&gt;&#13;
+
+        &lt;p&gt;
+        We employ Intercom for providing sales, pre-sales support and based on your interaction, your email, IP address and location may have been recorded.
+        &lt;/p&gt;&#13;
+
+        &lt;p&gt;
+        Ougoing emails are handled by mandrill.com and they maintain the delivery reports for each mail for 9O days, as per their policy.
+        &lt;/p&gt;&#13;
+
+        &lt;p&gt;
+        Anonymous data for analytics is collected by Google Analytics, moz.com and such data does not contain any personal identifiable records of any user.
+        &lt;/p&gt;&#13;
+    </value></key>
+</prefix>

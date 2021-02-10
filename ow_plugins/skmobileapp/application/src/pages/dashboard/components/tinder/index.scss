@@ -1,0 +1,212 @@
+.sk-tinder-tab {
+    @include flex(flex, column, space-between, stretch);
+
+    .sk-tinder-cards-wrapper {
+        flex: 1;
+        position: relative;
+        margin: 4vw;
+
+        &.sk-card-preview {
+            pointer-events: none;
+            margin: 0;
+
+            ion-card {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
+
+        ion-card {
+            position: absolute;
+            width: 100%;
+            height: 100%; 
+            box-shadow: none;
+            border-radius: 12px;
+                     
+            .sk-card-wrapper {
+                height:100%;
+                
+                &.sk-swipe-left,
+                &.sk-swipe-right {
+                    .sk-item-card {
+                        .sk-tinder-cover {
+                            opacity: 1;
+                            // @include transition(opacity 0.2s ease-in-out);
+                        }
+                    }
+                }
+                &.sk-swipe-left {
+                    .sk-item-card {
+                        .sk-tinder-cover {
+                            background-color: $sk-tinder-card-dislike-bg;
+                            .sk-tinder-dislike {
+                                display: block;
+                            }
+                            @include rtl() {
+                                background-color: $sk-tinder-card-like-bg;
+                                .sk-tinder-like {
+                                    display: block;
+                                }
+                                .sk-tinder-dislike {
+                                    display: none;
+                                }
+                            }
+
+                        }
+                    }
+                }
+                &.sk-swipe-right {
+                    .sk-item-card {
+                        .sk-tinder-cover {
+                            background-color: $sk-tinder-card-like-bg;
+                            .sk-tinder-like {
+                                display: block;
+                            }
+                            @include rtl() {
+                                background-color:  $sk-tinder-card-dislike-bg;
+                                .sk-tinder-dislike {
+                                    display: block;
+                                }
+                                .sk-tinder-like {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .sk-item-card {
+                    height: 100%;
+
+                    .sk-tinder-cover {
+                        position: absolute;
+                        opacity: 0;
+                        height: 100%;
+                        width: 100%;
+                        // @include transition(opacity 0.2s ease-in-out);
+
+                        .sk-tinder-dislike, .sk-tinder-like {
+                            display: none;
+                            padding: 2.4rem;
+                        }
+                        .sk-tinder-dislike {
+                            @include text-align('end')
+                        }
+                        .sk-tinder-like {
+                            @include text-align('start')
+                        }
+                        span {
+                            display: inline-block;
+                            padding: 0 16px;
+                            font-size: 2.8rem;
+                            font-weight: 500;
+                            text-transform: uppercase;
+                            color: color($colors, light);
+                            border: 3.2px solid color($colors, light);
+                            border-radius: 4px;
+                        }
+                    }
+
+                    user-avatar {
+                        position: static;
+                        display: flex;
+                        height: 100%;
+                        overflow: hidden;
+                        touch-action: initial!important;
+                        user-select: initial!important;
+                        -webkit-user-drag: initial!important;
+
+                        .sk-no-big-avatar {
+                            width: 100%;
+                            @include flex(flex, column, center, center);
+
+                            img {
+                                width: 55%;
+                                object-fit: contain;
+                            }
+                        }
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 0;
+                    }
+
+                    .sk-card-bottom {
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        padding: 1.6rem 1.8rem;
+
+                        .sk-card-info {
+                            color: color($colors, light);
+
+                            .sk-name {
+                                text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .sk-card-info {
+        position: relative;
+        flex: 1;
+        @include text-overflow;
+
+        .sk-name {
+            @include flex(inline-flex, row, center, stretch);
+            font-size: 2rem;
+            font-weight: 500;
+            max-width: 100%;
+            margin-bottom: 0.3rem;
+
+            span {
+                display: inline-block;
+                @include text-overflow;
+            }
+
+            b {
+                font-weight: 500;
+            }
+        }
+
+        .sk-info {
+            font-size: 1.6rem;
+            min-height: 1.9rem;
+            color: $sk-tinder-card-bottom-info-color;
+            @include text-overflow;
+        }
+    }
+
+    .sk-tinder-cards-actions-wrapper {
+        position: relative;
+        z-index: 6;
+
+        .sk-tinder-info-btn {
+            background-image: url("../assets/img/custom-images/ic-tinder-up.svg");
+             &.sk-tinder-info-less-btn {
+                background-image: url("../assets/img/custom-images/ic-tinder-down.svg");
+            }
+        }
+
+        .sk-tinder-profile-btn {
+            background-image: url("../assets/img/custom-images/ic-tinder-profile.svg");
+        }
+        
+    }
+
+    .sk-tinder-cards-profile-info {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background-color: color($colors, light);
+        @include text-align('start');
+        @include padding(null, null, 7.4rem, 1.6rem);
+        z-index: 5;
+    }
+}

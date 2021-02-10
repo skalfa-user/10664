@@ -1,0 +1,71 @@
+.sk-search-tab {
+    @include flex(flex, column, flex-start, stretch);
+
+    .sk-nothing-found {
+        min-height: auto;
+        flex: 1;
+
+        .sk-blank-state-cont {
+            margin-bottom: 0;
+
+            h2 {
+                margin-bottom: 0;
+            }
+        }
+        .sk-buttons {
+            margin-top: 0;
+
+            button {
+                span {
+                    font-size: 1.6rem;
+                    white-space: normal;
+                }
+            }
+        }
+    }
+
+    .sk-search-bar {
+        @include flex(flex, row, flex-start, center);
+
+        .searchbar {
+            @include padding(0, 2.2rem, 0, 0);
+        }
+
+        .sk-search-filter {
+            height: 2.4rem;
+            width: 2.4rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("../assets/img/custom-images/ic-search-filter.svg");
+            @include background-position(start, top);
+        }
+
+        &.sk-filter-only {
+            ion-searchbar {
+                display: none;
+            }
+
+            .sk-search-filter {
+                @include flex(flex, row, center, center);
+                width: auto;
+                background-size: contain;
+                @include padding(0, 0, 0, 3.6rem);
+                text-transform: uppercase;
+                font-size: 1.4rem;
+                color: color($colors, primary);
+            }
+        }
+    }
+
+    .sk-card-list {
+        flex: 1;
+        margin-bottom: 0;
+        height: calc(100% - 44px);
+        overflow-y: scroll;
+    }
+
+    .sk-search-skeleton-inner {
+        min-height: auto;
+        height: calc(100% - 44px);
+    }
+}

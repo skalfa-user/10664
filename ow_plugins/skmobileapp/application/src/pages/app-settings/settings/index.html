@@ -1,0 +1,81 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+        <ion-buttons end>
+            <button ion-button navPop>
+                {{ 'done' | translate }}
+            </button>
+        </ion-buttons>
+        <ion-title>
+            {{ 'profile_app_settings' | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-app-settings-page">
+    <!-- basic -->
+    <div class="sk-section" margin-top>
+        <span>{{ 'app_settings_basic_information_label' | translate }}</span>
+    </div>
+    <ion-list mode="md">
+        <ion-item (tap)="showPrivacyPolicyModal()" class="sk-select-field-fake sk-privacy-button">
+            <ion-label>{{ 'app_settings_privacy_policy_label' | translate }}</ion-label>
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+
+        <ion-item (tap)="showTermsOfUseModal()" class="sk-select-field-fake sk-termsofuse-button">
+            <ion-label>{{ 'app_settings_terms_of_use_label' | translate }}</ion-label>
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+    </ion-list>
+
+    <!-- gdpr -->
+    <ng-container *ngIf="siteConfigs.isPluginActive('gdpr')">
+        <div class="sk-section">
+            <span>{{ 'gdpr_title' | translate }}</span>
+        </div>
+        <ion-list mode="md">
+            <ion-item [navPush]="gdprUserDataPage" class="sk-select-field-fake sk-yourdata-button">
+                <ion-label>{{ 'gdpr_user_data_page' | translate }}</ion-label>
+                <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+            </ion-item>
+
+            <ion-item *ngIf="siteConfigs.getConfig('gdprThirdPartyServices')" class="sk-select-field-fake sk-3rdpartyservice-button" [navPush]="gdprThirdPartyPage">
+                <ion-label>{{ 'gdpr_party_services_page' | translate }}</ion-label>
+                <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+            </ion-item>
+        </ion-list>
+    </ng-container>
+
+    <!-- extra preferences -->
+    <div text-wrap class="sk-section">
+        <span>{{ 'app_settings_notifications_label' | translate }}</span>
+    </div>
+
+    <ion-list mode="md">
+        <ion-item *ngIf="siteConfigs.isPluginActive('notifications')" class="sk-select-field-fake sk-email-button" (tap)="showNotificationsSettings()">
+            <ion-label>{{ 'app_settings_email_label' | translate }}</ion-label>
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+
+        <ion-item class="sk-select-field-fake sk-push-button" (tap)="showPreferences('skmobileapp_pushes', 'preferences_pushes_page_title')">
+            <ion-label>{{ 'app_settings_push_label' | translate }}</ion-label>
+            <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+<!-- after deleting account -->
+<page-preloader *ngIf="isPageLoading"></page-preloader>
+
+<ion-footer class="sk-app-settings-footer">
+    <ion-toolbar transparent>
+        <div class="sk-buttons">
+            <button mode="ios" class="sk-logout-button" ion-button full (click)="logout()">
+                <span class="sk-text-overflow">{{ 'logout' | translate }}</span>
+            </button>
+            <button mode="ios" *ngIf="!me.user.isAdmin" class="sk-delete-button" ion-button full (click)="deleteAccountConfirmation()">
+                <span class="sk-text-overflow">{{ 'app_settings_delete_account_button' | translate }}</span>
+            </button>
+        </div>
+    </ion-toolbar>
+</ion-footer>

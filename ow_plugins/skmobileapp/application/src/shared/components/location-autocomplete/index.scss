@@ -1,0 +1,14 @@
+.sk-location-content {
+    ion-searchbar {
+        background: $sk-searchbar-bg;
+    }
+}
+.sk-location-footer {
+    ion-toolbar {
+        button {
+            width: 70%;
+            color: color($colors, sk-button-invisible);
+            border-color: color($colors, sk-button-invisible);
+        }
+    }
+}

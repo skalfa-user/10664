@@ -1,0 +1,102 @@
+<div class="ow_anno ow_center notice ow_smallmargin">
+    {text key='gdpr+gdpr_user_data_note'}
+</div>
+{if !empty($user)}
+    <table class="ow_table_1 ow_gdpr_user_data">
+        <tr class="ow_tr_first">
+            <th colspan="2">
+                <span>
+                    {text key='gdpr+gdpr_btn_profile_info'}
+                </span>
+            </th>
+        </tr>
+        <tr>
+            <td class="ow_label">
+                <span>
+                    {text key='gdpr+gdpr_name'}
+                </span>
+            </td>
+            <td class="ow_value">
+                {$userDisplayName}
+            </td>
+        </tr>
+        <tr>
+            <td class="ow_label">
+                <span>
+                    {text key='gdpr+gdpr_password'}
+                </span>
+            </td>
+            <td class="ow_value">
+                {text key='gdpr+gdpr_password_text'}
+            </td>
+        </tr>
+        <tr>
+            <td class="ow_label">
+                <span>
+                    {text key='gdpr+gdpr_username'}
+                </span>
+            </td>
+            <td class="ow_value">
+                {$user->username}
+            </td>
+        </tr>
+        <tr class="ow_tr_last">
+            <td class="ow_label">
+                <span>
+                    {text key='gdpr+gdpr_email'}
+                </span>
+            </td>
+            <td class="ow_value">
+                {$user->email}
+            </td>
+        </tr>
+        <tr class="ow_tr_delimiter">
+            <td></td>
+        </tr>
+        <tr class="ow_tr_first">
+            <th colspan="2">
+                <span>
+                    {text key='gdpr+gdpr_btn_other_details'}
+                </span>
+            </th>
+        </tr>
+        <tr>
+            <td colspan="2">
+                {text key='gdpr+gdpr_personal_data_note'}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="ow_right">
+                    <a href="{url_for_route for='base_edit'}">
+                        {decorator name='button' id='' langLabel='gdpr+gdpr_btn_edit_profile'}
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr class="ow_tr_delimiter">
+            <td></td>
+        </tr>
+        <tr class="ow_tr_first">
+            <th colspan="2">
+                <span>
+                    {text key='gdpr+gdpr_personal_data'}
+                </span>
+            </th>
+        </tr>
+        <tr>
+            <td colspan="2" class="ow_gdpr_personal_data_section">
+                <div>
+                    {decorator name='button' id='gdpr_btn_request_download' class='ow_negative' langLabel='gdpr+gdpr_btn_request_download'}
+                </div>
+                <div>
+                    {decorator name='button' id='gdpr_btn_request_deletion' class='ow_negative' langLabel='gdpr+gdpr_btn_request_deletion'}
+                </div>
+            </td>
+        </tr>
+    </table>
+{/if}

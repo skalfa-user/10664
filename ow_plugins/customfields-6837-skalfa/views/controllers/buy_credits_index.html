@@ -1,0 +1,39 @@
+{if !empty($menu)}
+    <div class="ow_content_menu_wrap ow_padding">
+        {$menu}
+    </div>
+{/if}
+
+<div class="ow_custom_buy_credits_wrapper">
+    {if $packs}
+        {form name='buy-credits-form'}
+            <div class="ow_custom_form ow_custom_buy_credits_form">
+                <div class="ow_row">
+                    <div class="ow_custom_form_field">
+                        {input name='pack'}
+                    </div>
+                </div>
+                <div class="ow_row">
+                    <div class="ow_custom_form_field">
+                        {input name='gateway'}
+                    </div>
+                </div>
+                <div class="ow_row">
+                    <div id="billing_gateway_extra_information">
+                    </div>
+                </div>
+                <div class="ow_row ow_submit_row">
+                    <div class="ow_submit_field">
+                        {submit name='buy' class='ow_positive'}
+                    </div>
+                </div>
+            </div>
+        {/form}
+    {else}
+        <div class="ow_nocontent">{text key='usercredits+no_packs'}</div>
+    {/if}
+</div>
+
+{script}
+$(document).ready(function() { window.jcf ? jcf.replaceAll() : console.warn('JCF is not initialized properly.'); });
+{/script}

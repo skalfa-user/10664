@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_edit</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-253.000000, -2027.000000)" fill="#ffffff">
+            <g id="ic_edit" transform="translate(253.000000, 2027.000000)">
+                <g id="Group">
+                    <path d="M2.851,15.978 L0,16 C0,16 0,16 0.022,13.148 C0.024,12.827 0.928,12.242 0.928,12.242 L3.757,15.07 C3.758,15.07 3.171,15.975 2.851,15.978" id="Shape"></path>
+                    <path d="M14.932,1.068 C14.152,0.287 13.62,-0.448 12.838,0.334 L11.492,1.68 L14.32,4.508 L15.666,3.162 C16.447,2.38 15.713,1.849 14.932,1.068" id="Shape"></path>
+                    <polygon id="Shape" transform="translate(7.608646, 8.390892) rotate(-45.000000) translate(-7.608646, -8.390892) " points="1.40020599 6.39091073 13.8170869 6.39091073 13.8170869 10.3908724 1.40020599 10.3908724"></polygon>
+                    <polygon id="Shape" points="4.875 15 16 15 16 16 4.06 16"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

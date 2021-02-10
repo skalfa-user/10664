@@ -1,0 +1,35 @@
+<div class="video-preview-wrapper">
+
+    {if isset($isVideoLoad) && $isVideoLoad == false}
+        <div class="video-preview-widget-txt ow_smallmargin">{text key="cvideoupload+my_video_widget_upload_video"}</div>
+
+        <div class="video-preview-widget-btn ow_center">
+            {decorator name='button' class='ow_ic_add' id='btn-video-preview-add' langLabel='cvideoupload+my_video_widget_add_video'}
+        </div>
+    {else}
+
+    <div id="custom-video-preview-wrapper">
+        {if $video}
+            {if $video->status == 'processed'}
+                <video preload="auto" controls poster="{$video->coverImage}">
+                    {foreach from=$video->videos item=video}
+                    <source src="{$video.url}" type="{$video.type}">
+                    {/foreach}
+                </video>
+            {else}
+                <img src="{$video->coverImage}" />
+                <div class="video-preview-widget-status ow_center">
+                    {$video->statusLabel}
+                </div>
+
+            {/if}
+
+        {/if}
+
+        <div class="video-preview-widget-btn ow_center">
+            {decorator name='button' class='ow_ic_edit' id='btn-video-preview-edit' langLabel='cvideoupload+my_video_widget_edit_video'}
+        </div>
+    </div>
+
+    {/if}
+</div>

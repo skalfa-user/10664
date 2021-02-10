@@ -1,0 +1,125 @@
+.user_counter_join * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+html[xmlns] .user_counter_join .ow_canvas {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.user_counter_join {
+    background-color: #f6f6f6;
+    padding: 124px 0 80px;
+}
+.user_counter_join_block {
+    width: 50%;
+    position: relative;
+}
+
+.user_counter_join_block .counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 160px;
+    margin: auto;
+    border: 5px solid #f9616e;
+}
+.user_counter_join_block .counter .ow_customindex-users-counter {
+    text-align: center;
+    color: #f9616e;
+    font-size: 24px;
+    line-height: 50px;
+    font-family: 'core_sans_e85_extrabold', "Trebuchet MS", "Helvetica CY", sans-serif;
+}
+.user_counter_join_block .counter span {
+    display: block;
+    font-size: 60px;
+}
+.user_counter_join_block .fb_connect {
+    color: #000000;
+    width: 400px;
+    margin: 30px auto;
+    font-size: 23px;
+    line-height: 30px;
+    font-family: 'core_sans_e35_light', "Trebuchet MS", "Helvetica CY", sans-serif;
+}
+
+
+.user_counter_join_block .connect_button_list {
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.user_counter_join_block .fb_connect .ow_connect_text {
+    display: none;
+}
+.user_counter_join_block .fb_connect .connect_button_list .fb_button {
+    background-image: none;
+    background-color: #f9616e;
+    padding-left: 0;
+    height: 44px;
+    width: 100%;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+}
+.user_counter_join_block .fb_connect .connect_button_list .fb_button:hover {
+    background-color: #000000;
+}
+.user_counter_join_block .fb_connect .fb_connect_wrap {
+    border: none;
+    display: inline-block;
+    height: auto;
+    width: 100%;
+}
+
+.user_counter_join_block .fb_connect .fb_button_text {
+    border: none;
+    display: inline-block;
+    line-height: 44px;
+    min-height: 44px;
+    font-size: 16px;
+    padding: 0 10px 0 30px;
+    font-weight: normal;
+    background: url(../images/fb_icon.png) no-repeat left center;
+    text-transform: uppercase;
+    font-family: 'core_sans_e55_medium', "Trebuchet MS", "Helvetica CY", sans-serif;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+    .user_counter_join {
+        padding: 60px 0;
+    }
+    .user_counter_join_block .counter {
+        width: 300px;
+    }
+    .user_counter_join_block .fb_connect {
+        font-size: 20px;
+        width: 300px;
+    }
+    .user_counter_join_block .counter .ow_customindex-users-counter {
+        font-size: 18px;
+        line-height: 43px;
+    }
+    .user_counter_join_block {
+        width: 100%;
+    }
+    .user_counter_join_block:first-child {
+        margin-bottom: 60px;
+        padding-bottom: 30px;
+    }
+    .user_counter_join_block .connect_button_list {
+        width: 260px;
+    }
+}
+

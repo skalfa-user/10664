@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+    <name>GDPR</name>
+    <key>gdpr</key>
+    <description>The General Data Protection Regulation module gives end user visibility to the data stored about themself and aims to help site admins follow the guidelines and legislation set by the EU.</description>
+    <author>Skalfa</author>
+    <authorEmail>info@skadate.com</authorEmail>
+    <authorUrl>https://www.skadate.com</authorUrl>
+    <developerKey>99d6bdd5bb6468beaf118c4664dd92ff</developerKey>
+    <build>2</build>
+    <copyright>(C) 2009-2018 Skalfa LLC. All rights reserved.</copyright>
+    <license>SEL</license>
+    <licenseUrl>http://www.skadate.com/sel.pdf</licenseUrl>
+</plugin>

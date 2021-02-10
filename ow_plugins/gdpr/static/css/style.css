@@ -1,0 +1,35 @@
+.ow_anno.notice {
+    padding-left: 46px;
+    background-position: 12px 50%;
+    text-align: left;
+}
+
+.ow_gdpr_user_data.ow_table_1 {
+    margin-bottom: 0;
+}
+
+.ow_gdpr_user_data .ow_gdpr_personal_data_section {
+    text-align: center;
+}
+
+.ow_gdpr_user_data .ow_gdpr_personal_data_section div {
+    display: inline-block;
+}
+
+.ow_gdpr_user_data .ow_gdpr_personal_data_section input[type=button] {
+    font-size: 10px;
+}
+
+.turquoise .ow_gdpr_user_data .ow_gdpr_personal_data_section input[type=button] {
+    font-size: 12px;
+}
+
+.ow_gdpr_third_party_text ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/* Mobile */
+.owm_anno.notice {
+    text-align: left;
+}

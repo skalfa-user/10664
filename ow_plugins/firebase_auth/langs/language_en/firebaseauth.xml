@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="firebaseauth" label="Firebase auth" language_tag="en" language_label="English">
+    <key name="api_settings_desc"><value>You can read the &lt;a target="_blank" href="https://firebase.google.com/docs/web/setup"&gt;doc&lt;/a&gt; how to obtain both api key and auth domain</value></key>
+    <key name="social_networks_desc"><value>You can read the &lt;a target="_blank" href="https://firebase.google.com/docs/auth/web/start"&gt;doc&lt;/a&gt; how to configure the social networks</value></key>
+    <key name="social_networks_label"><value>Social networks</value></key>
+    <key name="api_settings_label"><value>Api setup</value></key>
+    <key name="form_auth_domain_title_label"><value>Auth domain</value></key>
+    <key name="settings_successfully_saved"><value>Settings successfully saved</value></key>
+    <key name="form_submit_label"><value>Submit</value></key>
+    <key name="form_api_title_label"><value>Api key</value></key>
+    <key name="admin_header"><value>Firebase authenticate</value></key>
+    <key name="authenticate"><value>Authenticate...</value></key>
+    <key name="authenticate_error"><value>Authentication error, please try again later</value></key>
+    <key name="authenticate_error_account_exists"><value>You have already used your email for: </value></key>
+    <key name="connect_via_page_header"><value>Connect via</value></key>
+    <key name="connect_via_different_network_label"><value>Or sign in via different network</value></key>
+    <key name="connect_via_label"><value>Or connect via</value></key>
+    <key name="successfully_authenticated"><value>You have been successfully authenticated</value></key>
+    <key name="missing_settings_error"><value>&lt;a href="{$url}"&gt;Firebase auth plugin&lt;/a&gt; requires additional configuration</value></key>
+    <key name="form_email_example_title_label"><value>Email example</value></key>
+    <key name="firebase_admin_key_file_label"><value>Private key file (.json)</value></key>
+    <key name="form_email_example_description"><value>Email example - this email is used for social networks profiles that do not have an email. If you set Email example as admin@example.com those users will be automatically registered with admin+userID@example.com</value></key>
+    <key name="admin_key_file_save_error"><value>Error saving private key file!</value></key>
+    <key name="admin_key_file_description"><value>Private key file gives access to your project's Firebase services. Keep it confidential and never store it in a public repository</value></key>
+</prefix>

@@ -1,0 +1,449 @@
+.text-input,
+.searchbar-input {
+    @include rtl() {
+        text-align: right;
+    }
+}
+// -- Buttons -- //
+
+button {
+    .sk-text-overflow {
+        line-height: 1.3;
+    }
+}
+
+.sk-buttons {
+    width: 100%;
+    text-align: center;
+    @include text-overflow;
+
+    button {
+        min-width: 55%;
+        max-width: 95%;
+    }
+}
+
+//-- Questions --//
+
+question {
+    &:last-child {
+        .item-block .item-inner,
+        .sk-date-range-question-wrap .wrap {
+            border: none;
+        }
+    }
+}
+.sk-question-list {
+    .sk-question-item:last-child {
+        .item-inner {
+            border: none;
+        }
+    }
+
+    &:last-child {
+        .sk-question-item:last-child {
+            .item-inner {
+                border: none;
+            }
+        }
+    }
+}
+
+// Section
+.sk-question-section {
+    background-color: transparent;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: $sk-section-color;
+    text-transform: uppercase;
+    border-bottom: none;
+
+    .item-inner {
+        border: 0;
+
+        .label {
+            @include margin(3rem, 1rem, 0.7rem, 0);
+        }
+    }
+}
+
+// if Question is required
+.sk-question-warning,
+.sk-avatar-warning {
+    ion-label {
+        &>span:first-child,
+        button > span {
+            position: relative;
+            display: inline-block;
+            @include padding(null, 1.4rem, null, null);
+
+            &:after {
+                content: '*';
+                position: absolute;
+                @include position(-3px, 0px, null, null);
+                font-size: 2rem;
+                font-weight: 500;
+                color: color($colors, primary);
+            }
+        }
+    }
+}
+
+.sk-base-question-presentation {
+    position: relative;
+    color: $sk-desc-color;
+
+    ion-label, .label[stacked] {
+        font-size: 1.7rem;
+        white-space: normal;
+        color: color($colors, dark);
+    }
+
+    ion-item {
+        font-size: 1.4rem;
+        color: $sk-desc-color;
+
+        &.item-input:last-child {
+            border: none;
+        }
+    }
+
+    .sk-question-validation {
+        .input-wrapper {
+            @include margin(null, 3rem, null, null);
+        }
+
+        .toggle {
+            @include padding(null, 3rem, null, null);
+        }
+    }
+
+    // Question error circle and pending loader
+    .sk-question-error, .sk-question-pending {
+        position: absolute;
+        z-index: 999;
+        height: 28px;
+        width: 28px;
+        @include position(50%, 8px, null, null);
+        transform: translateY(-50%);
+    }
+
+    .sk-question-error {
+        border-radius: 50%;
+        background-image: url("../assets/img/ic-error.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+    }
+
+    // Select question
+    .sk-select-question-presentation {
+
+        &.sk-select-question-empty {
+            ion-label {
+                padding-bottom: 0.5rem;
+            }
+
+            .select {
+                padding: 0;
+
+                .select-text {
+                    display: none;
+                }
+            }
+        }
+        .item-inner {
+            @include padding(null, 0px, null, null);
+        }
+
+        .input-wrapper {
+            position: relative;
+            flex-direction: column;
+            align-items: flex-start;
+
+            ion-label {
+                &>span {
+                    display: inline-block;
+                    @include padding(null, 1.8rem, null, null);
+                }
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                width: 9px;
+                height: 100%;
+                background-image: url("../assets/img/ic-select.svg");
+                background-repeat: no-repeat;
+                pointer-events: none;
+                @include position(null, 16px, null, null);
+                @include background-position(end, center);
+                @include rtl() {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        .select {
+            max-width: 100%;
+
+            .select-icon {
+                display: none;
+            }
+        }
+    }
+
+    // Range question
+    .sk-range-question-presentation {
+        .label {
+            width: 100%;
+            @include flex(flex, row, space-between, stretch);
+            @include padding(null, 8px, null, null);
+            color: $sk-label-color;
+
+            .sk-range-value {
+                font-size: 1.4rem;
+            }
+        }
+
+        .range {
+            @include padding(0, 8px, 8px, 0);
+
+            .range-bar {
+                background-color: $list-border-color;
+                height: 1px;
+            }
+
+            .range-bar-active {
+                background-color: color($colors, primary);
+            }
+            .range-knob {
+                box-shadow: none;
+                background-color: color($colors, primary);
+                height: 16px;
+                width: 16px;
+                transform: scale(1);
+                @include position(14px, null, null, 14px);
+
+            }
+            .range-knob-handle {
+                @include rtl() {
+                    margin-left: -21px;
+                    margin-right: auto;
+                }
+            }
+        }
+
+    }
+
+    // Date question
+    .sk-date-question-presentation {
+        .item-inner {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .datetime {
+            padding: 0 0 1rem 0;
+            font-size: 1.4rem;
+            color: $sk-desc-color;
+        }
+    }
+
+    // Date range question
+    .sk-date-range-question-presentation {
+        background-color: color($colors, light);
+
+        ion-label {
+            margin: 0;
+            color: $sk-label-color;
+            @include padding($label-ios-margin-top, null, 0, 16px);
+
+            &.label-md {
+                @include padding($label-md-margin-top, null, 0, 16px);
+            }
+        }
+        .sk-date-range-question-wrap {
+            @include margin(null, null, null, 16px);
+            border-bottom: 0.55px solid $sk-divide-border-short-color;
+
+            ion-item {
+                padding: 0;
+                min-height: 3.5rem;
+
+                .item-inner {
+                    border: 0;
+
+                    .input-wrapper {
+                        align-items: center;
+
+                        ion-label {
+                            display: inline-block;
+                            font-size: 1.4rem;
+                            padding: 0;
+                            color: $sk-desc-color;
+                        }
+
+                        ion-datetime {
+                            padding-bottom: 0.5rem;
+                            padding-top: 0.5rem;
+                            position: relative;
+                            max-width: 80%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Extended googlemap question
+    .sk-extended-googlemap-location-question-presentation {
+        .item-range {
+            .label {
+                @include flex(flex, row, space-between, center);
+            }
+            .sk-range-value {
+                font-size: 1.4rem;
+            }
+            .range {
+                @include padding(0, 8px, 8px, 0);
+            }
+            .range-bar {
+                background-color: $list-border-color;
+                height: 1px;
+            }
+            .range-bar-active {
+                background-color: color($colors, primary);
+            }
+            .range-knob {
+                box-shadow: none;
+                background-color: color($colors, primary);
+                height: 16px;
+                width: 16px;
+                transform: scale(1);
+                @include position(14px, null, null, 14px);
+            }
+            .range-knob-handle {
+                @include rtl() {
+                    margin-left: -21px;
+                    margin-right: auto;
+                }
+            }
+            .text-input {
+                margin-top: 0;
+            }
+        }
+
+    }
+
+    // Checkbox TOS toggle
+    &.sk-tos {
+        ion-label {
+            overflow: visible;
+            .button {
+                @include text-align('start');
+                overflow: visible;
+                white-space: normal;
+                height: auto;
+            }
+        }
+    }
+}
+
+//Choosen options via select
+.select-alert {
+    .alert-checkbox-label,
+    .alert-radio-label {
+        white-space: normal;
+    }
+}
+
+//Android date range border
+.md {
+    .sk-base-question-presentation {
+        .sk-date-range-question-wrap {
+            border-bottom-width: 1px;
+        }
+    }
+}
+
+//-- Search input --//
+
+ion-searchbar.searchbar {
+    border: 0;
+    min-height: 44px;
+    background-color: transparent;
+
+    .searchbar-input-container {
+        .searchbar-input {
+            background-color: $sk-search-input-bg;
+            box-shadow: none;
+            border-radius: 8px;
+            @include padding(0, 28px, 0, 30px);
+        }
+
+        .searchbar-search-icon {
+            width: 14px;
+            height: 14px;
+            @include position(9px, null, null, 9px);
+            background-size: 13px;
+            background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2013%2013'><path%20fill='rgba(0,%200,%200,%200.5)'%20d='M5,1c2.2,0,4,1.8,4,4S7.2,9,5,9S1,7.2,1,5S2.8,1,5,1%20M5,0C2.2,0,0,2.2,0,5s2.2,5,5,5s5-2.2,5-5S7.8,0,5,0%20L5,0z'/><line%20stroke='rgba(0,%200,%200,%200.5)'%20stroke-miterlimit='10'%20x1='12.6'%20y1='12.6'%20x2='8.2'%20y2='8.2'/></svg>");
+        }
+    }
+}
+
+// -- Question view -- //
+
+.sk-profile-section {
+    @include padding(1.2rem, 1.6rem, 1.2rem, null);
+    border-bottom: 1px solid $sk-divide-border-short-color;
+
+    .sk-section-head {
+        font-size: 1.7rem;
+    }
+
+    .sk-section-text {
+        margin: 0.2rem 0 0;
+        font-size: 1.4rem;
+        color: $sk-desc-color;
+        &.sk-section-text-pre-wrap {
+            white-space: pre-wrap;
+        }
+    }
+}
+
+// -- Action buttons -- //
+
+.sk-action-btns {
+    @include flex(flex, row, space-between, center);
+    padding: 0 8.5vw 1rem;
+
+    button {
+        width: 5.2rem;
+        height: 5.2rem;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        background-size: 100% 100%;
+        border-radius: 50%;
+        overflow: visible;
+
+        svg {
+            width: 100%;
+            height: 100%;
+            object-fit: 100%;
+            overflow: visible;
+        }
+
+        &.sk-action-smaller-btn {
+            width: 4.2rem;
+            height: 4.2rem;
+        }
+
+        &.sk-dislike-btn {
+            background-image: url("../assets/img/custom-images/ic-dislike.svg");
+        }
+        &.sk-like-btn {
+            background-image: url("../assets/img/custom-images/ic-like.svg");
+        }
+    }
+}

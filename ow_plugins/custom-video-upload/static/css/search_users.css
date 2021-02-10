@@ -1,0 +1,81 @@
+.user_preloader {
+    padding-left: 10px;
+    padding-top: 10px;
+    min-width: 22px;
+    min-height: 22px;
+}
+.scroll-live-search-result {
+    background-color: #f2f2f2;
+    z-index: 9999;
+    max-height: 325px;
+}
+.added_user_list {
+    width: auto;
+}
+.user_item_to_add {
+    display: flex;
+    align-items: center;
+    padding: 5px 8px;
+}
+.add_user_label {
+    margin-left: auto;
+    min-width: 50px;
+    padding: 5px;
+    cursor: pointer;
+    background-color: #337ab7;
+    color: #fff;
+    text-transform: uppercase;
+}
+.added_user_label {
+    margin-left: auto;
+}
+.user_list_thumb {
+    margin-right: 5px;
+}
+.user_list_name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.user-list-search-result {
+    margin: 10px 0;
+    background-color: #DEE3E9;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.user-list-search-result h2 {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.user_item_added {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 48%;
+    border: 1px solid #cecece;
+    margin-bottom: 8px;
+    background-color: #fff !important;
+}
+.user_item_added:nth-child(2n-1) {
+    margin-left: 2%;
+}
+.user-list-search-result .ow_avatar {
+    width: auto;
+    height: auto;
+    padding: 4px;
+}
+.user-list-search-result .ow_avatar img {
+    width: 32px;
+    height: 32px;
+}
+.remove_user_label {
+    font-size: 0;
+    cursor: pointer;
+    width: 20px;
+    align-self: stretch;
+    margin-left: auto;
+    border-left: 1px solid #cecece;
+    background: url(../images/tag_close_btn.png) no-repeat center center;
+}

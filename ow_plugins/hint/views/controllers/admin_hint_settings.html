@@ -1,0 +1,314 @@
+{**
+ * Copyright (c) 2012, Sergey Kambalin
+ * All rights reserved.
+
+ * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
+ * and is licensed under Oxwall Store Commercial License.
+ * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ *}
+
+{**
+ *
+ * @author Sergey Kambalin <greyexpert@gmail.com>
+ * @package hint.view
+ **}
+
+{style}
+
+.h-preview-wrap {
+    position: relative;
+    width: 355px;
+    height: 275px;
+    margin: 15px auto 0px;
+}
+
+.h-left-col {
+    width: 440px;
+}
+
+.h-right-col {
+    width: 400px;
+}
+
+html table.h-setting-form td.ow_label {
+    width: auto;
+    text-align: left;
+}
+
+html table.h-setting-form td.ow_value {
+    width: 30px;
+    text-align: center;
+}
+
+html h3.h_preloader {
+    background-image: url({$preloaderUrl});
+}
+
+.h-requirements {
+    padding-left: 40px;
+}
+
+.p-question-c {
+    
+}
+
+div.h-dnd-legend {
+    margin: 5px 10px;
+    padding: 5px 10px;
+}
+
+.h-leave-review {
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 20px;
+}
+
+.h-button-options {
+    margin-top: 5px;
+}
+
+{/style}
+
+{script}
+    var actionConfiguration = function() {
+        var out = [];
+
+        $("input[data-key]:checked").each(function() {
+            out.push($(this).attr("data-key"));
+        });
+
+        return out;
+    };
+    
+    var lineConfiguration = function( line ) {
+        var out = {};
+        out.key = line.val();
+        
+        if (out.key == "base-question") {
+            out.question = line.parent().find(".p-question-c select").val();
+        }
+        
+        return out;
+    };
+    
+    var infoConfiguration = function() {
+        var out = {};
+        out.line0 = lineConfiguration($("#info0"));
+        out.line1 = lineConfiguration($("#info1"));
+        out.line2 = lineConfiguration($("#info2"));
+    
+        return out;
+    };
+    
+    function customSettings() {
+        var element = owForms["HINT_ConfigurationForm"].getElement("ehintType");
+        var out = {};
+        
+        if ( element ) {
+            out.ehintType = element.getValue();
+        }
+        
+        return out;
+    }
+
+    var refresh = function() {
+        var params = {};
+
+        params.actions = actionConfiguration();
+        params.info = infoConfiguration();
+        
+        params.settings = customSettings();
+        
+        params.features = {
+            "cover": $("#feature_header").get(0).checked
+        };
+        
+        $(".h-requirements").hide();
+        
+        if ( params.features.cover ) {
+             $("#r-cover").show();
+        }
+        
+        $.each(params.actions, function(i, key) {
+            $("#r-" + key).show();
+        });
+        
+        $("#h-preview-box .ow_box_cap_body h3").removeClass("ow_ic_lens").addClass("h_preloader");
+        OW.loadComponent("{$previewCmp}", ["{$entityType}", params], function( html ) {
+            $("#h-preview").html(html);
+
+            $("#h-preview-box .ow_box_cap_body h3").removeClass("h_preloader").addClass("ow_ic_lens");
+        });
+    };
+
+    var timeOut, delayedRefresh = function() {
+        if ( timeOut ) window.clearTimeout(timeOut);
+        timeOut = window.setTimeout(refresh, 100);
+    };
+
+    $(".h-refresher").click(delayedRefresh);
+    
+    $("#info0, #info1, #info2").change(function() {
+        if ( $(this).val() == "base-question" ) {
+            $(this).parent().find(".p-question-c").show();
+        } else {
+            $(this).parent().find(".p-question-c").hide();
+            
+            refresh();
+        }
+    });
+    
+    $(".p-question-c select").change(refresh);
+
+{/script}
+
+{if !empty($menu)}{$menu}{/if}
+
+{foreach from=$requirements item="r"}
+    <div class="h-requirements ow_anno ow_smallmargin" id="r-{$r.key}" {if $r.hidden}style="display: none;"{/if}>
+            {$r.text}
+    </div>
+{/foreach}
+
+<div class="clearfix ow_stdmargin">
+    {form name="HINT_ConfigurationForm"}
+    <div class="ow_left h-left-col">
+        
+        {if $entityType == "event"}
+        
+        <table class="ow_table_1 ow_form h-setting-form">
+            <tr class="ow_tr_first">
+                <th class="ow_name ow_txtleft" colspan="2">
+                    <span class="ow_section_icon ow_ic_add">{text key="hint+custom_settings_label"}</span>
+                </th>
+            </tr>
+
+            <tr class="{cycle values="ow_alt1, ow_alt2"}">
+                <td class="ow_value">
+                    {label name="ehintType"}
+                </td>
+                <td class="ow_label">
+                    {input name="ehintType"}
+                </td>
+            </tr>
+
+        </table>
+        
+        {/if}
+        
+        <table class="ow_table_1 ow_form h-setting-form">
+            <tr class="ow_tr_first">
+                <th class="ow_name ow_txtleft" colspan="2">
+                    <span class="ow_section_icon ow_ic_user">{text key="hint+admin_button_configuration_label"}</span>
+                </th>
+            </tr>
+
+            {foreach from=$buttonConfigs item="btn"}
+                <tr class="{cycle values="ow_alt1, ow_alt2"}">
+                    <td class="ow_value">{input name="action-`$btn.key`"}</td>
+                    <td class="ow_label">
+                        <div class="h-button-label">{label name="action-`$btn.key`"}</div>
+                        {if !empty($btn.requirements.short)}
+                            <div class="h-button-label-requirements ow_small">
+                                {$btn.requirements.short}
+                            </div>
+                        {/if}
+
+                        {if !empty($btn.options)}
+                        <div class="h-button-options ow_small ow_remark">
+                            {foreach from=$btn.options item="option"}
+                                <div class="h-button-option">
+                                    {input name="option-`$btn.key`-`$option.key`"} {label name="option-`$btn.key`-`$option.key`"}
+                                </div>
+                            {/foreach}
+                        </div>
+                        {/if}
+                    </td>
+                </tr>
+            {/foreach}
+
+        </table>
+        
+        <table class="ow_table_1 ow_form h-setting-form">
+            <tr class="ow_tr_first">
+                <th class="ow_name ow_txtleft" colspan="2">
+                    <span class="ow_section_icon ow_ic_add">{text key="hint+admin_button_features_label"}</span>
+                </th>
+            </tr>
+
+            <tr class="{cycle values="ow_alt1, ow_alt2"}">
+                <td class="ow_value">
+                    {input name="header_enabled"}                    
+                </td>
+                <td class="ow_label">
+                    {text key="hint+admin_profile_cover_option"}
+                    {if !empty($coverRequired)}
+                        <div class="h-button-label-requirements ow_small">
+                            {$coverRequired}
+                        </div>
+                    {/if}
+                </td>
+            </tr>
+
+        </table>
+        
+        <table class="ow_table_1 ow_form h-info-form">
+            <tr class="ow_tr_first">
+                <th class="ow_name ow_txtleft" colspan="2">
+                    <span class="ow_section_icon ow_ic_add">{text key="hint+admin_information_label"}</span>
+                </th>
+            </tr>
+
+            <tr class="{cycle values="ow_alt1, ow_alt2"}" {if empty($info.line0)}style="display: none;"{/if}>
+                <td class="ow_label">
+                    {text key="hint+admin_info0_label"}
+                </td>
+                <td class="ow_value">
+                    {input name="info_line0"} <span {if empty($info.line0) || $info.line0.key != "base-question"}style="display: none;"{/if} class="p-question-c">{input name="info_line0_question"}</span>
+                </td>
+            </tr>
+            
+            <tr class="{cycle values="ow_alt1, ow_alt2"}" {if empty($info.line1)}style="display: none;"{/if}>
+                <td class="ow_label">
+                    {text key="hint+admin_info1_label"}
+                </td>
+                <td class="ow_value">
+                    {input name="info_line1"} <span {if empty($info.line1) || $info.line1.key != "base-question"}style="display: none;"{/if} class="p-question-c">{input name="info_line1_question"}</span>
+                </td>
+            </tr>
+            
+            <tr class="{cycle values="ow_alt1, ow_alt2"}" {if empty($info.line2)}style="display: none;"{/if}>
+                <td class="ow_label">
+                    {text key="hint+admin_info2_label"}
+                </td>
+                <td class="ow_value">
+                    {input name="info_line2"} <span {if empty($info.line2) || $info.line2.key != "base-question"}style="display: none;"{/if} class="p-question-c">{input name="info_line2_question"}</span>
+                </td>
+            </tr>
+
+        </table>
+
+        <div class="clearfix ow_stdmargin"><div class="ow_right">
+            {submit name='save' class='ow_ic_save'}
+        </div></div>
+    </div>
+    {/form}
+
+    <div class="ow_right h-right-col" id="h-preview-box">
+        
+        {block_decorator name='box' langLabel="hint+admin-hit-preview" iconClass="ow_ic_lens" type="empty"}
+            <div class="h-preview-wrap" id="h-preview">
+                {$preview}
+            </div>
+        {/block_decorator}
+        
+        <div class="admin_notification h-dnd-legend">
+            {text key="hint+admin_button_dnd_legend"}
+        </div>
+    </div>
+</div>
+
+<div class="h-leave-review ow_ic_star">
+    {text key="hint+leave_review_suggest" pluginUrl=$pluginUrl}
+</div>
+

@@ -1,0 +1,15 @@
+<span *ngIf="distance <= 1 && unit == 'km'">
+    {{ 'within_km' | translate:{value: distance} }}
+</span>
+
+<span *ngIf="distance <= 1 && unit == 'miles'">
+    {{ 'within_miles' | translate:{value: distance} }}
+</span>
+
+<span *ngIf="distance > 1 && unit == 'km'">
+    {{ 'km_away' | translate:{value: distance} }}
+</span>
+
+<span *ngIf="distance > 1 && unit == 'miles'">
+    {{ 'miles_away' | translate:{value: distance} }}
+</span>

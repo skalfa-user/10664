@@ -1,0 +1,32 @@
+{*
+
+/**
+* Copyright (c) 2014, Skalfa LLC
+* All rights reserved.
+*
+* ATTENTION: This commercial software is intended for exclusive use with SkaDate Dating Software (http://www.skadate.com) and is licensed under SkaDate Exclusive License by Skalfa LLC.
+*
+* Full text of this license can be found at http://www.skadate.com/sel.pdf
+*/
+
+*}
+
+<div class="ow_lp_avatars{if !empty($css_class)} {$css_class}{/if}">
+    {if empty($users)}
+        <div class="ow_nocontent">{text key='base+empty_user_avatar_list'}</div>
+    {else}
+        {foreach from=$users item='user'}
+            <div class="ow_avatar{if !empty($user.class)} {$user.class}{/if}">
+                {if !empty($user.url)}
+                <a href="{$user.url}"><img alt=""{if !empty($user.title)} title="{$user.title}"{/if} src="{$user.src}" /></a>
+                {else}
+                <img alt="" {if !empty($user.title)} title="{$user.title}"{/if} src="{$user.src}" />
+                {/if}
+                {if !empty($user.label)}<span class="ow_avatar_label"{if !empty($user.labelColor)} style="background-color: {$user.labelColor}"{/if}>{$user.label}</span>{/if}
+            </div>
+        {/foreach}
+        {if !empty($view_more_array)}
+            <a href="{$view_more_array.url}" title="{$view_more_array.title}" class="avatar_list_more_icon"></a>
+        {/if}
+    {/if}
+</div>

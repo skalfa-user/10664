@@ -1,0 +1,13 @@
+<div class="h-menu-w">
+    <div class="h-menu ow_small ow_txtleft">
+        <ul class="ow_context_action_list h-context-list h-list-list">
+            {foreach from=$buttons item="btn"}
+                <li class="h-list-label">
+                    <a href="javascript://" class="hc-action" data-type="{$btn.type}" {if $btn.hidden}style="display: none;"{/if}>
+                        {$btn.label}
+                    </a>
+                </li>
+            {/foreach}
+        </ul>
+    </div>
+</div>

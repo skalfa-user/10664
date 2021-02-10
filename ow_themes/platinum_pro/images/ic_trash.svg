@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="16px" viewBox="0 0 13 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_trash</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-720.000000, -1999.000000)">
+            <g id="ic_trash" transform="translate(720.000000, 1999.000000)">
+                <g id="Group">
+                    <g fill="#ffffff" id="Shape">
+                        <path d="M13,3 L13,2 C13,0.896 12.104,0 11,0 L2,0 C0.896,0 0,0.896 0,2 L0,3 L13,3"></path>
+                        <path d="M1,4 L1,14 C1,15.104 1.896,16 3,16 L10,16 C11.104,16 12,15.104 12,14 L12,4 L1,4"></path>
+                    </g>
+                    <g transform="translate(3.000000, 5.000000)" fill="#FFFFFF" id="Shape">
+                        <polygon points="0 0 1 0 1 9 0 9"></polygon>
+                        <polygon points="3 0 4 0 4 9 3 9"></polygon>
+                        <polygon points="6 0 7 0 7 9 6 9"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

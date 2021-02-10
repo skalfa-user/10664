@@ -1,0 +1,63 @@
+<div class="ow_qs">
+    {form name='QuickSearchForm'}
+
+    {foreach from=$questionList item=question}
+
+        {if $question->name == 'match_sex' }
+            {if !empty($form->displayAccountType) }
+                <div class="ow_qs_field ow_qs_presentation_{$question->presentation}">
+                    <span class="ow_qs_label">{label name=$question->name}</span>
+                    <span class="ow_qs_value match_sex">{input name=$question->name}</span>
+                </div>
+            {/if}
+        {else if $question->name == 'sex'}
+            {if !empty($form->displayAccountType) }
+                <div class="ow_qs_field ow_qs_presentation_{$question->presentation}">
+                    <span class="ow_qs_label">{label name=$question->name}</span>
+                    <span class="ow_qs_value sex">{input name=$question->name}</span>
+                </div>
+            {/if}
+        {else if $question->name == 'birthdate'}
+             <div class="ow_qs_field ow_qs_presentation_{$question->presentation}">
+                <span class="ow_qs_label"><label>{text key='usearch+age'}</label></span>
+                 <span class="ow_qs_value">{input name='birthdate'}</span>
+                <div>{error name='birthdate'}</div>
+            </div>
+        {else if $question->name == 'googlemap_location'}
+            <div class="ow_qs_field ow_qs_presentation_location">
+                <span class="ow_qs_label"><label>{text key='customindex+to_label'}</label></span>
+                {input name='googlemap_location'}
+                {error name='googlemap_location'}
+            </div>
+        {else}
+            <div class="ow_qs_field ow_qs_presentation_{$question->presentation}">
+                <span class="ow_qs_label">{label name=$question->name}{if $question->presentation == "checkbox"}<span class="ow_qs_checkbox_fake"></span>{/if}</span>
+                <span class="ow_qs_value">{input name=$question->name}</span>
+            </div>
+        {/if}
+
+    {/foreach}
+
+    <div class="ow_qs_field qs_checkboxes">
+        {if $form->getElement('online') }
+            <div class="ow_qs_presentation_checkbox">
+                <span class="ow_qs_value">{input name='online'}<span class="ow_qs_checkbox_fake"></span></span>
+                <span class="ow_qs_label">{label name='online'}</span>
+            </div>
+        {/if}
+        {if $form->getElement('with_photo') }
+            <div class="ow_qs_presentation_checkbox">
+                <span class="ow_qs_value">{input name='with_photo'}<span class="ow_qs_checkbox_fake"></span></span>
+                <span class="ow_qs_label">{label name='with_photo'}</span>
+            </div>
+        {/if}
+    </div>
+
+    <div class="ow_qs_field ow_qs_btn">
+        {submit name='search'}
+        <span class="ow_qs_label">
+            <a href="{$advancedUrl}" class="ow_nowrap">{text key='usearch+advanced_search'}</a>
+        </span>
+    </div>
+    {/form}
+</div>

@@ -1,0 +1,30 @@
+{$menu}
+<div class="ow_superwide ow_automargin ow_stdmargin">
+{form name='banner_edit_form'}
+<table class="ow_table_1 ow_form">
+    <tr class="ow_tr_first {cycle values='ow_alt2,ow_alt1'}">
+		<td class="ow_label">{label name='title'}</td>
+		<td class="ow_value">{input name='title'}<br />{error name='title'}</td>
+		<td class="ow_desc"></td>
+	</tr>
+    <tr class="{cycle values='ow_alt2,ow_alt1'}">
+		<td class="ow_label">{label name='code'}</td>
+		<td class="ow_value">{input name='code'}<br />{error name='code'}</td>
+		<td class="ow_desc">{desc name='code'}</td>
+	</tr>
+    {if empty($locDisabled)}
+    <tr class="ow_tr_last {cycle values='ow_alt2,ow_alt1'}">
+		<td class="ow_label">{label name='select_country'}</td>
+		<td class="ow_value">{input name='select_country'}<br />{error name='select_country'}</td>
+		<td class="ow_desc">{desc name='select_country'}</td>
+	</tr>
+    {/if}
+</table>
+<div class="clearfix ow_stdmargin">
+	<div class="ow_right">
+		{submit name='submit'}
+	</div>
+</div>
+
+{/form}
+</div>

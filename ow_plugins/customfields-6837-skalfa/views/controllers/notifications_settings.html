@@ -1,0 +1,46 @@
+<div class="notifications-settings-page">
+    {$contentMenu}
+
+    {form name="notificationSettingForm"}
+        <div class="ow_custom_form ow_notifications_settings_form ow_stdmargin">
+            {foreach from=$actions item=plugin name="plugins"}
+                {foreach from=$plugin.actions item=action name="actions"}
+                    <div class="ow_row flex">
+                        <div class="ow_custom_form_label margin-right-8">
+                            {input name=$action.action}
+                        </div>
+                        <div class="ow_custom_form_field">
+                            <span>{$action.description}</span>
+                        </div>
+                    </div>
+                {/foreach}
+            {/foreach}
+        </div>
+        
+        <div class="ow_content_menu_wrap">
+            <ul class="ow_content_menu clearfix">
+                <li class="active">
+                    <a href="#">
+                        <span>{text key="notifications+config_schedule_title"}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="ow_custom_form ow_notifications_settings_schedule_form">
+            <div class="ow_row">
+                <div class="ow_custom_form_field">
+                    {input name="schedule"}
+                </div>
+            </div>
+            <div class="ow_row ow_submit_row clearfix">
+                <div class="ow_submit_field ow_right">
+                    {submit name='save' class='ow_ic_save'}
+                </div>
+            </div>
+        </div>
+    {/form}
+</div>
+
+{script}
+$(document).ready(function() { window.jcf ? jcf.replaceAll() : console.warn('JCF is not initialized properly.'); });
+{/script}

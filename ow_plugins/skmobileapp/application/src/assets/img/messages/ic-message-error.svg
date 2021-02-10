@@ -1,0 +1,8 @@
+<svg width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" fill-rule="evenodd">
+    <circle fill="#FF554D" cx="14" cy="14" r="14"/>
+    <text font-family="SFUIText-Medium, SF UI Text" font-size="19" font-weight="400" letter-spacing="-.4582353" fill="#FFF">
+      <tspan x="11.1212075" y="21">!</tspan>
+    </text>
+  </g>
+</svg>

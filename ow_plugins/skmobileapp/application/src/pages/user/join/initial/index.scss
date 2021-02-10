@@ -1,0 +1,30 @@
+.sk-join-initial-page {
+    background-color: color($colors, sk-page-bg);
+
+    .sk-join-fields {
+         .sk-add-avatar {
+             width: 30vh;
+             height: 30vh;
+             min-height: 196px;
+             min-width: 196px;
+             @include flex(flex, column, center, center);
+             border: 2px solid $sk-join-initial-avatar;
+             border-radius: 10px;
+             color: $sk-join-initial-avatar;
+             font-size: 2rem;
+             background-repeat: no-repeat;
+             background-position: center;
+             background-size: cover;
+             @include margin(6rem auto 4rem auto);
+
+             ion-label {
+                 flex: none;
+             }
+
+             .icon {
+                 @include margin(null 1.5rem null null);
+                 font-size: 4.2rem;
+             }
+         }
+     }
+}

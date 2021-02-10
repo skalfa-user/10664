@@ -1,0 +1,213 @@
+<ion-content class="sk-profile-view-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isPageLoading" name="profile-details"></skeleton-preloader>
+
+    <!-- profile view is not allowed -->
+    <div *ngIf="!isViewUserAllowed" class="sk-permission-denied sk-blank-state-wrap">
+        <img class="sk-blank-state-icon" src="./assets/img/ic-no-permission.svg" alt="" />
+        <div class="sk-blank-state-cont">
+            <h2>{{ 'permission_denied_header' | translate }}</h2>
+            <span *ngIf="payments.isPaymentsAvailable()">
+                {{ 'permission_denied_alert_message' | translate }}
+            </span>
+        </div>
+        <div class="sk-buttons sk-flex-column">
+            <button *ngIf="payments.isPaymentsAvailable()" ion-button outline round (click)="permissions.showAccessDeniedAlert()">
+                <span class="sk-text-overflow">{{ 'upgrade' | translate }}</span>
+            </button>
+            <button ion-button clear (click)="returnBack()">
+                <span class="sk-text-overflow">{{ 'back' | translate }}</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- profile data wrapper -->
+    <div *ngIf="isViewUserAllowed && !isPageLoading" class="{{ isProfileOwner ? '' : 'sk-not-profile-owner' }}">
+        <!-- slider wrapper -->
+        <div class="sk-slider-wrap">
+            <!-- back button -->
+            <div class="sk-slider-back" (click)="returnBack()">
+                <ion-icon name="ios-arrow-up"></ion-icon>
+            </div>
+
+            <!-- edit profile -->
+            <button *ngIf="isProfileOwner" type="button" ion-button block round class="sk-edit-myprofile" [navPush]="editUserQuestionsPage">
+                <span class="sk-text-overflow">{{ 'edit_profile' | translate }}</span>
+            </button>
+
+            <!-- videoim link icon from profile -->
+            <div *ngIf="isCallAllowed" (tap)="callUser()" class="sk-videoim-link-icon-profile-wrap">
+                <span class="sk-videoim-link-icon-profile">
+                    <svg width="46px" height="46px" viewBox="0 0 46 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+                        <title>back btn copy</title>
+                        <desc>Created with Sketch.</desc>
+                        <defs></defs>
+                        <g id="01-USER-PROFILE" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-312.000000, -39.000000)">
+                            <g id="back-btn-copy" transform="translate(312.000000, 39.000000)">
+                                <circle id="Oval-3" fill="#55C77B" cx="23" cy="23" r="23"></circle>
+                                <path d="M35.3357503,17.0019497 C35.1334489,16.8850291 34.9040677,16.8235422 34.6702263,16.8235422 C34.4367035,16.8235422 34.2070038,16.8850291 34.0050209,17.0016312 L28.5811117,20.1333214 L28.4218192,20.2253925 L28.4218192,20.409216 L28.4218192,25.1233179 L28.4218192,25.3068228 L28.5811117,25.3988939 L34.0050209,28.5309027 C34.2070038,28.6475048 34.4367035,28.7093103 34.6702263,28.7093103 C34.9027934,28.7093103 35.1324931,28.6478234 35.3351132,28.5309027 C35.7454506,28.2941941 36,27.8526353 36,27.3788995 L36,18.1536344 C36,17.6805357 35.7454506,17.238977 35.3357503,17.0019497 M26.8476909,16.8375599 C25.2190845,16.3909038 23.2269727,16.1016286 21.0870374,16.0012743 C21.0660108,16.0006372 21.0465771,16 21.0271434,16 L17.7571873,16 C17.7377536,16 17.7183199,16.0003186 17.6988862,16.0012743 C15.5592695,16.10131 13.5671577,16.3905852 11.937277,16.8375599 C11.3854878,16.9885692 11,17.4941635 11,18.0663421 L11,27.4668289 C11,28.0390075 11.3851692,28.5442833 11.9369584,28.6959298 C13.5649276,29.1419487 15.5557651,29.4315425 17.6941075,29.5322153 C17.7151341,29.5331711 17.7345677,29.5334897 17.7540014,29.5334897 L21.031285,29.5334897 C21.0507187,29.5334897 21.0701524,29.5331711 21.0895861,29.5322153 C23.2298399,29.4315425 25.2203589,29.1419487 26.8480095,28.6962483 C27.3997987,28.5442833 27.7852865,28.0393261 27.7852865,27.4668289 L27.7852865,18.0663421 C27.7843307,17.4938449 27.3988429,16.9885692 26.8476909,16.8375599" id="Fill-1" fill="#FFFFFF"></path>
+                            </g>
+                        </g>
+                    </svg>
+                </span>
+            </div>
+
+            <!-- avatar and photos -->
+            <ion-slides #photosSlider (ionSlideDidChange)="trackViewedPhotos()" [dir]="application.getLanguageDirection()" [pager]="true" [paginationType]="bullets" class="profile-slider">
+                <!-- avatar -->
+                <ion-slide>
+                    <user-avatar 
+                        *ngIf="!isProfileOwner" 
+                        isUseBigAvatar="true" 
+                        [url]="userData.avatar?.bigUrl" 
+                        [isAvatarActive]="userData.avatar?.active" 
+                        (tap)="userData.avatar?.bigUrl ? viewPhotos(userData.avatar?.bigUrl) : ''" 
+                        (press)="showProfileActions()">
+                    </user-avatar>
+                    <user-avatar 
+                        *ngIf="isProfileOwner" 
+                        isUseBigAvatar="true" 
+                        [url]="userData.avatar?.pendingBigUrl" 
+                        (tap)="userData.avatar?.pendingBigUrl ? viewPhotos(userData.avatar?.pendingBigUrl) : ''" 
+                        (press)="showProfileActions()">
+                    </user-avatar>
+                    <div *ngIf="isProfileOwner && userData.avatar?.id && !userData.avatar?.active" class="sk-photo-pending" (tap)="userData.avatar?.pendingBigUrl ? viewPhotos(userData.avatar?.pendingBigUrl) : ''" (press)="showProfileActions()">
+                        <img src="./assets/img/ic-pending.svg" alt="" />
+                    </div>
+                </ion-slide>
+
+                <!-- photos view is not allowed  -->
+                <ng-container *ngIf="!isViewPhotoAllowed">
+                    <ion-slide>
+                        <div class="sk-permission-denied sk-blank-state-wrap">
+                            <img class="sk-blank-state-icon" src="./assets/img/ic-no-permission.svg" alt="" />
+                            <div class="sk-blank-state-cont">
+                                <h2>{{ 'permission_denied_header' | translate }}</h2>
+                            </div>
+                            <div class="sk-buttons">
+                                <button *ngIf="payments.isPaymentsAvailable()" ion-button outline round (click)="permissions.showAccessDeniedAlert()">
+                                    <span class="sk-text-overflow">{{ 'upgrade' | translate }}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </ion-slide>
+                </ng-container>
+
+                <!-- photos -->
+                <ng-container *ngIf="isViewPhotoAllowed">
+                    <ion-slide *ngFor="let photo of firstUserPhotos; let i = index">
+                        <user-image 
+                            [url]="photo.bigUrl" 
+                            (tap)="viewPhotos(photo.bigUrl)" 
+                            (press)="showPhotoActions(photo.id)">
+                        </user-image>
+                        <div *ngIf="isProfileOwner && !photo.approved" class="sk-photo-pending" (tap)="viewPhotos(photo.bigUrl)" (press)="showPhotoActions(photo.id)">
+                            <img src="./assets/img/ic-pending.svg" alt="" />
+                        </div>
+                    </ion-slide>
+                </ng-container>
+
+                <!-- view all photos -->
+                <ion-slide *ngIf="isViewPhotoAllowed && allUserPhotos.length > firstUserPhotosLimit || isProfileOwner">
+                    <div class="sk-view-all-photos">
+                        <button *ngIf="!isProfileOwner" (click)="viewPhotos()" type="button" ion-button block round icon-right>
+                            <span class="sk-text-overflow">{{ 'view_all_photos' | translate }}</span>
+                            <ion-icon name="md-images"></ion-icon>
+                        </button>
+                        <button *ngIf="isProfileOwner" [navPush]="editUserPhotosPage" type="button" ion-button block round icon-right>
+                            <span class="sk-text-overflow">{{ 'manage_photos' | translate }}</span>
+                            <ion-icon name="md-images"></ion-icon>
+                        </button>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </div>
+
+        <!-- base profile info -->
+        <div margin-start class="{{ userData.user.isOnline && !isProfileOwner ? 'sk-profile-top sk-user-online' : 'sk-profile-top' }}">
+            <div class="sk-profile-section">
+                <div class="sk-section-head sk-name">
+                    <span>{{ userData.user.userName }}</span>
+                    <b *ngIf="userData.user.age">, {{ userData.user.age }}</b>
+                </div>
+                <p *ngIf="!isProfileOwner" class="sk-section-text">
+                    <location [distance]="userData.user?.distance?.distance" [unit]="userData.user?.distance?.unit"></location>
+                </p>
+            </div>
+            <div *ngIf="!isProfileOwner" margin-end class="sk-more" (click)="showProfileActions()">
+                <ion-icon name="md-more"></ion-icon>
+            </div>
+        </div>
+
+        <!-- compatibility -->
+        <div margin-start *ngIf="!isProfileOwner && isCompatibilityLoaded" class="sk-profile-section sk-profile-comp">
+            <div class="sk-section-head">{{ 'compatibility' | translate }}</div>
+            <div class="sk-comp-bar">
+                <div class="sk-comp-bar-mask" [style.width.%]="userData.user.compatibility ? userData.user.compatibility : 0 | trustStyle">
+                    <span>{{ userData.user.compatibility ? userData.user.compatibility : 0 }}%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- questions -->
+        <div class="sk-profile-bottom">
+
+            <div *ngIf="isProfileOwner && siteConfigs.isPluginActive('cvideoupload') && isUserVideoLoaded" (click)="uploadVideo()" class="sk-profile-section" margin-start>
+                <div class="sk-section-head">
+                    {{ 'user_video_label' | translate }}
+                </div>
+                <p class="sk-section-text sk-section-text-pre-wrap">{{ 'user_video_desc' | translate }}</p>
+
+                <div *ngIf="userData.user?.video?.videos" class="sk-profile-video sk-video-custom-wrap" >
+                    <video class="sk-video-player" preload="auto" width="100%" controls poster="{{userData.user.video.coverImage}}">
+                        <source *ngFor="let video of userData.user.video.videos" src="{{video.url}}" type="{{video.type}}" />
+                    </video>
+                </div>
+            </div>
+
+            <div *ngIf="!isProfileOwner && siteConfigs.isPluginActive('cvideoupload') && isUserVideoLoaded && userData.user?.video?.videos && userData.user?.video?.status == 'processed'" class="sk-profile-section" margin-start>
+                <div class="sk-section-head">{{ 'user_video_label' | translate }}</div>
+                <div class="sk-profile-video sk-video-custom-wrap">
+                    <video class="sk-video-player" preload="auto" width="100%" controls poster="{{userData.user.video.coverImage}}">
+                        <source *ngFor="let video of userData.user.video.videos" src="{{video.url}}" type="{{video.type}}" />
+                    </video>
+                </div>
+            </div>
+
+            <ng-container *ngFor="let sectionData of userData.user.viewQuestions">
+                <div *ngFor="let question of sectionData.items" margin-start class="sk-profile-section">
+                    <div class="sk-section-head">
+                        {{ question.label }}
+                    </div>
+                    <p class="sk-section-text sk-section-text-pre-wrap" [innerHTML]="question.value | urlify | trustHtml"></p>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+
+    <!-- permissions -->
+    <permissions #permissions></permissions>
+
+    <!-- match actions component -->
+    <match-actions #matchActions (userDisliked)="returnBack()" (userLiked)="onUserMatchChanged()" (matchDeleted)="onUserMatchChanged()"></match-actions>
+</ion-content>
+
+<!-- footer -->
+<ion-footer *ngIf="isViewUserAllowed && !isPageLoading && !isProfileOwner" no-border class="sk-profile-footer">
+    <ion-toolbar color="transparent">
+        <div class="sk-profile-actions sk-action-btns {{ !isBookmarksLoaded || !siteConfigs.isPluginActive('bookmarks') ? 'sk-bookmarks-disabled' : ''}} {{ !isChatAllowed ? 'sk-messages-disabled' : '' }}">
+            <!-- bookmarks -->
+            <button class="{{ isUserBookmarked ? 'sk-bookmarked-btn' : 'sk-bookmark-btn' }}" (tap)="bookmarkUser()"></button>
+
+            <!-- dislike -->
+            <button class="sk-profile-dislike-btn sk-dislike-btn" (tap)="dislikeUser()" [@dislike]="currentUserMatchType"></button>
+
+            <!-- like -->
+            <button class="sk-profile-like-btn sk-like-btn" (tap)="likeUser()" [@like]="currentUserMatchType"></button>
+
+             <!-- chat -->
+             <button *ngIf="isChatAllowed" class="sk-profile-message-btn" (click)="showChat()"></button>
+        </div>
+    </ion-toolbar>
+</ion-footer>

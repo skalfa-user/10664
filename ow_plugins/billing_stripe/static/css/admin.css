@@ -1,0 +1,23 @@
+input[name = "font_color"] {
+    vertical-align: middle;
+}
+
+input[class = "color_button"] {
+    vertical-align: middle;
+    height: 30px;
+    background: none;
+    border: solid 1px;
+}
+
+input[class = "color_button"]:hover {
+    background-image: none !important;
+    border: solid 1px gray !important;
+}
+
+.color_input input.ow_inprogress {
+    display: none !important;
+}
+
+.font_size_field {
+    width: 80px;
+}

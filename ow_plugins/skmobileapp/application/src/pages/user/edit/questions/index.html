@@ -1,0 +1,83 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ 'edit_user_page_header' | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button *ngIf="!isPageLoading" class="sk-edit-questions-button" ion-button clear [disabled]="questionControl.isFormPending(form) || isUserUpdating || isAvatarPending" (click)="submit()">
+                <ion-spinner *ngIf="isUserUpdating" name="ios-small"></ion-spinner>
+                <span *ngIf="!isUserUpdating">
+                    {{ 'done' | translate }}
+                </span>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [attr.page-blocker]="isUserUpdating ? 'true' : ''" class="sk-user-edit-base sk-user-edit-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isPageLoading" name="profile-edit"></skeleton-preloader>
+
+    <!-- photos -->
+    <ion-grid *ngIf="!isPageLoading">
+        <ion-row *ngFor="let photoSections of generatedPhotoList; let row = index">
+            <ion-col *ngFor="let photoData of photoSections; let col = index" class="sk-photo-grid-item" (tap)="tapPhoto(row, col)" (press)="pressPhoto(row, col)">
+                <user-image *ngIf="photoData.url" [url]="photoData.url" class="sk-photo-wrapper"></user-image>
+
+                <!-- photo is not active -->
+                <div *ngIf="!photoData.isActive" class="sk-photo-pending">
+                    <img src="./assets/img/ic-pending.svg" alt="" />
+                </div>
+
+                <!-- photo is in pending -->
+                <div *ngIf="photoData.isPending" class="sk-photo-pending">
+                    <img src="./assets/img/ic-pending.svg" alt="" />
+                </div>
+
+                <!-- avatar mask -->
+                <div *ngIf="photoData.type == 'avatar'" class="sk-avatar-mask"></div>
+
+                <!-- more -->
+                <ion-icon *ngIf="photoData.type == 'more'" class="sk-photo-actions" name="ios-more"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <!-- edit form -->
+    <form  *ngIf="!isPageLoading" [formGroup]="form">
+        <ion-list class="sk-edit-fields">
+            <div class="sk-question-list-wrap">
+                <!-- questions -->
+                <div *ngFor="let sectionData of sections" class="sk-question-list">
+                    <ion-item-divider *ngIf="sectionData.section" text-wrap class="sk-question-section" color="light">
+                        <span>{{ sectionData.section }}</span>
+                    </ion-item-divider>
+                    <question *ngFor="let question of sectionData.questions"  class="sk-question-item" [question]="question" [form]="form"></question>
+                </div>
+            </div>
+        </ion-list>
+    </form>
+
+    <!-- avatar uploader -->
+    <file-uploader class="sk-avatar-uploader" #avatarUploader
+        isValidateAndReturn="true"
+        acceptMask="image/*"
+        [mimeTypes]="getImageMimeTypes"
+        [maxFileSize]="getAvatarMaxSize"
+        (fileSelected)="startUploadingAvatar($event)">
+    </file-uploader>
+
+    <!-- photo uploader -->
+    <file-uploader class="sk-photo-uploader" #photoUploader
+        isValidateAndReturn="true"
+        acceptMask="image/*"
+        [mimeTypes]="getImageMimeTypes"
+        [maxFileSize]="photoMaxUploadSize"
+        (fileSelected)="startUploadingPhoto($event)">
+    </file-uploader>
+
+    <!-- permissions -->
+    <permissions #permissions></permissions>
+</ion-content>
+
+

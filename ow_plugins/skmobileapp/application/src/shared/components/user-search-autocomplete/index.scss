@@ -1,0 +1,29 @@
+.sk-user-search-content {
+    ion-searchbar.searchbar {
+        background-color: color($colors, sk-page-bg);
+
+        .searchbar-input-container {
+            .searchbar-input{
+                background-color: color($colors, light);
+            }
+        }
+    }
+    .sk-autocomplete-result .item-block .item-inner {
+        border-bottom: none;
+
+        button {
+            margin: 0;
+            padding: 0 2rem;
+            height: 2.5em;
+        }
+    }
+    .sk-user-search-footer {
+        ion-toolbar {
+            button {
+                width: 70%;
+                color: color($colors, sk-button-invisible);
+                border-color: color($colors, sk-button-invisible);
+            }
+        }
+    }
+}

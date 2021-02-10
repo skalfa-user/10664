@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+	<name>Birthday field (#6729 by Skalfa)</name>
+	<key>birthdayf</key>
+	<description>The plugin hides the "Birthday" field and removes it from the base Matchmaking criteria.</description>
+	<author>Skalfa LLC</author>
+	<authorEmail>oxwall@skalfa.com</authorEmail>
+	<authorUrl>http://www.skalfa.com</authorUrl>
+	<developerKey>99d6bdd5bb6468beaf118c4664dd92ff</developerKey>
+	<build>1</build>
+	<copyright>(C) 2009 Skalfa LLC. All rights reserved.</copyright>
+	<license>OSCL</license>
+	<licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+</plugin>

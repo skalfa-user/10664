@@ -1,0 +1,10 @@
+<ion-content>
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isPageLoading" name="small-set" repeatTimes="2"></skeleton-preloader>
+
+    <!-- billing form -->
+    <form *ngIf="!isPageLoading" #billingGatewayForm action="{{ billingGatewayInfo.formUrl }}">
+        <input *ngFor="let field of billingGatewayInfo.options" type="hidden" name="{{ field.key }}" value="{{ field.value }}" />
+        <input *ngFor="let field of purchaseSession" type="hidden" name="{{ field.key }}" value="{{ field.value }}" />
+    </form>
+</ion-content>

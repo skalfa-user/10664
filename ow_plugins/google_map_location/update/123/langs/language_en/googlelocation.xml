@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="googlelocation" label="Google Map Location" language_tag="en" language_label="English">
+	<key name="display_map_on_profile_pages_pages"><value>Should map be displayed on join, profile edit, profile view pages?</value></key>
+	<key name="display_map_on_profile_pages_description"><value>Disabled by default</value></key>
+</prefix>

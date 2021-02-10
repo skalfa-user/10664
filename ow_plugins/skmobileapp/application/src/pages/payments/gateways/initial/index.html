@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar [hideBackButton]="isPurchaseSessionInProcess">
+        <ion-title>{{ 'gateway_page_title' | translate }}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [attr.page-blocker]="isPurchaseSessionInProcess ? 'true' : ''" class="sk-gateways">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isPageLoading" name="small-set" repeatTimes="2"></skeleton-preloader>
+
+    <!-- gateways list -->
+    <ion-grid *ngIf="!isPageLoading">
+        <ion-row>
+            <ion-col col-6 *ngFor="let gateway of gateways">
+                <div class="sk-gateway-wrap" (tap)="processPayment(gateway)">
+                    <img class="sk-gateway-logo" src="./assets/img/payments/gateways/{{ gateway.name }}.svg" alt="{{ gateway.name }}" />
+                    <ion-spinner *ngIf="selectedGateway == gateway.name" name="ios-small"></ion-spinner>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="skmobileapp" label="Skadate Mobile APP" language_tag="en" language_label="English">
+    <key name="upload_file_limit"><value>{{size}} Mb - file size limit</value></key>
+    <key name="user_video"><value>Video</value></key>
+    <key name="user_video_label"><value>Video</value></key>
+    <key name="user_video_desc"><value>Video Upload</value></key>
+    <key name="view_video"><value>View video</value></key>
+    <key name="error_selecting_video"><value>Error while selecting the video</value></key>
+    <key name="change"><value>Change</value></key>
+    <key name="delete"><value>Delete</value></key>
+    <key name="upload"><value>Upload</value></key>
+    <key name="abort"><value>Abort</value></key>
+    <key name="my_video_file"><value>My {{fileName}}</value></key>
+    <key name="uploaded_video_in_process"><value>Status: Processing file...</value></key>
+    <key name="uploading_video_started"><value>Status: Uploading file...</value></key>
+    <key name="choose_video_from_library"><value>Choose video from library</value></key>
+    <key name="take_video"><value>Take video</value></key>
+    <key name="user_search_btn"><value>Select users</value></key>
+    <key name="choose_user_page_header"><value>Select users</value></key>
+    <key name="add_user_button"><value>Add</value></key>
+    <key name="user_has_been_add"><value>User has been add</value></key>
+    <key name="choose_video"><value>Choose video</value></key>
+    <key name="video_upload"><value>Video upload</value></key>
+    <key name="video_input_error"><value>Please choose an Video</value></key>
+    <key name="video_success_message"><value>Video has been saved</value></key>
+    <key name="video_upload_join_confirmation"><value>Upload video will cost {{count}} credits.</value></key>
+
+    <key name="video_upload_certain_user_list"><value>Certain user list</value></key>
+    <key name="video_upload_empty_list_description"><value>List is empty &lt;br/&gt; Upload video first and tap&lt;br/&gt; "Select users" button then</value></key>
+</prefix>

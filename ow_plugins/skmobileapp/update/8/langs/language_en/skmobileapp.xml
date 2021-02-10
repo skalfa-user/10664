@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="skmobileapp" label="Skadate Mobile APP" language_tag="en" language_label="English">
+    <key name="google_map_api_key_label"><value>Google map API Key</value></key>
+    <key name="google_map_api_key_desc"><value>&lt;b&gt;This is required field.&lt;/b&gt;
+        &lt;br/&gt;
+        Follow this &lt;a href="https://developers.google.com/places/web-service/autocomplete">link&lt;/a&gt; to read more information</value></key>
+</prefix>

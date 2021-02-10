@@ -1,0 +1,29 @@
+.sk-photos-viewer {
+    background-color: color($colors, dark);
+
+    ion-header {
+        padding-top: constant(safe-area-inset-top);
+        padding-top: env(safe-area-inset-top);
+        ion-icon {
+            font-size: 4rem;
+            line-height: 1.2;
+            color: rgba($color: #fff, $alpha: 0.4);
+
+            &[name=close] {
+                font-size: 6rem;
+                
+                &.icon-md {
+                    font-size: 4.5rem;
+                }
+            }
+        }
+    }
+
+    ion-content {
+        background: transparent;
+
+        img {
+            object-fit: contain;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="billingstripe" label="Stripe Billing" language_tag="en" language_label="English">
+    <key name="warning_process_complete_info"><value>For the correct payment, please complete the process!</value></key>
+    <key name="notification_after_actions"><value>For a successful payment, please wait for the process to complete!</value></key>
+    <key name="card_detail_font_color"><value>Font color (Ex: #ff6600)</value></key>
+    <key name="card_detail_font_family"><value>Font family (Ex: "Helvetica Neue", Helvetica, sans-serif)</value></key>
+    <key name="card_detail_font_size"><value>Font size, px (Ex: 14)</value></key>
+    <key name="card_detail_placeholder_color"><value>Placeholder color (Ex: #afaeae)</value></key>
+    <key name="card_detail_error_font_color"><value>Error color (Ex: #ee3d32)</value></key>
+    <key name="card_detail_error_icon_color"><value>Error icon color (Ex: #ee3d32)</value></key>
+    <key name="card_detail_icon_color"><value>Icon color (Ex: #33ccff)</value></key>
+</prefix>

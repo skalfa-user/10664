@@ -1,0 +1,61 @@
+{script}
+{literal}
+    $("#btn_delete").click(function(){
+        
+        var $ch_list = $('#plans tr.plan td input:checkbox.plan_id:checked');
+        
+        if ( !$ch_list.length )
+        {
+            alert(OW.getLanguageText('membership', 'no_plans_selected'));
+            return false;
+        }
+        
+        else if ( !confirm(OW.getLanguageText('membership', 'plan_delete_confirm')) )
+        {
+            return false;
+        }
+    });
+    
+    $("#btn_add_plan").click(function(){
+        $("#add_plan").toggle();
+        return false;
+    });
+{/literal}
+{/script}
+
+{$menu}
+
+<div class="clearfix ow_wide ow_automargin ow_stdmargin">
+
+<div id="add_plan" style="display: none">
+{block_decorator name='box' langLabel='membership+add_plan' iconClass='ow_ic_add'}
+    {form name='add-plan-form'}
+        <table class="ow_table_3">
+            <tr>
+                <td class="ow_label" style="width: 30%">{text key='membership+period'}</td>
+                <td class="ow_value">
+                    {input name='period' class='ow_settings_input'} {text key='membership+days'}<br />
+                    {error name='period'}
+                </td>
+            </tr>
+            <tr>
+                <td class="ow_label">{text key='membership+price'}</td>
+                <td class="ow_value">
+                    {input name='price' class='ow_settings_input'} {$currency}<br />
+                    {error name='price'}
+                </td>
+            </tr>
+            <tr>
+                <td class="ow_label">{text key='membership+recurring'}</td>
+                <td class="ow_value">{input name='isRecurring'}</td>
+            </tr>
+        </table>
+        <div class="clearfix">
+			<div class="ow_right">
+				{submit name='add' class='ow_ic_add ow_positive'}
+			</div>
+		</div>
+    {/form}
+{/block_decorator}
+</div>
+</div>

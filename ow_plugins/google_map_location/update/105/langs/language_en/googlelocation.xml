@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="googlelocation" label="Google Map Location" language_tag="en" language_label="English">
+	<key name="plugin_require_configuration"><value>&lt;i&gt;Location Maps&lt;/i&gt; plugin requires API Key to work properly. &lt;a href=&quot;{$link}&quot;&gt;Go to settings page.&lt;/a&gt;</value></key>
+	<key name="invalid_api_key"><value>Invalid api key</value></key>
+</prefix>

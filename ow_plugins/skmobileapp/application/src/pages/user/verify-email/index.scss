@@ -1,0 +1,50 @@
+.sk-verify-email-check-code-page,
+.sk-verify-email-check-email-page {
+
+    .sk-blank-state-icon {
+        width: 18vh;
+    }
+
+    .sk-inputs {
+        margin-top: 4vh;
+
+        .sk-base-question-presentation {
+            ion-item {
+                @include padding(null, null, null, 0);
+
+                ion-input {
+                    input {
+                        @include placeholder($sk-placeholder-color);
+                        border-bottom: 1px solid rgba($sk-input-text-border, 0.5);
+                        color: color($colors, dark);
+                        @include padding(null, 2rem, 1rem, null);
+                        font-size: 1.7rem;
+                    }
+                }
+            }
+
+             .sk-question-error,
+             .sk-question-pending {
+                 @include position(35%, 8px, null, null);
+                 transform: translateY(-35%);
+             }
+        }
+
+        .sk-question-validation {
+            .input-wrapper {
+                @include margin(null, 0, null, null);
+            }
+        }
+
+    }
+
+    .sk-buttons {
+        margin-top: 0;
+
+        h4 {
+            font-size: 1.7rem;
+            color: color($colors, primary);
+            white-space: normal;
+        }
+    }
+}

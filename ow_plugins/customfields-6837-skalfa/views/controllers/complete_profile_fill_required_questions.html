@@ -1,0 +1,48 @@
+<div class="complete-form">
+    <div class="ow_custom_promo ow_stdmargin">
+        <span>{text key="base+required_profile_questions"}</span>
+    </div>
+
+    {form name=requiredQuestionsForm}
+        <div class="ow_custom_form ow_custom_required_profile_questions_form">
+            {foreach from=$questionArray key='section' item='questions' name='question'}
+                {if !empty($section)}
+                <div class="ow_content_menu_wrap">
+                    <ul class="ow_content_menu clearfix">
+                        <li class="active">
+                            <a href="#">
+                                <span>{text key="base+questions_section_`$section`_label"}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {/if}
+            {foreach from=$questions item='question' name='question'}
+                <div class="ow_row {if $question.type == 'datetime'}ow_datetime{/if}">
+                    <div class="ow_custom_form_label">
+                        {label name=$question.name}
+                    </div>
+                    <div class="ow_custom_form_field">
+                        {if $question.type == 'datetime'}
+                            {input name=$question.name class='ow_datetime_field'}
+                        {else}
+                            {input name=$question.name}
+                        {/if}
+                    </div>
+                    <div class="ow_custom_form_error">
+                        <span>{error name=$question.name}</span>
+                    </div>
+                {/foreach}
+            {/foreach}
+            <div class="ow_row ow_submit_row clearfix">
+                <div class="ow_submit_field ow_right">
+                    {submit name='submit'}
+                </div>
+            </div>
+        </div>
+    {/form}
+</div>
+
+{script}
+$(document).ready(function() { window.jcf ? jcf.replaceAll() : console.warn('JCF is not initialized properly.'); });
+{/script}

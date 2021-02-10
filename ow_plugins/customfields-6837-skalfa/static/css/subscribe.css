@@ -1,0 +1,11 @@
+/* This CSS file will be included only on subscribe page */
+
+.ow_subscribe_table th[colspan="3"] {
+    display: inline-block;
+    font-size: 20px;
+    background-color: #337ab7;
+    color: #fff;
+    border-width: 0 !important;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+}

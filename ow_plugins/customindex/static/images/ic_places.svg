@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="16px" viewBox="0 0 12 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_places</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-193.000000, -2000.000000)" fill="#84765B">
+            <g id="ic_places" transform="translate(193.000000, 2000.000000)">
+                <path d="M6,0 C2.687,0 0,2.687 0,6 C0,9.313 6,16 6,16 C6,16 12,9.313 12,6 C12,2.687 9.313,0 6,0 M6,8.5 C4.62,8.5 3.5,7.381 3.5,6 C3.5,4.62 4.62,3.5 6,3.5 C7.381,3.5 8.5,4.62 8.5,6 C8.5,7.381 7.381,8.5 6,8.5" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

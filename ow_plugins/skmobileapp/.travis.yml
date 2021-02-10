@@ -1,0 +1,35 @@
+language: node_js
+node_js:
+  - "6.9.2"
+dist: trust
+sudo: required
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+      - xvfb
+cache:
+  directories:
+    — application/node_modules
+    — application/plugins
+notifications:
+ slack: skalfa:0uQn1dLCuoqnj2GfYe5IQVum
+branches:
+  only:
+  - master
+  - develop
+before_script:
+ - export DISPLAY=':99.0'
+ - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+ - cd application/
+ - cp application.tmpl.config.json application.config.json
+ - cp package.tmpl.json package.json
+ - npm run setup_ci
+ - npm run prepare_ci
+ - node e2e/server/server.js &
+ - npm run browser &
+script:
+  - npm run test-ci
+  - npm run e2e

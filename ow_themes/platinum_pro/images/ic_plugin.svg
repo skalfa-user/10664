@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="16px" viewBox="0 0 15 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_plugin</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-883.000000, -2029.000000)" fill="#ffffff">
+            <g id="ic_plugin" transform="translate(883.000000, 2029.000000)">
+                <path d="M12,5.034 L12,1 C12,0.448 11.553,0 11,0 C10.447,0 10,0.448 10,1 L10,5.034 L4,5.034 L4,1 C4,0.448 3.553,0 3,0 C2.448,0 2,0.448 2,1 L2,5.034 L0.062,5.034 L0.062,10.573 C0.062,11.932 1.164,13.034 2.523,13.034 L6,13.034 L6,16 L8,16 L8,13.034 L11.599,13.034 C12.958,13.034 14.06,11.932 14.06,10.573 L14.06,5.034 L12,5.034 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

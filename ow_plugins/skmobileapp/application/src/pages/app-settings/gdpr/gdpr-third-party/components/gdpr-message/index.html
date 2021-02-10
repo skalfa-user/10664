@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ 'gdpr_third_party_popup_title' | translate }}
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button clear (click)="close()">
+                {{ 'cancel' | translate }}
+            </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <button class="sk-gdpr-send-message" ion-button clear (click)="submit()">
+                {{ 'gdpr_third_party_send_btn' | translate }}
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content  class="sk-gdpr-third-party-popup sk-gdpr-page">
+    <div class="sk-gdpr-message-component">
+        <form [formGroup]="form">
+            <ion-list class="sk-inputs">
+                <question *ngFor="let question of questions" [question]="question" [form]="form"></question>
+            </ion-list>
+        </form>
+    </div>
+</ion-content>

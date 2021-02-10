@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>Custom Pricing page by Lia SkaDate PM</name>
+	<key>custompage</key>
+	<description>Plugins adds pricing page for guest users</description>
+    <author>Lia SkaDate PM</author>
+    <authorEmail>amadilova@gmail.com</authorEmail>
+	<authorUrl></authorUrl>
+	<developerKey>e547ebcf734341ec11911209d93a1054</developerKey>
+    <build>1</build>
+    <copyright>(C)Lia SkaDate PM</copyright>
+	<license>The BSD License</license>
+    <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
+</plugin>

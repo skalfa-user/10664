@@ -1,0 +1,32 @@
+<div class="ow_smallmargin ow_gdpr_third_party_text">
+    {text key='gdpr+gdpr_third_party_text'}
+</div>
+<div class="clearfix">
+    <div class="ow_right">
+        {decorator name='button' id='mail_floatbox' langLabel='gdpr+gdpr_third_party_btn'}
+    </div>
+</div>
+
+<div style="display: none;">
+    <div id="mail_floatbox_content">
+        {form name="gdpr-email-form" action="{url_for_route for='gdpr-sendEmail'}"}
+            <table class="ow_table_1 ow_form">
+                <tr class="ow_tr_first">
+                    <td class="ow_label">
+                        {label name='gdpr_message'}
+                    </td>
+                    <td class="ow_value">
+                        {input name="gdpr_message"}
+                        <br />
+                        {error name='gdpr_message'}
+                    </td>
+                </tr>
+            </table>
+            <div class="clearfix">
+                <div class="ow_right">
+                    {submit name='gdpr_send_message'}
+                </div>
+            </div>
+        {/form}
+    </div>
+</div>

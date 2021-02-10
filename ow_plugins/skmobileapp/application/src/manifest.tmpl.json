@@ -1,0 +1,12 @@
+{
+  "name": "",
+  "short_name": "",
+  "start_url": "index.html?pwa=1",
+  "display": "standalone",
+  "icons": [],
+  "background_color": "",
+  "theme_color": "",
+  "play_store_key": "",
+  "gcm_sender_id": "103953800507",
+  "orientation": "portrait-primary"
+}

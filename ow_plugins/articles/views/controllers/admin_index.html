@@ -1,0 +1,83 @@
+{form name='add-form'}
+    <table class="ow_table_1 ow_form ow_stdmargin">
+        <tr class="ow_alt1 ow_tr_last">
+            <td class="ow_label">{label name='title'}</td>
+            <td class="ow_value">
+                {input name='title'}
+                <br>
+                {error name='title'}
+            </td>
+        </tr>
+        <tr class="ow_alt1 ow_tr_last">
+            <td class="ow_label">{label name='subtitle'}</td>
+            <td class="ow_value">
+                {input name='subtitle'}
+                <br>
+                {error name='subtitle'}
+            </td>
+        </tr>
+        <tr class="ow_alt1 ow_tr_last">
+            <td class="ow_label">{label name='description'}</td>
+            <td class="ow_value">
+                {input name='description'}
+                <br>
+                {error name='description'}
+            </td>
+        </tr>
+        <tr class="ow_alt1 ow_tr_last">
+            <td class="ow_label">{label name='image'}</td>
+            <td class="ow_value">
+                {input name='image'}
+                <br>
+                {error name='image'}
+            </td>
+        </tr>
+    </table>
+
+    <div class="clearfix ow_stdmargin ow_submit ow_btn_delimiter">
+        <div class="ow_right">
+            {submit name="go" class="ow_button ow_ic_save"}
+        </div>
+    </div>
+{/form}
+
+
+<section class="admin_articles">
+    <div class="title">
+        {text key='articles+articles_title'}
+    </div>
+
+    <div class="admin_articles_cards_list">
+        {foreach from=$articles item="article"}
+            <div class="admin_articles_card_wrap">
+                <a href='{url_for_route for="articles.admin-view:[id=>`$article->id`]"}' class="admin_articles_card">
+                    <div class="admin_articles_card_img" style="background-image: url('{$article->getImageNameUrl()}');"></div>
+                    <div class="admin_articles_card_info">
+                        <div class="admin_articles_card_info_title">{$article->title}</div>
+                        <div class="admin_articles_card_info_subtitle">{$article->subtitle}</div>
+                    </div>
+                </a>
+                <button class="admin_articles_button {if $article->featured == 0}no_featured{/if}" onclick="makeFeaturedOrNot('{$article->id}', '{$article->featured}')">
+                    {if $article->featured == 0}
+                    {text key='articles+make_featured'}
+                    {else}
+                    {text key='articles+make_not_featured'}
+                    {/if}
+                </button>
+
+                <button class="admin_articles_button delete" onclick="deleteArticle('{$article->id}')">
+                    {text key='articles+delete_button'}
+                </button>
+                <a class="admin_articles_button edit" href='{url_for_route for="articles.admin-edit:[id=>`$article->id`]"}'>
+                    {text key='articles+edit_button'}
+                </a>
+
+                <!--if edit button-->
+                <!--<button class="admin_articles_button">Edit</button>-->
+            </div>
+
+        {foreachelse}
+            <div class="ow_center">{text key='articles+no_data'}</div>
+        {/foreach}
+    </div>
+</section>

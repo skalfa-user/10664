@@ -1,0 +1,133 @@
+.sk-profile-tab {
+    background-color: $sk-profile-tab-bg;
+
+    .sk-user {
+        @include flex(flex, column, flex-start, stretch);
+        padding-top: 2vh;
+
+        &-head {
+            padding: 0 1.6rem;
+
+            &-inner {
+                padding-top: 16.5vw;
+                border-radius: 1.6rem;
+                background-color: color($colors, light);
+                box-shadow: 0 0 12px 1px $sk-profile-tab-user-head-shadow;
+            }
+        }
+
+        &-avatar {
+            margin-bottom: -16.5vw;
+            @include flex(flex, row, center, stretch);
+            position: relative;
+              
+            user-avatar {
+                height: 38vw;
+                width: 38vw;
+                border-radius: 100%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border: 0.9rem solid $sk-profile-tab-avatar-border;
+                }
+            }
+
+                .sk-photo-pending {
+                height: 23.5vh;
+                width: 23.5vh;
+                border-radius: 100%;
+            }          
+        }
+
+        &-info {
+            @include flex(flex, column, center, center);
+            padding: 1.2vh 2rem 0vh;
+
+            span {
+                max-width: 80%;
+                @include text-overflow;
+            }
+
+            .sk-name {
+                color: $sk-profile-tab-name;
+                font-size: 2rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .sk-about {
+                font-size: 1.8rem;
+                color: $sk-profile-tab-about;
+            }
+        }
+
+        &-buttons {
+            @include flex(flex, row, center, center);
+            margin: 3rem 0 0;
+            border-top: 1px solid $sk-profile-tab-buttons-border;
+
+            button {
+                flex: 1;
+                height: auto;
+                min-width: 14rem;
+                margin: 0;
+                padding: 2.5rem 1.6rem;
+                border-radius: 0;
+                background-color: $sk-profile-button-bg;
+                font-size: 1.4rem;
+                color: $sk-profile-tab-button-color;
+
+                .button-inner {
+                    @include flex(flex, column, center, center);
+
+                    img {
+                        margin-bottom: 0.4rem;
+            }
+        }
+
+                &:first-child {
+                    border-right: 1px solid $sk-profile-tab-buttons-border;
+
+                    @include rtl() {
+                        border-left: 1px solid $sk-profile-tab-buttons-border;
+                    }
+                }
+            }
+            }
+
+        &-links {
+            margin-top: 5vh;
+            padding-bottom: 2rem;
+                @include flex(flex, column, flex-start, stretch);
+
+            button {
+                    height: 4.3rem;
+                margin: 0;
+                color: $sk-profile-link;
+                font-weight: bold;
+                font-size: 1.4rem;
+                text-transform: uppercase;
+    
+                &.sk-user-link-pwa-guide {
+                    background-color: $sk-user-link-pwa-bg;
+                    color: $sk-user-link-pwa-color;
+                    border-top: none;
+                }
+            }
+        }
+    }
+
+    .sk-guest-count {
+        @include flex(inline-flex, row, center, center);
+        min-width: 22px;
+        width: 2.2rem;
+        height: 2.2rem;
+        @include margin(null, null, null, 8px);
+        font-weight: normal;
+        font-size: 1.2rem;
+        color: color($colors, light);
+        background-color: $sk-guest-count;
+        border-radius: 50%;
+    }
+}

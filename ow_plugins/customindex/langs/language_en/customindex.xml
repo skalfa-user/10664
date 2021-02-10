@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="customindex" label="Customized index page" language_tag="en" language_label="English">
+    <key name="missing_plugins_error"><value>Custom index plugin requires installation of the following plugins: {$plugins}</value></key>
+    <key name="users_counter_desc"><value>Already with us. Join now!</value></key>
+    <key name="banner_label"><value>Banner</value></key>
+    <key name="content_label"><value>Language key</value></key>
+    <key name="banner_content_description"><value>e.x. base+some_lang</value></key>
+    <key name="miles_from"><value>Miles from</value></key>
+    <key name="kms_from"><value>Km from</value></key>
+     <key name="to_label"><value>Location</value></key>
+    <key name="edit_banner_label"><value>Edit</value></key>
+    <key name="delete_banner_label"><value>Delete</value></key>
+    <key name="add_banner"><value>Add banner</value></key>
+    <key name="are_you_sure"><value>Are you sure?</value></key>
+    <key name="banner_file_label"><value>Banner</value></key>
+    <key name="banner_content_label"><value>Language key</value></key>
+    <key name="banner_submit_label"><value>Submit</value></key>
+    <key name="saved_success_message"><value>Banner added/edited</value></key>
+    <key name="banner_error_message"><value>Please provide correct data</value></key>
+    <key name="banner_list_empty"><value>No banners found</value></key>
+    <key name="admin_settings"><value>Custom index - plugin settings</value></key>
+    <key name="menu_banner_create"><value>Create banner</value></key>
+    <key name="menu_banner_edit"><value>Edit banner</value></key>
+    <key name="menu_banners"><value>Banners</value></key>
+    <key name="text_block_section_title"><value>How We Do it</value></key>
+    <key name="text_block_pic_1"><value>ow_static/themes/platinum_pro/images/text_block_pic_1.png</value></key>
+    <key name="text_block_title_1"><value>Innovative aproach for matching</value></key>
+    <key name="text_block_cont_1"><value>Labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</value></key>
+    <key name="text_block_pic_2"><value>ow_static/themes/platinum_pro/images/text_block_pic_2.png</value></key>
+    <key name="text_block_title_2"><value>Moderated profiles without spam and fakes</value></key>
+    <key name="text_block_cont_2"><value>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor</value></key>
+    <key name="text_block_pic_3"><value>ow_static/themes/platinum_pro/images/text_block_pic_3.png</value></key>
+    <key name="text_block_title_3"><value>24/7 customer support guaranteed</value></key>
+    <key name="text_block_cont_3"><value>Aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint</value></key>
+    <key name="missing_theme_error"><value>Custom index plugin requires activation of the {$theme} theme</value></key>
+    <key name="slider_slogan"><value>Join our growing site,&#x3C;br&#x3E;&#x3C;span&#x3E;&#x26;amp;&#x3C;/span&#x3E; meet dozens of singles today!&#x3C;div class=&#x22;ow_join_button&#x22;&#x3E;&#x3C;a href=&#x22;/join&#x22; class=&#x22;index_join_button&#x22;&#x3E;Join Now&#x3C;/a&#x3E;&#x3C;/div&#x3E;</value></key>
+</prefix>

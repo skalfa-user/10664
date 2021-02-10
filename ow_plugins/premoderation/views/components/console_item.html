@@ -1,0 +1,16 @@
+<ul class="ow_console_dropdown">
+    {foreach from=$items item="item"}
+        <li class="ow_dropdown_menu_item ow_cursor_pointer" >
+            <div class="ow_console_dropdown_cont">
+                <a href="{$item.url}" class="clearfix">
+                    <span class="ow_left">{$item.label}</span>
+                    <span class="ow_count_wrap ow_right">          
+                        <span class="ow_count_bg">           
+                            <span class="ow_count">{$item.count}</span>          
+                        </span>    
+                    </span>
+                </a>
+            </div>
+        </li>
+    {/foreach}
+</ul>

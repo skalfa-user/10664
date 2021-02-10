@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ 'join_page_header' | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button *ngIf="!isPageLoading" class="sk-join-initial-button" ion-button clear [disabled]="questionControl.isFormPending(form) || isAvatarUploadIng" (click)="submit()">
+                {{ 'next' | translate }}
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-join-initial-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isPageLoading && !isAvatarHidden" name="join"></skeleton-preloader>
+    <skeleton-preloader *ngIf="isPageLoading && isAvatarHidden" name="join-without-avatar" repeatTimes="2"></skeleton-preloader>
+
+    <!-- join form -->
+    <form *ngIf="!isPageLoading" [formGroup]="form">
+        <ion-list class="sk-join-fields">
+            <div class="sk-question-list-wrap">
+                <!-- avatar -->
+                <div *ngIf="!isAvatarHidden" class="sk-avatar-wrapper" (click)="fileUploader.showFileChooser()">
+                    <div *ngIf="avatarUrl" class="{{ isAvatarValid || isAvatarUploadIng ? 'sk-add-avatar' : 'sk-add-avatar sk-avatar-warning' }}" [style.background-image]="'url(' + avatarUrl + ')'">
+                        <ion-spinner *ngIf="isAvatarUploadIng" name="ios-small"></ion-spinner>
+                    </div>
+                    <div *ngIf="!avatarUrl" class="{{ isAvatarValid || isAvatarUploadIng ? 'sk-add-avatar' : 'sk-add-avatar sk-avatar-warning' }}">
+                        <ion-icon *ngIf="!isAvatarUploadIng" class="sk-add-avatar-icon" name="md-add"></ion-icon>
+                        <ion-label *ngIf="!isAvatarUploadIng">
+                            <span>
+                                {{ 'choose_avatar' | translate }}
+                            </span>
+                        </ion-label>
+                        <ion-spinner *ngIf="isAvatarUploadIng" name="ios-small"></ion-spinner>
+                    </div>
+                </div>
+
+                <!-- file uploader -->
+                <file-uploader
+                    class="sk-avatar-uploader"
+                    #fileUploader
+                    [uri]="avatarUploadUri"
+                    isBroadcastError="false"
+                    acceptMask="image/*"
+                    [mimeTypes]="getAvatarMimeTypes"
+                    [maxFileSize]="getAvatarMaxSize"
+                    (startUploading)="startUploadingAvatarCallback($event)"
+                    (uploaded)="successAvatarUploadCallback($event)"
+                    (uploadError)="errorAvatarUploadCallback($event)">
+                </file-uploader>
+
+                <!-- questions wrapper -->
+                <div *ngFor="let sectionData of sections" class="sk-question-list">
+                    <!-- questions dividers -->
+                    <ion-item-divider *ngIf="sectionData.section" text-wrap class="sk-question-section" color="light">
+                        <span>{{ sectionData.section }}</span>
+                    </ion-item-divider>
+
+                    <!-- questions -->
+                    <question *ngFor="let question of sectionData.questions" class="sk-question-item" [question]="question" [form]="form"></question>
+                </div>
+            </div>
+        </ion-list>
+    </form>
+</ion-content>

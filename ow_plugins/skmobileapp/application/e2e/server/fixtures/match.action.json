@@ -1,0 +1,12 @@
+{
+    "id":2,
+    "type":"like",
+    "isMutual":false,
+    "createStamp":1546861403,
+    "isRead":false,
+    "isNew":true,
+    "userId":2,
+    "user":{
+        "id":2
+    }
+}

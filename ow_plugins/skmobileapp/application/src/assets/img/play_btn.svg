@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="JOIN-STEP-5" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-158.000000, -263.000000)">
+        <g id="VIDEO" transform="translate(8.000000, 194.000000)">
+            <g id="play-button" transform="translate(150.000000, 69.000000)">
+                <g id="Group">
+                    <rect id="Rectangle" fill="#FFFFFF" x="17.1428571" y="16.2857143" width="28.2857143" height="26.5714286"></rect>
+                    <path d="M30,0 C13.4316797,0 0,13.4314453 0,30 C0,46.5685547 13.4316797,60 30,60 C46.5683203,60 60,46.5685547 60,30 C60,13.4314453 46.5683203,0 30,0 Z M39.544898,30.9458972 L24.8510204,40.1292198 C24.553699,40.3148377 24.215625,40.4081633 23.877551,40.4081633 C23.5712755,40.4081633 23.2645408,40.3319417 22.9869643,40.1776619 C22.4031122,39.8539497 22.0408163,39.2395855 22.0408163,38.5714987 L22.0408163,20.2048534 C22.0408163,19.5367667 22.4031122,18.9224024 22.9869643,18.5986902 C23.5708163,18.2731415 24.2847321,18.2928856 24.8510204,18.6471323 L39.544898,27.8304549 C40.0816837,28.1667941 40.4081633,28.7551007 40.4081633,29.3881761 C40.4081633,30.0212514 40.0816837,30.6096728 39.544898,30.9458972 Z" id="Shape" fill="#305CAC" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

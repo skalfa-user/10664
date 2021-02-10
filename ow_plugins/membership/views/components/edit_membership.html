@@ -1,0 +1,83 @@
+{capture assign="options"}
+    {foreach from=$periodUnitsList item=option}
+        <option value="{$option}">{text key="membership+`$option`"}</option>
+    {/foreach}
+{/capture}
+
+{block_decorator name='box' type='empty' iconClass='ow_ic_clock' langLabel='membership+plans' addClass="ow_stdmargin"}
+<div class="ow_smallmargin" style="padding-left: 4px;">{text key='membership+manage_membership_plans' membership=$membership}</div>
+
+<form method="post" id="plans-form">
+    <input type="hidden" name="form_name" value="edit-plans-form" />
+    <input type="hidden" name="type_id" value="{$typeId}" />
+    <table id="plans" class="ow_table_1 ow_form ow_center ow_smallmargin">
+        <tr class="ow_tr_first">
+            <th width="1"></th>
+            <th>{text key='membership+period'}, <span class="ow_small">{text key='membership+days'}</span></th>
+            <th>{text key='membership+price'}, <span class="ow_small">{$currency}</span></th>
+            <th width="1">{text key='membership+recurring'}</th>
+            {if !empty($plans.0.productId)}<th>{text key='membership+product_id'}</th>{/if}
+        </tr>
+        {if $plans}
+        {foreach from=$plans item='plan'}
+        <tr class="plan {cycle values='ow_alt1,ow_alt2'}">
+            <td><input type="checkbox" class="plan_id" name="plans[{$plan.dto->id}]" value="1" data-pid="{$plan.dto->id}" /></td>
+            <td>
+                <input type="text" class="ow_settings_input" name="periods[{$plan.dto->id}]" value="{$plan.dto->period}" />
+                <select name="periodUnits[{$plan.dto->id}]">
+                        {foreach from=$periodUnitsList item=option}
+                            <option value="{$option}" {if $option==$plan.dto->periodUnits }selected{/if}>{text key="membership+`$option`"}</option>
+                        {/foreach}
+                </select>
+            </td>
+            <td>
+                {if $plan.dto->price != 0}
+                    <input type="text" class="ow_settings_input" name="prices[{$plan.dto->id}]" value="{$plan.dto->price}" />
+                {else}
+                    <div class="ow_remark">{text key='membership+trial'}</div>
+                {/if}
+            </td>
+            <td>{if $plan.dto->price != 0}<input type="checkbox" name="recurring[{$plan.dto->id}]" value="1" {if $plan.dto->recurring}checked="checked"{/if} />{/if}</td>
+            {if !empty($plan.productId)}<td class="ow_small">{$plan.productId}</td>{/if}
+        </tr>
+        {/foreach}
+        {/if}
+        <tr class="paid-plan-template" style="display: none;">
+            <td><input type="checkbox" class="new_plan_id" name="paid_plans[]" value="1" /></td>
+            <td><input type="text" class="ow_settings_input" name="paid_periods[]" />
+                <select name="paid_period_units[]">
+                    {$options}
+                </select></td>
+            <td><input type="text" class="ow_settings_input" name="paid_prices[]" /></td>
+            <td><input type="checkbox" name="paid_recurring[]" value="1" /></td>
+            {if !empty($plans.0.productId)}<td></td>{/if}
+        </tr>
+        <tr class="trial-plan-template" style="display: none;">
+            <td><input type="checkbox" class="new_plan_id" name="trial_plans[]" value="1" /></td>
+            <td><input type="text" class="ow_settings_input" name="trial_periods[]" />                
+                <select name="trial_period_units[]">
+                    {$options}
+                </select></td></td>
+            <td><div class="ow_remark">{text key='membership+trial'}</div></td>
+            <td></td>
+            {if !empty($plans.0.productId)}<td></td>{/if}
+        </tr>
+        <tr class="ow_tr_last">
+            <td>
+                <input id="check_all" title="{text key='base+check_all'}" type="checkbox" />
+            </td>
+            <td colspan="{if !empty($plans.0.productId)}4{else}3{/if}">
+                <div class="ow_txtleft">
+                    {decorator name="button_list_item" type="button" langLabel="membership+delete_selected" buttonName="delete_plans" id="btn_delete" class="ow_red"}
+                    {decorator name="button_list_item" type="button" langLabel="membership+add_paid_plan" id="btn_add_plan"}
+                    {decorator name="button_list_item" type="button" langLabel="membership+add_trial_plan" id="btn_add_trial_plan"}
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="clearfix"><div class="ow_right">
+        {decorator name="button" type="submit" langLabel="admin+save_btn_label" buttonName="update_plans"}
+    </div></div>
+</form>
+
+{/block_decorator}

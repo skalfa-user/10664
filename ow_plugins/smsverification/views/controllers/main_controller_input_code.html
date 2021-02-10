@@ -1,0 +1,47 @@
+{block_decorator name="box" type="empty" addClass="ow_center" style="padding: 215px 15px 15px;"}
+
+{/block_decorator}
+
+
+{form name='inputCode-form'}
+<div class="ow_narrow ow_automargin">
+<table class="ow_smallmargin ow_table_1 ow_form">
+        <tbody>
+            <tr class="ow_alt1">
+            <td class="ow_label">
+                <label>{text key='smsverification+country'}</label>
+            </td>
+            <td class="ow_value ow_center" >
+                <span  id="txtnation-current-country">({$countryCode}) {$userCountry}</span>
+            </td>
+        </tr>
+        <tr class="ow_alt1 tr_qst_answer_type ">
+            <td class="ow_label">
+                <label>{text key='smsverification+number'}</label>
+            </td>
+            <td  class="ow_value ow_center">
+                <span id="code-ceil">{$telNumber}</span>
+                
+            </td>
+        </tr>        
+           <tr class="ow_alt1 tr_qst_answer_type ">
+            <td class="ow_label">
+                <label>{text key='smsverification+code'}</label>
+            </td>
+            <td  class="ow_value">
+                <span></span>
+                {input name='userCode'} {error name='userCode'}                
+            </td>
+        </tr>
+        </tbody>
+    </table>
+      <div class="clearfix">
+            <div class="ow_right">               
+            {submit name="confirm_btn" class="ow_right"}
+            </div>
+          <div class="ow_left"> 
+            {submit name="changeNumber_btn" class="ow_right"}
+             </div>            
+      </div>
+</div>
+       {/form}

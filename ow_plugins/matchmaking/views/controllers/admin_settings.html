@@ -1,0 +1,31 @@
+{$menu}
+{form name="MATCHMAKING_SettingsForm"}
+<div class="ow_superwide ow_automargin clearfix">
+ <table class="ow_table_1 ow_form ow_stdmargin">
+	<tbody>
+		<tr class="ow_alt1 ow_tr_last">
+			<td style="width:50%;" class="ow_label">{text key="matchmaking+admin_settings_label_send_new_matches"}:</td>
+			
+			<td class="ow_value">
+			 <ul>
+				{foreach from=$intervals item='interval'}
+                    <li>
+                    {if $selectedInterval == $interval.value}
+                        {input name='send_new_matches_interval' value=$interval.value label=$interval.label checked='checked'}
+                    {else}
+                        {input name='send_new_matches_interval' value=$interval.value label=$interval.label}
+                    {/if}
+                    </li>
+                {/foreach}
+			 </ul>
+			</td>
+		</tr>
+	
+	</tbody>
+ </table>
+<div class="clearfix ow_submit ow_stdmargin">
+    <div class="ow_right">{submit name="save" class="ow_ic_save ow_right ow_positive" value='matchmaking+btn_label_save'}</div>
+</div>
+
+</div>
+{/form}

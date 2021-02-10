@@ -1,0 +1,17 @@
+<li class="group_artist_list" >
+    <div class="group_artist_list_photo ow_photo_list_item_thumb">
+    	<a href="{$data.href}" {if !empty($data.id)} rel="{$data.id}"{/if} class="group_artist_list_overlay">
+        	<img src="{$data.url}" alt="">
+        </a>
+    </div>
+    <div class="group_browse_artist_info">
+    	{$data.data.description|truncate:25}
+        <div class="group_browse_artist_title">
+            <span></span><i class="fa fa-user"></i> {$data.infoString}</span></div>
+        <div class="group_browse_artist_stats group_list_stats">
+            <span><i class="fa fa-heart"></i> {$data.data.voteCount}</span>
+            <span><i class="fa fa-eye"></i> {$data.data.viewCount}</span>
+            {*<span><i class="fa fa-comment"> </i> {$data.data.viewCount}</span>*}
+        </div>
+    </div>
+</li>

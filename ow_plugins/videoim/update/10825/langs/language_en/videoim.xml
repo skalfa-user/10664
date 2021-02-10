@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="videoim" label="Video Instant Messenger" language_tag="en" language_label="English">
+    <key name="admin_menu_server_list_label"><value>Server list</value></key>
+    <key name="admin_menu_settings_label"><value>Settings</value></key>
+    <key name="from_whom_track_credits"><value>Who must be tracked by "Timed video call" action</value></key>
+    <key name="initiator"><value>Initiator</value></key>
+    <key name="interlocutor"><value>Interlocutor</value></key>
+    <key name="both"><value>Both</value></key>
+    <key name="settings_saved"><value>Settings saved</value></key>
+    <key name="sound_on"><value>Sound on</value></key>
+</prefix>

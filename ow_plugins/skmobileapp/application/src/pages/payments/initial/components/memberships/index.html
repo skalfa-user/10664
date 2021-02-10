@@ -1,0 +1,52 @@
+<!-- page skeleton -->
+<skeleton-preloader *ngIf="isPageLoading" name="small-set" repeatTimes="2"></skeleton-preloader>
+
+<ng-container *ngIf="!isPageLoading">
+    <!-- my membership -->
+    <ion-item *ngIf="myMembership" class="sk-payments-head" padding>
+        {{ 'your_membership' | translate }}:
+        <button item-end ion-button icon-end clear class="sk-payments-info" (tap)="viewMyMembership()">
+            {{ myMembership.title }}
+            <ion-icon name="ios-information-circle-outline"></ion-icon>
+        </button>
+    </ion-item>
+
+    <!-- membership list -->
+    <ion-list mode="md" class="sk-membership-list" no-lines padding-left padding-right>
+        <div *ngFor="let membership of memberships" class="sk-membership-item-container">
+            <button *ngIf="membership.isPlansAvailable" ion-item mode="md" (tap)="viewMembership(membership.id)" class="sk-select-field-fake sk-membership-item"  margin-bottom>
+                {{ membership.title }}
+                <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+            </button>
+        </div>
+    </ion-list>
+
+    <!-- no memberships -->
+    <div *ngIf="!memberships.length" class="sk-blank-state-wrap sk-no-memberships">
+        <img class="sk-blank-state-icon" src="./assets/img/payments/ic-no-memberships.svg" alt="">
+        <div class="sk-blank-state-cont">
+            <h2>{{ 'no_memberships' | translate }}</h2>
+        </div>
+    </div>
+
+    <!-- recurring info -->
+    <div class="sk-privacy-wrap">
+        <div text-wrap class="sk-section">
+            <span>{{ 'app_recurring_information_label' | translate }}</span>
+        </div>
+        <div [innerHTML]="recurringDescription" padding-left padding-right></div>
+        <ion-list mode="md">
+            <!-- policy -->
+            <button ion-item mode="md" (tap)="showPrivacyPolicyModal()" class="sk-select-field-fake">
+                {{ 'app_settings_privacy_policy_label' | translate }}
+                <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+            </button> 
+
+            <!-- privacy -->
+            <button ion-item mode="md" (tap)="showTermsOfUseModal()" class="sk-select-field-fake">
+                {{ 'app_settings_terms_of_use_label' | translate }}
+                <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+            </button> 
+        </ion-list>  
+    </div>
+</ng-container>

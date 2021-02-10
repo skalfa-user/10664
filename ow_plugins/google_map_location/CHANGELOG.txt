@@ -1,0 +1,69 @@
+google_maps_location plugin (build 121) 2019-01-09:
+==============================
+- fixed js error in mobile version
+
+google_maps_location plugin (build 121) 2017-12-19:
+==============================
+- minor bug fix
+
+google_maps_location plugin (build 120) 2017-11-19:
+==============================
+- minor bug fix
+- added support bing maps api v8
+
+google_maps_location plugin (build 116) 2017-05-20:
+==============================
+- fixed warnings in location_service.php
+
+google_maps_location plugin (build 115) 2017-04-03:
+==============================
+- minor bug fix
+
+google_maps_location plugin (build 110) 2017-01-29:
+==============================
+- minor bug fix
+
+google_maps_location plugin (build 80) 2016-05-18:
+==============================
+- fix bug with marker icons
+- minor bug fix
+
+google_maps_location plugin (build 75) 2016-04-08:
+==============================
+- minor bug fix
+
+google_maps_location plugin (build 71) 2016-04-02:
+==============================
+- fix bug with https
+- fix conflict with zend
+
+google_maps_location plugin (build 70) 2016-01-14:
+==============================
+- added Bing maps
+- bug fix
+
+google_maps_location plugin (build 50) 2014-07-10:
+==============================
+- added map widget for groups
+- able to delete selected location on Join, Edit and Search form
+- able to limit location suggest results by country name
+
+google_maps_location plugin (build 36) 2014-07-10:
+==============================
+- bug fix
+- able to change Distance Units in plugin settings
+- auto fill location from user detail on search
+
+google_maps_location plugin (build 25) 2014-01-14:
+==============================
+- display multiple users in one location
+- search by distance
+- map auto zoom
+- location for events
+- mobile version support
+
+
+google_maps_location plugin (build 15) 2013-01-30:
+==============================
+- Fixed bug with displaying location filed on profile view page
+

@@ -1,0 +1,97 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons end>
+            <button class="sk-conversation-actions" ion-button icon-only (click)="showConversationActions()">
+                <ion-icon name="md-more"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title (click)="viewProfile()">{{ opponent?.user?.userName }}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [scrollDownOnLoad]="true" class="sk-messages-page">
+    <skeleton-preloader *ngIf="isPageLoading" name="messages-set"></skeleton-preloader>
+
+    <!-- no messages -->
+    <div *ngIf="!isPageLoading && !messageList.length" class="sk-new-conversation  sk-blank-state-wrap">
+        <user-avatar class="sk-blank-state-icon" 
+            isUseBigAvatar="false" 
+            [url]="opponent?.avatar?.url" 
+            [isAvatarActive]="opponent?.avatar?.active" 
+            (click)="viewProfile()">
+        </user-avatar>
+        <div class="sk-blank-state-cont">
+            <h4 (click)="viewProfile()">{{ opponent?.user?.userName }}</h4>
+            <p>{{ 'mailbox_start_conversation_desc' | translate }}</p>
+        </div>
+    </div>
+
+    <!-- load history -->
+    <ion-infinite-scroll *ngIf="isLoadingHistoryAllowed" (ionInfinite)="loadHistory()" position="top">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+ 
+    <!-- messages -->
+    <div *ngIf="!isPageLoading && messageList.length" class="sk-messages" padding-left padding-right>
+        <div *ngFor="let message of messageList; let i = index; trackBy: trackMessageList" class="sk-message-wrap">
+            <!-- unread messages divider -->
+            <div class="sk-unread-message-divider" *ngIf="message.id == unreadMessageId">
+                {{ 'mailbox_unread_messages' | translate }}
+            </div>
+
+            <!-- plain message -->
+            <plain-message *ngIf="message.isSystem && !message.text || !message.isSystem"
+                [setReadMessagePermission]="readMessagePermission"
+                [messageData]="message"
+                [prevMessage]="messageList[i - 1]"
+                (needToAuthorize)="loadMessageList(false)"
+                (previewImage)="previewAttachedImages($event)"
+                (readMessageDenied)="permissionsComponent.showAccessDeniedAlert()">
+            </plain-message>
+
+            <!-- wink message -->
+            <wink-message *ngIf="message.text && message.isSystem && isSystemMessageParamsEquals(message.text, 'wink', 'renderWink')" 
+                [message]="message"
+                [prevMessage]="messageList[i - 1]">
+            </wink-message>
+
+            <!-- oembed message -->
+            <oembed-message *ngIf="message.text && message.isSystem && isSystemMessageParamsEquals(message.text, 'mailbox', 'renderOembed')"
+                [message]="message"
+                [prevMessage]="messageList[i - 1]">
+            </oembed-message>
+        </div>
+    </div>
+
+</ion-content>
+
+<!-- content scroll -->
+<div *ngIf="isContentScrollerActive && isMessagesPageActive" (click)="content.scrollToBottom()" class="sk-messages-down">
+    <span *ngIf="unreadMessagesIds.length" class="sk-messages-down-counter">
+        {{ unreadMessagesIds.length <= 99 ? unreadMessagesIds.length : '99+' }}
+    </span> 
+    <ion-icon name="ios-arrow-down"></ion-icon>
+</div> 
+
+<!-- permissions -->
+<permissions></permissions>
+
+<!-- file uploader -->
+<file-uploader class="sk-photo-message-uploader"
+    isValidateAndReturn="true"
+    acceptMask="image/*"
+    [mimeTypes]="getImageMimeTypes"
+    [maxFileSize]="getAttachMaxUploadSize"
+    (fileSelected)="sendImageMessage($event)">
+</file-uploader>
+
+<ion-footer *ngIf="!isPageLoading && isSendMessageAreaAllowed" no-border class="sk-messages-footer {{ isSendMessageAreaPromoted ? 'sk-messages-footer-promoted' : ''}}">
+    <ion-toolbar>
+        <button (click)="showImageChooser()" ion-button class="sk-messages-footer-attach">
+            <img src="./assets/img/messages/ic-attachment.svg" alt="" />
+        </button>
+        <ion-textarea *ngIf="!isSendMessageAreaPromoted" autocorrect="on" autocomplete="true" rows="1" autoSize [(ngModel)]="message"></ion-textarea>
+        <ion-textarea *ngIf="isSendMessageAreaPromoted" (click)="sendMessage()" rows="2" readonly="true" placeholder="{{ 'mailbox_send_message_promotion_desc' | translate }}"></ion-textarea>
+        <button class="sk-send-message-button" ion-button (click)="sendMessage()" [disabled]="!isMessageValid">{{ 'send' | translate }}</button>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,58 @@
+{$menu}
+
+{form name="gdpr-search-form"}
+    <h3 class="ow_stdmargin">
+        {text key='gdpr+gdpr_search_by_username'}
+    </h3>
+    <table class="ow_table_1 ow_form">
+        <tr class="ow_tr_last">
+            <td>
+               {text key='gdpr+gdpr_search_input_label'}
+            </td>
+            <td>
+                {input name='gdpr_search_input'}
+                <br />
+                {error name='gdpr_search_input'}
+            </td>
+        </tr>
+    </table>
+    <div class="clearfix ow_submit ow_stdmargin">
+        <div class="ow_right">
+            {submit name="gdpr_search_btn"}
+        </div>
+    </div>
+{/form}
+
+{if $isSubmit}
+    <h1 class="ow_stdmargin ow_center">
+        {text key='gdpr+gdpr_search_result'}
+    </h1>
+    {if !empty($user)}
+        <div class="clearfix">
+            <div class="ow_left ow_txtleft user_list_thumb">
+                {decorator name=avatar_item data=$avatar}
+            </div>
+            <div class="ow_left ow_txtleft">
+                <span>
+                    {$user->username}
+                </span>
+                <br>
+                <span class="ow_small">
+                    {$user->email}
+                </span>
+            </div>
+        </div>
+        <div class="clearfix ow_submit ow_stdmargin">
+            <div class="ow_right">
+                <a href="{url_for_route for='gdpr-export-csv'}?userId={$user->id}">
+                    {decorator name='button' id='gdpr_btn_export' class='ow_ic_save' langLabel='gdpr+gdpr_btn_export'}
+                </a>
+            </div>
+        </div>
+    {else}
+        <h3 class="ow_center">
+            {text key='gdpr+gdpr_user_notfound'}
+        </h3>
+    {/if}
+{/if}
+

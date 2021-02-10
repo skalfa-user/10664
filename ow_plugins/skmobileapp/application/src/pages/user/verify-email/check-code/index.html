@@ -1,0 +1,30 @@
+<ion-content class="sk-verify-email-check-code-page sk-blank-state" padding>
+    <div class="sk-blank-state-wrap">
+        <img class="sk-blank-state-icon" src="./assets/img/user/verify-email/ic-success.svg" alt="" />
+        <div class="sk-blank-state-cont">
+            <h2>{{ 'verify_email_registration_successful' | translate }}</h2>
+            <p>{{ 'verify_email_check_code_page_desc' | translate }}</p>
+        </div>
+        <ion-list class="sk-inputs">
+            <question *ngFor="let question of questions" [question]="question" [form]="form"></question>
+        </ion-list>
+        <div class="sk-buttons">
+            <button ion-button round class="sk-verify-email-code-button" [disabled]="isRequestLoading || questionControl.isFormPending(form)" (click)="submit()">
+                <span class="sk-text-overflow">{{ 'verify_email_done_button' | translate }}</span>
+                <ion-spinner class="sk-spinner-btn" *ngIf="isRequestLoading" name="ios-small"></ion-spinner>
+            </button>
+            <h4 class="sk-verify-email-page-button" (click)="openCheckEmailPage()">
+                {{ 'verify_email_open_check_email_page' | translate }}
+            </h4>
+        </div>
+    </div>
+</ion-content>
+
+<ion-footer class="sk-back-footer sk-blank-state-footer">
+    <ion-toolbar>
+        <button type="button" class="sk-leave-verify-email-code-button" ion-button block clear icon-start (click)="openLoginPage()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+            <span class="sk-text-overflow">{{ 'back_to_starter_page_button' | translate }}</span>
+        </button>
+    </ion-toolbar>
+</ion-footer>

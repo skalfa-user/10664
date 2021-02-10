@@ -1,0 +1,145 @@
+<div class="sk-tinder-tab sk-navigation-tab sk-height-wrap">
+
+    <!-- loading wrapper -->
+    <div *ngIf="isDashboardLoading || (!userList.length && isSearchAllowed && isUserLocationDefined)" class="sk-tinder-loading {{ isDashboardLoading ? 'sk-tinder-loading-skeleton' : '' }}">
+        <div class="sk-radar-wrap">
+            <div class="sk-radar sk-radar-first"></div>
+            <div class="sk-radar sk-radar-second"></div>
+            <div class="sk-radar sk-radar-third"></div>
+            <user-avatar
+                isUseBigAvatar="false"
+                [url]="my?.avatar?.pendingUrl">
+            </user-avatar>
+            <div *ngIf="my?.avatar?.id && !my?.avatar?.active" class="sk-photo-pending">
+                <img src="./assets/img/ic-pending.svg" alt="">
+            </div>
+        </div>
+        <!-- no matches left -->
+        <div *ngIf="isNoUsersDescriptionVisible" class="sk-tinder-no-matches">
+            <h2>{{ 'tinder_nomatches_left_header' | translate }}</h2>
+            <span>{{ 'tinder_nomatches_left_desc' | translate }}</span>
+        </div>
+    </div>
+
+    <!-- location is not defined -->
+    <div *ngIf="!isDashboardLoading && !isUserLocationDefined" class="sk-location-check sk-blank-state-wrap">
+        <img class="sk-blank-state-icon" src="./assets/img/dashboard/components/tinder/ic-location.svg" alt="" />
+        <div class="sk-blank-state-cont">
+            <h2>{{ 'location_issue_title' | translate }}</h2>
+            <p>{{ 'location_issue_desc' | translate }}</p>
+        </div>
+        <div class="sk-buttons">
+            <button class="sk-check-location-button" ion-button outline round (tap)="checkLocation()" [disabled]="isCheckingLocationInProgress">
+                <span class="sk-text-overflow">{{ 'check_location' | translate }}</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- search is not allowed -->
+    <div *ngIf="!isDashboardLoading && !isSearchAllowed && isUserLocationDefined" class="sk-permission-denied  sk-blank-state-wrap">
+        <img class="sk-blank-state-icon" src="./assets/img/ic-no-permission.svg" alt="" />
+        <div class="sk-blank-state-cont">
+            <h2>{{ 'permission_denied_header' | translate }}</h2>
+            <span *ngIf="payments.isPaymentsAvailable()">
+                {{ 'permission_denied_alert_message' | translate }}
+            </span>
+        </div>
+        <div class="sk-buttons">
+            <button *ngIf="payments.isPaymentsAvailable()" class="sk-tinder-upgrade" ion-button outline round (click)="permissions.showAccessDeniedAlert()">
+                <span class="sk-text-overflow">{{ 'upgrade' | translate }}</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- tinder cards wrapper --> 
+    <div [hidden]="!userList.length || !isSearchAllowed || !isUserLocationDefined" class="sk-tinder-cards-wrapper {{ isPreviewModeActive ? 'sk-card-preview' : '' }}" swing-stack [stackConfig]="cardsStackConfig" (dragend)="tinderCardStopMoving()" (dragmove)="tinderCardMoving($event)" (throwoutleft)="tinderCardCreateMatch(false)" (throwoutright)="tinderCardCreateMatch(true)">
+        <ion-card swing-card *ngFor="let user of userList; let i = index" class="{{ isPreviewModeActive ? 'sk-card-preview' : '' }}">
+            <div [class]="swipeDirection && i == userList.length - 1 ? (swipeDirection == 'left' ? 'swiper-no-swiping sk-card-wrapper sk-swipe-left' : 'swiper-no-swiping sk-card-wrapper sk-swipe-right') : 'swiper-no-swiping sk-card-wrapper'">
+                <div class="sk-item-card">
+                    <div class="sk-tinder-cover" (tap)="viewProfile()">
+                        <div class="sk-tinder-like">
+                            <span>{{ 'yes' | translate }}</span>
+                        </div>
+                        <div class="sk-tinder-dislike">
+                            <span>{{ 'nope' | translate }}</span>
+                        </div>
+                    </div>
+                    <user-avatar
+                        isUseBigAvatar="true"
+                        [url]="user.avatar?.bigUrl"
+                        [isAvatarActive]="user.avatar?.active">
+                    </user-avatar>
+                    <div *ngIf="!isPreviewModeActive" class="{{ user.isOnline ? 'sk-card-bottom sk-user-online' : 'sk-card-bottom' }}">
+                        <div class="sk-card-info">
+                            <div class="sk-name">
+                                <span>{{ user.userName }}</span>
+                                <b *ngIf="user.age">, {{ user.age }}</b>
+                            </div>
+                            <div class="sk-info">
+                                <location
+                                    [distance]="user?.distance?.distance"
+                                    [unit]="user?.distance?.unit">
+                                </location>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-card>
+    </div>
+
+    <!-- action buttons wrapper -->
+    <div *ngIf="activeUser" class="sk-tinder-cards-actions-wrapper sk-action-btns">
+        <!-- info -->
+        <button (click)="showShortProfileInfo()" class="sk-tinder-info-btn sk-action-smaller-btn {{ !isPreviewModeActive ? 'sk-tinder-info-less-btn' : '' }} "></button>
+
+        <!-- dislike -->
+        <button (click)="dislikeUser()" class="sk-tinder-dislike-btn sk-dislike-btn"></button>
+
+        <!-- like -->
+        <button (click)="likeUser()" class="sk-tinder-like-btn sk-like-btn"></button>        
+        <!-- profile -->
+        <button (tap)="viewProfile()" class="sk-tinder-profile-btn sk-action-smaller-btn"></button>
+    </div>
+
+    <!-- short profile info wrapper -->
+    <div *ngIf="activeUser && isPreviewModeActive" class="sk-tinder-cards-profile-info">
+        <!-- general info -->
+        <div class="sk-profile-section {{ user.isOnline ? 'sk-card-info sk-user-online' : 'sk-card-info' }}">
+            <div class="sk-section-head sk-name">
+                <span>{{ activeUser.userName }}</span>
+                <b *ngIf="activeUser.age">, {{ activeUser.age }}</b>
+            </div>
+            <p class="sk-section-text">
+                <location
+                    [distance]="activeUser?.distance?.distance"
+                    [unit]="activeUser?.distance?.unit">
+                </location>
+            </p>
+        </div>
+
+        <!-- compatibility (may absent) -->
+        <div *ngIf="siteConfigs.isPluginActive('matchmaking')" class="sk-profile-section sk-profile-comp">
+            <div class="sk-section-head">{{ 'compatibility' | translate }}</div>
+            <div class="sk-comp-bar">
+                <div class="sk-comp-bar-mask" [style.width.%]="activeUser.compatibility ? activeUser.compatibility : 0 | trustStyle">
+                    <span>{{ activeUser.compatibility ? activeUser.compatibility : 0 }}%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- about (may absent) -->
+        <div *ngIf="activeUser.aboutMe" class="sk-profile-section">
+            <div class="sk-section-head">
+                {{ 'tinder_about_me' | translate }}
+            </div>
+            <p class="sk-section-text" [innerHTML]="activeUser.aboutMe | urlify | trustHtml"></p>
+        </div>
+    </div>
+
+    <!-- match actions component -->
+    <match-actions #matchActions></match-actions>
+
+    <!-- permissions -->
+    <permissions #permissions></permissions>
+</div>

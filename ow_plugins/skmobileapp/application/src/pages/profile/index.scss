@@ -1,0 +1,184 @@
+.sk-profile-view-page {
+    .sk-not-profile-owner {
+        margin-bottom: 19vw;
+    }
+
+    .sk-slider-wrap {
+        position: relative;
+        z-index: 1;
+
+        .sk-videoim-link-icon-profile-wrap {
+            position: absolute;
+            @include position(5vh, 2vh, null, null);
+            z-index: 13;
+            transform: translateZ(0);
+
+            .sk-videoim-link-icon-profile {
+                display: inline-block;
+
+                svg {
+                    height: 4.5rem;
+                    width: 4.5rem;
+                }
+            }
+        }
+
+        .sk-slider-back {
+            position: absolute;
+            @include position(5vh, null, null, 2vh);
+            @include flex(flex, row, center, center);
+            border-radius: 100%;
+            z-index: 10;
+            height: 4.5rem;
+            width: 4.5rem;
+            background-color: $sk-profile-slider-back;
+
+            .icon {
+                font-size: 3.5rem;
+                color: color($colors, light);
+            }
+        }
+
+        .sk-edit-myprofile {
+            position: absolute;
+            @include position(5vh, 2vh, null, null);
+            margin: 0;
+            z-index: 10;
+            width: 14rem;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-slider {
+            height: 55vh;
+    
+            .swiper-slide {
+                .slide-zoom {
+                    display: flex;
+                    height: 100%;
+
+                    user-avatar,
+                    user-image {
+                        display: block;
+
+                        img {
+                            height: 100%;
+                            width: 100%;
+                            border-radius: 0;
+                            object-fit: cover;
+                            object-position: top;
+                        }
+                    }
+
+                    user-image {
+                        width: 100%;
+                        background-color: color($colors, sk-user-avatar-bg);
+                    }
+
+                    .sk-photo-pending {
+                        top: 0;
+
+                        &>img {
+                            height: 18vw;
+                            width: 18vw;
+                        }
+                    }     
+                            
+                    .sk-no-big-avatar {
+                        height: 100%;
+                        @include flex(flex, row, center, center);
+                        background: color($colors, sk-user-avatar-bg);
+        
+                        img {
+                            width: 30vh;
+                            height: 30vh;
+                        }
+                    }
+        
+                    .sk-view-all-photos {
+                        @include flex(flex, row, center, center);
+                        width: 100%;
+                        background: color($colors, sk-user-avatar-bg);
+        
+                        button {
+                            width: 70%;
+                            font-size: 2rem;
+                        }
+                    }
+                }
+            }
+
+            .sk-permission-denied {
+                width: 100%;
+    
+                .sk-buttons {
+                    margin-top: 0;
+                }
+            }
+        }      
+
+        .swiper-pagination-bullet {
+            opacity: 1;
+            background-color: color($colors, light);
+            box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: $sk-profile-slider-bullet;
+        }
+    }
+
+    .sk-profile-top {
+        @include flex(flex, row, space-between, center);
+        border-bottom: 1px solid $sk-divide-border-short-color;
+
+        .sk-profile-section {          
+            border: none;
+
+            .sk-name {
+                display: inline-flex;
+                font-size: 2rem;
+                font-weight: 500;
+                margin-bottom: 0.3rem;
+            }
+
+            b {
+                font-weight: 500;
+            }
+        }
+
+        .sk-more {
+            .icon {
+                font-size: 4rem;
+                color: $sk-profile-more;
+            }
+        }
+    }
+    .sk-profile-video {
+        video {
+            height: 200px;
+            object-fit: contain;
+        }
+    }
+}
+
+.sk-profile-footer {
+    box-shadow: 0px -10px 28px 0px rgba(255,255,255,1);
+
+    .sk-profile-actions  {
+        padding: 0 5% 1rem;
+
+        .sk-profile-message-btn {
+                background-image: url("../assets/img/custom-images/ic-profile-message.svg");
+        }
+        .sk-bookmark-btn {
+                background-image: url("../assets/img/custom-images/ic-profile-bookmark.svg");
+        }
+        .sk-bookmarked-btn {
+                background-image: url("../assets/img/custom-images/ic-profile-bookmarked.svg");
+        }
+    }   
+}
+
+.sk-profile-footer-disabled {
+    display: none;
+}

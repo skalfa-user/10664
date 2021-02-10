@@ -1,0 +1,17 @@
+.preview_graphics {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border: 1px solid #ccc;
+    width: 500px;
+    height: 350px;
+    margin: 0 auto;
+}
+.control_image {
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    border: 1px solid #ccc;
+    height: 40px;
+    width: 170px;
+    float: left;
+    cursor: pointer;
+}

@@ -1,0 +1,12 @@
+.sk-page-preloader {
+    position: absolute;
+    @include position(0, 0, 0, 0);
+    background-color: color($colors, light);
+    z-index: 1000;
+    @include flex(flex, column, center, center);
+    @include animation(sk-preloader, 1.2s, linear, infinite);
+
+    img {
+        width: 20rem;
+    }
+}

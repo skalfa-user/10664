@@ -1,0 +1,251 @@
+<div class="sk-skeleton-preloader">
+    <div class="sk-height-wrap">
+    <!-- small-set -->
+    <ng-template [ngIf]="name == 'small-set'">
+        <div *ngFor="let item of createRange(repeatTimes)" class="sk-skeleton-small-set">
+            <div class="sk-skeleton-title sk-skeleton-gradient-animation"></div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+        </div>
+    </ng-template>
+    
+    <!-- middle-set -->
+    <ng-template [ngIf]="name == 'middle-set'">
+        <div *ngFor="let item of createRange(repeatTimes)" class="sk-skeleton-middle-set">
+            <div class="sk-skeleton-title sk-skeleton-gradient-animation"></div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- big-set -->
+    <ng-template [ngIf]="name == 'big-set'">
+        <div *ngFor="let item of createRange(repeatTimes)" class="sk-skeleton-big-set">
+            <div class="sk-skeleton-title sk-skeleton-gradient-animation"></div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- messages-set -->
+    <ng-template [ngIf]="name == 'messages-set'">
+        <div *ngFor="let item of createRange(repeatTimes)" class="sk-skeleton-messages-set">
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- circle-string-list -->
+    <ng-template [ngIf]="name == 'circle-string-list'">
+        <div class="sk-skeleton-circle-string-list">
+            <div class="sk-skeleton-string sk-skeleton-gradient-animation"></div>
+            <div *ngFor="let item of createRange(repeatTimes)" class="sk-skeleton-circle-string-block">
+                <div class="sk-skeleton-circle circle-big sk-skeleton-gradient-animation"></div>
+                <div>
+                    <div class="sk-skeleton-string sk-skeleton-gradient-animation"></div>
+                    <div class="sk-skeleton-string sk-skeleton-gradient-animation"></div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- profile-details -->
+    <ng-template [ngIf]="name == 'profile-details'">
+        <div *ngFor="let item of createRange(repeatTimes)" class="sk-skeleton-profile-details">
+            <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation"></div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation"></div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation"></div>
+            <div class="sk-skeleton-circle-set">
+                <div class="sk-skeleton-circle sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-circle sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-circle sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-circle sk-skeleton-gradient-animation"></div>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- profile-edit -->
+    <ng-template [ngIf]="name == 'profile-edit'">
+        <div *ngFor="let item of createRange(repeatTimes)" class="sk-skeleton-profile-edit">
+            <div class="sk-skeleton-photos">
+                <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+            </div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation"></div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation"></div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation"></div>
+        </div>
+    </ng-template>
+
+    <!-- photos-edit -->
+    <ng-template [ngIf]="name == 'photos-edit'">
+            <div *ngFor="let item of createRange(repeatTimes)" class="sk-skeleton-photos-edit">
+                <div class="sk-skeleton-photos">
+                    <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                    <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                    <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                    <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                    <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                    <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                    <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                    <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                    <div class="sk-skeleton-img-placeholder sk-skeleton-gradient-animation"></div>
+                </div>
+            </div>
+        </ng-template>
+
+    <!-- join -->
+    <ng-template [ngIf]="name == 'join'">
+            <div *ngFor="let item of createRange(repeatTimes)" class="sk-skeleton-join">
+                <div class="sk-skeleton-rectangle sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                    <div class="sk-skeleton-string"></div>
+                    <div class="sk-skeleton-string"></div>
+                </div>
+                <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                    <div class="sk-skeleton-string"></div>
+                    <div class="sk-skeleton-string"></div>
+                </div>
+                <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                    <div class="sk-skeleton-string"></div>
+                    <div class="sk-skeleton-string"></div>
+                </div>
+            </div>
+        </ng-template>
+
+    <!-- join without avatar -->
+    <ng-template [ngIf]="name == 'join-without-avatar'">
+        <div *ngFor="let item of createRange(repeatTimes)" class="sk-skeleton-join">
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+            <div class="sk-skeleton-block sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- card-list -->
+    <ng-template [ngIf]="name == 'card-list'">
+        <div class="sk-skeleton-card-list">
+            <div *ngFor="let item of createRange(repeatTimes)" class="sk-skeleton-card sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- card-list-with-button -->
+    <ng-template [ngIf]="name == 'card-list-with-button'">
+        <div class="sk-skeleton-card-list">
+            <div *ngFor="let item of createRange(repeatTimes)" class="sk-skeleton-card sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+            <div class="sk-skeleton-button sk-skeleton-gradient-animation"></div>
+        </div>
+    </ng-template>
+
+    <!-- card-list-with-search-input-->
+    <ng-template [ngIf]="name == 'card-list-with-search-input'">
+        <div class="sk-skeleton-card-list">
+            <div class="sk-skeleton-string sk-skeleton-gradient-animation"></div>
+            <div *ngFor="let item of createRange(repeatTimes)" class="sk-skeleton-card sk-skeleton-gradient-animation">
+                <div class="sk-skeleton-string"></div>
+                <div class="sk-skeleton-string"></div>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- profile-tab -->
+    <ng-template [ngIf]="name == 'profile-tab'">
+        <div class="sk-skeleton-profile-tab">
+            <div class="sk-skeleton-circle circle-big sk-skeleton-gradient-animation"></div>
+            <div class="sk-skeleton-string sk-skeleton-gradient-animation"></div>
+            <div class="sk-skeleton-block">
+                <div class="sk-skeleton-button sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-button sk-skeleton-gradient-animation"></div>
+            </div>
+            <div class="sk-skeleton-card">
+                <div class="sk-skeleton-string sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-string sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-string sk-skeleton-gradient-animation"></div>
+                <div class="sk-skeleton-string sk-skeleton-gradient-animation"></div>
+            </div>
+        </div>
+    </ng-template>
+</div>
+</div>

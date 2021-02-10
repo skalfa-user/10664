@@ -1,0 +1,66 @@
+{if !empty($list)}
+    <div class="usearch_search_result_page ow_left" data-page="{$page}" style="width:100%;height:0px;"></div>
+    {foreach from=$list item=item name='user_list'}
+        
+        {assign var='dto' value=$item.dto}
+        {assign var='id' value=$dto->id}
+            {capture assign="_fields"}
+                {if !empty($fields[$id].base)}{foreach from=$fields[$id].base item="field"}{$field.label}{$field.value}{/foreach}{/if}
+            {/capture}
+        {capture assign='activity'}
+        {if !empty($showPresenceList) && !empty($showPresenceList[$id]) && $showPresenceList[$id]}
+        {if $onlineInfo}
+        {if empty($onlineInfo[$id]) && !empty($dto) && $dto->activityStamp > $activityShowLimit}
+            <div class="ow_photo_userlist_info">
+                {text key="base+user_list_activity"}: <span class="">{format_date timestamp=$dto->activityStamp}</span>
+            </div>
+        {else}
+
+        {/if}
+        {/if}
+        {/if}
+        {/capture}
+        {capture assign='joinDate'}
+            {if !empty($dto->joinStamp)}
+                <div class="ow_photo_userlist_info">
+                    {text key="usearch+user_list_join_date"}: <span class="">{format_date timestamp=$dto->joinStamp}</span>
+                </div>
+            {else}
+
+            {/if}
+        {/capture}
+        
+        <div class="owm_content_list_item" onclick=" window.location.href='{$avatars[$id]['url']}'  ">
+            <div class="owm_user_list_item">
+                {decorator name='avatar_item' data=$avatars[$id]}
+                <div class="owm_user_list_info owm_remark">
+                    <div class="owm_user_list_name"><span>{$displayNameList[$id]}</span></div>
+                    <div class="owm_user_list_cont">{$_fields}</div>
+                    
+                    {if $orderType == 'latest_activity'}
+                        <div class="owm_user_list_cont">{$activity}</div>
+                    {else if $orderType == 'new'}
+                        <div class="owm_user_list_cont">{$joinDate}</div>
+                    {else if $orderType == 'match_compatibility'}
+                        {if isset($fields[$id].match_compatibility)}
+                            <div class="owm_user_list_cont">
+                                {text key="usearch+match_compatibility"}: <span class="">{$fields[$id].match_compatibility.value}</span>
+                            </div>
+                        {/if}
+                    {else if $orderType == 'distanse'}
+                        {if !empty($fields[$id].location)}<div class="owm_user_list_cont">{$fields[$id].location.value}</div>{/if}
+                        {if isset($fields[$id].distance)}
+                            <div class="owm_user_list_cont">
+                                {text key="usearch+distance"}: <span class="">{$fields[$id].distance.value}</span>
+                            </div>
+                        {/if}
+                    {/if}
+                </div>
+                {if !empty($onlineInfo) && $onlineInfo[$id] }
+                    <div class="owm_profile_online">
+                    </div>
+                {/if}
+            </div>
+        </div>
+    {/foreach}
+{/if}

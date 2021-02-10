@@ -1,0 +1,12 @@
+<table class="ow_table_3 ow_automargin ow_smallmargin">
+    <tr class="{if $isModerator && !$isOwner}ow_tr_first{else}ow_tr_last ow_tr_first{/if} ">
+        <td class="ow_label">{text key='membership+membership'}</td>
+        <td class="ow_value">{$title}</td>
+    </tr>
+    {if $isModerator && !$isOwner}
+    <tr class="ow_tr_last">
+        <td class="ow_label">{text key='membership+expires'}</td>
+        <td class="ow_value">{membership_format_date timestamp=$membership->expirationStamp}</td>
+    </tr>
+    {/if}
+</table>

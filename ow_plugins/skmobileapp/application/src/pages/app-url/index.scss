@@ -1,0 +1,33 @@
+.sk-site-url-page {
+    .sk-blank-state-wrap {
+
+        .sk-blank-state-icon {
+            width: 18vh;
+        }
+
+        .sk-inputs {
+            @include flex(flex, row, flex-start, center);
+            border-bottom: 1px solid rgba($sk-app-url-color, 0.3);
+            margin-top: 12vh;
+            margin-bottom: 2.4rem;
+
+            ion-icon {
+                color: $sk-app-url-color;
+                font-size: 2.2rem;
+            }
+            ion-item {
+                @include padding(0, 0, 0, 0.5rem);
+
+                ion-input {
+                    input {
+                        color: $text-color;
+                        font-size: 1.6rem;
+                        @include placeholder ($sk-placeholder-color);
+                        @include margin(null, null, null, 0);
+                        text-transform: lowercase;
+                    }
+                }
+            }
+        }
+    }
+}

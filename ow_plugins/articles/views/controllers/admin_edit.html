@@ -1,0 +1,50 @@
+{form name='edit-form'}
+<table class="ow_table_1 ow_form ow_stdmargin">
+    <tr class="ow_alt1 ow_tr_last">
+        <td class="ow_label">{label name='title'}</td>
+        <td class="ow_value">
+            {input name='title'}
+            <br>
+            {error name='title'}
+        </td>
+    </tr>
+    <tr class="ow_alt1 ow_tr_last">
+        <td class="ow_label">{label name='subtitle'}</td>
+        <td class="ow_value">
+            {input name='subtitle'}
+            <br>
+            {error name='subtitle'}
+        </td>
+    </tr>
+    <tr class="ow_alt1 ow_tr_last">
+        <td class="ow_label">{label name='description'}</td>
+        <td class="ow_value">
+            {input name='description'}
+            <br>
+            {error name='description'}
+        </td>
+    </tr>
+    <tr class="ow_alt1 ow_tr_last">
+        <td class="ow_label">{label name='image'}</td>
+        <td>
+            <div id="current_image_field">
+                <div class="admin_articles_card_img_edit" style="background-image: url('{$article->getImageNameUrl()}');">
+                    <div class="admin_cross_img" onclick="showNewImageField()"></div>
+                </div>
+                {error name='image'}
+            </div>
+            <div id="new_image_field" style="display: none;">
+                {input name='image'}
+                <br>
+                {error name='image'}
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div class="clearfix ow_stdmargin ow_submit ow_btn_delimiter">
+    <div class="ow_right">
+        {submit name="go" class="ow_button ow_ic_save"}
+    </div>
+</div>
+{/form}

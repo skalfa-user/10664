@@ -1,0 +1,80 @@
+<div class="owm_user_search_form">
+    <div class=" ">
+    {form name='QuickSearchForm'}
+        {foreach from=$questionList item=question}
+            {if $question->name == 'match_sex' }
+                {if !empty($form->displayAccountType) }
+                    <div class="owm_field_container owm_std_margin_bottom ow_question_tr  {if !empty($question->trClass)}{$question->trClass}{/if}" >
+                        <div class="owm_form_label owm_small_margin_bottom">{label name=$question->name}</div>
+                        <div class="owm_field_wrap owm_select_wrap">
+                            {input name=$question->name}
+                        </div>
+                        <div class="owm_error_txt">{error name=$question->name}</div>
+                    </div>
+                {/if}
+            {else if $question->name == 'sex'}
+                {if !empty($form->displayAccountType) }
+                    <div class="owm_field_container owm_std_margin_bottom ow_question_tr  {if !empty($question->trClass)}{$question->trClass}{/if}" >
+                        <div class="owm_form_label owm_small_margin_bottom">{label name=$question->name}</div>
+                        <div class="owm_field_wrap owm_select_wrap">
+                            {input name=$question->name}
+                        </div>
+                        <div class="owm_error_txt">{error name=$question->name}</div>
+                    </div>
+                {/if}  
+            {else if $question->name == 'birthdate'}
+                <div class="owm_field_container owm_std_margin_bottom ow_question_tr  {if !empty($question->trClass)}{$question->trClass}{/if}" >
+                    <div class="owm_form_label owm_small_margin_bottom">{label name=$question->name}</div>
+                    <div class="owm_field_wrap owm_select_wrap">
+                        {input name=$question->name}
+                    </div>
+                    <div class="owm_error_txt">{error name=$question->name}</div>
+                </div>
+            {else}
+                {if in_array( $question->presentation, array('text') ) }
+                     <div class="owm_field_container owm_small_margin_bottom ow_question_tr {if !empty($question->trClass)}{$question->trClass}{/if}" >
+                         <div class="{if !empty($presentationToClass[$question->presentation]) }{$presentationToClass[$question->presentation]}{else}owm_field_wrap{/if}">{input name=$question->name}</div>
+                         <div class="owm_error_txt">{error name=$question->name}</div>
+                     </div>
+                 {else}
+                     <div class="owm_field_container owm_std_margin_bottom ow_question_tr {if !empty($question->trClass)}{$question->trClass}{/if}" {if empty($visibilityList['questions'][$question->name])}style="display:none;"{/if}>
+                         <div class="owm_form_label owm_small_margin_bottom">{label name=$question->name}</div>
+                         <div class="{if !empty($presentationToClass[$question->presentation]) }{$presentationToClass[$question->presentation]}{else}owm_field_wrap{/if}">
+                             {input name=$question->name}
+                         </div>
+                         <div class="owm_error_txt">{error name=$question->name}</div>
+                     </div>
+                 {/if}
+            {/if}
+        {/foreach}
+
+        {if $form->getElement('online') }
+            <div class="owm_field_container owm_std_margin_bottom ow_question_tr">
+                <div class="owm_form_label owm_small_margin_bottom">{label name='online'}</div>
+                <div class="owm_checkbox_single">
+                    {input name='online'}
+                </div>
+                <div class="owm_error_txt">{error name='online'}</div>
+            </div>
+        {/if}
+
+        {if $form->getElement('with_photo') }
+            <div class="owm_field_container owm_std_margin_bottom ow_question_tr">
+                <div class="owm_form_label owm_small_margin_bottom">{label name='with_photo'}</div>
+                <div class="owm_checkbox_single">
+                    {input name='with_photo'}
+                </div>
+                <div class="owm_error_txt">{error name='with_photo'}</div>
+            </div>
+        {/if}
+        
+        <div class="owm_btn_wide owm_std_margin_top">
+            {submit name='search'}
+        </div>
+        
+        <div class="owm_btn_wide">
+            <a href="{$advancedUrl}" class="ow_nowrap">{text key='usearch+advanced_search'}</a>
+        </div>  
+    {/form}
+    <div class=" ">
+</div>

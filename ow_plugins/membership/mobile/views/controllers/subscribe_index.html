@@ -1,0 +1,44 @@
+<div class="owm_subscribe_page">
+    <div class="owm_content_menu_wrap owm_padding">
+        {$menu}
+    </div>
+    <div class="owm_membership_list">
+        {if isset($current)}
+            <div class="owm_current_membership owm_membersip_item owm_border">
+                <div class="owm_sidemenu_item_wrap owm_bg_color_1">
+                    <a href="{$yourMembershipInfoLink}" class="owm_sidemenu_item clearfix">
+                        <span class="owm_sidemenu_item_label owm_float_left">{text key='membership+your_membership'}: </span>
+                        <span class="owm_sidemenu_item_value owm_float_right"><b>{if isset($currentTitle)}{$currentTitle}{if $current->recurring} ({text key='membership+recurring'}){/if}{/if}</b></span>
+                    </a>
+                </div>
+            </div>
+        {else}
+
+        {foreach from=$mTypePermissions item='mt'}
+            {if $mt.current == true}
+            <div class="owm_current_membership owm_membersip_item owm_border">
+                <div class="owm_sidemenu_item_wrap owm_bg_color_1">
+                    <a href="{$mt.yourMembershipInfoLink}" class="owm_sidemenu_item clearfix">
+                        <span class="owm_sidemenu_item_label owm_float_left">{text key='membership+your_membership'}: </span>
+                        <span class="owm_sidemenu_item_value owm_float_right"><b>{if isset($mt.title)}{$mt.title}{/if}</b></span>
+                    </a>
+                </div>
+            </div>
+            {/if}
+        {/foreach}
+        {/if}
+
+        {foreach from=$mTypePermissions item='mt'}
+        <div class="owm_membersip_item owm_border">
+            <div class="owm_sidemenu_item_wrap owm_bg_color_3">
+                <a href="{$mt.membershipInfoLink}" class="owm_sidemenu_item clearfix">
+                    <span class="owm_sidemenu_item_label owm_float_left">{$mt.title}</span>
+                </a>
+            </div>
+        </div>
+        {/foreach}
+    </div>
+</div>
+
+
+

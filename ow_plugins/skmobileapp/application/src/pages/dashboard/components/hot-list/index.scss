@@ -1,0 +1,24 @@
+.sk-hot-list-tab {
+    background-color: color($colors, dark);
+
+    .sk-hot-list-button {
+        max-width: 80%;
+        min-width: 16rem;
+        @include linear-gradient($sk-gradient-start, $sk-gradient-end, horizontal)
+    }
+
+    .sk-nothing-found {
+        .sk-blank-state-icon {
+            width: 35%;
+        }
+        .sk-blank-state-cont {
+            h2 {
+                color: color($colors, light);
+            }
+        }
+    }
+
+    .sk-card {
+        border-color: transparent;
+    }
+}

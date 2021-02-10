@@ -1,0 +1,81 @@
+{style}
+    #admin-credit-statistics-header #credit-statistics-menu {
+        float:right;
+    }
+
+    #admin-credit-statistics-container .ow_ajaxloader_preloader {
+        min-height:300px;
+    }
+
+    #admin-credit-browse {
+        float:right;
+    }
+{/style}
+
+{script}
+    var defaultPeriod = "{$defaultPeriod}";
+
+    $("#credit-statistics-menu a").on("click", function(){
+        defaultPeriod = $(this).attr("id");
+        defaultPeriod = defaultPeriod.replace("credit_menu_statistics_", "");
+
+        reloadChart();
+    });
+
+    /**
+     * Reload chart
+     *
+     * @return void
+     */
+    function reloadChart()
+    {
+        if (!defaultPeriod)
+        {
+            return;
+        }
+
+        OW.loadComponent("USERCREDITS_CMP_CreditStatistic", [{ "defaultPeriod" : defaultPeriod }], "#admin-credit-statistics-container");
+    }
+
+    /**
+     * Init paginator
+     *
+     * @return void
+     */
+    function initPaginator()
+    {
+        $("#user_credits_history_paging .ow_paging a").unbind().click(function(e){
+            e.preventDefault();
+            OW.loadComponent("USERCREDITS_CMP_GlobalPurchaseHistory", [{ "page" : $(this).attr("data-page") }], { onReady: function(data) {
+                $("#global_purchace_history_wrapper").replaceWith(data);
+                initPaginator();
+            } });
+        });
+    }
+
+    $("#admin-credit-browse").click(function(){
+        OW.ajaxFloatBox("USERCREDITS_CMP_GlobalPurchaseHistory", [], {
+            onReady: function() {
+                initPaginator();
+            },
+            width : 500,
+            title: '{text key="usercredits+purchase_history"  escape=true}'
+        });
+    });
+{/script}
+
+<div id="admin-credit-statistics-header">
+    <div id="credit-statistics-menu">
+        {$menu}
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<div id="admin-credit-statistics-container">
+    {$statistics}
+</div>
+
+<div id="admin-credit-browse">
+    {decorator name="button_list_item" langLabel="usercredits+statistics_browse_history"}
+</div>
+<div class="clearfix"></div>

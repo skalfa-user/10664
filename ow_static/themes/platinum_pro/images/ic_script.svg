@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_script</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-1046.000000, -2026.000000)">
+            <g id="ic_script" transform="translate(1046.000000, 2026.000000)">
+                <g id="Group">
+                    <polygon id="Shape" fill="#ffffff" points="0 0 16 0 16 16 0 16"></polygon>
+                    <polygon id="Shape" fill="#FFFFFF" points="1 2 15 2 15 15 1 15"></polygon>
+                    <polygon id="Shape" fill="#ffffff" points="2 3 14 3 14 14 2 14"></polygon>
+                    <g transform="translate(4.000000, 5.000000)" fill="#FFFFFF" id="Shape">
+                        <polygon points="0 0 1 0 1 1 0 1"></polygon>
+                        <polygon points="2 2 3 2 3 3 2 3"></polygon>
+                        <polygon points="3 3 4 3 4 4 3 4"></polygon>
+                        <polygon points="2 4 3 4 3 5 2 5"></polygon>
+                        <polygon points="1 5 2 5 2 6 1 6"></polygon>
+                        <polygon points="0 6 1 6 1 7 0 7"></polygon>
+                        <polygon points="1 1 2 1 2 2 1 2"></polygon>
+                        <polygon points="4 6 8 6 8 7 4 7"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

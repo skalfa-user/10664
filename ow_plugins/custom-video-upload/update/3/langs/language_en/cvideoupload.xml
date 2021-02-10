@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="cvideoupload" label="Video Upload" language_tag="en" language_label="English">
+    <key name="video_not_found"><value>Video not found</value></key>
+</prefix>

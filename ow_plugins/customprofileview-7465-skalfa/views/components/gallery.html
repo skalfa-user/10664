@@ -1,0 +1,238 @@
+{style}
+
+{if !empty($user.avatar)}
+    .ow_profile_gallery_avatar_image {
+        background-image: url({$user.avatar});
+    }
+{/if}
+
+{if $photos}
+.pcgallery_photo1 {
+    background-image: url({$photos.0.src});
+}
+
+.pcgallery_photo2 {
+    background-image: url({$photos.1.src});
+}
+
+.pcgallery_photo3 {
+    background-image: url({$photos.2.src});
+}
+
+.pcgallery_photo4 {
+    background-image: url({$photos.3.src});
+}
+
+.pcgallery_photo5 {
+    background-image: url({$photos.4.src});
+}
+
+.pcgallery_photo6 {
+    background-image: url({$photos.5.src});
+}
+
+.pcgallery_photo7 {
+    background-image: url({$photos.6.src});
+}
+
+{/if}
+
+.ow_profile_gallery_place:hover .ow_profile_gallery_btn {
+    /*display: block;*/
+}
+
+.ow_profile_gallery_btn {
+    /*display: none;*/
+}
+
+.pcg_avatar_approve {
+    display: none;
+}
+
+.ow_avatar_console:hover .pcg_avatar_approve {
+    display: block;
+}
+
+{/style}
+
+<div class="custom-gallery-wrap ow_profile_gallery_wrap ow_smallmargin" id="{$uniqId}">
+    <div class="ow_profile_gallery_cont_wrap ow_border">
+        <div class="ow_profile_gallery_cont">
+            <div class="profile-gallery-avatar-wrap">
+                <div class="ow_profile_gallery_avatar">
+                    <div class="ow_avatar_console ow_border ow_profile_gallery_avatar_console ow_bg_color">
+                        <div id="avatarImage" class="ow_profile_gallery_avatar_image" data-outlet="avatar">
+                            {if $avatarApproval}
+                                <div data-outlet="approve-overlay" style="position: absolute; top: 0; right: 0; left: 0; bottom: 0; background-color: rgba(0,0,0,0.6); color: #fff; padding: 8px;">{text key='base+avatar_pending_approval'}</div>
+                            {/if}
+
+                                {if isset($user.role.label)}
+                                    <span class="ow_avatar_label"{if isset($user.role.custom)} style="background-color: {$user.role.custom}"{/if}>
+                                        {$user.role.label}
+                                    </span>
+                                {/if}
+
+                                {if $permissions.changeAvatar}
+                                    <div class="ow_profile_gallery_avatar_change">
+                                        <a data-outlet="avatar-change" href="javascript://" class="ow_lbutton">{text key="base+avatar_change"}</a>
+                                    </div>
+                                {/if}
+
+                                {if $avatarApproval && $permissions.approveAvatar}
+                                    <div class="ow_avatar_button ow_avatar_change pcg_avatar_approve" data-outlet="approve-avatar-w" >
+                                        <a data-outlet="approve-avatar" class="ow_lbutton" href="javascript://">{text key='base+approve'}</a>
+                                    </div>
+                                {/if}
+                            <div class="user_online_wrap">{if $user.isOnline}{online_now userId=$user.id}{else}{offline_now userId=$user.id}{/if}</div>
+                        </div>
+
+                        <div id="avatarVideo" class="ow_hidden">
+                            {if $isViewVideo}
+                                {if !empty($video) && !empty($video->videos)}
+                                    <div class="wrapper-video-play">
+                                        <video class="custom-video-play" preload="auto" poster="{$video->coverImage}">
+                                            {foreach from=$video->videos item=video}
+                                            <source src="{$video.url}" type="{$video.type}">
+                                            {/foreach}
+                                        </video>
+                                        <div class="playpause-play"></div>
+                                    </div>
+                                {/if}
+                            {/if}
+                        </div>
+
+                    </div>
+                </div>
+                {if $photoBlocks || $video}
+                    <div class="gallery-slider">
+                        <div class="gallery-slider-arrow arrow-left" onclick="moveSliderPrev()">
+                            <img src="{$arrowLeft}" />
+                        </div>
+
+                        <div class="gallery-slider-images">
+                            {foreach from=$photoBlocks item='photos' key='block'}
+                                <div data-block="{$block}" class="{if $block !== 0}ow_hidden{else}custom_active_block{/if} custom_block_{$block}">
+                                    {if $photos@first}
+                                        {if $isViewVideo}
+                                            {if !empty($video) && !empty($video->videos)}
+                                                <div class="wrapper-video">
+                                                    <video class="custom-video" preload="auto" poster="{$video->coverImage}">
+                                                        {foreach from=$video->videos item=video}
+                                                            <source src="{$video.url}" type="{$video.type}">
+                                                        {/foreach}
+                                                    </video>
+                                                    <div class="playpause"></div>
+                                                </div>
+                                            {/if}
+                                        {/if}
+                                    {/if}
+                                    {foreach from=$photos item='photo'}
+                                        {if $photo.id}
+                                            <span class="ow_lp_wrapper" onclick="setOnAvatarImage(`{$photo.original_url}`)">
+                                                <img title="{$photo.url|escape}" alt="{$photo.url|escape}" src="{$photo.url|escape}" />
+                                            </span>
+                                        {/if}
+                                    {/foreach}
+                                </div>
+                            {foreachelse}
+                                <div class="custom_active_block">
+                                    {if $isViewVideo}
+                                        {if !empty($video) && !empty($video->videos)}
+                                            <div class="wrapper-video">
+                                                <video class="custom-video" preload="auto" poster="{$video->coverImage}">
+                                                    {foreach from=$video->videos item=video}
+                                                       <source src="{$video.url}" type="{$video.type}">
+                                                    {/foreach}
+                                                </video>
+                                                <div class="playpause"></div>
+                                            </div>
+                                        {/if}
+                                    {/if}
+                                </div>
+                            {/foreach}
+                        </div>
+
+                        <div class="gallery-slider-arrow arrow-right" onclick="moveSliderNext()">
+                            <img src="{$arrowRight}" />
+                        </div>
+                    </div>
+                {/if}
+
+                {if $ownerMode}
+                    <div class="ow_center">
+                        {decorator name='button' class='ow_ic' id='custom-btn-photo' langLabel='customprofileview+view_all'}
+                        {decorator name='button' class='ow_ic_add' id='custom-btn-video' langLabel='customprofileview+add_video'}
+                    </div>
+                {/if}
+            </div>
+            <div class="ow_profile_gallery_toolbox">
+                <div class="ow_profile_gallery_action_toolbar clearfix">
+                    {$actionToolbar}
+                </div>
+                <div class="custom-profile-info">
+                    <span class="ow_profile_gallery_display_name ow_smallmargin">
+                        {$user.displayName}
+                    </span>
+                    <span class="ow_profile_gallery_short_info ow_smallmargin">
+                        {$shortInfo}
+                    </span>
+
+                    {$i = 0}
+                    <table class="custom-profile-questions">
+                        {foreach from=$questions key='sort' item='question' name='question'}
+                            {if isset( $questionsData[$questions[$i].name] ) }
+                                <tr>
+                                    <td>
+                                        <b>
+                                            {if empty($labels[$questions[$i].name])}
+                                                {text key="base+questions_question_`$questions[$i].name`_label"}
+                                            {else}
+                                                {$labels[$questions[$i].name]}
+                                            {/if}
+                                        </b>:
+                                        {$questionsData[$questions[$i].name]}
+                                    </td>
+
+                                    {$i = $i + 1}
+
+                                    {if isset( $questionsData[$questions[$i].name] ) }
+                                        <td>
+                                            <b>
+                                                {if empty($labels[$questions[$i].name])}
+                                                    {text key="base+questions_question_`$questions[$i].name`_label"}
+                                                {else}
+                                                    {$labels[$questions[$i].name]}
+                                                {/if}
+                                            </b>:
+                                            {$questionsData[$questions[$i].name]}
+                                        </td>
+                                    {/if}
+                                </tr>
+                            {/if}
+                            {$i = $i + 1}
+                        {/foreach}
+                    </table>
+                    </br>
+                    <table class="custom-profile-questions">
+                         <tr>
+                           <td>
+                                <b>{text key="base+questions_question_field_5ca46470a4dc55c8d7ff2dbaa4315c98_label"}</b>: {$shortInfointerest}
+                            </td>
+                        </tr>
+                        <tr>
+                             <td>
+                                <b>{text key="base+questions_question_field_ec75771c400c096688c62131e7564263_label"}</b>: {$shortInfomusic}
+                             </td>
+                        </tr>
+                        <tr>
+                             <td>
+                                <b>{text key="base+questions_question_field_5d455f945ae721abeb92530c54bf25b7_label"}</b>: {$shortInfoptype}
+                             </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

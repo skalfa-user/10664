@@ -1,0 +1,24 @@
+{*
+
+/**
+* Copyright (c) 2014, Skalfa LLC
+* All rights reserved.
+*
+* ATTENTION: This commercial software is intended for exclusive use with SkaDate Dating Software (http://www.skadate.com) and is licensed under SkaDate Exclusive License by Skalfa LLC.
+*
+* Full text of this license can be found at http://www.skadate.com/sel.pdf
+*/
+
+*}
+
+{if !empty($menu)}{$menu}{/if}
+<div id="{$widgetId}">
+    {foreach from=$data item='item' key='type'}
+        <div id="{$item.contId}" style="display:{if $item.active}block{else}none{/if};">{$item.users}</div>
+        {if !empty($item.toolbarId)}
+            <div id="{$item.toolbarId}"  style="display: none;">
+                {decorator name='box_toolbar' class="clearfix" itemList=$item.toolbar}
+            </div>
+        {/if}
+    {/foreach}
+</div>

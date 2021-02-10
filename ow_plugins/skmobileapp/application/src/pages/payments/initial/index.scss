@@ -1,0 +1,45 @@
+@import "../base.scss";
+
+.sk-payments {
+    &-wrap {
+        @include flex(flex, column, flex-start, stretch);
+    }
+
+    ion-segment {
+        padding: 0.8rem;
+        flex: none;
+        background-color: color($colors, light);
+    }
+    
+    &-segment {
+        flex: 1;
+        background-color: color($colors, sk-page-bg);
+
+        .sk-blank-state-wrap {
+            min-height: 0;
+            margin-bottom: 1.6rem;
+
+            .sk-blank-state-icon {
+                width: 30%;
+            }
+        }
+    }
+}
+
+.sk-payments-segment {
+    .sk-membership-list {
+        margin-bottom: 3.2rem;
+    }
+
+    .sk-credits-segment {
+        .sk-payments-head.item.item-block .item-inner {
+            .sk-payments-info {
+                color: color($colors, green);
+            }
+        }
+        .sk-credits-item {
+            min-height: 6.4rem;
+        }
+    }
+}
+

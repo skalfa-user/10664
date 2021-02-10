@@ -1,0 +1,27 @@
+[
+    {
+       "order":0,
+       "sectionId":34,
+       "section":"Basic",
+       "items":[
+          {
+             "type":"text",
+             "key":"field_0e1c428ab88452978eb4cbb7ed4a675d",
+             "label":"test",
+             "placeholder":"Test",
+             "values":[
+ 
+             ],
+             "value":null,
+             "validators":[
+                {
+                   "name":"require"
+                }
+             ],
+             "params":{
+                "stacked":true
+             }
+          }
+       ]
+    }
+ ]

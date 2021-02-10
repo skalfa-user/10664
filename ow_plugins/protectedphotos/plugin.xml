@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+    <name>Private photo albums</name>
+    <key>protectedphotos</key>
+    <description>The plugin allows site users to lock their photo albums, making them private and available only to friends or users with designated photo album passwords.</description>
+    <author>Skalfa</author>
+    <authorEmail>oxwallplugins@skalfa.com</authorEmail>
+    <authorUrl>http://www.skalfa.com</authorUrl>
+    <developerKey>99d6bdd5bb6468beaf118c4664dd92ff</developerKey>
+    <build>10800</build>
+    <copyright>(C) 2009 Skalfa LLC. All rights reserved.</copyright>
+    <license>OSCL</license>
+    <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+</plugin>

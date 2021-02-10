@@ -1,0 +1,12 @@
+[{
+    "id":1,
+    "viewed":false,
+    "visitTimestamp":1547545982,
+    "visitDate":"one hour ago",
+    "avatar": null,
+    "matchAction":null,
+    "user":{
+      "id":2,
+      "userName":"Tester2"
+    }
+}]

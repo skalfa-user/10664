@@ -1,0 +1,127 @@
+{form name='settings-form'}
+
+<img src="{$logoUrl}" />
+
+<div class="ow_superwide">
+<table class="ow_table_3">
+    <tr class="ow_tr_first">
+        <td class="ow_label" style="width: 30%">{text key='billingstripe+recurring_supported'}</td>
+        <td class="ow_value">{if $gateway->recurring}{text key='billingstripe+available'}{/if}</td>
+    </tr>
+    
+    <tr class="ow_tr_last">
+        <td class="ow_label">{text key='billingstripe+supported_currencies'}</td>
+        <td class="ow_value">{$gateway->getCurrenciesString()}</td>
+    </tr>
+</table>
+</div>
+
+{if !$currSupported}
+    <div class="ow_anno ow_std_margin ow_nocontent">{text key="base+billing_currency_not_supported" currency=$activeCurrency}</div>
+{/if}
+
+<table class="ow_table_1 ow_form">
+    <tr>
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_gear_wheel">{text key='billingstripe+account_settings'}</span>
+        </th>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='testSK'}</td>
+        <td class="ow_value">
+            {input name='testSK'} {error name='testSK'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='testPK'}</td>
+        <td class="ow_value">
+            {input name='testPK'} {error name='testPK'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='liveSK'}</td>
+        <td class="ow_value">
+            {input name='liveSK'} {error name='liveSK'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='livePK'}</td>
+        <td class="ow_value">
+            {input name='livePK'} {error name='livePK'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='sandboxMode'}</td>
+        <td class="ow_value">
+            {input name='sandboxMode'} {error name='sandboxMode'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='requireData'}</td>
+        <td class="ow_value">
+            {input name='requireData'} {error name='requireData'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+</table>
+
+
+
+<table class="ow_table_1 ow_form">
+    <tr>
+        <th class="ow_name ow_txtleft" colspan="4">
+            <span class="ow_section_icon ow_ic_gear_wheel">View settings</span>
+        </th>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='font_color'}</td>
+        <td class="ow_value">
+            {input name='font_color'} {error name='font_color'}
+        </td>
+
+        <td class="ow_label">{label name='font_family'}</td>
+        <td class="ow_value">
+            {input name='font_family'} {error name='font_family'}
+        </td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='icon_color'}</td>
+        <td class="ow_value">
+            {input name='icon_color'} {error name='icon_color'}
+        </td>
+        <td class="ow_label">{label name='placeholder_color'}</td>
+        <td class="ow_value">
+            {input name='placeholder_color'} {error name='placeholder_color'}
+        </td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='error_icon_color'}</td>
+        <td class="ow_value">
+            {input name='error_icon_color'} {error name='error_icon_color'}
+        </td>
+        <td class="ow_label">{label name='font_size'}</td>
+        <td class="ow_value">
+            <div class="font_size_field">
+                {input name='font_size'} {error name='font_size'}
+            </div>
+        </td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='error_font_color'}</td>
+        <td class="ow_value">
+            {input name='error_font_color'} {error name='error_font_color'}
+        </td>
+    </tr>
+</table>
+
+
+
+<div class="clearfix ow_submit ow_stdmargin">
+	<div class="ow_right">{submit name='save' class='ow_ic_save'}</div>
+</div>
+{/form}

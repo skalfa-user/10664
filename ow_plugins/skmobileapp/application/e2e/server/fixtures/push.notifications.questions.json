@@ -1,0 +1,22 @@
+[
+   {
+      "key":"skmobileapp_new_messages_push",
+      "label":"New Messages",
+      "placeholder":"New Messages",
+      "type":"checkbox",
+      "value":true,
+      "validators":[
+
+      ]
+   },
+   {
+      "key":"skmobileapp_new_matches_push",
+      "label":"New Matches",
+      "placeholder":"New Matches",
+      "type":"checkbox",
+      "value":true,
+      "validators":[
+
+      ]
+   }
+]

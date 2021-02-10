@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_forum</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-442.000000, -2028.000000)" fill="#ffffff">
+            <g id="ic_forum" transform="translate(441.000000, 2028.000000)">
+                <g id="Group">
+                    <path d="M17,10.234 C17,7.753 14.318,5.742 11.011,5.742 C7.703,5.742 5.021,7.752 5.021,10.234 C5.021,12.715 7.703,14.726 11.011,14.726 C11.945,14.726 12.823,14.562 13.613,14.275 L16.554,16 L15.657,13.068 C16.496,12.294 17,11.31 17,10.234" id="Shape"></path>
+                    <path d="M11.01,5.242 C11.067,5.242 11.122,5.247 11.178,5.249 C11.373,4.837 11.499,4.4 11.499,3.938 C11.499,1.763 9.149,0 6.249,0 C3.35,0 0.999,1.763 0.999,3.938 C0.999,4.88 1.441,5.743 2.177,6.421 L1.391,8.99 L3.969,7.48 C4.399,7.636 4.868,7.732 5.352,7.797 C6.464,6.274 8.582,5.242 11.01,5.242" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

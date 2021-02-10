@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="customprofileview" label="Custom Profile View" language_tag="en" language_label="English">
+    <key name="no_data"><value>No data</value></key>
+    <key name="view_all"><value>View All</value></key>
+    <key name="add_video"><value>Add Video</value></key>
+</prefix>

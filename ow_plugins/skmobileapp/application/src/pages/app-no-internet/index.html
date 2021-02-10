@@ -1,0 +1,14 @@
+<ion-content padding class="sk-app-connection-error-page sk-blank-state">
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <div class="sk-blank-state-wrap">
+        <img class="sk-blank-state-icon" src="./assets/img/app-no-internet/ic-no-internet.svg" alt="" />
+        <div class="sk-blank-state-cont">
+            <p>{{ 'no_internet' | translate }}</p>
+        </div>
+    </div>
+    
+</ion-content>

@@ -1,0 +1,20 @@
+<div class="clearfix ow_stdmargin">
+    <div id="user-search-by-user-name" class="ow_center">
+        <div class="ow_searchbar clearfix">
+            <div class="ow_searchbar_input ow_center">
+                <input id="{$inputUserNameSearch}" type="text" autocomplete="off" class="invitation" placeholder="{text key="cvideoupload+user_name_search_invitation"}">
+                <input type="hidden" value="{$fieldValue}" id="{$fieldId}" name="{$fieldName}">
+
+                <div id="{$loadingContent}" class="ow_preloader user_preloader" hidden></div>
+                <div id="{$scrollLiveSearchResult}" class="{$scrollLiveSearchResult}"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="{$userListSearchResult}" class="ow_center selected_users_wrapper {if empty($previewUserList)}ow_hidden{/if} {$userListSearchResult}">
+        <h2>{text key="cvideoupload+selected_users"}</h2>
+        {if !empty($previewUserList)}
+            {$previewUserList}
+        {/if}
+    </div>
+</div>

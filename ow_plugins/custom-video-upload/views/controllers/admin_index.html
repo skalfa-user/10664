@@ -1,0 +1,89 @@
+{form name='settings'}
+    <table class="ow_table_1 ow_form">
+
+        <tr class="ow_tr_first">
+            <th class="ow_name ow_txtleft" colspan="3">
+                <span class="ow_section_icon ow_ic_gear_wheel">{text key="cvideoupload+settings"}</span>
+            </th>
+        </tr>
+
+        {if isset($configurationError)}
+        <tr class="ow_tr_first">
+            <th class="ow_name ow_txtleft" colspan="3">
+                <div class="">
+                    <span class="ow_ic_warning ow_icon"></span>
+                    <span class="ow_mild_red">{$configurationError}</span>
+                </div>
+            </th>
+        </tr>
+        {/if}
+
+        <tr class="ow_alt1">
+            <td class="ow_label">{label name='ffmpegPath'}</td>
+            <td class="ow_value">{input name='ffmpegPath'}<br />{error name='ffmpegPath'}</td>
+            <td class="ow_desc">{desc name='ffmpegPath'}</td>
+        </tr>
+
+        <tr class="ow_alt1">
+            <td class="ow_label">{label name='fileSize'}</td>
+            <td class="ow_value">{input name='fileSize' class='ow_settings_input'} Mb <span class="ow_small">{text key='cvideoupload+upload_ini_value' value=$maxUploadFileSize}</span><br /> {error name='fileSize'}</td>
+            <td class="ow_desc">{desc name='fileSize'}</td>
+        </tr>
+
+        <tr class="ow_alt1">
+            <td class="ow_label">{label name='maxDuration'}</td>
+            <td class="ow_value">{input name='maxDuration'}<br />{error name='maxDuration'}</td>
+            <td class="ow_desc">{desc name='maxDuration'}</td>
+        </tr>
+
+    </table>
+
+    <table class="ow_table_1 ow_form">
+        <tr class="ow_tr_first">
+            <th class="ow_name ow_txtleft" colspan="3">
+                <span class="ow_section_icon ow_ic_script">{text key='cvideoupload+admin_settings_converter_settings'}</span>
+            </th>
+        </tr>
+
+        <tr class="ow_alt1">
+            <td class="ow_label">{label name='typeOutput'}</td>
+            <td class="ow_value">{input name='typeOutput'}<br />{error name='typeOutput'}</td>
+            <td class="ow_desc">{desc name='typeOutput'}</td>
+        </tr>
+
+        <tr class="ow_alt1">
+            <td class="ow_label">{label name='typeInput'}</td>
+            <td class="ow_value">{input name='typeInput'}<br />{error name='typeInput'}</td>
+            <td class="ow_desc">{desc name='typeInput'}</td>
+        </tr>
+
+    </table>
+
+    <table class="ow_table_1 ow_form">
+        <tr class="ow_tr_first">
+            <th class="ow_name ow_txtleft" colspan="3">
+                <span class="ow_section_icon ow_ic_script">{text key='cvideoupload+admin_settings_watermark_settings'}</span>
+            </th>
+        </tr>
+
+        <tr class="ow_alt1">
+            <td class="ow_label">{label name='watermarkEnabled'}</td>
+            <td class="ow_value">{input name='watermarkEnabled'}<br />{error name='watermarkEnabled'}</td>
+            <td class="ow_desc">{desc name='watermarkEnabled'}</td>
+        </tr>
+
+        <tr class="ow_alt1">
+            <td class="ow_label">{label name='watermark'}</td>
+            <td class="ow_value">{input name='watermark'}<br />{error name='watermark'}</td>
+            <td class="ow_desc">{desc name='watermark'}</td>
+        </tr>
+
+    </table>
+
+
+    <div class="clearfix ow_stdmargin">
+        <div class="ow_right">
+            {submit name='submit'}
+        </div>
+    </div>
+{/form}

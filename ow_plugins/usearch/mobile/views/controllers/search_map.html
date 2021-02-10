@@ -1,0 +1,20 @@
+{add_content key="base.content.user_list_top" listType='usearch_search_result'}
+<div class="owm_nav_cap owm_nav_cap_context owm_bg_color_3 clearfix">
+    <h3>{text key="usearch+map"}</h3>
+    <div class="owm_view_more owm_float_right">
+    {if isset($searchResultMenu)}
+            {if isset($searchResultMenu)}
+                {$searchResultMenu}
+            {/if}
+    {/if}
+    </div>
+</div>
+
+{if isset($mapCmp)}
+    {$mapCmp->render()}
+{else}
+    <div class="owm_nocontent">{text key="usearch+mobile_no_users_txt"}</div>
+    <div class="owm_btn_wide">
+        <a href="{$searchUrl}">{text key="usearch+new_search"}</a>
+    </div>  
+{/if}

@@ -1,0 +1,25 @@
+{foreach $items as $item}
+    <li class="owm_sidebar_msg_item{if !$item.viewed} owm_sidebar_msg_item_new{/if} clearfix" id="winks_toolbar">
+        <div class="owm_sidebar_msg_avatar">
+            {decorator name='avatar_item' data=$item.avatar}
+        </div>
+        <div class="owm_sidebar_msg_control">
+            {if !empty($item.toolbar)}
+                {foreach $item.toolbar as $btn}
+                    <a href="javascript://" class="owm_lbutton owm_friend_request_{$btn@key}" onclick="{$btn.onclick}" data-user-id="{$btn.userId}">
+                        <span class="owm_lbutton_ico"><span>{$btn.label}</span></span>
+                    </a>
+                {/foreach}
+            {/if}
+        </div>
+        <div class="owm_sidebar_msg_info">
+            <div class="owm_sidebar_msg_string" data-url="{if !empty($item.url)}{$item.url}{/if}">
+                {$item.string}
+                {if !empty($item.toolbar)}
+                    <br />
+                    {text key='winks+accept_or_ignore'}
+                {/if}
+            </div>
+        </div>
+    </li>
+{/foreach}

@@ -1,0 +1,69 @@
+.sk-user-edit-base {
+    background-color: color($colors, sk-page-bg);
+
+    ion-grid {
+        padding: 0.5rem;
+    }
+
+    .sk-avatar-mask, .sk-photo-pending {
+        @include flex(flex, row, center, center);
+        position: absolute;
+        @include position(0, null, null, 0);
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+    }
+
+    .sk-avatar-mask {
+        background-image: url("../assets/img/edit/ic-avatar-mask.svg");
+        background-size: cover;
+        opacity: 0.6;
+        z-index: 4;
+    }
+
+    .sk-photo-pending {
+        z-index: 5;
+
+        img {
+            width: 12vw;
+            height: 12vw;
+        }
+    }
+
+    .sk-photo-grid-item {
+        position: relative;
+        height: calc(((100vw - 10px) / 3) - 12px);
+        margin: 6px;
+        padding: 0;
+        border-radius: 16px;
+        background: $sk-edit-photo-grid no-repeat center center;
+        touch-action: auto!important;
+        user-select: auto!important;
+        -webkit-user-drag: auto!important;
+        background-size: cover;
+
+        user-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 16px;
+            }
+        }
+       
+        .icon {
+            @include flex(flex, row, center, center);
+            width: 100%;
+            height: 100%;
+            font-size: 6rem;
+            color: $sk-edit-photo-more;
+        }
+    }
+}
+

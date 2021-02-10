@@ -1,0 +1,14 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{ title }}</ion-title>
+        <ion-buttons end>
+            <button class="sk-custompage-close" ion-button clear (click)="close()">
+                {{ 'close' | translate }}
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div [innerHTML]="pageName | translate | trustHtml"></div>
+</ion-content>

@@ -1,0 +1,98 @@
+{script}
+{literal}
+    $('tr.type', '#types' ).hover(
+        function(){
+            $('td a.edit_type, td a.delete_type', this).show();
+        },
+        function(){
+            $('td a.edit_type, td a.delete_type', this).hide();
+        }
+    );
+{/literal}
+{/script}
+
+{$menu}
+
+<div class="ow_automargin ow_superwide">
+    {if $showAccTypes}
+    <div class="ow_box_normal ow_automargin ow_no_cap ow_break_word" style="margin-bottom: 16px;">
+        {form name='acc-type-select-form'}
+        <label for="qst_account_type_select">{text key='membership+for_account_type'}</label>
+        {input name='accountType'}
+        <a style="margin-left: 15px;" class="ow_lbutton" href="{$accTypesUrl}">{text key='admin+questions_edit_account_types_button'}</a>
+        {/form}
+    </div>
+    {/if}
+
+    {if $memberships}
+    {block_decorator name='box' addClass="ow_stdmargin" type='empty' langLabel='membership+types_list' iconClass='ow_ic_update'}
+    <form method="post">
+        <table id="types" class="ow_table_1 ow_form ow_center">
+            <tr class="ow_tr_first">
+                <th>{text key='membership+membership'}</th>
+                <th width="1">{text key='membership+plans'}</th>
+                <th width="1"></th>
+            </tr>
+            {foreach from=$memberships item='item' name='ms'}
+                <tr class="type {cycle values='ow_alt1, ow_alt2'}{if $smarty.foreach.ms.last} ow_tr_last{/if}">
+                    <td class="ow_txtleft">
+                        {text key="base+authorization_role_`$item.name`"}  
+                    </td>
+                    <td class="ow_nowrap ow_small ow_txtleft">
+                    <ul>
+                        {if !empty($item.plans)}
+                            {foreach from=$item.plans item='plan'}
+                                <li>{$plan.plan_format}</li>
+                            {/foreach}
+                        {else}
+                            {text key='membership+no_plans'}
+                        {/if}
+                    </ul>
+                    </td>
+                    <td style="min-width: 80px; height: 20px">
+                        <a class="ow_lbutton edit_type" style="display: none;" data-id="{$item.id}" href="javascript://">
+                            {text key='admin+btn_label_edit'}
+                        </a>
+                        <a class="ow_lbutton delete_type" style="display: none;" data-id="{$item.id}" data-count="{$users[$item.id]}" href="javascript://">
+                            {text key='admin+btn_label_delete'}
+                        </a>
+                    </td>
+                </tr>
+            {/foreach}
+        </table>
+    </form>
+    {/block_decorator}
+    {/if}
+    
+    {block_decorator name='box' type='empty' langLabel='membership+add' iconClass='ow_ic_add'}
+    <div class="ow_smallmargin">{text key='membership+create_membership_plan'}</div>
+    {form name='add-membership-form'}
+    <table class="ow_table_1 ow_form ow_center ow_smallmargin">
+        <tr class="ow_tr_first">
+            <th width="30%">{text key='membership+select_auth_role'}</th>
+            <th width="28%">{text key='membership+period'}</th>
+            <th width="28%">{text key='membership+price'}</th>
+            <th width="14%">{text key='membership+recurring'}</th>
+        </tr>
+        <tr class="ow_tr_last type ow_alt1">
+            <td>
+                <div>{input name='role'}</div>
+                {error name='role'}
+            </td>
+            <td class="ow_value">
+                <div>{input name='period' class='ow_settings_input'} {input name='periodUnits'}</div>
+                {error name='period'}
+            </td>
+            <td style="min-width: 40px;">
+                <div>{input name='price' class='ow_settings_input'} {$currency}</div>
+                {error name='price'}
+            </td>
+            <td>
+                {input name='isRecurring'}
+            </td>
+        </tr>
+    </table>
+    <div class="clearfix"><div class="ow_right">{submit name='save' class='ow_ic_add ow_positive'}</div></div>
+    {/form}
+    {/block_decorator}
+</div>

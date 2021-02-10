@@ -1,0 +1,46 @@
+{$menu}
+
+{form name='skmobileapp_settings'}
+<table class="ow_table_1 ow_form">
+
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_gear_wheel">{text key='skmobileapp+general'}</span>
+        </th>
+    </tr>
+
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='search_mode'}</td>
+        <td class="ow_value">{input name='search_mode'}<br />{error name='search_mode'}</td>
+        <td class="ow_desc">{desc name='search_mode'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='google_map_api_key'}</td>
+        <td class="ow_value">{input name='google_map_api_key'}<br />{error name='google_map_api_key'}</td>
+        <td class="ow_desc">{desc name='google_map_api_key'}</td>
+    </tr>
+
+    <tr class="ow_tr_delimiter"><td></td></tr>
+
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_mobile">{text key='skmobileapp+app_romotion_label'}</span>
+        </th>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='ios_app_url'}</td>
+        <td class="ow_value">{input name='ios_app_url'}<br />{error name='ios_app_url'}</td>
+        <td class="ow_desc">{desc name='ios_app_url'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='android_app_url'}</td>
+        <td class="ow_value">{input name='android_app_url'}<br />{error name='android_app_url'}</td>
+        <td class="ow_desc">{desc name='android_app_url'}</td>
+    </tr>
+</table>
+<div class="clearfix ow_stdmargin">
+    <div class="ow_right">
+        {submit name='settings_submit'}
+    </div>
+</div>
+{/form}

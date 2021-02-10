@@ -1,0 +1,94 @@
+{form name='ccbill-flex-config-form'}
+
+<img src="{$logoUrl}" />
+
+<div class="ow_wide">
+<table class="ow_table_3">
+	<tr class="ow_tr_first">
+		<td class="ow_label">{text key="$pluginKey+recurring_supported"}</td>
+		<td class="ow_value">{if $gateway->recurring}{text key="$pluginKey+available"}{/if}</td>
+	</tr>
+	
+	<tr class="ow_tr_last">
+        <td class="ow_label">{text key="$pluginKey+supported_currencies"}</td>
+        <td class="ow_value">{$gateway->getCurrenciesString()}</td>
+    </tr>
+</table>
+</div>
+
+{if !$currSupported}
+    <div class="ow_anno ow_std_margin ow_nocontent">{text key="base+billing_currency_not_supported" currency=$activeCurrency}</div>
+{/if}
+
+<table class="ow_table_1 ow_form">
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_gear_wheel">{text key="$pluginKey+account_settings"}</span>
+        </th>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label ow_nowrap">{text key="$pluginKey+account_number"}</td>
+        <td class="ow_value">
+            {input name='clientAccnum'} {error name='clientAccnum'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label ow_nowrap">{text key="$pluginKey+subaccount_number"}</td>
+        <td class="ow_value">
+            {input name='clientSubacc'} {error name='clientSubacc'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    {if !empty($subAccounts)}
+    {foreach from=$subAccounts item='sub' key='key'}
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label ow_nowrap">{$sub.label}</td>
+        <td class="ow_value">
+            {input name=$key} {error name=$key}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    {/foreach}
+    {/if}
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label ow_nowrap">{text key="$pluginKey+salt"}</td>
+        <td class="ow_value">
+            {input name='dynamicPricingSalt'} {error name='dynamicPricingSalt'}
+        </td>
+        <td class="ow_desc ow_small">{text key="$pluginKey+salt_desc"}</td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label ow_nowrap">{text key="$pluginKey+flex_form_id_label"}</td>
+        <td class="ow_value">
+            {input name='flexFormId'} {error name='flexFormId'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label ow_nowrap">{text key="$pluginKey+datalink_username"}</td>
+        <td class="ow_value">
+            {input name='datalinkUsername'} {error name='datalinkUsername'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_tr_last {cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label ow_nowrap">{text key="$pluginKey+datalink_password"}</td>
+        <td class="ow_value">
+            {input name='datalinkPassword'} {error name='datalinkPassword'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_tr_last {cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label ow_nowrap">{text key="$pluginKey+sandbox"}</td>
+        <td class="ow_value">
+            {input name='sandbox'} {error name='sandbox'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+</table>
+<div class="clearfix ow_stdmargin ow_submit">
+	<div class="ow_right">{submit name='save' class='ow_ic_save'}</div>
+</div>
+
+{/form}

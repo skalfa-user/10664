@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_video</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-473.000000, -2000.000000)" fill="#ffffff">
+            <g id="ic_video" transform="translate(473.000000, 2000.000000)">
+                <path d="M15,15 L15,13 L16,13 L16,3 L15,3 L15,1 L16,1 L16,0 L0,0 L0,1 L2,1 L2,3 L0,3 L0,13 L2,13 L2,15 L0,15 L0,16 L16,16 L16,15 L15,15 M9,1 L11,1 L11,3 L9,3 L9,1 M6,1 L8,1 L8,3 L6,3 L6,1 M5,15 L3,15 L3,13 L5,13 L5,15 M5,3 L3,3 L3,1 L5,1 L5,3 M8,15 L6,15 L6,13 L8,13 L8,15 M11,15 L9,15 L9,13 L11,13 L11,15 M6,11.09 L6,5 L11.273,8.045 L6,11.09 M14,15 L12,15 L12,13 L14,13 L14,15 M14,3 L12,3 L12,1 L14,1 L14,3" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,239 @@
+<div [class]="getQuestionClass">
+
+    <!-- text -->
+    <div *ngIf="question.controlType == 'text'" class="{{ question.stackedInput ? 'sk-stacked-text-question-presentation' : 'sk-text-question-presentation' }} {{ isError || isPending ? 'sk-question-validation' : '' }}">
+        <ion-item [formGroup]="form">
+            <ion-label stacked *ngIf="question.stackedInput">
+                <span>{{ question.label }}</span>
+            </ion-label>
+            <ion-input
+                changeFocusByEnter
+                [type]="question.type"
+                [placeholder]="question.placeholder"
+                [formControlName]="question.key"
+                [id]="question.key">
+            </ion-input>
+        </ion-item>
+        <div *ngIf="isError" class="sk-question-error" (click)="showErrors($event)"></div>
+        <div *ngIf="isPending" class="sk-question-pending"> 
+            <ion-spinner name="ios-small"></ion-spinner>
+        </div>
+    </div>
+
+    <!-- select -->
+    <div *ngIf="question.controlType == 'select'" class="sk-select-question-presentation {{ isError || isPending ? 'sk-question-validation' : '' }} {{ question.controlView.value.length || (!question.multiple && question.controlView.value)  ? '' : 'sk-select-question-empty' }}">
+        <ion-item [formGroup]="form">
+            <ion-label stacked>
+                <span>{{ question.label }}</span>
+            </ion-label>
+            <ion-select
+                [formControlName]="question.key"
+                [multiple]="question.multiple"
+                [id]="question.key"
+                cancelText="{{ 'cancel' | translate }}"
+                okText="{{ 'ok' | translate }}">
+                    <ion-option *ngIf="!question.multiple && !question.hideEmptyValue" value="">
+                        {{ 'select_input_empty_value' | translate }}
+                    </ion-option>
+                    <ion-option *ngFor="let opt of question.values" [value]="opt.value">
+                        {{ opt.title }}
+                    </ion-option>
+            </ion-select>
+        </ion-item>
+        <div *ngIf="isError" class="sk-question-error" (click)="showErrors($event)"></div>
+        <div *ngIf="isPending" class="sk-question-pending"> 
+            <ion-spinner name="ios-small"></ion-spinner>
+        </div>
+    </div>
+
+    <!-- date -->
+    <div *ngIf="question.controlType == 'date'" class="sk-date-question-presentation {{ isError || isPending ? 'sk-question-validation' : '' }}">
+        <ion-item [formGroup]="form">
+            <ion-label>
+                <span>{{ question.label }}</span>
+            </ion-label>
+            <ion-datetime [displayFormat]="question.displayFormat"
+                monthNames="{{ 'date_input_months' | translate }}"
+                monthShortNames="{{ 'date_input_months_short' | translate }}"
+                dayNames="{{ 'date_input_days' | translate }}"
+                dayShortNames="{{ 'date_input_days_short' | translate }}"
+                [min]="question.minDate"
+                [max]="question.maxDate"
+                [formControlName]="question.key"
+                [id]="question.key"
+                placeholder="{{ question.placeholder ? question.placeholder : 'choose_date' | translate }}"
+                cancelText="{{ 'cancel' | translate }}"
+                doneText="{{ 'done' | translate }}">
+            </ion-datetime>
+        </ion-item>
+        <div *ngIf="isError" class="sk-question-error" (click)="showErrors($event)"></div>
+        <div *ngIf="isPending" class="sk-question-pending"> 
+            <ion-spinner name="ios-small"></ion-spinner>
+        </div>
+    </div>
+
+    <!-- date range -->
+    <div *ngIf="question.controlType == 'date_range'" class="sk-date-range-question-presentation {{ isError || isPending ? 'sk-question-validation' : '' }}" id="question.key">
+        <ion-label>
+            <span>{{ question.label }}</span>
+        </ion-label>
+        <div class="sk-date-range-question-wrap">
+            <!-- start date -->
+            <ion-item>
+                <ion-label>
+                    {{ 'from' | translate }}
+                </ion-label>
+                <ion-datetime [displayFormat]="question.displayFormat"
+                    [(ngModel)]="question.value.start"
+                    monthNames="{{ 'date_input_months' | translate }}"
+                    monthShortNames="{{ 'date_input_months_short' | translate }}"
+                    dayNames="{{ 'date_input_days' | translate }}"
+                    dayShortNames="{{ 'date_input_days_short' | translate }}"
+                    [min]="question.minDate"
+                    [max]="question.maxDate"
+                    placeholder="{{ question.placeholder ? question.placeholder : 'choose_date' | translate }}"
+                    cancelText="{{ 'cancel' | translate }}"
+                    doneText="{{ 'done' | translate }}"
+                    (ionChange)="question.updateStartValue($event)">
+                </ion-datetime>
+            </ion-item>
+            <!-- end date -->
+            <ion-item>
+                <ion-label>
+                    {{ 'to' | translate }}
+                </ion-label>
+                <ion-datetime [displayFormat]="question.displayFormat"
+                    [(ngModel)]="question.value.end"
+                    monthNames="{{ 'date_input_months' | translate }}"
+                    monthShortNames="{{ 'date_input_months_short' | translate }}"
+                    dayNames="{{ 'date_input_days' | translate }}"
+                    dayShortNames="{{ 'date_input_days_short' | translate }}"
+                    [min]="question.minDate"
+                    [max]="question.maxDate"
+                    placeholder="{{ question.placeholder ? question.placeholder : 'choose_date' | translate }}"
+                    cancelText="{{ 'cancel' | translate }}"
+                    doneText="{{ 'done' | translate }}"
+                    (ionChange)="question.updateEndValue($event)">
+                </ion-datetime>
+            </ion-item>
+        </div>
+        <div *ngIf="isError" class="sk-question-error" (click)="showErrors($event)"></div>
+        <div *ngIf="isPending" class="sk-question-pending"> 
+            <ion-spinner name="ios-small"></ion-spinner>
+        </div>
+    </div>
+
+    <!-- googlemap location -->
+    <div *ngIf="question.controlType == 'googlemap_location'" class="sk-googlemap-location-question-presentation {{ isError || isPending ? 'sk-question-validation' : '' }}" (click)="question.showAddressModal(isQuestionRequired)">
+        <ion-item>
+            <ion-label stacked>
+                <span>{{ question.label }}</span>
+            </ion-label>
+            <ion-input
+                readonly="true"
+                [id]="question.key"
+                type="text"
+                placeholder="{{ question.placeholder ? question.placeholder : 'choose_location_input' | translate }}"
+                value="{{ question.controlView.value }}">
+            </ion-input>
+        </ion-item>
+        <div *ngIf="isError" class="sk-question-error" (click)="showErrors($event)"></div>
+        <div *ngIf="isPending" class="sk-question-pending"> 
+            <ion-spinner name="ios-small"></ion-spinner>
+        </div>
+    </div>
+
+    <!-- extended googlemap location -->
+    <div *ngIf="question.controlType == 'extended_googlemap_location'" class="sk-extended-googlemap-location-question-presentation {{ isError || isPending ? 'sk-question-validation' : '' }}" id="question.key" (click)="question.showAddressModal(isQuestionRequired)">
+        <ion-item>
+            <ion-label stacked>
+                <span>{{ question.label }}</span>
+                <span class="sk-range-value">
+                    {{ question.controlView.value.distance }}
+                    {{ question.unit | translate }}
+                    {{ 'from' | translate }}
+                </span>
+            </ion-label>
+            <ion-range
+                [(ngModel)]="question.value.distance"
+                (ionChange)="question.updateDistance($event)"
+                min="{{ question.min }}"
+                max="{{ question.max }}"
+                step="{{ question.step }}">
+            </ion-range>
+            <ion-input
+                readonly="true"
+                type="text"
+                placeholder="{{ question.placeholder ? question.placeholder : 'choose_location_input' | translate }}"
+                value="{{ question.controlView.value.location }}">
+            </ion-input>
+        </ion-item>
+        <div *ngIf="isError" class="sk-question-error" (click)="showErrors($event)"></div>
+        <div *ngIf="isPending" class="sk-question-pending"> 
+            <ion-spinner name="ios-small"></ion-spinner>
+        </div>
+    </div>
+
+    <!-- range -->
+    <div *ngIf="question.controlType == 'range'" class="sk-range-question-presentation {{ isError || isPending ? 'sk-question-validation' : '' }}">
+        <ion-item [formGroup]="form">
+            <ion-label stacked>
+                <span>
+                    {{ question.label }}
+                </span>
+                <span class="sk-range-value">
+                    {{ question.controlView.value.lower }} - {{ question.controlView.value.upper }}
+                </span>
+            </ion-label>
+            <ion-range
+                [formControlName]="question.key"
+                [id]="question.key"
+                dualKnobs="true"
+                min="{{ question.min }}"
+                max="{{ question.max }}">
+            </ion-range>
+        </ion-item>
+        <div *ngIf="isPending" class="sk-question-pending"> 
+            <ion-spinner name="ios-small"></ion-spinner>
+        </div>
+    </div>
+
+    <!-- textarea -->
+    <div *ngIf="question.controlType == 'textarea'" class="sk-textarea-question-presentation {{ isError || isPending ? 'sk-question-validation' : '' }}">
+        <ion-item [formGroup]="form">
+            <ion-label stacked>
+                <span>{{ question.label }}</span>
+            </ion-label>
+            <ion-textarea
+                [attr.rows]="question.rows"
+                spellcheck=false
+                [type]="question.type"
+                [placeholder]="question.placeholder"
+                [formControlName]="question.key"
+                [id]="question.key">
+            </ion-textarea>
+        </ion-item>
+        <div *ngIf="isError" class="sk-question-error" (click)="showErrors($event)"></div>
+        <div *ngIf="isPending" class="sk-question-pending"> 
+            <ion-spinner name="ios-small"></ion-spinner>
+        </div>
+    </div>
+
+    <!-- checkbox -->
+    <div *ngIf="question.controlType == 'checkbox'" class="sk-checkbox-question-presentation {{ isError || isPending ? 'sk-question-validation' : '' }}">
+        <ion-item [formGroup]="form">
+            <ion-label>
+                <span>{{ question.label }}</span>
+            </ion-label>
+            <ion-toggle
+                [formControlName]="question.key"
+                [id]="question.key">
+            </ion-toggle>
+        </ion-item>
+        <div *ngIf="isError" class="sk-question-error" (click)="showErrors($event)"></div>
+        <div *ngIf="isPending" class="sk-question-pending"> 
+            <ion-spinner name="ios-small"></ion-spinner>
+        </div>
+    </div>
+
+</div>

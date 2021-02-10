@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="skmobileapp" label="Skadate Mobile APP" language_tag="en" language_label="English">
+    <key name="pn_vapid_key_label"><value>VAPID key</value></key>
+    <key name="pn_vapid_key_desc"><value>VAPID is the short name for "Voluntary Application Server Identification" that you generate using the Firebase Developers Console. This new spec essentially defines a handshake between your app server and the push service and allows the push service to confirm which site is sending messages. It is used to deliver notifications using Firebase Cloud Messaging.</value></key>
+</prefix>

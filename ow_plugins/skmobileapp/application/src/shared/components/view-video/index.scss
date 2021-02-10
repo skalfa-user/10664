@@ -1,0 +1,13 @@
+.sk-view-video {
+    .sk-video-player {
+        width:100%;
+    }
+}
+
+@media all and (orientation: landscape) {
+  .sk-view-video {
+    .sk-video-player {
+      height:100%;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ 'edit_user_photos_page_header' | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button *ngIf="!isPageLoading" class="sk-photos-extra-actions" ion-button icon-only (click)="showAllActions()">
+                <ion-icon name="md-more"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-user-edit-base sk-user-photos-edit-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isPageLoading" name="photos-edit" repeatTimes="2"></skeleton-preloader>
+
+    <!-- photos -->
+    <div *ngIf="!isPageLoading" class="sk-height-wrap">
+        <ion-grid class="sk-height-wrap">
+            <virtual-scroller  #photosScroller [items]="generatedPhotoList" executeRefreshOutsideAngularZone="true" (vsUpdate)="ref.detectChanges()">
+                <!-- approval text -->
+                <div *ngIf="approvalText" class="sk-photos-approval">
+                    <img src="./assets/img/edit/ic-pending-grey.svg" alt="" />
+                    {{ approvalText }}
+                </div>
+
+                <div #container>
+                    <ion-row *ngFor="let photoSections of photosScroller.viewPortItems; let row = index">
+                        <ion-col *ngFor="let photoData of photoSections; let col = index" class="sk-photo-grid-item" (tap)="tapPhoto(row + photosScroller.viewPortInfo.startIndex, col)" (press)="pressPhoto(row + photosScroller.viewPortInfo.startIndex, col)" >
+                            <!-- photo -->
+                            <user-image *ngIf="photoData.url" [url]="photoData.url" class="sk-extra-photo-wrapper"></user-image>
+
+                            <!-- photo is pending -->
+                            <div *ngIf="!photoData.isActive" class="sk-photo-pending">
+                                <img src="./assets/img/ic-pending.svg" alt="" />
+                            </div>
+
+                            <!-- photo is processing -->
+                            <div *ngIf="photoData.isPending" class="sk-photo-processing">
+                            </div>
+        
+                            <!-- avatar mask -->
+                            <div *ngIf="photoData.type == 'avatar'" class="sk-avatar-mask sk-extra-avatar-mask"></div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </virtual-scroller>
+        </ion-grid>
+    </div>
+
+    <!-- avatar uploader -->
+    <file-uploader class="sk-extra-avatar-uploader" #avatarUploader
+        isValidateAndReturn="true"
+        acceptMask="image/*"
+        [mimeTypes]="getImageMimeTypes"
+        [maxFileSize]="getAvatarMaxSize"
+        (fileSelected)="startUploadingAvatar($event)">
+    </file-uploader>
+
+    <!-- photo uploader -->
+    <file-uploader class="sk-extra-photo-uploader" #photoUploader
+        isValidateAndReturn="true"
+        acceptMask="image/*"
+        [mimeTypes]="getImageMimeTypes"
+        [maxFileSize]="photoMaxUploadSize"
+        (fileSelected)="startUploadingPhoto($event)">
+    </file-uploader>
+
+    <!-- permissions -->
+    <permissions #permissions></permissions>
+</ion-content>

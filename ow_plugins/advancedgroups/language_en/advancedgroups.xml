@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="advancedgroups" label="Advanced Groups" language_tag="en" language_label="English">
+<key name="group_list_menu_item_tagged"><value>Browse By Tag</value></key>
+<key name="category"><value>Category</value></key>
+<key name="tags_field_label"><value>Tags</value></key>
+<key name="meta_description_item_tagged"><value>Rss</value></key>
+<key name="meta_title_item_tagged"><value>Tagged Events at {$site_name}</value></key>
+<key name="meta_description_item_tagged"><value>Tagged Groups List</value></key>
+<key name="meta_description_item_tagged_as"><value>Groups tagged with "{$tag}"</value></key>
+<key name="tag_search "><value>Tag Search</value></key>
+<key name="tag_search_result"><value>Tag Search Result</value></key>
+<key name="rss"><value>Rss</value></key>
+</prefix>

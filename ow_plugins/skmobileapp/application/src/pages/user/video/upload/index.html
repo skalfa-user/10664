@@ -1,0 +1,124 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons *ngIf="isCancel" start>
+            <button ion-button clear (click)="cancel()">
+                {{ 'cancel' | translate }}
+            </button>
+        </ion-buttons>
+
+        <ion-title>
+            {{ 'video_upload'  | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button *ngIf="!isPageLoading" class="sk-edit-video-button" ion-button clear [disabled]="questionControl.isFormPending(form) || isUploadingStarted" (click)="submitVideo()">
+                <ion-spinner *ngIf="isUploadingStarted" name="ios-small"></ion-spinner>
+                <span *ngIf="!isUploadingStarted">
+                    {{ 'done' | translate }}
+                </span>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-user-video-base sk-video-upload-page">
+    <!--&lt;!&ndash; page skeleton &ndash;&gt;-->
+    <skeleton-preloader *ngIf="isPageLoading"></skeleton-preloader>
+
+    <!-- join form -->
+    <form *ngIf="!isPageLoading" [formGroup]="form">
+        <ion-list class="sk-video-fields">
+            <div class="sk-question-list-wrap">
+                <!-- video -->
+
+                <div class="sk-video-upload-preview-wrapper">
+                    <div class="sk-video-wrapper {{ isSubmit && !isVideoValidate ? 'sk-video-error' : '' }}" (click)="showVideoUploader()" *ngIf="value == null || !value.fileName">
+
+                        <div *ngIf="isUploadingStarted" class="{{ isVideoValid || isUploadingStarted ? 'sk-add-video' : 'sk-add-video sk-video-warning' }}" [style.background-image]="'url(' + avatarUrl + ')'">
+                            <ion-spinner name="ios-small"></ion-spinner>
+                            <div *ngIf="uploadProgress" item-end>{{uploadProgress}}%</div>
+                        </div>
+
+
+                        <div *ngIf="!isUploadingStarted" class="{{ isVideoValid || isUploadingStarted ? 'sk-add-video' : 'sk-add-video sk-video-warning' }}">
+                            <ion-icon class="sk-add-video-icon" name="md-add"></ion-icon>
+                            <ion-label>
+                                <span>
+                                    {{ 'choose_video' | translate }}
+                                </span>
+                            </ion-label>
+                            <div *ngIf="value == null || !value.fileName" class="sk-video-upload-info">{{uploadDescription}}</div>
+                        </div>
+                    </div>
+
+
+                    <div class="sk-video-upload-preview" *ngIf="value != null && value.fileName">
+                        <img src="{{value.coverImage}}" alt="{{value.fileName}}" />
+                        <div *ngIf="isProcessed" class="sk-video-upload-play-wrapper" (click)="showVideo()"></div>
+                        <button *ngIf="value != null && value.fileName" ion-button round small (click)="clear()" class="video-delete">
+                            {{ 'delete' | translate }}
+                        </button>
+                    </div>
+
+                    <!--custom video uploader-->
+                    <file-uploader #custom_video_uploader
+                                   acceptMask="video/*"
+                                   maxFileSize={{maxSizeBytes}}
+                                   (startUploading)="startUploadingVideoCallback($event)"
+                                   (uploaded)="successVideoUploadCallback($event)"
+                                   (uploadError)="errorVideoUploadCallback($event)"
+                                   (uploadProgress)="progressValue($event)"
+                                   (realUpload)="realUpload($event)">
+                    </file-uploader>
+
+                </div>
+
+                <!-- questions wrapper -->
+                <!-- questions -->
+                <question *ngFor="let question of formElements" class="sk-question-item" [question]="question" [form]="form" margin-bottom></question>
+
+
+                <ng-container *ngIf="isShowUserList">
+                    <div class="sk-question-section" margin-start margin-vertical>{{ 'video_upload_certain_user_list' | translate }}</div>
+                    <div *ngIf="selectUserItems.length == 0" class="video-empty-list" padding-horizontal [innerHTML]="'video_upload_empty_list_description' | translate"></div>
+                    <ion-list *ngIf="selectUserItems.length" class="sk-userlist sk-height-wrap">
+                        <virtual-scroller #userScroller  [items]="selectUserItems" executeRefreshOutsideAngularZone="true" (vsUpdate)="ref.detectChanges()">
+
+                            <ion-item-sliding *ngFor="let userItem of userScroller.viewPortItems; trackBy: trackUserList">
+                                <ion-item>
+                                    <ion-avatar (tap)="viewProfile(userItem)" item-left>
+                                        <user-avatar
+                                                [url]="userItem.avatar?.url"
+                                                [isAvatarActive]="userItem.avatar?.active">
+                                        </user-avatar>
+                                    </ion-avatar>
+                                    <h2 (tap)="viewProfile(userItem)">{{ userItem.user.userName }}</h2>
+
+                                    <button ion-button round (click)="chooseItem(userItem)" item-end>
+                                        <ion-icon name="close" class="md-close"></ion-icon>
+                                    </button>
+                                </ion-item>
+                            </ion-item-sliding>
+
+                        </virtual-scroller>
+                    </ion-list>
+                </ng-container>
+
+            </div>
+        </ion-list>
+    </form>
+    <!-- permissions -->
+    <permissions #permissions></permissions>
+
+</ion-content>
+
+<ion-footer class="sk-upload-video-footer">
+    <ion-toolbar>
+        <div class="sk-buttons" text-center *ngIf="isShowUserList">
+            <button mode="ios" class="sk-user-data-download-btn" ion-button round (click)="showUserSearchModal()">
+                {{ 'user_search_btn' | translate }}
+            </button>
+        </div>
+    </ion-toolbar>
+</ion-footer>
+
+

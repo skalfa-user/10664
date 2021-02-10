@@ -1,0 +1,10 @@
+<table class="ow_table_3 ow_automargin ow_smallmargin">
+    <tr class="ow_tr_first">
+        <td class="ow_label">{text key='membership+membership'}</td>
+        <td class="ow_value">{if isset($title)}{$title}{if $membership->recurring} <span class="ow_small">({text key='membership+recurring'})</span>{/if}{/if}</td>
+    </tr>
+    <tr class="ow_tr_last">
+        <td class="ow_label">{text key='membership+expires'}</td>
+        <td class="ow_value">{membership_format_date timestamp=$membership->expirationStamp}</td>
+    </tr>
+</table>

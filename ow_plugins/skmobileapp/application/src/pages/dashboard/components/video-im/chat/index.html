@@ -1,0 +1,164 @@
+<ion-content padding class="sk-videoim-window sk-videoim {{ callingStatusCssClass }} {{ fullScreenCssClass }}" (click)="toggleFullSize()">
+    <div class="sk-videoim-cover" [ngStyle]="{'background-image': 'url(' + backgroundAvatar + ')'}"></div>
+    <div class="sk-videoim-overlay"></div>
+    <div class="sk-videoim-cont">
+        <div class="sk-videoim-cont-wrap">
+            <div class="sk-videoim-top">
+                <div class="sk-videoim-text">
+                    <span>{{ callingStatusLabel }}</span>
+                    <h2>{{ interlocutorData.user.userName }}</h2>
+                </div>
+            </div>
+            <div class="sk-videoim-center">
+                <div class="sk-videoim-avatar">
+                    <div class="circle"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                    <user-avatar #interlocutorAvatar
+                            [url]="interlocutorData?.avatar?.url"
+                            [isAvatarActive]="interlocutorData?.avatar?.active">
+                    </user-avatar>
+                </div>
+                <div class="sk-videoim-status" *ngIf="isCallNotAnswered"><span>{{ 'vim_no_answer' | translate }}</span></div>
+                <div class="sk-videoim-timer" *ngIf="isCallFinished">{{ timer.displayTime }}</div>
+            </div>
+        </div>
+
+        <div class="sk-videoim-bottom">
+            <div class="sk-videoim-controls">
+                <!-- Audio on -->
+                <button *ngIf="(isCallStarted || isCallIncoming || isCallOutgoing) && isAudioEnabled" (click)="disableLocalAudio($event)" ion-button clear class="sk-videoim-icon sk-videoim-icon-audio sk-videoim-icon-audio-on">
+                    <svg version="1.1" id="videoim-audioOn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="140px" height="140px" viewBox="0 0 140 140" enable-background="new 0 0 140 140" xml:space="preserve">
+                        <g>
+                            <path fill="#FFFFFF" fill-opacity="0.4" d="M119.852,20.148C106.536,6.833,88.832-0.5,70-0.5c-18.833,0-36.537,7.333-49.852,20.649
+                                C6.833,33.465-0.501,51.169-0.5,70c0,18.832,7.333,36.536,20.649,49.851C33.465,133.167,51.169,140.5,70,140.5
+                                s36.534-7.333,49.851-20.649c13.316-13.315,20.649-31.02,20.65-49.851C140.501,51.168,133.167,33.464,119.852,20.148z
+                                 M116.315,116.315C103.943,128.687,87.494,135.5,70,135.5c-17.496,0-33.944-6.813-46.315-19.185S4.5,87.495,4.5,70
+                                c0-17.496,6.813-33.944,19.185-46.314C36.056,11.313,52.504,4.5,70,4.5s33.945,6.813,46.315,19.185
+                                C128.688,36.058,135.501,52.506,135.501,70C135.5,87.497,128.687,103.945,116.315,116.315z"/>
+                            <path fill="#FFFFFF" fill-opacity="0.4" d="M70,86.75c9.919,0,17.988-8.07,17.988-17.99V51.99C87.988,42.07,79.919,34,70,34
+                                c-9.92,0-17.99,8.07-17.99,17.99v16.77C52.01,78.68,60.08,86.75,70,86.75z"/>
+                            <path fill="#FFFFFF" fill-opacity="0.4" d="M96.438,57h-1c-1.379,0-2.5,1.122-2.5,2.5v9.311C92.938,81.46,82.647,91.75,70,91.75
+                                c-12.648,0-22.939-10.29-22.939-22.939V59.5c0-1.378-1.122-2.5-2.5-2.5h-1c-1.378,0-2.5,1.122-2.5,2.5v9.311
+                                c0,14.944,11.386,27.278,25.939,28.784V113c0,1.654,1.346,3,3,3s3-1.346,3-3V97.595c14.552-1.506,25.938-13.84,25.938-28.784V59.5
+                                C98.938,58.122,97.816,57,96.438,57z"/>
+                        </g>
+                    </svg>
+                </button>
+                <!-- Audio off -->
+                <button *ngIf="(isCallStarted || isCallIncoming || isCallOutgoing) && !isAudioEnabled" (click)="enableLocalAudio($event)" ion-button clear class="sk-videoim-icon sk-videoim-icon-audio sk-videoim-icon-audio-off">
+                    <svg version="1.1" id="videoim-audioOff" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             width="140px" height="140px" viewBox="0 0 140 140" enable-background="new 0 0 140 140" xml:space="preserve">
+                        <g>
+                            <path fill="#FFFFFF" fill-opacity=".4" d="M119.852,20.148C106.536,6.833,88.832-0.5,70.001-0.5c-18.832,0-36.537,7.333-49.853,20.649
+                                c-27.486,27.487-27.486,72.214,0,99.702C33.465,133.167,51.169,140.5,70,140.5c18.83,0,36.534-7.333,49.851-20.648
+                                C133.167,106.535,140.5,88.831,140.501,70C140.501,51.168,133.167,33.464,119.852,20.148z M70,135.5
+                                c-16.491,0-32.049-6.058-44.143-17.113l92.529-92.529C129.442,37.95,135.501,53.507,135.501,70
+                                c-0.001,17.495-6.814,33.944-19.186,46.316C103.943,128.688,87.495,135.5,70,135.5z M87.574,48.184C85.822,40.087,78.612,34,70,34
+                                c-9.92,0-17.99,8.07-17.99,17.99v16.77c0,4.095,1.39,7.998,3.857,11.131l-3.542,3.541c-3.389-4.067-5.265-9.181-5.265-14.621V59.5
+                                c0-1.378-1.122-2.5-2.5-2.5h-1c-1.378,0-2.5,1.122-2.5,2.5v9.311c0,7.018,2.516,13.652,7.023,18.863l-26.468,26.468
+                                c-23.442-25.671-22.758-65.63,2.067-90.456C36.056,11.313,52.505,4.5,70.001,4.5c16.491,0,32.05,6.059,44.143,17.115L87.574,48.184
+                                z"/>
+                            <path fill="#FFFFFF" fill-opacity=".4" d="M70,86.75c9.919,0,17.988-8.07,17.988-17.99v-6.921L64.07,85.76l0.805,0.239
+                                C66.551,86.497,68.276,86.75,70,86.75z"/>
+                            <path fill="#FFFFFF" fill-opacity=".4" d="M96.438,57h-1c-1.379,0-2.5,1.122-2.5,2.5v9.311C92.938,81.46,82.647,91.75,70,91.75
+                                c-3.273,0-6.445-0.685-9.428-2.035l-0.315-0.144l-4.455,4.454l0.594,0.317c3.282,1.757,6.9,2.85,10.603,3.238V113
+                                c0,1.654,1.346,3,3,3s3-1.346,3-3V97.595c14.552-1.506,25.938-13.84,25.938-28.784V59.5C98.938,58.122,97.816,57,96.438,57z"/>
+                        </g>
+                        </svg>
+                </button>
+                <!-- Hangup -->
+                <button *ngIf="(isCallStarted || isCallIncoming || isCallOutgoing)" (tap)="hangup()" ion-button clear class="sk-videoim-icon sk-videoim-icon-hangup">
+                    <svg version="1.1" id="videoim-hangup" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="140px" height="140px" viewBox="0 0 140 140" enable-background="new 0 0 140 140" xml:space="preserve">
+                        <path fill="#FFFFFF" d="M114.529,71.363c-8.98-20.036-39.548-18.234-39.548-18.234h-0.71h-6.649c0,0-30.568-1.801-39.548,18.234
+                            c0,0-3.456,11.053,1.036,11.396c4.489,0.346,16.407,0,16.407,0s4.821,1.037,4.655-8.117c-0.166-9.152,7.26-10.977,9.851-11.324
+                            c1.645-0.218,6.948-0.438,10.599-0.57c4.225,0.132,10.312,0.353,11.956,0.57c2.591,0.347,10.017,2.172,9.851,11.324
+                            c-0.164,9.154,4.656,8.117,4.656,8.117s11.92,0.346,16.409,0C117.984,82.416,114.529,71.363,114.529,71.363z"/>
+                    </svg>
+                </button>
+                <!-- Video on -->
+                <button *ngIf="isCallStarted && isVideoEnabled" (click)="disableLocalVideo($event)" ion-button clear class="sk-videoim-icon sk-videoim-icon-video sk-videoim-icon-video-on">
+                    <svg version="1.1" id="videoim-videoOn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="140px" height="140px" viewBox="0 0 140 140" enable-background="new 0 0 140 140" xml:space="preserve">
+                        <g>
+                            <path fill="#FFFFFF" fill-opacity=".4" d="M119.852,20.148C106.537,6.833,88.833-0.5,70.001-0.5S33.464,6.833,20.148,20.149
+                                c-27.487,27.488-27.487,72.215,0,99.703C33.465,133.167,51.169,140.5,70,140.5c18.83,0,36.534-7.333,49.851-20.648
+                                C133.167,106.535,140.5,88.831,140.501,70C140.501,51.168,133.167,33.464,119.852,20.148z M116.315,116.316
+                                C103.943,128.688,87.495,135.5,70,135.5c-17.495,0-33.944-6.812-46.316-19.184c-25.537-25.539-25.537-67.093,0-92.632
+                                C36.056,11.313,52.505,4.5,70.001,4.5c17.495,0,33.944,6.813,46.315,19.185C128.688,36.055,135.501,52.503,135.501,70
+                                C135.5,87.496,128.687,103.945,116.315,116.316z"/>
+                            <path fill="#FFFFFF" fill-opacity=".4" d="M81.53,51.935c-5.112-1.402-11.365-2.31-18.082-2.625c-0.066-0.002-0.127-0.004-0.188-0.004H52.996
+                                c-0.061,0-0.122,0.001-0.183,0.004c-6.716,0.314-12.969,1.222-18.085,2.625c-1.732,0.474-2.942,2.061-2.942,3.857v29.507
+                                c0,1.796,1.209,3.383,2.941,3.858c5.11,1.401,11.359,2.309,18.071,2.625c0.066,0.003,0.127,0.004,0.188,0.004h10.287
+                                c0.061,0,0.122-0.001,0.183-0.004c6.718-0.316,12.966-1.224,18.075-2.624c1.732-0.476,2.942-2.062,2.942-3.859V55.792
+                                C84.47,53.995,83.26,52.409,81.53,51.935z"/>
+                            <path fill="#FFFFFF" fill-opacity=".4" d="M108.173,52.451c-0.635-0.367-1.356-0.56-2.089-0.56s-1.454,0.193-2.088,0.559l-17.025,9.83l-0.5,0.289
+                                v0.577v14.797v0.577l0.5,0.289l17.025,9.83c0.634,0.366,1.355,0.56,2.088,0.56c0.729,0,1.451-0.193,2.087-0.559
+                                c1.288-0.744,2.087-2.13,2.087-3.617V56.066C110.258,54.581,109.459,53.195,108.173,52.451z"/>
+                        </g>
+                    </svg>
+                </button>
+                <!-- Video off -->
+                <button *ngIf="isCallStarted && !isVideoEnabled" (click)="enableLocalVideo($event)" ion-button clear class="sk-videoim-icon sk-videoim-icon-video sk-videoim-icon-video-off">
+                    <svg version="1.1" id="videoim-videoOff" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="140px" height="140px" viewBox="0 0 140 140" enable-background="new 0 0 140 140" xml:space="preserve">
+                        <g>
+                            <path fill="#FFFFFF" fill-opacity=".4" d="M119.852,20.148C106.537,6.833,88.833-0.5,70.001-0.5S33.464,6.833,20.148,20.149
+                                c-27.487,27.488-27.487,72.215,0,99.703C33.465,133.167,51.169,140.5,70,140.5c18.83,0,36.534-7.333,49.851-20.648
+                                C133.167,106.535,140.5,88.831,140.501,70C140.501,51.168,133.167,33.464,119.852,20.148z M70,135.5
+                                c-16.49,0-32.048-6.058-44.143-17.113l92.529-92.529C129.442,37.95,135.501,53.508,135.501,70
+                                c-0.001,17.496-6.814,33.945-19.186,46.316C103.943,128.688,87.495,135.5,70,135.5z M82.672,53.086
+                                c-0.368-0.301-0.795-0.539-1.274-0.67c-5.077-1.393-11.292-2.294-17.975-2.607l-10.427-0.003l-0.165,0.003
+                                c-6.675,0.312-12.89,1.214-17.971,2.607c-1.516,0.415-2.574,1.803-2.574,3.375v29.507c0,1.571,1.058,2.96,2.574,3.377
+                                c3.058,0.838,6.533,1.495,10.268,1.955l-23.51,23.511c-23.443-25.671-22.759-65.63,2.066-90.457
+                                C36.056,11.313,52.505,4.5,70.001,4.5c16.491,0,32.05,6.059,44.143,17.115L82.672,53.086z"/>
+                            <path fill="#FFFFFF" fill-opacity=".4" d="M63.272,91.285l0.165-0.004c6.672-0.312,12.883-1.215,17.961-2.607c1.516-0.415,2.573-1.803,2.573-3.376
+                                V65.859L58.545,91.285H63.272z"/>
+                            <path fill="#FFFFFF" fill-opacity=".4" d="M107.922,52.883c-1.115-0.644-2.561-0.644-3.676,0l-17.275,9.975v15.375l17.275,9.974
+                                c0.558,0.322,1.193,0.493,1.838,0.493c0.643,0,1.277-0.17,1.838-0.493c1.133-0.654,1.836-1.873,1.836-3.183V56.066
+                                C109.758,54.758,109.055,53.539,107.922,52.883z"/>
+                        </g>
+                    </svg>
+                </button>
+                <!-- Call -->
+                <button *ngIf="isCallFinished || isCallNotAnswered" (tap)="call()" ion-button clear class="sk-videoim-icon sk-videoim-icon-accept">
+                    <svg version="1.1" id="videoim-accept" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="140px" height="140px" viewBox="160 0 140 140" enable-background="new 160 0 140 140" xml:space="preserve">
+                    <path fill="#FFFFFF" d="M198.812,41.056c-7.817,20.518,15.07,40.858,15.07,40.858l0.502,0.502l4.701,4.701
+                        c0,0,20.342,22.889,40.859,15.071c0,0,10.259-5.372,7.325-8.792c-2.93-3.418-11.602-11.601-11.602-11.601s-2.676-4.144-9.031,2.448
+                        c-6.354,6.588-12.896,2.628-14.973,1.042c-1.317-1.01-5.224-4.604-7.898-7.092c-2.894-3.081-7.043-7.542-8.051-8.857
+                        c-1.587-2.078-5.547-8.619,1.042-14.973c6.589-6.357,2.447-9.032,2.447-9.032s-8.185-8.673-11.603-11.603
+                        C204.184,30.797,198.812,41.056,198.812,41.056z"/>
+                    </svg>
+                </button>
+                <!-- Close -->
+                <button *ngIf="isCallFinished|| isCallNotAnswered" (tap)="close()" mode="ios" ion-button clear class="sk-videoim-icon sk-videoim-icon-cancel">
+                    <svg id="videoim-cancel" width="140px" height="140px" viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="CALLER---03-disconnect" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-198.000000, -516.000000)" opacity="0.4">
+                            <g id="Mic-btn" transform="translate(198.000000, 516.000000)">
+                                <circle id="Oval-2-Copy" stroke="#FFFFFF" stroke-width="4" cx="70" cy="70" r="68"></circle>
+                                <path d="M72.9333361,70 L92.7595822,89.826246 C93.1501064,90.2167703 93.1501064,90.8499353 92.7595822,91.2404596 L91.2404596,92.7595822 C90.8499353,93.1501064 90.2167703,93.1501064 89.826246,92.7595822 L70,72.9333361 L50.173754,92.7595822 C49.7832297,93.1501064 49.1500647,93.1501064 48.7595404,92.7595822 L47.2404178,91.2404596 C46.8498936,90.8499353 46.8498936,90.2167703 47.2404178,89.826246 L67.0666639,70 L47.2404178,50.173754 C46.8498936,49.7832297 46.8498936,49.1500647 47.2404178,48.7595404 L48.7595404,47.2404178 C49.1500647,46.8498936 49.7832297,46.8498936 50.173754,47.2404178 L70,67.0666639 L89.826246,47.2404178 C90.2167703,46.8498936 90.8499353,46.8498936 91.2404596,47.2404178 L92.7595822,48.7595404 C93.1501064,49.1500647 93.1501064,49.7832297 92.7595822,50.173754 L72.9333361,70 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                            </g>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <div [hidden]="!isCallStarted" class="sk-videoim-timer">
+                <video-im-timer #timer [isMeInitiator]="isMeInitiator"></video-im-timer>
+            </div>
+        </div>
+    </div>
+    <ion-scroll>
+
+    </ion-scroll>
+
+</ion-content>
+
+<div [ngClass]="{'sk-videoim-video-remote-ios': isNativeIos, 'sk-videoim-video-remote-browser': !isNativeIos}" [hidden]="!isCallStarted">
+    <video autoplay playsinline #remoteVideo>
+    </video>
+</div>
+<div [ngClass]="{'sk-videoim-video-local-ios': isNativeIos, 'sk-videoim-video-local-browser': !isNativeIos}" [hidden]="!isCallStarted || !isVideoEnabled">
+    <video autoplay playsinline muted #localVideo>
+    </video>
+</div>

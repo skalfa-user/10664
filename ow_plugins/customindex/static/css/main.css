@@ -1,0 +1,111 @@
+.header_img_wrapper {
+    height: 553px;
+    width: 100%;
+    position: fixed;
+    top: 62px;
+    z-index: 1;
+    margin-top: 122px;
+}
+.scroll_wrapper {
+    margin-top: 553px;
+    z-index: 10;
+    background-color: #fff;
+    position: relative;
+    width: 100%;
+}
+.footer_helper {
+    height: 149px;
+    pointer-events: none;
+}
+
+.custom_platinum_pro_index .header_slogan {
+    padding: 164px 0 0;
+    display: block !important;
+}
+.custom_platinum_pro_index .footer_copyright {
+    border: none;
+}
+
+.custom_platinum_pro_index .ow_logo_wrap a {
+    display: block;
+}
+
+/* ---- Main Menu styles ---- */
+.custom_platinum_pro_index .ow_menu_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-bottom: 1px solid #e6e6e6;
+    width: 100%;
+    padding-left: 0;
+    border-top: none;
+    line-height: initial;
+    height: auto;
+}
+.custom_platinum_pro_index .ow_site_panel_wrap.site_panel_wrap_bg_color {
+    display: block;
+    box-shadow: 0px 1px 10px 2px rgba(0, 0, 0, 0.36);
+}
+.custom_platinum_pro_index .ow_page_padding {
+    padding-bottom: 0;
+}
+.custom_platinum_pro_index .ow_main_menu {
+    margin: 0;
+}
+.custom_platinum_pro_index .ow_main_menu.clearfix {
+    height: 58px;
+}
+.custom_platinum_pro_index .ow_main_menu li {
+    padding: 0 15px;
+    display: inline-block;
+}
+.custom_platinum_pro_index .ow_main_menu li a {
+    font-family: 'pf_din_text_comp_proregular', "Trebuchet MS", "Helvetica CY", sans-serif;
+    color: #4c4c4c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: 1.5px;
+    height: 58px;
+    border-bottom: none;
+}
+
+.custom_platinum_pro_index .ow_main_menu li.active a,
+.custom_platinum_pro_index .ow_main_menu li a:hover {
+    color: #d9534f;
+    text-decoration: none;
+    border-bottom: none;
+}
+.custom_platinum_pro_index .ow_main_menu li.active a:before,
+.custom_platinum_pro_index .ow_main_menu li a:hover:before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    background-color: #d9534f;
+    display: block;
+    width: 100%;
+    right: 0;
+    left: 0;
+    height: 1px;
+    border-bottom: none;
+}
+.custom_platinum_pro_index .ow_footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 0;
+}
+@media (max-width: 480px) {
+    .footer_helper {
+        height: 283px;
+    }
+}
+/* ---- Main Menu styles ---- */

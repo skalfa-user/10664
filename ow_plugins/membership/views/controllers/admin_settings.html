@@ -1,0 +1,21 @@
+{$menu}
+
+<div class="ow_automargin ow_superwide">
+    {block_decorator name='box' langLabel='membership+notifications' type='empty' addClass='ow_stdmargin ow_break_word' iconClass='ow_ic_mail'}
+        {form name='settings-form'}
+            <table class="ow_table_1 ow_form ow_center">
+                <tbody>
+                <tr class="type ow_alt1">
+                    <td style="width:50%;" class="ow_txtleft">{label name='period'}</td>
+                    <td>
+                        <div>{input name='period' class='ow_settings_input'} {text key='membership+days'} {error name='period'}</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="clearfix">
+                <div class="ow_right">{submit name='save' class='ow_ic_save'}</div>
+            </div>
+        {/form}
+    {/block_decorator}
+</div>

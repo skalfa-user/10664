@@ -1,0 +1,29 @@
+<div id="main" class="clearfix">
+    <section id="content">
+        <div class="owm_subscribe_page owm_credit_page">
+            <div class="owm_content_menu_wrap owm_padding">
+                {$menu}
+            </div>
+            <div class="owm_membership_list">
+                <div class="owm_current_credit owm_membersip_item owm_credit_item owm_border">
+                    <div class="owm_sidemenu_item_wrap owm_bg_color_1">
+                        <a href="{$creditInfoLink}" class="owm_sidemenu_item clearfix">
+                            <span class="owm_sidemenu_item_label owm_float_left">{text key='usercredits+credits_balance'}: <span>{$balance}</span></span>
+                            <span class="owm_sidemenu_item_value owm_float_right"><span class="owm_ico_info"></span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="owm_subscribe_packs owm_small_margin_bottom">
+                {foreach from=$packs item='pack' name='pack'}
+                    <div class="owm_subscribe_packs_item owm_btn_wide owm_btn_positive">
+                        <input type="button" value="{$pack.title}" id="" onclick="window.location = '{$pack.link}'">
+                    </div>
+                {/foreach}
+            </div>
+        </div>
+    </section>
+    <div class="owm_overlay" id="owm_overlay" style="display: none;"></div>
+</div>
+
+

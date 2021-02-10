@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="skmobileapp" label="Skadate Mobile APP" language_tag="en" language_label="English">
+    <key name="plugin_delete_warning"><value>Plugin cannot be deleted due to admin settings</value></key>
+</prefix>

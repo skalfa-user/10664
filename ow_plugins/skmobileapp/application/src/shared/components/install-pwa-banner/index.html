@@ -1,0 +1,19 @@
+<div *ngIf="isDownloadAvailable" class="sk-promo-banner">
+    <ion-item>
+        <button type="button" type="button" ion-button clear item-start class="sk-promo-close" (click)="close()">
+            <ion-icon name="close" class="ios-close"></ion-icon>
+        </button>
+        <ion-label>
+            <ion-avatar>
+                <img src="./assets/img/apple-touch-icon.png" alt="" />
+            </ion-avatar>
+            <div class="sk-promo-desc">
+                <h4>{{ appName }}</h4>
+                <div>{{ appDescription }}</div>
+            </div>
+        </ion-label>
+        <button type="button" type="button" ion-button item-end clear class="sk-promo-install" (click)="install()">
+            {{ 'pwa_install' | translate }}
+        </button>
+    </ion-item>
+</div>

@@ -1,0 +1,31 @@
+<!-- page skeleton -->
+<skeleton-preloader *ngIf="isPageLoading" name="small-set" repeatTimes="2"></skeleton-preloader>
+
+<ng-container *ngIf="!isPageLoading">
+    <!-- my credits -->
+    <ion-item class="sk-payments-head sk-credits-head" padding>
+        {{ 'your_credits' | translate }}:
+        <button item-end ion-button icon-end clear class="sk-payments-info" (tap)="viewCreditsInfo()">
+            {{ myBalance }}
+            <ion-icon name="ios-information-circle-outline"></ion-icon>
+        </button>
+    </ion-item>
+
+    <!-- credit packs list -->
+    <ion-list mode="md" class="sk-credits-list" no-lines padding-left padding-right>
+        <div *ngFor="let pack of creditPacks" (click)="openGatewaysPage(pack)" class="sk-credits-item-container">
+            <ion-item ion-item mode="md" class="sk-credits-item"  margin-bottom>
+                {{ pack.credits }} {{ 'credits' | translate }}
+                <div item-end class="sk-payments-price" [innerHTML]="'credit_pack' | translate:{ currency: currency, price: pack.price} | trustHtml"></div>
+            </ion-item>
+        </div>
+    </ion-list>
+
+    <!-- no credit packs -->
+    <div *ngIf="!creditPacks.length" class="sk-blank-state-wrap sk-no-credits">
+        <img class="sk-blank-state-icon" src="./assets/img/payments/ic-no-credits.svg" alt="">
+        <div class="sk-blank-state-cont">
+            <h2>{{ 'no_credits' | translate }}</h2>
+        </div>
+    </div>
+</ng-container>

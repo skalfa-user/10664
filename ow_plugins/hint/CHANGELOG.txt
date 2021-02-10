@@ -1,0 +1,74 @@
+Hint 2010, 2016-06-01:
+
+Enhancements:
+- Simplicity and Turquoise themes optimisations
+- Minor enhancements
+
+Bug Fixes:
+- Double hint in chat
+- Minor fixes
+
+
+Hint 2000, 2014-12-12:
+
+New Hint types:
+- Group hint
+- Event hint
+
+Enhancements:
+- Private profiles support
+- Minor enhancements
+
+Bug Fixes:
+- OxArt Advanced SEO conflict resolved
+- Minor fixes
+
+
+User Hint 1670, 2014-7-10:
+
+New Info line options:
+- User activity: 2 days ago, Online Now, etc..
+
+Enhancements:
+- Google Map Location plugin support: Location question is available now
+- User Credits: "Grant Credits" button no longer reloads whole page
+- Compose Message ( New version ) support
+- Minor enhancements
+
+Bug Fixes:
+- Minor fixes
+
+
+
+User Hint 572, 2013-10-25:
+
+New Info line options:
+- Photo count
+- Video count
+
+Enhancements:
+- Default cover images support
+- Minor enhancements
+
+Bug Fixes:
+- Hint tries to load information when hovering on navigation bootm menu item
+- Minor fixes
+
+
+
+User Hint 512, 2013-08-13:
+
+Features:
+- User Credits. Note: produces page reload, will be fixed with the next User Credits plugin update
+- Favorite Gift
+
+Enhancements:
+- New information line ( Line 0 ) right below username
+- Wording: Add to Friends changed to Add Friends, Remove from Friends to Remove Friend
+- View all friends button - if user has more then 6 friends the button will appear
+- Small visual enhancements
+
+Bug Fixes:
+- Wrong hint position when screen size is limited from right
+- Hint tries to load information when hovering on navigation menu item
+- Minor fixes

@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{ 'email_notifications_page_title' | translate }}</ion-title>
+        <ion-buttons end>
+            <button *ngIf="!isPageLoading" class="sk-email-notification-done-button" ion-button clear [disabled]="questionControl.isFormPending(form) || isPreferenceSaving" (click)="submit()">
+                <ion-spinner *ngIf="isPreferenceSaving" name="ios-small"></ion-spinner>
+                <span *ngIf="!isPreferenceSaving">
+                    {{ 'done' | translate }}
+                </span>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [attr.page-blocker]="isPreferenceSaving ? 'true' : ''" class="sk-email-notifications-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isPageLoading" name="small-set" repeatTimes="2"></skeleton-preloader>
+
+    <!-- preferences form -->
+    <form *ngIf="!isPageLoading" [formGroup]="form">
+        <div class="sk-email-notifications-description sk-description" padding>
+            {{ 'email_notifications_page_description' | translate }}
+        </div>
+        <div class="sk-section">{{ 'app_settings_email_label' | translate }}</div>
+        <ion-item class="sk-email-notifications-email-wrap" margin-bottom>
+            <span>{{ me.user.email }}</span>
+        </ion-item>
+        <question *ngFor="let question of questions" [question]="question" [form]="form"></question>
+    </form>
+</ion-content>

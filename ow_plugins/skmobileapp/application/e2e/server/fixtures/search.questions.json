@@ -1,0 +1,58 @@
+{
+    "preferredAccountType":1,
+    "questions":{
+       "1":[{
+            "order":0,
+            "sectionId":34,
+            "section":"Basic",
+            "items":[{
+                "type":"range",
+                "key":"birthdate",
+                "label":"Birthday",
+                "placeholder":"Birthday",
+                "values":[
+
+                ],
+                "value":{
+                    "lower":19,
+                    "upper":100
+                },
+                "validators":[
+
+                ],
+                "params":{
+                    "min":19,
+                    "max":100
+                }
+            }, {
+                "type":"multicheckbox",
+                "key":"relationship",
+                "label":"Here for",
+                "placeholder":"Here for",
+                "values":[
+                    {
+                        "value":"1",
+                        "title":"Fun"
+                    }, {
+                        "value":"8",
+                        "title":"Friendship"
+                    }, {
+                        "value":"4",
+                        "title":"Dating"
+                    }, {
+                        "value":"2",
+                        "title":"Whatever"
+                    }
+                ],
+                "value":null,
+                "validators":[
+
+                ],
+                "params":[
+
+                ]
+            }]
+        }]
+    }
+ }
+ 

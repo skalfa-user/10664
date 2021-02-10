@@ -1,0 +1,28 @@
+{form name="pcGallerySettings"}
+<table class="ow_table_1 ow_form ow_smallmargin">
+    <tbody>
+            <tr class="ow_alt1 ow_tr_first">
+                <td style="width: 60px; text-align: center;" class="ow_label">
+                    <input type="radio" name="source" value="all" {if $source=="all"}checked="checked"{/if} />
+                </td>
+                <td class="ow_value">
+                    {text key='pcgallery+source_all_label'}
+                </td>
+            </tr>
+            <tr class="ow_alt1 ow_tr_last">
+                <td style="width: 60px; text-align: center;" class="ow_label">
+                    <input type="radio" name="source" id="ugallery-source-album" value="album" {if $source=="album"}checked="checked"{/if} />
+                </td>
+                <td class="ow_value">
+                    {label name="album"}
+                    {input name="album"}
+                </td>
+            </tr>
+    </tbody>
+</table>
+<div class="clearfix ow_submit">
+    <div class="ow_right">
+        {submit name='save' class='ow_ic_save'}
+    </div>
+</div>
+{/form}

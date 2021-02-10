@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="skmobileapp" label="Skadate Mobile APP" language_tag="en" language_label="English">
+    <key name="email_not_completed_error"><value>You have to complete your email</value></key>
+    <key name="complete_email_page_header"><value>Complete your profile</value></key>
+    <key name="email_firebase_desc"><value>Please, set email without @. For example: live</value></key>
+</prefix>

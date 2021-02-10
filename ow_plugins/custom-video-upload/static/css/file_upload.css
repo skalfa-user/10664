@@ -1,0 +1,92 @@
+/* upload wrapper */
+#video-upload-wrapper {
+    display: inline-block;
+    width: 100%;
+    line-height: 84px;
+    margin-bottom: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: normal;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    position: relative;
+    padding: 4px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-transform: uppercase;
+    color: #666;
+    background-color: #fff9ec;
+    border: 1px solid rgba(105,105,105,0.4);
+    font-size: 15px;
+}
+
+#video-upload-wrapper #video_upload_file {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
+/* Fixes for IE < 8 */
+@media screen\9 {
+    #video-upload-wrapper #video_upload_file {
+        filter: alpha(opacity=0);
+    }
+}
+
+/* progress bar */
+#video-upload-progress-wrapper {
+    padding:3px;
+    text-align: center;
+    display: none;
+    background-color: #fff;
+    position: relative;
+    border-radius: 4px;
+}
+
+#video-upload-progress-wrapper #video-upload-progress-val {
+    background: #2299dd;
+    width:0;
+    height: 15px;
+    border-radius: 2px;
+}
+
+#video-upload-progress-wrapper #video-upload-progress-val-label {
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom: 0;
+    color: #b5e3ff;
+    font-size: 10px;
+}
+
+/* progress label */
+#video-upload-progress-label {
+    display:none;
+    text-align: center;
+}
+
+#video-video-preview-wrapper {
+    margin-bottom:5px;
+}
+#video-preview-wrapper {
+    margin: 10px 0;
+}
+#video-preview-wrapper.ow_hidden {
+    display: none;
+}
+#video-preview-wrapper img#video-upload-cover {
+    width:100%;
+    margin-bottom: 10px;
+    cursor: pointer;
+    height: 250px;
+    object-fit: contain;
+}

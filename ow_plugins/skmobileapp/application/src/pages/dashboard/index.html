@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar class="sk-dashboard-toolbar">
+        <dashboard-tabs
+            (componentChanged)="changeComponent($event)"
+            [activeComponent]="dashboard.getActiveComponent()"
+            [activeSubComponent]="dashboard.getActiveSubComponent()">
+        </dashboard-tabs>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content no-bounce class="sk-dashboard-page">
+    <!-- components slider -->
+    <div class="sk-components-slider-wrapper sk-height-wrap" ion-fixed>
+        <ion-slides #componentsSlider [dir]="application.getLanguageDirection()" [initialSlide]="dashboard.getComponentIndexByName(dashboard.getActiveComponent())" (ionSlideDidChange)="componentsSliderDidChange()">
+            <!-- profile -->
+            <ion-slide>
+                <profile [isDashboardLoading]="isPageLoading"></profile>
+            </ion-slide>
+
+            <!-- hot list, tinder, search -->
+            <ion-slide>
+                <hot-list *ngIf="siteConfigs.isPluginActive('hotlist') && dashboard.isActiveSubComponent(dashboard.hotListPage)" [isDashboardLoading]="isPageLoading"></hot-list>
+                <tinder *ngIf="siteConfigs.isTinderSearchAllowed() && dashboard.isActiveSubComponent(dashboard.tinderPage)" [isDashboardLoading]="isPageLoading"></tinder>
+                <search *ngIf="siteConfigs.isBrowseSearchAllowed() && dashboard.isActiveSubComponent(dashboard.browsePage)" [isDashboardLoading]="isPageLoading"></search>
+            </ion-slide>
+
+            <!-- conversations -->
+            <ion-slide>
+                <conversations [isDashboardLoading]="isPageLoading"></conversations>
+            </ion-slide>
+        </ion-slides>
+    </div>
+</ion-content>

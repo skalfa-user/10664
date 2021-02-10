@@ -1,0 +1,103 @@
+{if isset($current)}
+    {block_decorator name='box' type='empty' addClass="ow_stdmargin"}
+        {text key='membership+membership'}: <span class="ow_remark ow_small">{if isset($currentTitle)}{$currentTitle}{if $current->recurring} ({text key='membership+recurring'}){/if}{/if}</span><br />
+        {text key='membership+expires'}: <span class="ow_remark ow_small">{membership_format_date timestamp=$current->expirationStamp}</span>
+    {/block_decorator}
+{/if}
+
+{if !empty($menu)}
+    <div class="ow_content_menu_wrap ow_padding">
+        {$menu}
+    </div>
+{/if}
+
+{form name='subscribe-form'}
+    <div class="ow_custom_table ow_subscribe_table">
+        <div class="ow_custom_table_row flex">
+            <div class="ow_custom_table_actions_label">{text key='membership+action'}</div>
+            {foreach from=$mTypePermissions item='mt'}
+                <div class="ow_custom_table_header {if $mt.current}current{/if}">{$mt.title}</div>
+            {/foreach}
+        </div>
+
+        {assign var="perm" value="permissions"}
+
+        {foreach from=$groupActionList item='groupAction'}
+            {foreach from=$groupAction.actions item='action' name='itm'}
+                <div class="ow_custom_table_row section">
+                    {if $smarty.foreach.itm.first}
+                    <div class="ow_content_menu_wrap">
+                        <ul class="ow_content_menu clearfix">
+                            <li class="active">
+                                <a href="#">
+                                    <span>
+                                        {if !empty($labels[$groupAction.name])}{$labels[$groupAction.name].label}{else}{$groupAction.name}{/if}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    {/if}
+                </div>
+                <div class="ow_custom_table_row flex">
+                    {capture assign='altClass'}{cycle values='ow_alt1,ow_alt2'}{/capture}
+                    {capture assign='actionName'}{$action->name}{/capture}
+                    <div class="ow_custom_table_column actions">
+                        {if !empty($labels[$groupAction.name].actions[$actionName])}
+                            {$labels[$groupAction.name].actions[$actionName]}
+                        {else}
+                            {$actionName}
+                        {/if}
+                    </div>
+
+                    {assign var="actionId" value=$action->id}
+
+                    {foreach from=$mTypePermissions item='mt'}
+                        <div class="ow_custom_table_column {if $mt.current}current{/if}">
+                            {if isset($mt.$perm.$actionId)}
+                                <span class="ow_action_allowed ow_ic_ok"> </span>
+                            {/if}
+                        </div>
+                    {/foreach}
+                </div>
+            {/foreach}
+        {/foreach}
+        {if $plansNumber}
+            <div class="ow_custom_table_row flex plans-wrap">
+                <div class="ow_custom_table_column ow_custom_table_column_empty"></div>
+
+                {assign var='firstSet' value='0'}
+
+                {foreach from=$mTypePermissions item='mt'}
+                    <div class="ow_custom_table_column {if $mt.current}current{/if} plans">
+                        <ul class="ow_small">
+                            {foreach from=$mt.plans item='plan'}
+                                <li>
+                                    {if !$firstSet}
+                                        {input name='plan' value=$plan.dto->id label=$plan.plan_format checked='checked'}
+                                        {assign var='firstSet' value='1'}
+                                    {else}
+                                        {input name='plan' value=$plan.dto->id label=$plan.plan_format}
+                                    {/if}
+                                </li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                {/foreach}
+            </div>
+            <div class="ow_custom_table_row providers flex">
+                <div class="ow_custom_table_column ow_custom_table_column_empty" id="billing_gateway_extra_information"></div>
+                <div class="ow_custom_table_column">{input name='gateway'}</div>
+            </div>
+        {/if}
+    </div>
+    {if $gatewaysActive && $plansNumber}
+        <div class="clearfix ow_stdmargin">
+            <div class="ow_right">{submit name='subscribe' class='ow_positive'}</div>
+        </div>
+    {/if}
+{/form}
+
+{script}
+$(document).ready(function() { window.jcf ? jcf.replaceAll() : console.warn('JCF is not initialized properly.'); });
+{/script}

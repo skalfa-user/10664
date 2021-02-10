@@ -1,0 +1,11 @@
+{if $video}
+    <video width="100%"  preload="auto" controls poster="{$video->coverImage}">
+        {foreach from=$video->videos item=video}
+            <source src="{$video.url}" type="{$video.type}">
+        {/foreach}
+    </video>
+{else}
+    {block_decorator name="box" type="empty" addClass="ow_center ow_anno ow_smallmargin"}
+        {text key="cvideoupload+video_not_found"}
+    {/block_decorator}
+{/if}

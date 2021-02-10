@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="14px" viewBox="0 0 16 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_warning</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-1171.000000, -2026.000000)">
+            <g id="ic_warning" transform="translate(1170.000000, 2026.000000)">
+                <g id="Group">
+                    <path d="M16.775,12.345 L9.864,0.496 C9.506,-0.118 8.495,-0.118 8.136,0.496 L1.136,12.496 C0.955,12.806 0.954,13.187 1.133,13.496 C1.312,13.805 1.642,13.998 2,13.998 L16,13.998 L16.02,13.998 C16.573,13.998 17.02,13.551 17.02,12.998 C17.02,12.747 16.928,12.519 16.775,12.343" id="Shape" fill="#ffffff"></path>
+                    <g transform="translate(8.000000, 3.000000)" fill="#FFFFFF">
+                        <path d="M2,5.25 C2,5.803 1.552,6.25 1,6.25 C0.448,6.25 0,5.803 0,5.25 L0,1 C0,0.448 0.448,0 1,0 C1.552,0 2,0.448 2,1 L2,5.25" id="Shape"></path>
+                        <circle id="Oval" cx="1" cy="8.25" r="1"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,35 @@
+<div class="sk-message-wrap sk-message-type-wink">
+    <!-- date -->
+    <div *ngIf="message.date && (!prevMessage || prevMessage && prevMessage.date != message.date)" class="sk-message-date">
+        {{ message.dateLabel }}
+    </div>
+
+    <!-- message wrapper-->
+    <div class="sk-message {{ message.isAuthor ? 'sk-message-sent' : 'sk-message-received' }}">
+        <!-- message -->
+        <div *ngIf="message.isAuthor" class="sk-message-wink-img">
+            <img src="./assets/img/custom-images/ic-wink-sent.svg" alt="" />
+        </div>
+
+        <div *ngIf="!message.isAuthor" class="sk-message-wink-img">
+            <img src="./assets/img/custom-images/ic-wink-received.svg" alt="" />
+        </div>
+        <div class="sk-message-wink-text">
+            <span *ngIf="message.isAuthor">
+                {{ 'mailbox_wink_sent_desc' | translate }}
+            </span>
+            <span *ngIf="!message.isAuthor" >
+                {{ 'mailbox_wink_received_desc' | translate }}
+            </span>
+
+            <!-- time -->
+            <div class="sk-message-time">
+                <span *ngIf="message.timeStamp">
+                    {{ message.time }}
+                    <img *ngIf="message.isAuthor && !message.isRecipientRead" class="sk-message-sent-icon" src="./assets/img/custom-images/ic-message-wink-sent.svg" alt="" />
+                    <img *ngIf="message.isAuthor && message.isRecipientRead" class="sk-message-received-icon" src="./assets/img/custom-images/ic-message-wink-received.svg" alt="" />
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

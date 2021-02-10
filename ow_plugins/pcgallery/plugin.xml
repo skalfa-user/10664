@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+    <name>Profile Cover Gallery</name>
+    <key>pcgallery</key>
+    <description>Shows a beautiful photo gallery on user profile. This plugin must only be used on licensed SkaDate websites.</description>
+    <author>Skalfa</author>
+    <authorEmail>info@skadate.com</authorEmail>
+    <authorUrl>https://www.skadate.com</authorUrl>
+    <developerKey>99d6bdd5bb6468beaf118c4664dd92ff</developerKey>
+    <build>10808</build>
+    <copyright>(C) 2009 Skalfa LLC. All rights reserved.</copyright>
+    <license>SEL</license>
+    <licenseUrl>http://www.skadate.com/sel.pdf</licenseUrl>
+</plugin>

@@ -1,0 +1,7 @@
+{if isset($menu)}{$menu}{/if}
+
+{if isset($mapCmp)}
+    {$mapCmp->render()}
+{else}
+    <div class="ow_nocontent">{text key="usearch+no_users_found" searchUrl=$searchUrl}</div>
+{/if}

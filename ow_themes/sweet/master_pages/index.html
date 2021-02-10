@@ -1,0 +1,42 @@
+<div class="ow_page_wrap index_master_page">
+    <div class="ow_page_wrap_in">
+        <div class="ow_page_padding">
+            <div class="ow_site_panel">
+                {component class='BASE_CMP_Console'}
+            </div>
+            <div class="ow_header clearfix">
+                <div class="ow_header_pic_wrap">
+                    <div class="ow_header_pic"><a href="{$siteUrl}" class="logo_url"></a></div>
+                    {component class='BASE_CMP_JoinButton' cssClass='index_join_button'}
+                </div>
+                {block_decorator name="box" addClass="index_qs ow_right"}
+                    <div class="index_qs_cap"><h3>{text key="usearch+quick_search"}</h3></div>
+                    {component class='USEARCH_CMP_QuickSearch'}
+                {/block_decorator}
+            </div>
+            <div class="ow_page_container clearfix">
+                <div class="ow_canvas">
+                    <div class="ow_content">
+                        <div class="ow_page ow_bg_color clearfix">
+                            {$content}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ow_footer">
+    <div class="ow_canvas">
+        <div class="ow_page ow_footer_margin clearfix">
+            {$bottom_menu}
+            <div class="ow_copyright ow_left">
+                {text key='base+copyright'}
+            </div>
+            <div style="float:right;">
+                {$bottomPoweredByLink}
+            </div>
+        </div>
+    </div>
+</div>    
+{decorator name='floatbox'}

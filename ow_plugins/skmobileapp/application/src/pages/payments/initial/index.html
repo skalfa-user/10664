@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar [hideBackButton]="isBackButtonHidden">
+        <ion-title>
+            {{ 'buy_upgrades_page_header' | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [attr.page-blocker]="isBackButtonHidden ? 'true' : ''" class="sk-payments">
+    <div class="sk-payments-wrap sk-height-wrap">
+        <!-- component switcher -->
+        <ion-segment mode="ios" *ngIf="payments.isCreditsAvailable() && payments.isMembershipAvailable()" [(ngModel)]="activeComponent">
+            <ion-segment-button [value]="payments.membershipPlugin">
+                {{ 'memberships' | translate }}
+            </ion-segment-button>
+
+            <ion-segment-button [value]="payments.creditsPlugin">
+                {{ 'credits' | translate }}
+            </ion-segment-button>
+        </ion-segment>
+
+        <!-- active component -->
+        <div class="sk-payments-segment" [ngSwitch]="activeComponent">
+            <div *ngSwitchCase="payments.membershipPlugin" class="sk-memberships-segment">
+                <memberships></memberships>
+            </div>
+
+            <div *ngSwitchCase="payments.creditsPlugin" class="sk-credits-segment">
+                <mobile-credits *ngIf="application.isAppRunningInExternalBrowser()"></mobile-credits>
+                <inapp-credits *ngIf="!application.isAppRunningInExternalBrowser()" (packetBuying)="hideBackButton()" (packetBuyingCancelled)="showBackButton()"></inapp-credits>
+            </div>
+        </div>
+    </div>
+</ion-content>

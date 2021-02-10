@@ -1,0 +1,20 @@
+{style}
+{literal}
+    .ow_credits { margin-bottom: 0px; }
+{/literal}
+{/style}
+
+<table class="ow_table_1 ow_credits">
+    <tbody>
+    <tr class="ow_tr_first">
+        <th>{text key='usercredits+actions'}</th>
+        <th class="ow_txtcenter">{text key='usercredits+price_in_credits'}</th>
+    </tr>
+    {foreach from=$earning item='action'}
+    <tr>
+        <td class="ow_txtleft">{text key="`$action.pluginKey`+usercredits_action_`$action.actionKey`"}</td>
+        <td class="ow_txtcenter">{$action.amount}</td>
+    </tr>
+    {/foreach}
+    </tbody>
+</table>

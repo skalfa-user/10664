@@ -1,0 +1,26 @@
+{if empty($users)}
+    <div class="ow_nocontent">{text key='base+empty_user_avatar_list'}</div>
+{else}
+
+    <div class="title">
+        <!--{text key='slpremiumtheme+hotest_users_title'}-->
+        {text key='slpremiumtheme+hotest_users_title'}
+    </div>
+
+    <div class="user_cards_list">
+        {foreach from=$users item='user' name=userloop}
+        <div class="user_card_wrap">
+            <a href="{$user.url}" class="user_card">
+                <div class="user_card_img" style="background-image: url('{$user.src}')"></div>
+                <div class="user_card_info">
+                    <div class="name">{$user.title|escape}{if !empty($user.title) && !empty($user.age)}, {/if}{$user.age}</div>
+                    <div class="location">{$user.location}</div>
+                </div>
+            </a>
+        </div>
+
+        {/foreach}
+    </div>
+
+{/if}
+    

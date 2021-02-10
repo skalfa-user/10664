@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="billingstripe" label="Stripe Billing" language_tag="en" language_label="English">
+    <key name="account_settings"><value>Account settings</value></key>
+    <key name="address"><value>Address line</value></key>
+    <key name="address_required"><value>Billing address line is required</value></key>
+    <key name="available"><value>available</value></key>
+    <key name="billing_info"><value>Billing Information</value></key>
+    <key name="btn_save"><value>Save</value></key>
+    <key name="card_details"><value>Card Details</value></key>
+    <key name="card_number"><value>Card number</value></key>
+    <key name="card_number_invalid"><value>Card number is invalid</value></key>
+    <key name="choose_country"><value>Choose a Country</value></key>
+    <key name="complete_order"><value>Complete order</value></key>
+    <key name="config_page_heading"><value>Stripe Billing configuration</value></key>
+    <key name="country"><value>Country</value></key>
+    <key name="country_required"><value>Billing country is required</value></key>
+    <key name="cvc"><value>CVC</value></key>
+    <key name="cvc_invalid"><value>Verification code is invalid</value></key>
+    <key name="expiration_date"><value>Expiration date</value></key>
+    <key name="exp_date_invalid"><value>Expiration date is not valid</value></key>
+    <key name="gateway_title"><value>Stripe</value></key>
+    <key name="live_public_key"><value>Live publishable key</value></key>
+    <key name="live_secret_key"><value>Live secret key</value></key>
+    <key name="name_on_card"><value>Name on card</value></key>
+    <key name="name_on_card_required"><value>Name on card is required</value></key>
+    <key name="pay_via_credit_card"><value>Pay via credit card</value></key>
+    <key name="plugin_configuration_notice"><value>&lt;a href="{$url}"&gt;Stripe Billing plugin&lt;/a&gt; requires additional configuration</value></key>
+    <key name="product_string"><value>You are about to order &lt;b&gt;{$product}&lt;/b&gt;</value></key>
+    <key name="recurring_supported"><value>Recurring payments</value></key>
+    <key name="require_data"><value>Require billing address data</value></key>
+    <key name="sandbox_mode"><value>Sandbox mode</value></key>
+    <key name="settings_updated"><value>Settings were successfully updated</value></key>
+    <key name="state"><value>State</value></key>
+    <key name="state_required"><value>Billing state is required</value></key>
+    <key name="supported_currencies"><value>Supported currencies</value></key>
+    <key name="test_public_key"><value>Test publishable key</value></key>
+    <key name="test_secret_key"><value>Test secret key</value></key>
+    <key name="zip_code"><value>ZIP code</value></key>
+    <key name="zip_code_required"><value>ZIP Code is required</value></key>
+    <key name="warning_process_complete_info"><value>For the correct payment, please complete the process!</value></key>
+    <key name="notification_after_actions"><value>For a successful payment, please wait for the process to complete!</value></key>
+    <key name="card_detail_font_color"><value>Font color (Ex: #ff6600)</value></key>
+    <key name="card_detail_font_family"><value>Font family (Ex: "Helvetica Neue", Helvetica, sans-serif)</value></key>
+    <key name="card_detail_font_size"><value>Font size, px (Ex: 14)</value></key>
+    <key name="card_detail_placeholder_color"><value>Placeholder color (Ex: #afaeae)</value></key>
+    <key name="card_detail_error_font_color"><value>Error color (Ex: #ee3d32)</value></key>
+    <key name="card_detail_error_icon_color"><value>Error icon color (Ex: #ee3d32)</value></key>
+    <key name="card_detail_icon_color"><value>Icon color (Ex: #33ccff)</value></key>
+</prefix>

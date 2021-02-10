@@ -1,0 +1,8 @@
+<img id="videoim_chatlink_{$recipientId}" title="{text key="videoim+chat_call_title" escape="quotes"}" class="videoim_chat_link" src="{$baseImagesUrl}/call.svg" width="20" height="20" />
+
+<script type="text/javascript">
+    $("#videoim_chatlink_{$recipientId}").click(function(e){
+        e.stopPropagation();
+        videoImRequest.getChatWindow({$recipientId});
+    });
+</script>

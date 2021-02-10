@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button ion-button clear (click)="returnBack()">
+                {{ 'cancel' | translate }}
+            </button>
+        </ion-buttons>
+        <ion-title>{{ 'flag_page_header' | translate }}</ion-title>
+        <ion-buttons end>
+            <button ion-button clear [disabled]="questionControl.isFormPending(form)" (click)="submit()">
+                {{ 'done' | translate }}
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-flag-content-page">
+    <form [formGroup]="form">
+        <ion-list class="sk-flag-fields">
+            <div class="sk-question-list-wrap">
+                <!-- questions -->
+                <div *ngFor="let sectionData of sections" class="sk-question-list">
+                    <ion-item-divider *ngIf="sectionData.section" text-wrap class="sk-question-section" color="light">
+                        <span>{{ sectionData.section }}</span>
+                    </ion-item-divider>
+                    <question *ngFor="let question of sectionData.questions" class="sk-question-item" [question]="question" [form]="form"></question>
+                </div>
+            </div>
+        </ion-list>
+    </form>
+</ion-content>

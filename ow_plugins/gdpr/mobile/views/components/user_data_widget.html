@@ -1,0 +1,61 @@
+<div class="owm_anno owm_align_center notice owm_small_margin_bottom">
+    {text key='gdpr+gdpr_user_data_note'}
+</div>
+{if !empty($user)}
+    <table class="ow_table_1">
+        <tr class="owm_tr_first">
+            <td class="owm_td_label owm_remark">
+                <span>
+                    {text key='gdpr+gdpr_name'}
+                </span>
+            </td>
+            <td class="owm_td_value">
+                {$userDisplayName}
+            </td>
+        </tr>
+        <tr>
+            <td class="owm_td_label owm_remark">
+                <span>
+                    {text key='gdpr+gdpr_password'}
+                </span>
+            </td>
+            <td class="owm_td_value">
+                {text key='gdpr+gdpr_password_text'}
+            </td>
+        </tr>
+        <tr>
+            <td class="owm_td_label owm_remark">
+                <span>
+                    {text key='gdpr+gdpr_username'}
+                </span>
+            </td>
+            <td class="owm_td_value">
+                {$user->username}
+            </td>
+        </tr>
+        <tr class="ow_tr_last">
+            <td class="owm_td_label owm_remark">
+                <span>
+                    {text key='gdpr+gdpr_email'}
+                </span>
+            </td>
+            <td class="owm_td_value">
+                {$user->email}
+            </td>
+        </tr>
+    </table>
+
+    <div class="ow_left ow_gdpr_links">
+        <a href="{url_for_route for='gdpr-request-download'}">
+            {text key='gdpr+gdpr_btn_request_download'}
+        </a>
+        <a href="{url_for_route for='gdpr-request-deletion'}">
+            {text key='gdpr+gdpr_btn_request_deletion'}
+        </a>
+    </div>
+    <div class="ow_left ow_credits_links">
+        <span>
+            {text key='gdpr+gdpr_btn_other_details'}
+        </span>
+    </div>
+{/if}

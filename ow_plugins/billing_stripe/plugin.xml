@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+	<name>Stripe Billing</name>
+	<key>billingstripe</key>
+	<description>Accept payments from users with Stripe payment provider</description>
+    <author>Skalfa</author>
+    <authorEmail>oxwallplugins@skalfa.com</authorEmail>
+    <authorUrl>http://www.skalfa.com</authorUrl>
+	<developerKey>99d6bdd5bb6468beaf118c4664dd92ff</developerKey>
+    <build>11120</build>
+    <copyright>(C) 2009 Skalfa LLC. All rights reserved.</copyright>
+    <license>OSCL</license>
+    <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+</plugin>

@@ -1,0 +1,100 @@
+{style}
+    {literal}
+    .owm_credit_card {
+        margin-bottom: 32px;
+        border-radius: 6px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+    }
+    .owm_credit_card .owm_table_3 {
+        padding: 0px 14px;
+    }
+    .owm_credit_card .owm_box_empty {
+        padding-left: 14px;
+    }
+    .owm_credit_card .owm_box_empty .owm_outline {
+        font-weight: normal;
+    }
+    .owm_credit_card th {
+        background: none;
+        padding: 8px 0px;
+        text-align: left;
+    }
+    .owm_credit_card .owm_table_3 td {
+        border: none;
+        padding: 30px 17px 0px;
+    }
+    .owm_credit_card .owm_table_3 td.owm_label {
+        vertical-align: middle;
+        text-align: left;
+        width: 25%;
+    }
+    .owm_credit_card .owm_table_3 td.owm_value {
+        width: auto;
+    }
+    .owm_credit_card select ~ select {
+        margin-left: 32px;
+    }
+    {/literal}
+{/style}
+
+<div class="owm_superwide owm_automargin">
+<form method="post" id="{$formId}" action="{$formAction}">
+{block_decorator name='box' capEnabled=false addClass='owm_credit_card owm_break_word'}
+    <span class="owm_outline">{$productString}</span>
+
+    <table class="owm_table_3 owm_credit_card">
+        <tbody>
+        <tr class="owm_tr_first">
+            <th colspan="2">{text key='billingstripe+card_details'}</th>
+        </tr>
+        <tr>
+            <td class="owm_label">{text key='billingstripe+card_number'}</td>
+            <td class="owm_value"><div id="card-element"></div></td>
+        </tr>
+        <tr class="owm_tr_last">
+            <td class="owm_label">{text key='billingstripe+name_on_card'}</td>
+            <td class="owm_value"><input type="text" autocomplete="off" class="c-name" /></td>
+        </tr>
+        </tbody>
+    </table>
+    {if $requireData}
+    <table class="owm_table_3 owm_credit_card owm_billing_info">
+        <tbody>
+        <tr class="owm_tr_first">
+            <th colspan="2">{text key='billingstripe+billing_info'}</th>
+        </tr>
+        <tr>
+            <td class="owm_label">{text key='billingstripe+country'}</td>
+            <td class="owm_value">
+                <select class="billing-country">
+                    <option value="">{text key='billingstripe+choose_country'}</option>
+                    {foreach from=$countries item='label' key='code'}
+                    <option value="{$code}">{$label}</option>
+                    {/foreach}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="owm_label">{text key='billingstripe+state'}</td>
+            <td class="owm_value"><input type="text" class="billing-state"></td>
+        </tr>
+        <tr>
+            <td class="owm_label">{text key='billingstripe+address'}</td>
+            <td class="owm_value"><input type="text" class="billing-address1"></td>
+        </tr>
+        <tr class="owm_tr_last">
+            <td class="owm_label">{text key='billingstripe+zip_code'}</td>
+            <td class="owm_value"><input type="text" class="billing-zip" style="width: 80px;" /></td>
+        </tr>
+        </tbody>
+    </table>
+    {/if}
+    {/block_decorator}
+    <div class="clearfix">
+        <div class="owm_right">
+            {decorator name='button' id='card-button' langLabel='billingstripe+complete_order'}
+        </div>
+    </div>
+</form>
+</div>

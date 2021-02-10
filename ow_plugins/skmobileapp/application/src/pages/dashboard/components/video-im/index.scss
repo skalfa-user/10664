@@ -1,0 +1,380 @@
+.sk-videoim {
+    &-cont {
+        height: 97%;
+        position: relative;
+        @include flex(flex, column, space-between, stretch);
+        color: color($colors, light);
+        opacity: 1;
+        z-index: 3;
+        @include transition(all 0.4s ease-in);
+        visibility: visible;
+
+        &-wrap {
+            @include flex(flex, column, space-between, center);
+            flex: 1;
+        }
+    }
+
+    &-cover {
+        position: absolute;
+        @include position(0, 0, 0, 0);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top;
+        -webkit-filter: blur(3px);
+        filter: blur(3px);
+        filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='3');
+        z-index: 1;
+    }
+
+    &-overlay {
+        position: absolute;
+        @include position(0, 0, 0, 0);
+        z-index: 2;
+        background-color: rgba(31, 32, 40, 0.83);
+    }
+
+    &-top {
+        text-align: center;
+        margin-top: 2rem;
+
+        h2 {
+            margin-top: 0.7rem;
+        }
+    }
+
+    &-center {
+        text-align: center;
+        margin: auto;
+
+        .circle, .circle2, .circle3, .circle4 {
+            position: absolute;
+            display: none;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            width: 40vw;
+            height: 40vw;
+            border-radius: 50%;
+            border: 1px solid $sk-videoim-circle-border;
+            @include animation(ripple, 3s, linear, infinite);
+            z-index: 1;
+        }
+
+        .circle2 {
+            animation-delay: 1.5s;
+        }
+        .circle3 {
+            animation-delay: 2s;
+        }
+        .circle4 {
+            animation-delay: 2.5s;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            60% {
+                opacity: 0;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    }
+
+    &-bottom {
+        display: block;
+        opacity: 1;
+        text-align: center;
+    }
+
+    &-avatar {
+        text-align: center;
+        position: relative;
+        @include flex(flex, row, center, center);
+
+        user-avatar {
+            z-index: 2;
+            width: 19rem;
+            height: 19rem;
+            border-radius: 50%;
+            img {
+                border-radius: 50%;
+                vertical-align: top;
+            }
+        }
+    }
+
+    &-status {
+        display: none;
+        margin-top: 2rem;
+        font-size: 2.2rem;
+        color: $sk-videoim-status;
+    }
+
+    &-timer {
+        margin-top: 2rem;
+        font-size: 2rem;
+    }
+
+    &-controls {
+        text-align: center;
+        @include flex(flex, row, center, stretch);
+        flex-wrap: wrap;
+
+        &~.sk-videoim-timer {
+            font-size: 1.3rem;
+        }
+
+        .sk-videoim-icon {
+            min-height: 0;
+            padding: 0;
+            height: auto;
+            margin: 0px 2.5vw;
+            position: relative;
+            overflow: visible;
+            z-index: 5;
+            border-radius: 50%;
+
+            &.button {
+                width: 5.2rem;
+                height: 5.2rem;
+                
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    overflow: visible;
+                }
+            }
+
+            &-hangup {
+                .button-inner {
+                    background-color: $sk-videoim-controls-hangup;
+                }
+            }
+
+            &-audio,  &-video,  &-ring, &-block {
+                &-on {
+                    svg path {
+                        fill-opacity: 1;
+                    }
+                }
+            }          
+
+            &-accept {
+                .button-inner {
+                    background-color: $sk-videoim-controls-accept;
+                }
+            }
+        }
+    }
+
+    &-alert {
+        background: rgba(0, 0, 0, 0.75);
+    }
+
+    &-video-remote-browser {
+        background: color($colors, dark);
+        position: absolute;
+        @include position(0, 0, 0, 0);
+        display: flex;
+
+        video {
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+
+    &-video-local-browser {
+        position: absolute;
+        @include position(null, 1.6rem, 16rem, null);
+        width: 28vw;
+        height: 36vw;
+        z-index: 4;
+        @include transition(all 0.4s ease-in);
+        border-radius: 14%;
+        overflow: hidden;
+        box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.5);
+
+        video {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 1.2rem;
+        }
+    }
+
+    &-video-remote-ios {
+        opacity: 0;
+        visibility: visible;
+        background: transparent;
+        position: absolute;
+        @include position(0, 0, 0, 0);
+        display: flex;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        pointer-events: none;
+        @include transition(all 1s ease 0s);
+
+        video {
+            z-index: -1;
+            height: 99.9%;
+            width: 100%;
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: cover;
+            transform: scale(-1, 1);
+            @include transition(all 1s ease 0s);
+        }
+    }
+
+    &-video-local-ios {
+        opacity: 0;
+        visibility: visible;
+        position: absolute;
+        @include position(null, 1.6rem, 16rem, null);
+        width: 27vw;
+        height: 36vw;
+        overflow: hidden;
+        border-radius: 14%;
+        @include transition(all 0.4s ease-in);
+        box-shadow: 0px 2px 14px rgba(0, 0, 0, 0.5);
+
+        video {
+            z-index: 2;
+            height: 99%;
+            width: 100%;
+            border-radius: 1.2rem;
+        }
+    }
+
+    &-video-remote-android {
+        position: absolute;
+        @include position(0, 0, 0, 0);
+        display: flex;
+        z-index: 2;
+
+        video {
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+
+    &-video-local-android {
+        position: absolute;
+        @include position(null, 1.6rem, 16rem, null);
+        width: 28vw;
+        height: 36vw;
+        z-index: 4;
+        @include transition(all 0.4s ease-in);
+        border-radius: 14%;
+        overflow: hidden;
+
+        video {
+            height: 100%;
+            border-radius: 1.2rem;
+            box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 0.5);
+        }
+    }
+}
+
+.sk-videoim-incoming-call .sk-videoim-center {
+    visibility: visible;
+
+    .circle, .circle2, .circle3, .circle4 {
+        display: block;
+    }
+}
+
+.sk-videoim-outgoing-call .sk-videoim-center {
+    .circle, .circle2, .circle3, .circle4 {
+        display: block;
+    }
+}
+
+.sk-videoim-finished-call {
+    .sk-videoim-center .sk-videoim-timer {
+        display: block;
+    }
+    &.sk-videoim-no-answer {
+        .sk-videoim-center {
+            .sk-videoim-status {
+                display: block;
+            }
+            .sk-videoim-timer {
+                display: none;
+            }
+        }
+    }
+}
+
+.sk-videoim-video-call {
+    z-index: 3;
+    background: transparent;
+    box-shadow: 0 0 150px color($colors, dark) inset;
+
+    .sk-videoim-overlay,
+    .sk-videoim-cover,
+    .sk-videoim-avatar {
+        display: none;
+    }
+    .sk-videoim-bottom .sk-videoim-timer {
+        display: block;
+    }
+}
+
+.sk-videoim-video-call-android {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.sk-videoim-video-fullsize {
+    opacity: 1;
+    @include transition(all 0.4s ease-in);
+    .sk-videoim-cont {
+        opacity: 0;
+
+        .sk-videoim-bottom {
+            opacity: 0;
+            display: none;
+        }
+    }
+    &.sk-videoim-video-call {
+        box-shadow: none;
+        background: transparent;
+    }
+}
+
+.sk-videoim-video-fullsize ~ .sk-videoim-video-local {
+    &-ios, &-android, &-browser {
+        bottom: 6rem;
+    }
+}
+
+.sk-videoim-outgoing-call ~ .sk-videoim-video-local,
+.sk-videoim-outgoing-call ~ .sk-videoim-video-remote,
+.sk-videoim-incoming-call ~ .sk-videoim-video-local,
+.sk-videoim-incoming-call ~ .sk-videoim-video-remote,
+.sk-videoim-finished-call ~ .sk-videoim-video-local,
+.sk-videoim-finished-call ~ .sk-videoim-video-remote {
+  display: none;
+}
+
+@media screen and (max-height: 600px) {
+    .sk-videoim-avatar user-avatar {
+        width: 16rem;
+        height: 16rem;
+    }
+    .sk-videoim-controls .sk-videoim-icon .button {
+        width: 4.2rem;
+        height: 4.2rem;
+    }
+}

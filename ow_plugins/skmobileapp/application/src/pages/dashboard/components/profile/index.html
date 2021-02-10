@@ -1,0 +1,83 @@
+<div class="sk-profile-tab sk-navigation-tab sk-height-wrap">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isDashboardLoading" name="profile-tab"></skeleton-preloader>
+
+    <!-- my profile wrapper -->
+    <ion-scroll *ngIf="!isDashboardLoading" scrollY="true" class="sk-height-wrap">
+        <div *ngIf="my$ | async as my" class="sk-user">
+            <div class="sk-user-head">
+            <!-- user avatar -->
+            <div class="sk-user-avatar">
+                <user-avatar (tap)="showProfile()" isUseBigAvatar="false" [url]="my.avatar?.pendingUrl"></user-avatar>
+                    <div *ngIf="my.avatar?.id && !my.avatar?.active" class="sk-photo-pending" (tap)="showProfile()">
+                        <img src="./assets/img/ic-pending.svg" alt="" />
+                </div>
+            </div>
+                
+                <div class="sk-user-head-inner">
+            <!-- user info -->
+            <div class="sk-user-info">
+                <span class="sk-name">
+                    {{ my.user.userName }}
+                </span>
+                <span class="sk-about">
+                    {{ my.user.aboutMe }}
+                </span>
+            </div>
+
+            <!-- user settings -->
+            <div class="sk-user-buttons">
+                        <button class="sk-user-profile" mode="ios" ion-button [navPush]="profileEditPage">
+                            <img src="./assets/img/custom-images/ic-profile-tab-edit.svg" alt="" />
+                    <span class="sk-text-overflow">{{ 'profile_edit_profile' | translate }}</span>
+                </button>
+                        <button class="sk-settings-button" mode="ios" ion-button [navPush]="appSettingsPage">
+                            <img src="./assets/img/custom-images/ic-profile-tab-settings.svg" alt="" />
+                    <span class="sk-text-overflow">{{ 'profile_app_settings' | translate }}</span>
+                </button>
+            </div>
+                </div>
+            </div>
+
+            <!-- extra pages -->
+            <div class="sk-user-links">
+                <!-- installation guide -->
+                <button *ngIf="isInstallationGuideAllowed" class="sk-user-link-pwa-guide" ion-button clear (click)="showInstallationGuide()">
+                    {{ 'pwa_installation_guide' | translate }}
+                </button>
+
+                <!-- guests -->
+                <button *ngIf="siteConfigs.isPluginActive('ocsguests')" class="sk-guests-button" ion-button clear [navPush]="guestsPage">
+                    <span class="sk-text-overflow">{{ 'profile_my_guests' | translate }}</span>
+                    <span *ngIf="newGuestsCount$ | async as newGuestsCount" class="sk-guest-count">
+                        <span *ngIf="newGuestsCount <= 99">
+                            {{ newGuestsCount }}
+                        </span>
+                        <span *ngIf="newGuestsCount > 99">99+</span>
+                    </span>
+                </button>
+
+                <!-- bookmarks -->
+                <button *ngIf="siteConfigs.isPluginActive('bookmarks')" class="sk-bookmark-button" ion-button clear [navPush]="bookmarksPage">
+                    <span class="sk-text-overflow">
+                        {{ 'profile_bookmarks' | translate }}
+                    </span>
+                </button>
+
+                <!-- compatible users -->
+                <button *ngIf="siteConfigs.isPluginActive('matchmaking')" ion-button clear [navPush]="compatibleUsersPage">
+                    <span class="sk-text-overflow">
+                        {{ 'profile_compatible_users' | translate }}
+                    </span>
+                </button>
+
+                <!-- payments -->
+                <button *ngIf="payments.isPaymentsAvailable()" ion-button clear [navPush]="initialPaymentsPage">
+                    <span class="sk-text-overflow">
+                        {{ 'profile_buy_upgrades' | translate }}
+                    </span>
+                </button>
+            </div>
+        </div>
+    </ion-scroll>
+</div>

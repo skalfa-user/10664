@@ -1,0 +1,69 @@
+{block_decorator name="box" type="empty" addClass="ow_center" style="padding: 215px 15px 15px;"}
+{$page_description}
+{/block_decorator}
+
+
+
+{block_decorator name="box" type="normal" addClass="ow_stdmargin ow_wide ow_automargin ow_center"}
+{form name='inputNumber-form'}
+<div class="ow_wide ow_automargin">
+
+<table class="ow_smallmargin ow_table_2 ow_form">
+        <tbody>
+            <tr class="ow_alt1">
+            <td class="ow_label">
+                <label>{text key='smsverification+country'}</label>
+            </td>
+            <td class="ow_value" >
+                <span id="txtnation-current-country">{$countryName}</span>
+                <a class="ow_lbutton" id="txtnation-edit-country">{text key='admin+btn_label_edit'}</a>
+                {error name='countryName'}
+            </td>
+        </tr>
+        <tr class="ow_alt1 tr_qst_answer_type ">
+            <td class="ow_label" >
+                <label>{text key='smsverification+number'}</label>
+            </td>
+            <td  class="ow_value"  >
+                <span id="code-ceil"></span>
+                {input name='telNumber' style='width:60%'} {error name='telNumber'}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+      <div class="clearfix">
+            <div class="ow_right">
+            {submit name="send_btn" class="ow_right"}
+            </div>
+      </div>
+</div>
+       
+
+<div id="countries-floatbox" style="display: none;">
+    <table id="countries-content" class="ow_smallmargin ow_table_1 ow_form">
+        <tbody>
+            {foreach from=$countries1 key="key" item="c"}
+            <tr class="ow_alt1">
+            <td width="50%">
+                <input type="radio" name="country_code" value="{$c.phoneCode}" data-name="{$c.title}" id="country_{$c.phoneCode}" data-code="+({$c.phoneCode})" /> 
+                <label for="country_{$c.phoneCode}">{$c.title}(+{$c.phoneCode})</label>
+            </td>
+            {if !empty($countries2[$key])}
+            <td width="50%">
+                <input type="radio" name="country_code" value="{$countries2[$key].phoneCode}" data-name="{$countries2[$key].title}" id="country_{$countries2[$key].phoneCode}" data-code="+({$countries2[$key].phoneCode})" />
+                <label for="country_{$countries2[$key].phoneCode}">{$countries2[$key].title}(+{$countries2[$key].phoneCode})</label>
+            </td>
+            {else}
+            <td width="50%"></td>
+            {/if}
+            </tr>
+            {/foreach}
+        </tbody>
+    </table>
+    <span class="ow_right">{decorator name='button' langLabel='base+confirm_page_ok_label' class='ow_ic_ok' id='btn-set-country'}</span>
+</div>
+
+
+        {/form}
+
+{/block_decorator}

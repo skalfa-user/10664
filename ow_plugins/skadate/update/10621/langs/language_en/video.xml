@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="video" label="Video" language_tag="en" language_label="English">
+    <key name="meta_title_user_video_list"><value>Videos by {$user_name}, {$user_gender}, {$user_age} | {$user_location} | {$site_name}</value></key>
+    <key name="meta_desc_user_video_list"><value>Watch all videos uploaded by {$user_name}, {$user_gender}, {$user_age} from {$user_location}.</value></key>
+    <key name="meta_keywords_user_video_list"><value></value></key>
+</prefix>

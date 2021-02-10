@@ -1,0 +1,6 @@
+#custom-video-preview-wrapper video,
+#custom-video-preview-wrapper img {
+    width:100%;
+    margin-bottom: 10px;
+    height: 250px;
+}

@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ 'compatible_users_page_header' | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-compatible-users-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="!(isUsersFetched$ | async)" name="circle-string-list" repeatTimes="6"></skeleton-preloader>
+
+    <div *ngIf="isUsersFetched$ | async" class="sk-height-wrap">
+        <!-- nothing found wrapper  -->
+        <div *ngIf="!(userList$ | async)?.length" class="sk-nothing-found sk-blank-state-wrap">
+            <img class="sk-blank-state-icon" src="./assets/img/ic-not-found.svg" alt="" />
+            <div class="sk-blank-state-cont">
+                <h2>{{ 'empty_user_search_header' | translate }}</h2>
+            </div>
+        </div>
+
+        <!-- users wrapper -->
+        <ng-container *ngIf="userList$ | async; let userList">
+            <ion-list *ngIf="userList.length" class="sk-userlist sk-height-wrap">
+                <virtual-scroller #compatibleUsersScroller [items]="userList" executeRefreshOutsideAngularZone="true" (vsUpdate)="ref.detectChanges()">
+                    <ion-item-sliding *ngFor="let userData of compatibleUsersScroller.viewPortItems; trackBy: trackUserList">
+                        <ion-item (tap)="viewProfile(userData)">
+                            <ion-avatar item-left>
+                                <user-avatar
+                                    [url]="userData.avatar?.url"
+                                    [isAvatarActive]="userData.avatar?.active">
+                                </user-avatar>
+                            </ion-avatar>
+                            <h2>{{ userData.user.userName }}</h2>
+                            <p>{{ 'compatibility' | translate }}: {{ userData.user.compatibility }}%</p>
+                        </ion-item>
+                        <ion-item-options side="{{ application.isLanguageDirectionLtr() ? 'right' : 'left' }}">
+                            <button *ngIf="!userData.matchAction?.id" ion-button color="green" (click)="likeUser(userData)">
+                                {{ 'like' | translate }}
+                            </button>
+                            <button *ngIf="messages.isChatAllowed(userData.user.id)" ion-button color="primary" (click)="showChat(userData)">
+                                {{ 'send_message' | translate }}
+                            </button>
+                        </ion-item-options>
+                    </ion-item-sliding>
+                </virtual-scroller>
+            </ion-list>
+        </ng-container>
+
+        <!-- match actions component -->
+        <match-actions></match-actions>
+    </div>
+</ion-content>

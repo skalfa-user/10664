@@ -1,0 +1,35 @@
+{if !empty($userList)}
+    <div class="ow_ulist_big clearfix ow_stdmargin" id="user-list">
+        {foreach $userList as $userId => $data}
+            {capture assign="fields"}
+                {foreach $data.fields as $key => $field}
+                    <div class="ow_ulist_big_{$key} ow_small">{$field}</div>
+                {foreachelse}
+                {/foreach}
+            {/capture}
+            
+            {capture assign="activity"}
+                {if $displayActivity}
+                    <div class="ow_ulist_big_activity ow_small">
+                        {text key="base+user_list_activity"}: <span class="ow_remark">{format_date timestamp=$data.dto->activityStamp}</span>
+                    </div>
+                {else}{/if}
+            {/capture}
+
+            {decorator name="user_big_list_item"
+                id=$userId
+                avatar=$avatars[$userId]
+                username=$usernameList.$userId
+                displayName=$displaynameList.$userId
+                online=!empty($onlineList.$userId)
+                fields=$fields
+                activity=$activity
+                set_class="ow_item_set3"}
+        {/foreach}
+    </div>
+    <center>
+        {$paging}
+    </center>
+{else}
+    <center>{text key="base+user_no_users"}</center>
+{/if}

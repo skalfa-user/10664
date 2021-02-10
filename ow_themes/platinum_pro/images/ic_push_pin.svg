@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_push_pin</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-915.000000, -2027.000000)" fill="#ffffff">
+            <g id="ic_push_pin" transform="translate(914.000000, 2026.000000)">
+                <g id="Group">
+                    <path d="M10.735,14.274 L10.905,14.102 C12.032,12.975 12.032,11.148 10.905,10.021 L7.979,7.094 C6.852,5.967 5.023,5.967 3.896,7.094 L3.726,7.264 L10.736,14.274" id="Shape"></path>
+                    <path d="M11.77,0.946 L11.642,1.074 C10.791,1.925 10.791,3.302 11.642,4.153 L13.847,6.359 C14.698,7.208 16.076,7.208 16.926,6.359 L17.054,6.231 L11.77,0.946" id="Shape"></path>
+                    <polygon id="Shape" transform="translate(10.462975, 7.536293) rotate(45.000000) translate(-10.462975, -7.536293) " points="8.20149629 3.87982797 12.7244529 3.87982797 12.7244529 11.1927578 8.20149629 11.1927578"></polygon>
+                    <path d="M1,16.996 C0.694,16.69 7.09,9.34 7.09,9.34 L8.655,10.904 C8.656,10.904 1.341,17.336 1,16.996" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

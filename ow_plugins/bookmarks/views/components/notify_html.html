@@ -1,0 +1,62 @@
+{*
+
+/**
+* Copyright (c) 2014, Skalfa LLC
+* All rights reserved.
+*
+* ATTENTION: This commercial software is intended for exclusive use with SkaDate Dating Software (http://www.skadate.com) and is licensed under SkaDate Exclusive License by Skalfa LLC.
+*
+* Full text of this license can be found at http://www.skadate.com/sel.pdf
+*/
+
+*}
+ 
+ <body style="font-size:13px;font-family:Lucida Grande,Verdana;">
+    <p>
+        {text key="bookmarks+email_html_head" username=$userName}
+    </p>
+    <p>
+        {text key="bookmarks+email_html_description"}
+    </p>
+
+    <table cellpadding="0" cellspacing="0">
+        {foreach from=$list item='user' name='userList'}
+            {if $smarty.foreach.userList.first}
+                <tr>
+            {/if}
+            <td valign="top" style="padding: 6px;">
+                <table width="286" height="162"  cellpadding="0" cellspacing="0" style="background: #f3f4f7; border: 1px solid #e0e2e8;">
+                    <tr>
+                        <td valign="top" width="140" height="140" style="padding: 11px 6px 11px 11px;">
+                            <a href="{$user.userUrl}" target="_blank" style="display: inline-block; vertical-align: top;">
+                                <img src="{$user.avatarUrl}" alt="" title="test" style="width: 140px; vertical-align: top;">
+                            </a>
+                        </td>
+                        <td valign="top" style="padding: 11px 11px 11px 5px;">
+                            <div style="min-height: 123px;">
+                                <a style="margin-bottom: 6px; display: block;" href="{$user.userUrl}" target="_blank">{$user.displayName}</a>
+                                <div style="margin-bottom: 6px;">{if !empty($user.sex)}{$user.sex}{/if} {if !empty($user.age)}{$user.age}{/if}</div>
+                                <div style="margin-bottom: 6px;">{if !empty($user.googlemap_location)}{$user.googlemap_location}{/if}</div>
+                            </div>
+                            <div style="color: #31b231; font-size: 11px;">{text key="bookmarks+activity"} {$user.activity}</div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            {if $smarty.foreach.userList.iteration %2 == 0 && !$smarty.foreach.userList.last}
+                </tr><tr>
+            {/if}
+            {if $smarty.foreach.userList.last}
+                </tr>
+            {/if}
+        {/foreach}
+    </table>
+
+    <p>
+        <a href="{url_for_route for="bookmarks.list:[category=>latest]"}">{text key="bookmarks+view_more_label"}</a>
+    </p>
+
+    <p>
+        {text key="bookmarks+email_html_bottom"}
+    </p>
+</body>

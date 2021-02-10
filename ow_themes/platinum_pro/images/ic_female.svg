@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="16px" viewBox="0 0 10 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_female</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-285.000000, -2028.000000)" fill="#ffffff">
+            <g id="ic_female" transform="translate(285.000000, 2028.000000)">
+                <g id="Group">
+                    <path d="M5,2 C6.654,2 8,3.346 8,5 C8,6.654 6.654,8 5,8 C3.346,8 2,6.654 2,5 C2,3.346 3.346,2 5,2 L5,2 Z M5,0 C2.239,0 0,2.239 0,5 C0,7.762 2.239,10 5,10 C7.762,10 10,7.762 10,5 C10,2.239 7.762,0 5,0 Z" id="Shape"></path>
+                    <polygon id="Shape" points="4 8.953 6 8.953 6 16.003 4 16.003"></polygon>
+                    <polygon id="Shape" points="1.477 12 8.527 12 8.527 14 1.477 14"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

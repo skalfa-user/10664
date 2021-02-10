@@ -1,0 +1,87 @@
+<div class="sk-conversations-tab sk-navigation-tab sk-height-wrap">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isDashboardLoading || !(isMatchedUsersFetched$ | async) || !(isConversationsFetched$ | async)" name="circle-string-list" repeatTimes="6"></skeleton-preloader>
+
+    <!-- filter -->
+    <div *ngIf="!isDashboardLoading && (isMatchedUsersFetched$ | async) && (isConversationsFetched$ | async) && (conversationList.length || matchedUserList.length || userNameFilter)" class="sk-search-bar" padding-left padding-right>
+        <ion-searchbar
+            [(ngModel)]="userNameFilter"
+            (ngModelChange)="userNameFilterChanged()"
+            (search)="closeKeyboard()"
+            placeholder="{{ 'username_input' | translate }}">
+        </ion-searchbar>
+    </div>
+
+    <!-- no search results found -->
+    <div *ngIf="!isDashboardLoading && !conversationList.length && !matchedUserList.length && userNameFilter" class="sk-nothing-found sk-blank-state-wrap">
+        <img class="sk-blank-state-icon" src="./assets/img/ic-not-found.svg" alt="" />
+        <div class="sk-blank-state-cont">
+            <h2>{{ 'conversations_no_results' | translate }}</h2>
+        </div>
+    </div>
+    
+    <!-- no lists (there aren't both conversations and matches) -->
+    <div *ngIf="!isDashboardLoading && !conversationList.length && !matchedUserList.length && !userNameFilter" class="sk-blank-state-wrap sk-conversations-no-lists">
+        <img class="sk-blank-state-icon" src="./assets/img/dashboard/components/conversations/ic-chat.svg" alt="" />
+        <div class="sk-blank-state-cont">
+            <h2>{{ 'conversations_no_lists_title' | translate }}</h2>
+            <p>{{ 'conversations_no_lists_descr' | translate }}</p>
+        </div>
+    </div>
+
+    <!-- matches and conversations -->
+    <div *ngIf="!isDashboardLoading && (isMatchedUsersFetched$ | async) && (isConversationsFetched$ | async)" class="sk-conversations-wrapper"> 
+        <ion-scroll scrollY="true" class="sk-height-wrap">
+            <!-- matches list -->
+            <div *ngIf="matchedUserList.length" class="sk-matches-list">
+                <div margin-bottom class="sk-conversations-section">{{ 'new_matches' | translate }}</div>
+                <ion-scroll scrollX="true" class="sk-match-scroll swiper-no-swiping">
+                    <div class="sk-matches-wrap">
+                        <div *ngFor="let matchData of matchedUserList" (click)="showChat(matchData.user.id)" class="sk-match-item {{ matchedUsers.isMatchedUserNew(matchData) ? 'sk-match-item-new' : '' }}">
+                            <div class="sk-conversations-avatar sk-match-avatar">
+                                <user-avatar 
+                                    [url]="matchData.avatar?.url" 
+                                    [isAvatarActive]="matchData.avatar?.active">
+                                </user-avatar>
+                            </div>
+                            <span>{{ matchData.user.userName }}</span> 
+                        </div>
+                    </div>
+                </ion-scroll>
+            </div>
+
+            <!-- conversation list -->
+            <div *ngIf="conversationList.length" class="sk-conversation-list" padding>
+                <div margin-bottom class="sk-conversations-section">{{ 'new_messages' | translate }}</div>
+                <div class="sk-conversations-wrap">
+                    <div *ngFor="let conversationData of conversationList; trackBy: trackConversationList" (click)="showChat(conversationData.user.id)" (press)="showConversationActions(conversationData)" class="sk-conversation-item {{ messages.isConversationNew(conversationData) ? 'sk-conversation-item-new' : '' }} {{ user.isUserBlocked(conversationData.user) ? 'sk-conversation-item-blocked' : '' }}" margin-bottom>
+                        <div class="sk-conversations-avatar sk-conversation-item-avatar" margin-end>
+                            <user-avatar 
+                                [url]="conversationData.avatar?.url" 
+                                [isAvatarActive]="conversationData.avatar?.active">
+                            </user-avatar>
+                        </div>
+                        <div class="sk-conversation-item-inner">
+                            <div>{{ conversationData.user.userName }}</div>
+                            <p>
+
+                                <img *ngIf="conversationData.conversation.isReply && conversationData.conversation.isOpponentRead" src="./assets/img/custom-images/ic-message-list-received.svg" alt="" />
+                                <img *ngIf="conversationData.conversation.isReply && !conversationData.conversation.isOpponentRead" src="./assets/img/custom-images/ic-message-list-sent.svg" alt="" />
+                                <span [innerHTML]="conversationData.conversation.previewText | trustHtml"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- conversations are empty -->
+            <div *ngIf="!conversationList.length && matchedUserList.length" class="sk-blank-state-wrap sk-conversations-empty">
+                <img class="sk-blank-state-icon" src="./assets/img/dashboard/components/conversations/ic-chat.svg" alt="" />
+                <div class="sk-blank-state-cont">
+                    <h2>{{ 'conversations_empty_title' | translate }}</h2>
+                    <p>{{ 'conversations_empty_descr' | translate }}</p>
+                </div>
+            </div>
+        </ion-scroll>
+    </div>    
+</div>

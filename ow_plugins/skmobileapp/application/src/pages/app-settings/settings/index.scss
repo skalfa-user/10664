@@ -1,0 +1,14 @@
+.sk-app-settings-page {
+    background-color: color($colors, sk-page-bg);
+}
+
+.sk-app-settings-footer {
+    .sk-buttons {
+        button {
+            max-width: 100%;
+            background-color: color($colors, light);
+            margin-top: 0.6rem;
+            color: color($colors, primary);
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_down_arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-749.000000, -1999.000000)" fill="#ffffff">
+            <g id="ic_down_arrow" transform="translate(749.000000, 1999.000000)">
+                <g id="Group">
+                    <path d="M8.958,15 C8.958,15.553 8.51,16 7.958,16 C7.406,16 6.958,15.553 6.958,15 L6.958,1 C6.958,0.448 7.406,0 7.958,0 C8.51,0 8.958,0.448 8.958,1 L8.958,15" id="Shape"></path>
+                    <path d="M8.666,15.707 C8.275,16.098 7.642,16.098 7.252,15.707 C6.862,15.317 6.861,14.684 7.252,14.293 L14.151,7.394 C14.542,7.003 15.176,7.004 15.565,7.394 C15.956,7.784 15.956,8.417 15.565,8.808 L8.666,15.707" id="Shape"></path>
+                    <path d="M8.666,14.293 C9.057,14.684 9.057,15.317 8.666,15.707 C8.276,16.098 7.643,16.098 7.252,15.707 L0.353,8.808 C-0.038,8.417 -0.037,7.784 0.353,7.394 C0.743,7.004 1.376,7.003 1.767,7.394 L8.666,14.293" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

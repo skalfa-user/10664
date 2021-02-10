@@ -1,0 +1,116 @@
+.sk-message {
+    @include flex(flex, column, flex-start, stretch);
+    position: relative;
+    max-width: 85%;
+    padding: 0.6rem 1rem;
+    @include border-radius(0, 1rem, 1rem, 1rem);
+    transform: translateX(0);
+    @include transition(translateX 0.3s ease-in);
+    background-color: color($colors, light);
+
+    .sk-message-permisson {
+        button {
+            width: 100%;
+            min-height: 0;
+            height: auto;
+            padding: 0;
+            margin: 0;
+            font-size: 1.6rem;
+            line-height: 1.2;
+            white-space: normal;
+        }
+
+        &.sk-message-permisson-denied {
+            white-space: normal;
+            text-align: center;
+        }
+    }
+
+    .sk-message-body {
+        font-size: 1.6rem;
+
+        p {
+            margin: 0 0 0.4rem;
+            padding: 0;
+        }
+    }                 
+    
+    .sk-message-time {
+        margin: 0;
+        @include text-align('end');
+        color: $sk-message-time-color;
+        
+        span {
+            font-size: 1.3rem;
+        }
+    }
+
+    &.sk-message-received {
+        align-self: flex-start;
+    }
+
+    &.sk-message-sent {
+        align-self: flex-end;
+        background-color: color($colors, primary);
+        color: color($colors, light);
+        @include border-radius(1rem, 0, 1rem, 1rem);
+
+        .sk-message-spinner {
+            line {
+                stroke: color($colors, light);
+            }
+        }
+
+        .sk-message-permisson {
+            button {
+                color: color($colors, light);
+            }
+        }
+
+        a {
+            color: color($colors, light);
+        }
+
+        .sk-message-time {
+            color: $sk-message-sent-time-color;
+        }
+    }
+}
+
+.sk-message-type-attachment {
+    .sk-message-permisson {
+        margin: 0 0.6rem;
+    }
+
+    .sk-message {
+        padding: 0.4rem;
+
+        .sk-attachments-wrap {
+            @include flex(flex, row, center, stretch);      
+
+            .sk-attachment-img {
+                height: 180px;
+                object-fit: cover;
+            }
+
+            .sk-attachment-file {
+                padding: 0 1rem;
+                @include text-overflow;
+
+                a {
+                    display: inline-block;
+                    margin-bottom: 0.8rem;
+                }
+            }
+        }
+
+        .sk-message-time {
+            @include margin(null, 0.6rem, null, null);
+        }
+
+        .sk-attachment-img {
+            border-radius: 0.8rem;
+            vertical-align: top;
+        }  
+    }
+}

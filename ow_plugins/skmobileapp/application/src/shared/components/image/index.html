@@ -1,0 +1,5 @@
+<!-- show a real photo -->
+<img *ngIf="!isImageBroken" [src]="url | trustUrl" (error)="markImageAsBroken()" [class]="cssClass" />
+
+<!-- show a broken photo -->
+<img *ngIf="isImageBroken" src="./assets/img/ic-no-image.svg" [class]="cssClass" />

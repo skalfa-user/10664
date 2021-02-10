@@ -1,0 +1,26 @@
+<div class="ow_wide ow_automargin ow_stdmargin">
+	{if !empty($menu)}
+	<div class="ow_content_menu_wrap ow_padding">
+		{$menu}
+	</div>
+	{/if}
+{block_decorator name='box' langLabel='usercredits+choose_pack' iconClass='ow_ic_ok'}
+    {if $packs}
+	{form name='buy-credits-form'}
+	    <div class="ow_smallmargin">{input name='pack'}</div>
+
+	    <div class="ow_center ow_stdmargin">
+		    <div class="ow_smallmargin">{input name='gateway'}</div>
+	    </div>
+
+		<div id="billing_gateway_extra_information">
+
+		</div>
+
+	    <div class="clearfix"><div class="ow_right">{submit name='buy' class='ow_positive'}</div></div>
+	{/form}
+	{else}
+        <div class="ow_nocontent">{text key='usercredits+no_packs'}</div>
+	{/if}
+{/block_decorator}
+</div>

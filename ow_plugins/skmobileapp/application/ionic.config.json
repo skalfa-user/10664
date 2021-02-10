@@ -1,0 +1,13 @@
+{
+  "name": "skmobileapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/skmobileapp",
+      "proxyUrl": "http://0.0.0.0:3004/skmobileapp"
+    }
+  ]
+}

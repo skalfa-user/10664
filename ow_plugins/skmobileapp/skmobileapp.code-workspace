@@ -1,0 +1,34 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"",
+			"backend",
+			"be",
+			"comparator",
+			"comparators",
+			"geolocation",
+			"geoposition",
+			"injectable",
+			"instrumenter",
+			"ionicons",
+			"location",
+			"mock",
+			"preloader",
+			"skadate",
+			"skmobileapp",
+			"sourcemap",
+			"splashscreen",
+			"to",
+			"truthy",
+			"uploader",
+			"validators",
+			"webview"
+		],
+		"cSpell.language": "en"
+	}
+}

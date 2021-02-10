@@ -1,0 +1,130 @@
+.connect_button_cont .connect_button_list {
+    padding: 0;
+}
+body .connect_button_cont.clearfix  {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.firebaseauth-auth-wrapper {
+    display: inline-flex;
+    position: relative;
+    vertical-align: middle;
+    align-items: center;
+    margin: 8px 8px 4px;
+}
+.firebaseauth-button-wrap {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 206px;
+    z-index: 100;
+    padding-left: 40px;
+}
+.firebaseauth-auth-wrapper .firebaseauth-button,
+.ow.base_sign_in .ow_sign_in .firebaseauth-auth-wrapper .firebaseauth-button {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 0 4px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.ow.base_sign_in .ow_sign_in .firebaseauth-auth-wrapper .firebaseauth-button:hover {
+    background-color: transparent;
+}
+.firebaseauth-common-button,
+.ow.base_sign_in .ow_sign_in .firebaseauth-auth-wrapper .firebaseauth-common-button {
+    background-image: url("../img/ic-firebase-auth-common.svg");
+}
+.firebaseauth-button[data-provider="twitter.com"],
+.ow.base_sign_in .ow_sign_in .firebaseauth-button[data-provider="twitter.com"],
+.ow.base_sign_in .ow_sign_in .firebaseauth-button[data-provider="twitter.com"]:hover,
+.firebase-auth-provider[data-provider="twitter.com"] {
+    background-image: url("../img/ic-firebase-auth-twitter.svg");
+}
+.firebaseauth-button[data-provider="google.com"],
+.ow.base_sign_in .ow_sign_in .firebaseauth-button[data-provider="google.com"],
+.ow.base_sign_in .ow_sign_in .firebaseauth-button[data-provider="google.com"]:hover,
+.firebase-auth-provider[data-provider="google.com"] {
+    background-image: url("../img/ic-firebase-auth-google.svg");
+}
+.firebaseauth-button[data-provider="facebook.com"],
+.ow.base_sign_in .ow_sign_in .firebaseauth-button[data-provider="facebook.com"],
+.ow.base_sign_in .ow_sign_in .firebaseauth-button[data-provider="facebook.com"]:hover,
+.firebase-auth-provider[data-provider="facebook.com"] {
+    background-image: url("../img/ic-firebase-auth-fb.svg");
+}
+.firebaseauth-button[data-provider="linkedin.com"],
+.ow.base_sign_in .ow_sign_in .firebaseauth-button[data-provider="linkedin.com"],
+.ow.base_sign_in .ow_sign_in .firebaseauth-button[data-provider="linkedin.com"]:hover,
+.firebase-auth-provider[data-provider="linkedin.com"] {
+    background-image: url("../img/ic-firebase-auth-linkedin.svg");
+}
+
+/* hide console icon */
+.ow_ico_signin.firebaseauth {
+    display: none;
+}
+/* end */
+
+/* for admin panel */
+.firebaseauth-form .firebase-auth-provider {
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    margin-right: 6px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.firebaseauth-form .ow_checkbox_group li {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.firebaseauth-form .ow_checkbox_group li label {
+    display: inline-flex;
+    align-items: center;
+}
+.firebaseauth-form .ow_table_1 td {
+    border: none;
+}
+/* end */
+
+/* Z:  Firebase styles for index page -- Platinum Pro */
+.platinum_pro .user_counter_join_block .connect_button_list {
+    width: 100%;
+}
+.platinum_pro .user_counter_join .firebaseauth-auth-wrapper {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+}
+.platinum_pro .user_counter_join .firebaseauth-button-wrap {
+    display: block !important;
+    opacity: 1 !important;
+    position: static;
+    width: auto;
+    padding-left: 0;
+}
+.platinum_pro .user_counter_join .firebaseauth-common-button {
+    display: none !important;
+}
+.platinum_pro .user_counter_join .firebaseauth-auth-wrapper .firebaseauth-button {
+    width: 40px;
+    height: 40px;
+}
+/* end */
+
+/* Z:  Firebase styles for Sign In Page -- Turquoise */
+.turquoise.base_sign_in .firebaseauth-auth-wrapper {
+    margin: 0;
+}
+/* end */

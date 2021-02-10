@@ -1,0 +1,57 @@
+<div class="index_master_page_wrap">
+<div class="ow_page_wrap index_master_page">
+    <div class="ow_page_wrap_in">
+        <div class="ow_page_padding">
+            <div class="ow_site_panel">
+                {component class='BASE_CMP_Console'}
+                 <div class="ow_logo_wrap">
+                    <a href="{$siteUrl}"></a>
+                </div>               
+            </div>
+            <div class="ow_header clearfix">
+                <div class="index_qs_widget">
+                    {component class='USEARCH_CMP_QuickSearchIndex'}
+                </div>                      
+                <div class="ow_header_pic_wrap">
+                    <div class="ow_header_pic"><a href="{$siteUrl}" class="logo_url"></a></div>
+                    {component class='BASE_CMP_JoinButton' cssClass='index_join_button'}
+                </div>
+            </div>
+            <div class="ow_page_container clearfix">
+                <div class="ow_canvas">
+                    {component class="SLPREMIUMTHEME_CMP_UserFade"}
+                    <div class="ow_promo_info clearfix">
+                        <div class="index_promo_info_1">
+                            {text key='slpremiumtheme+mosaic_promo_info_1'}
+                        </div>
+                        <div class="index_promo_info_2">
+                            {text key='slpremiumtheme+mosaic_promo_info_2'}
+                        </div>
+                        <div class="index_promo_info_3">
+                            {text key='slpremiumtheme+mosaic_promo_info_3'}
+                        </div>
+                    </div>                        
+                    <div class="ow_page ow_bg_color clearfix">
+                        {$content}
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ow_footer">
+    <div class="ow_canvas">
+        <div class="ow_page clearfix">
+            {$bottom_menu}
+            <div class="ow_copyright">
+                {text key='base+copyright'}
+            </div>
+            <div style="float:right;">
+                {$bottomPoweredByLink}
+            </div>
+        </div>
+    </div>
+</div>
+</div>    
+{decorator name='floatbox'}

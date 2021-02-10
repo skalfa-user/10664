@@ -1,0 +1,57 @@
+<ion-header class="sk-user-search-header">
+    <ion-navbar>
+        <ion-buttons start>
+            <button ion-button clear (click)="cancel()">
+                {{ 'cancel' | translate }}
+            </button>
+        </ion-buttons>
+
+        <ion-title>
+            {{ 'choose_user_page_header' | translate }}
+        </ion-title>
+
+        <ion-buttons end>
+            <button ion-button clear (click)="done()">
+                {{ 'done' | translate }}
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-user-search-content">
+    <ion-searchbar
+            [(ngModel)]="searchQuery"
+            (ionInput)="updateSearch()"
+            [debounce]="debounceTime"
+            placeholder="{{ 'search' | translate }}">
+    </ion-searchbar>
+    <ion-list class="sk-autocomplete-results sk-userlist">
+        <ion-item *ngIf="autocompleteLoading">
+            <ion-spinner name="ios-small"></ion-spinner>
+        </ion-item>
+
+        <div *ngIf="autocompleteItems.length">
+            <ion-item *ngFor="let user of autocompleteItems" tappable class="sk-autocomplete-result">
+                <ion-item>
+                    <ion-avatar item-left>
+                        <user-avatar
+                                [url]="user.avatar?.url"
+                                [isAvatarActive]="user.avatar?.active">
+                        </user-avatar>
+                    </ion-avatar>
+                    <h2>{{ user.user.userName }}</h2>
+                    <button ion-button round (click)="chooseItem(user)" item-end>{{ 'add_user_button' | translate }}</button>
+                </ion-item>
+            </ion-item>
+        </div>
+
+    </ion-list>
+</ion-content>
+<!-- 
+<ion-footer *ngIf="!isQuestionRequired" class="sk-user-search-footer">
+    <ion-toolbar text-center>
+        <button ion-button round outline margin-bottom color="sk-button-invisible" (click)="keepEmpty()">
+            <span class="sk-text-overflow">{{ 'keep_empty' | translate }}</span>
+        </button>
+    </ion-toolbar>
+</ion-footer> -->

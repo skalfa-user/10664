@@ -1,0 +1,64 @@
+<div class="clearfix">{add_content key='groups.add_content.list.top' listType=$listType}</div>
+
+{if empty($hideCreateNew) && !empty($showCreate)}
+<div class="ow_right">{decorator name='button' class='ow_ic_add' id='btn-create-new-group' langLabel='groups+add_new'}</div>
+{if !empty($authMsg)}
+{script}
+$('#btn-create-new-group').click(function() { OW.authorizationLimitedFloatbox({$authMsg}); });
+{/script}
+{else}
+{script}{literal}
+$('#btn-create-new-group').click(function(){location.href='{/literal}{url_for_route for="groups-create"}{literal}'})
+{/literal}{/script}
+{/if}
+{/if}
+
+
+{$menu}
+
+{add_content key='groups.content.list.after_menu' listType=$listType}
+
+{if isset($tag)}
+<div class="clearfix">
+    <div class="ow_left ow_superwide">            
+        <div class="ow_anno ow_std_margin ow_center">
+            {text key='advancedgroups+tag_search_result'} "<b>{$tag}</b>"
+        </div>
+    </div>
+
+    <div class="ow_right ow_supernarrow">
+
+        {block_decorator name='box_cap' iconClass='ow_ic_tag' langLabel='advancedgroups+tag_search'}{/block_decorator}
+        {block_decorator name='box' addClass='ow_smallmargin'}
+            <input type="text" class="ow_text" id="item-tag-search-input" />
+        {/block_decorator}
+
+    </div>
+</div>
+<div class="ow_group_list clearfix">
+    <div class="ow_automargin">
+        {if empty($list) }
+            <div class="ow_nocontent">{text key="groups+listing_no_items_msg"}</div>
+        {else}
+            {decorator name='advancedgroups_list' list=$list}
+        <br />
+        {$paging}
+        {/if}
+    </div>
+</div>
+{else}
+<div class="clearfix">
+
+    <div class="ow_left ow_superwide">
+        {$tags}
+    </div>
+
+    <div class="ow_right ow_supernarrow">             
+        {block_decorator name='box_cap' iconClass='ow_ic_tag' langLabel='advancedgroups+tag_search'}{/block_decorator}
+        {block_decorator name='box' addClass='ow_smallmargin'}
+        <input type="text" class="ow_text" id="item-tag-search-input" />
+        {/block_decorator}
+
+    </div>
+</div>
+{/if}

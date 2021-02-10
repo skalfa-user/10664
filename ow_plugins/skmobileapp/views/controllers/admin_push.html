@@ -1,0 +1,83 @@
+{$menu}
+
+{form name='skmobileapp_push'}
+<table class="ow_table_1 ow_form">
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_gear_wheel">{text key='skmobileapp+general'}</span>
+        </th>
+    </tr>
+
+    <tr class="ow_tr_last ow_alt1">
+        <td class="ow_label">{label name='pn_enabled'}</td>
+        <td class="ow_value">{input name='pn_enabled'}<br />{error name='pn_enabled'}</td>
+    </tr>
+
+    <tr class="ow_tr_delimiter"><td></td></tr>
+
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_mobile">{text key='skmobileapp+pwa_label'}</span>
+        </th>
+    </tr>
+
+    <tr class="ow_tr_last ow_alt1">
+        <td class="ow_label">{label name='pn_vapid_key'}</td>
+        <td class="ow_value">{input name='pn_vapid_key'}<br />{error name='pn_vapid_key'}</td>
+        <td class="ow_desc">{desc name='pn_vapid_key'}</td>
+    </tr>
+
+    <tr class="ow_tr_delimiter"><td></td></tr>
+
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_mobile">{text key='skmobileapp+android'}</span>
+        </th>
+    </tr>
+
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='pn_sender_id'}</td>
+        <td class="ow_value">{input name='pn_sender_id'}<br />{error name='pn_sender_id'}</td>
+        <td class="ow_desc">{desc name='pn_sender_id'}</td>
+    </tr>
+
+    <tr class="ow_tr_last ow_alt1">
+        <td class="ow_label">{label name='pn_server_key'}</td>
+        <td class="ow_value">{input name='pn_server_key'}<br />{error name='pn_server_key'}</td>
+        <td class="ow_desc">{desc name='pn_server_key'}</td>
+    </tr>
+
+    <tr class="ow_tr_delimiter"><td></td></tr>
+
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_mobile">{text key='skmobileapp+ios'}</span>
+        </th>
+    </tr>
+
+    <tr class="ow_alt2 push-configs">
+        <td class="ow_label">{label name='pn_apns_mode'}</td>
+        <td class="ow_value">{input name='pn_apns_mode'}</td>
+        <td class="ow_desc"></td>
+    </tr>
+
+    <tr class="ow_alt1 push-configs">
+        <td class="ow_label">{label name='pn_apns_cert'}</td>
+        <td class="ow_value">
+            {input name='pn_apns_cert'}<br />{error name='pn_apns_cert'}
+        </td>
+        <td class="ow_desc">{desc name='pn_apns_cert'}</td>
+    </tr>
+
+    <tr class="ow_alt2 push-configs">
+        <td class="ow_label">{label name='pn_apns_pass_phrase'}</td>
+        <td class="ow_value">{input name='pn_apns_pass_phrase'}<br />{error name='pn_apns_pass_phrase'}</td>
+        <td class="ow_desc">{desc name='pn_apns_pass_phrase'}</td>
+    </tr>
+</table>
+<div class="clearfix ow_stdmargin">
+    <div class="ow_right">
+        {submit name='push'}
+    </div>
+</div>
+{/form}

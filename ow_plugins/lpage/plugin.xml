@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+    <name>Landing page mode</name>
+    <key>lpage</key>
+    <description>Turn the website into a simple landing page for presentation purposes only (if you use a mobile-only solution).</description>
+    <author>Skalfa</author>
+    <authorEmail>info@skadate.com</authorEmail>
+    <authorUrl>https://www.skadate.com</authorUrl>
+    <developerKey>99d6bdd5bb6468beaf118c4664dd92ff</developerKey>
+    <build>11000</build>
+    <copyright>(C) 2009 Skalfa LLC. All rights reserved.</copyright>
+    <license>OSCL</license>
+    <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+</plugin>

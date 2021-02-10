@@ -1,0 +1,233 @@
+/* Widget tabs */
+.hidden {
+    display: none;
+}
+.custom-profile-page .top_section {
+    border: 1px solid #e3e3e3;
+    padding: 16px;
+} 
+.active_cmp {
+    display: block;
+}
+.inactive_cmp {
+    display: none;
+}
+.custom-tab {
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.active_cmp_tab {
+    color: #1a1a1a;
+}
+.custom-profile-page .profile-CVIDEOUPLOAD_CMP_UserVideoWidget .ow_box {
+    border: none;
+    margin-bottom: 0;
+}
+.custom-profile-page .profile-PHOTO_CMP_UserPhotoAlbumsWidget .ow_box_empty {
+    margin-bottom: 0;
+}
+/**/
+/* Profile buttons */
+.custom-profile-action-toolbar-wrap .ow_bl a,
+.custom-profile-action-toolbar-wrap .ow_context_action {
+    height: 30px;
+    line-height: 2.7;
+    padding: 0 13px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 16px;
+    color: #fff;
+    border: none;
+    background: rgb(61,116,213);
+    background: linear-gradient(90deg, rgba(61,116,213,1) 0%, rgba(189,41,82,1) 100%);
+}
+.custom-profile-action-toolbar-wrap .ow_context_action_block {
+    margin-bottom: 4px;
+}
+html body .custom-profile-action-toolbar-wrap .ow_context_action_value_block .ow_context_action, 
+html body .custom-profile-action-toolbar-wrap .ow_context_action_value_block .ow_context_action:hover, 
+html body .custom-profile-action-toolbar-wrap .ow_context_action_value_block .ow_context_action:active {
+    background: rgb(61,116,213);
+    background: linear-gradient(90deg, rgba(61,116,213,1) 0%, rgba(189,41,82,1) 100%);
+}
+.custom-profile-action-toolbar-wrap .ow_context_action_value_block .ow_context_action .ow_tooltip {
+    margin-top: 6px;
+}
+.custom-profile-action-toolbar-wrap .ow_context_action {
+    display: flex;
+    align-items: center;
+} 
+.custom-profile-action-toolbar-wrap .ow_context_action_value {
+    color: #fff;
+}
+.custom-profile-action-toolbar-wrap .ow_context_action .ow_context_more,
+.custom-profile-action-toolbar-wrap .ow_context_action_value_block .ow_context_action:hover .ow_context_more {
+    background-image: url('../img/custom_context_action_arrow.png');
+    background-position: 0 center;
+    margin-top: 2px;
+}
+/**/
+/* Profile avatar */
+.custom-gallery-wrap .ow_profile_gallery_cont {
+    display: flex;
+    flex-wrap: wrap;
+}
+.custom-gallery-wrap .profile-gallery-avatar-wrap {
+    margin: -46px 36px 20px 0;
+}
+.custom-gallery-wrap .ow_profile_gallery_avatar {
+    margin: 0 0 16px;
+    float: none;
+    display: inline-block;
+}
+.custom-gallery-wrap .ow_profile_gallery_avatar_image {
+    /* width: 45vw;
+    height: 45vw;
+    max-width: 435px;
+    max-height: 435px; */
+    width: 435px;
+    height: 435px;
+    background-size: cover;
+}
+.custom-gallery-wrap .ow_profile_gallery_toolbox {
+    margin-left: 0;
+    padding-top: 0;
+    max-width: 50%;
+}
+.gallery-slider {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+.gallery-slider-images {
+    flex: 1;
+}
+.custom_active_block {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.gallery-slider-images a:hover {
+    text-decoration: none;
+}
+.gallery-slider-images span img {
+    cursor: pointer;
+    width: 108px;
+    height: 108px;
+    border: 1px solid #cecece;
+    object-fit: cover;
+}
+.gallery-slider-images video {
+    width: 108px;
+    height: 108px;
+    border: 1px solid #cecece;
+    object-fit: cover;
+}
+.custom-video, .custom-video-play {
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.custom-video-play {
+    width: 435px;
+}
+
+.wrapper-video, .wrapper-video-play {
+    display:table;
+    position:relative;
+}
+.playpause, .playpause-play {
+    background-image:url('../img/play-button.svg');
+    background-repeat:no-repeat;
+    width:50%;
+    height:50%;
+    position:absolute;
+    left:0%;
+    right:0%;
+    top:0%;
+    bottom:0%;
+    margin:auto;
+    background-size:contain;
+    background-position: center;
+}
+.gallery-slider-arrow {
+    width: 45px;
+}
+.gallery-slider-arrow.arrow-right {
+    text-align: right;
+}
+/**/
+/* Profile questions */
+.custom-profile-questions {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 13px;
+}
+.custom-profile-questions b {
+    font-size: 15px;
+    color: #1a1a1a;
+}
+.custom-profile-questions td {
+    padding: 5px;
+}
+.custom-profile-question-block {
+    background-color: #ffff;
+    border: 1px solid #337ab7;
+    padding: 40px 16px 16px;
+}
+.custom-profile-question-block h3 {
+    font-size: 18px;
+    font-family: 'core_sans_e85_extrabold', "Trebuchet MS", "Helvetica CY", sans-serif;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 32px;
+}
+.custom-profile-question-block table {
+    width: 100%;
+}
+.custom-profile-question-block table b {
+    color: #1a1a1a;
+}
+.custom-profile-question-block td {
+    padding: 10px;
+}
+.custom-textarea-question-cont {
+    display: flex;
+}
+.custom-textarea-question-cont b {
+    margin-right: 4px;
+}
+.custom-textarea-question-cont div {
+    flex: 1;
+    padding-left: 10px;
+}
+/**/
+/* Profile info */
+.custom-profile-info .ow_profile_gallery_display_name {
+    font-size: 22px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    color: #4472c4;
+    text-transform: uppercase;
+}
+.custom-profile-info .ow_profile_gallery_short_info {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 30px;
+    margin-left: 5px;
+}
+/**/
+@media (min-width: 480px) and (max-width: 1000px) {
+    .custom-gallery-wrap .ow_profile_gallery_toolbox {
+        /* max-width: 45%; */
+        max-width: 69%;
+    }
+}
+@media (max-width: 480px) {
+    .custom-gallery-wrap .ow_profile_gallery_toolbox {
+        max-width: none;
+    }
+}

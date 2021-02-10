@@ -1,0 +1,17 @@
+<div class="articles_view">
+    <div class="articles_view_title">
+        {$article->title}
+    </div>
+    <div class="articles_view_description">
+        {$article->description}
+    </div>
+    {if $isAdmin}
+        <button class="admin_articles_button articles_view_button {if $article->featured == 0}no_featured{/if}" onclick="makeFeaturedOrNot('{$article->id}', '{$article->featured}')">
+            {if $article->featured == 0}
+                {text key='articles+make_featured'}
+            {else}
+                {text key='articles+make_not_featured'}
+            {/if}
+        </button>
+    {/if}
+</div>

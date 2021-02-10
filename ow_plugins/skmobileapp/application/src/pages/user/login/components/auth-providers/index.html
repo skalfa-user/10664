@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button ion-button clear (click)="dismiss()">
+                {{ 'cancel' | translate }}
+            </button>
+        </ion-buttons>
+        <ion-title>
+            {{ 'firebaseauth_connect_via_page_header' | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-auth-providers-page">
+    <ng-container *ngIf="authProviders$ | async; let authProviders">
+        <ion-list mode="md" class="sk-auth-providers-results">
+            <ion-item *ngFor="let authProvider of authProviders" [attr.data-firebase-provider]="authProvider" tappable (click)="chooseProvider(authProvider)">
+                {{ authProvider }}
+            </ion-item>
+        </ion-list>
+    </ng-container>
+</ion-content>

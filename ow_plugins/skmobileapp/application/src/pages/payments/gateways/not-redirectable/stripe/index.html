@@ -1,0 +1,73 @@
+<ion-header>
+    <ion-navbar [hideBackButton]="isPurchasing">
+        <ion-title>
+            {{ 'billing_page_title' | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button clear *ngIf="!isPageLoading" [disabled]="questionControl.isFormPending(form) || isPurchasing" (click)="submit()">
+                <ion-spinner *ngIf="isPurchasing" name="ios-small"></ion-spinner>
+                <span *ngIf="!isPurchasing">
+                    {{ 'done' | translate }}
+                </span>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [attr.page-blocker]="isPurchasing ? 'true' : ''" class="sk-billing-non-redirect-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isPageLoading" name="small-set" repeatTimes="2"></skeleton-preloader>
+
+    <!-- sass-helper (for get scss properties) -->
+    <sass-helper></sass-helper>
+
+    <!-- Stripe elements -->
+    <ion-list class='sk-stripe-fields'>
+        <ion-item-divider text-wrap class="sk-question-section">
+            {{ 'stripe_card_section' | translate }}
+        </ion-item-divider>
+
+        <!--curd number -->
+        <ion-item class="sk-stripe-item">
+            <ion-label stacked class="sk-stripe-item-label">
+                {{ 'stripe_card_number_label' | translate }} <span>*</span>
+            </ion-label>
+            <ion-item item-content class="sk-stripe-item-content">
+                <div id="card-number-element"></div>
+            </ion-item>
+        </ion-item>
+
+        <!--curd expiry -->
+        <ion-item class="sk-stripe-item">
+            <ion-label stacked class="sk-stripe-item-label">
+                {{ 'stripe_card_expiry_label' | translate }} <span>*</span>
+            </ion-label>
+            <ion-item item-content class="sk-stripe-item-content">
+                <div id="card-expiry-element"></div>
+            </ion-item>
+        </ion-item>
+
+        <!-- CVC -->
+        <ion-item class="sk-stripe-item">
+            <ion-label stacked class="sk-stripe-item-label">
+                {{ 'stripe_card_cvc_label' | translate }}  <span>*</span>
+            </ion-label>
+            <ion-item item-content class="sk-stripe-item-content">
+                <div id="card-cvc-element"></div>
+            </ion-item>
+        </ion-item>
+    </ion-list>
+
+    <!-- questions -->
+    <form *ngIf="!isPageLoading" [formGroup]="form">
+        <ion-list class="sk-billing-non-redirect-fields">
+                <div *ngFor="let sectionData of sections">
+                    <ion-item-divider *ngIf="sectionData.section" text-wrap class="sk-question-section">
+                        <span>{{ sectionData.section | translate }}</span>
+                    </ion-item-divider>
+                    <question *ngFor="let question of sectionData.questions" [question]="question" [form]="form"></question>
+                </div>
+            <!-- </div> -->
+        </ion-list>
+    </form>
+</ion-content>

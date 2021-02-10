@@ -1,0 +1,24 @@
+<div {if !empty($uniqId)}id="{$uniqId}"{/if} class="h-context-w ow_context_action_block clearfix ow_profile_toolbar_group {if $iconClass}h-context-has-icon{/if} ow_context_action_value_block">
+    
+    <div class="ow_context_action">
+        <a href="javascript://" data-type="current" class="ow_context_action_value h-context-label {if $iconClass}{$iconClass}{/if}">
+            {$label}
+        </a>
+        <span class="ow_context_more"></span>
+        
+        {if $content}
+        <div class="ow_tooltip ow_small ow_tooltip_top_right" style="display: none;">
+            <div class="ow_tooltip_tail">
+                <span></span>
+            </div>
+            
+            <div class="ow_tooltip_body h-context-content">
+                {$content}
+            </div>
+            
+        </div>
+        {/if}
+    </div>
+    
+    <div class="h-context-btn-overlay"></div>
+</div>

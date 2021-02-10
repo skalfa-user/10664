@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ 'cost_of_actions_page_title' | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-credits-cost-inner-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isPageLoading" name="small-set" repeatTimes="2"></skeleton-preloader>
+
+    <!-- credits info -->
+    <ng-container *ngIf="!isPageLoading">
+        <!-- earnings info -->
+        <div *ngIf="creditsInfo.earning.length" class="sk-credits-action-wrap" margin-top>
+            <div class="sk-section">
+                <span>{{ 'receiving_credits' | translate }}</span>
+            </div>
+            <ion-list mode="md">
+                <ion-item *ngFor="let action of creditsInfo.earning">
+                    <span>{{ action.title }}</span>
+                    <span item-end>{{ action.amount }}</span>
+                </ion-item>
+            </ion-list>
+        </div>
+
+        <!-- losing info -->
+        <div *ngIf="creditsInfo.losing.length" class="sk-credits-action-wrap" margin-top>
+            <div class="sk-section">
+                <span>{{ 'losing_credits' | translate }}</span>
+            </div>
+            <ion-list mode="md">
+                <ion-item *ngFor="let action of creditsInfo.losing">
+                    <span>{{ action.title }}</span>
+                    <span item-end>{{ action.amount }}</span>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ng-container>
+</ion-content>

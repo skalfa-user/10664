@@ -1,0 +1,34 @@
+<div class="ow_stdmargin">{text key="cvideoupload+upload_video_limitations" maxFileSize=$maxFileSize types=$allowedMimeTypes}</div>
+
+<!-- upload area -->
+<div id="video-upload-wrapper">
+    <input id="video_upload_file" type="file" name="video" accept="{$allowedMimeTypes}" />
+    <span>{text key="cvideoupload+upload_video_desc"}</span>
+</div>
+
+<!-- progress bar -->
+<div id="video-upload-progress-wrapper">
+    <div id="video-upload-progress-val"></div>
+    <div id="video-upload-progress-val-label"></div>
+</div>
+
+<!-- progress label -->
+<div id="video-upload-progress-label"></div>
+
+<div id="video-preview-wrapper" class="{if empty($videoPreview)}ow_hidden{/if} clearfix">
+
+    <img src="{if !empty($videoPreview)}{$videoPreview->coverImage}{/if}"
+         id="video-upload-cover"
+         data-name="{if !empty($videoPreview)}{$videoPreview->fileName}{/if}"
+         data-status="{if !empty($videoPreview)}{$videoPreview->status}{/if}"
+    />
+
+    <div class="ow_left">{text key="cvideoupload+status"}
+        <span id="video-status">{if !empty($videoPreview)}{$videoPreview->statusLabel}{/if}</span>
+    </div>
+
+    <a href="#" id="video-delete" class="ow_lbutton ow_right ow_red">{text key="cvideoupload+delete_video"}</a>
+    <div class="clearfix"></div>
+</div>
+
+<input type="hidden" name="{$fieldName}" id="{$fieldId}" value="{$fieldValue}" />

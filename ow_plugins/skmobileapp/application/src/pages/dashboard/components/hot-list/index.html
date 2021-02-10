@@ -1,0 +1,69 @@
+<div class="sk-hot-list-tab sk-navigation-tab sk-height-wrap">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isDashboardLoading || !(isHotListFetched$ | async)" name="card-list-with-button" repeatTimes="4"></skeleton-preloader>
+
+    <!-- nothing found wrapper  -->
+    <div *ngIf="!isDashboardLoading && (isHotListFetched$ | async) && !(hotList$ | async)?.length" class="sk-nothing-found sk-blank-state-wrap">
+        <img class="sk-blank-state-icon" src="./assets/img/custom-images/ic-hotlist.svg" alt="" />
+        <div class="sk-blank-state-cont">
+            <h2>{{ 'hot_list_empty_desc' | translate }}</h2>
+        </div>
+    </div>
+
+    <!-- user list -->
+    <ng-container *ngIf="(!isDashboardLoading && (hotList$ | async)); let hotList">
+        <ion-list *ngIf="hotList.length" class="sk-card-list sk-card-list-searchmode sk-height-wrap">
+            <virtual-scroller #hotListScroller [items]="hotList" executeRefreshOutsideAngularZone="true" (vsUpdate)="ref.detectChanges()">
+                <ng-container *ngFor="let hotListData of hotListScroller.viewPortItems; trackBy: trackHotList">
+                    <div class="sk-card-wrap">
+                        <div class="sk-card">
+                            <user-avatar
+                                isUseBigAvatar="false"
+                                [url]="hotListData.avatar?.url"
+                                [isAvatarActive]="hotListData.avatar?.active"
+                                (tap)="viewProfile(hotListData)">
+                            </user-avatar>
+                            <div class="{{ hotListData.user.isOnline ? 'sk-card-bottom sk-user-online' : 'sk-card-bottom' }}">
+                                <div class="sk-card-info">
+                                    <div class="sk-name">
+                                        <span>{{ hotListData.user.userName }}</span>
+                                        <b *ngIf="hotListData.user.age">, {{ hotListData.user.age }}</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </virtual-scroller>
+        </ion-list>
+    </ng-container>
+
+    <!-- join/remove buttons -->
+    <ion-footer text-center padding-bottom>
+        <ng-container *ngIf="!isDashboardLoading && (isHotListFetched$ | async)">
+            <button
+                *ngIf="!(isMeInHotList$ | async) && (hotListPermission.isAllowed || hotListPermission.isPromoted)"
+                round ion-button class="sk-hot-list-button"
+                [disabled]="requestInProcessing"
+                (click)="joinMeToHotList()">
+                    <span class="sk-text-overflow">
+                        {{ 'hot_list_join' | translate }}
+                    </span>
+                    <ion-spinner class="sk-spinner-btn" *ngIf="requestInProcessing" name="ios-small"></ion-spinner>
+            </button>
+            <button
+                *ngIf="isMeInHotList$ | async"
+                round ion-button class="sk-hot-list-button"
+                [disabled]="requestInProcessing"
+                (click)="deleteMeFromHotList()">
+                    <span class="sk-text-overflow">
+                        {{ 'hot_list_remove' | translate }}
+                    </span>
+                    <ion-spinner class="sk-spinner-btn" *ngIf="requestInProcessing" name="ios-small"></ion-spinner>
+            </button>
+        </ng-container>
+    </ion-footer>
+
+    <!-- permissions -->
+    <permissions></permissions>
+</div>

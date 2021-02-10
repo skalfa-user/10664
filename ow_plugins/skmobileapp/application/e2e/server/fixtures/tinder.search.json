@@ -1,0 +1,17 @@
+{
+    "id":2,
+    "userName":"Tester",
+    "email":null,
+    "type":"a67b71a39d1973cb35d0890deb7d62b3",
+    "aboutMe":"test",
+    "age":52,
+    "isOnline":false,
+    "isAdmin":false,
+    "compatibility": 93,
+    "isBlocked":false,
+    "distance":{
+        "distance":6426,
+        "unit":"miles"
+    },
+    "avatar":null
+}

@@ -1,0 +1,61 @@
+<div id="main" class="clearfix">
+    <section id="content">
+        <div class="owm_subscribe_page">
+            <div class="owm_subscribe_table owm_credit_info_table owm_small_margin_bottom">
+                <table class="owm_tab_info">
+                    <tr class="own_tr_first">
+                        <td class="owm_td_label">{text key='usercredits+credits_balance'}: {$balance}</td>
+                        <td class="owm_td_value"></td>
+                    </tr>
+                    <tr class="own_tr_last">
+                        <td class="owm_td_label">{text key='usercredits+credits_opportunity'}</td>
+                        <td class="owm_td_value"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="owm_subscribe_table owm_credit_table owm_small_margin_bottom">
+                <table class="owm_tab_info">
+                    <tr>
+                        <th class="ow_section" colspan="2">
+                            <span>{text key='usercredits+earning_actions'}</span>
+                        </th>
+                    </tr>
+                    {foreach from=$earning item='e' name='itm'}
+                        <tr class="{if $smarty.foreach.itm.first}own_tr_first{else if $smarty.foreach.itm.last}own_tr_last{/if}">
+                            <td class="owm_td_label owm_remark">{text key="`$e.pluginKey`+usercredits_action_`$e.actionKey`"}</td>
+                            <td class="owm_td_value"><span class="owm_ico_check"></span></td>
+                        </tr>
+                    {/foreach}
+                </table>
+                {if !$earning}
+                    <div class="owm_nocontent">{text key='usercredits+no_actions'}</div>
+                {/if}
+            </div>
+
+            <div class="owm_subscribe_table owm_credit_table owm_small_margin_bottom">
+                <table class="owm_tab_info">
+                    <tr>
+                        <th class="ow_section" colspan="2">
+                            <span>{text key='usercredits+spending_actions'}</span>
+                        </th>
+                    </tr>
+                    {foreach from=$losing item='e' name='itm'}
+                        <tr class="{if $smarty.foreach.itm.first}own_tr_first{else if $smarty.foreach.itm.last}own_tr_last{/if}">
+                            <td class="owm_td_label owm_remark">{text key="`$e.pluginKey`+usercredits_action_`$e.actionKey`"}</td>
+                            <td class="owm_td_value"><span class="owm_ico_check"></span></td>
+                        </tr>
+                    {/foreach}
+                </table>
+                {if !$losing}
+                     <div class="owm_nocontent">{text key='usercredits+no_actions'}</div>
+                {/if}
+            </div>
+        </div>
+    </section>
+    <div class="owm_overlay" id="owm_overlay" style="display: none;"></div>
+</div>
+
+
+
+
+

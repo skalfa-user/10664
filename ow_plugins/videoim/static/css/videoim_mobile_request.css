@@ -1,0 +1,137 @@
+/* confirmation window */
+.owm_videoim_confirmation_window {
+    width:100%;
+    padding: 20px 0 0;
+    position: relative;
+    z-index: 2;
+    background-color: #000;
+}
+/* buttons */
+.owm_videoim_btn {
+    display: inline-block;
+    min-height: 70px;
+    width: 60px;
+    vertical-align: top;
+    color: #fff;
+}
+.owm_videoim_btn_icon {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 46px;
+}
+
+.owm_videoim_decline_btn .owm_videoim_btn_icon {
+    background-color: #cb3042;
+    background-image: url("../images/decline.svg");
+    transition: all 0.1s ease-in-out 0s;     
+}
+.owm_videoim_accept_btn .owm_videoim_btn_icon {
+    background-color: #19c880;
+    background-image: url("../images/accept.svg");
+    transition: all 0.1s ease-in-out 0s;      
+}
+.owm_videoim_block_btn .owm_videoim_btn_icon {
+    background-image: url("../images/block.svg");
+}
+.owm_videoim_mute_btn.owm_videoim_mute_btn_not_active .owm_videoim_btn_icon {
+    background-image: url("../images/mute_crossed.svg");
+}
+.owm_videoim_mute_btn.owm_videoim_mute_btn_active .owm_videoim_btn_icon {
+    background-image: url("../images/mute.svg");
+}
+
+/* background avatar*/
+.owm_videoim_bg {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    -webkit-filter: blur(3px);
+    filter: blur(3px);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='3');
+    z-index: 1;
+}
+.owm_videoim_overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: rgba(31, 32, 40, 0.83);
+}
+.owm_videoim_cont {
+    position: relative;
+    text-align: center;
+    z-index: 3;
+}
+.owm_videoim_cont a {
+   margin: 0px 4px;
+}
+.owm_videoim_cont h1 {
+    font-size: 20px;
+    line-height: 19px;
+    margin-bottom: 32px;
+    color: #fff;
+}
+/* avatar */
+.owm_videoim_caller_avatar {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 25px;
+}
+
+.owm_videoim_caller_avatar_link {
+    display:block;
+    width: 100%;
+    height: 100%;
+}
+
+.animation_pulse {
+    -webkit-animation-duration: 1s; 
+    animation-duration: 1s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+    animation-iteration-count:infinite; 
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-name: pulse; 
+    animation-name: pulse;
+}
+@-webkit-keyframes pulse { 
+    0% { -webkit-transform: scale(1); } 
+    50% { -webkit-transform: scale(1.1); } 
+    100% { -webkit-transform: scale(1); } 
+} 
+@keyframes pulse { 
+    0% { transform: scale(1); } 
+    50% { transform: scale(1.1); } 
+    100% { transform: scale(1); } 
+}
+
+@media screen and (orientation: landscape) and (max-height: 480px) {
+    .owm_videoim_caller_avatar {
+        width: 100px; /* original 200px */
+        height: 100px; /* original 200px */
+        margin-bottom: 10px; /* original 25px */
+    }
+    .owm_videoim_chat_window .owm_videoim_cont .owm_videoim_caller_avatar{
+        margin-top: 40px; /* original - none */
+    }
+}

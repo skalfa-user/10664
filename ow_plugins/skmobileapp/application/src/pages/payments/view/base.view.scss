@@ -1,0 +1,22 @@
+@import "../base.scss";
+
+.sk-payments-inner-page {
+    background-color: color($colors, sk-page-bg);
+
+    .sk-payments-plan-list {
+        margin-bottom: 3.2rem;
+
+        .sk-payments-plan-price {
+            @include flex(flex, row, flex-start, center);
+
+            span:first-child {
+                @include margin(null, 0.6rem, null, null);
+                color: color($colors, green);
+            }
+        }
+    
+        ion-note {
+            max-width: 40%;
+        }
+    }
+}

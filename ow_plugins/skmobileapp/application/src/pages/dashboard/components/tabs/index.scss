@@ -1,0 +1,98 @@
+.sk-dashboard-tabs {
+    @include flex(flex, row, space-between, center);
+    @include padding(1rem 1.5rem 1rem 1.5rem);
+
+    .sk-tabs-item {
+        position: relative;
+        @include flex(flex, row, flex-start, center);
+
+        &.sk-conversation-notification {
+            &:after {
+                @include badge(#fff, 7px, 7px, $sk-badge-new, null, null, null, null);
+                @include position($top: -0.2rem, $end: null, $bottom: null, $start: 1.5rem);
+                border-radius: 50%;
+                border-width: 2px;
+            }
+        }
+
+        .sk-tab-ic-active {
+            opacity: 0;
+            position: absolute;
+            @include transition(opacity 0.6s ease);
+        }
+
+        &.active {
+            .sk-tab-ic-active {
+                opacity: 1;
+                @include transition(opacity 0.6s ease);
+            }
+            
+            .sk-tab-toggle {
+                .sk-tab-toggle-item {
+                    &.active {
+                        .sk-toggle-ic-active {
+                            opacity: 1;
+                            @include transition(opacity 0.6s ease);
+                        }
+                    }
+                }
+
+                .sk-tab-toggle-active-background {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .sk-tab-toggle {
+        position: relative;
+        @include flex(flex, row, center, center);
+        border: 2px solid $sk-tab-toggle-border-color;
+        border-radius: 100px;
+
+        .sk-tab-toggle-item {
+            position: relative;
+            z-index: 4;
+            @include flex(flex, row, center, center);
+            width: 46px;
+            height: 30px;
+            &.active {
+
+                &:nth-child(1) {
+                    & ~ .sk-tab-toggle-active-background {
+                        @include position($top: -0.2rem, $end: null, $bottom: null, $start: -0.2rem);
+                    }
+                }
+
+                &:nth-child(2) {
+                    & ~ .sk-tab-toggle-active-background {
+                        @include position($top: -0.2rem, $end: null, $bottom: null, $start: 4.4rem);
+                    }
+                }
+
+                &:nth-child(3) {
+                    & ~ .sk-tab-toggle-active-background {
+                        @include position($top: -0.2rem, $end: null, $bottom: null, $start: 9rem);
+                    }
+                }
+            }
+        }
+
+        .sk-toggle-ic-active {
+            opacity: 0;
+            position: absolute;
+            @include transition(opacity 0.6s ease);
+        }
+
+        .sk-tab-toggle-active-background {
+            background-color: $sk-tab-toggle-active-background;
+            opacity: 0;
+            width: 50px;
+            height: 34px;
+            border-radius: 100px;
+            position: absolute;
+            z-index: 1;
+            @include transition(left 0.6s ease, right 0.6s ease, opacity 0.6s ease);
+        }
+    }
+}

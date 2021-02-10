@@ -1,0 +1,9 @@
+{
+    "active": true,
+    "bigUrl": "http://localhost:3004/avatar.jpg",
+    "id": 1,
+    "pendingBigUrl": "http://localhost:3004/avatar.jpg",
+    "pendingUrl": "http://localhost:3004/avatar.jpg",
+    "url": "http://localhost:3004/avatar.jpg",
+    "userId": 191062
+}

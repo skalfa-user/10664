@@ -1,0 +1,26 @@
+{style}
+{literal}
+    .ow_user_credits {
+        text-align: center;
+    }
+    .ow_credits_count {
+        font-size: 27px;
+        margin: 8px 0;
+    }
+    .ow_credits_links {
+        padding-top: 16px;
+    }
+    .ow_credits_links a {
+        font-size: 11px;
+        line-height: 12px;
+    }
+{/literal}
+{/style}
+<div class="ow_user_credits">
+    {text key='usercredits+credits_balance'}:
+    <h3 class="ow_credits_count">{$balance}</h3>
+</div>
+<div class="ow_left ow_credits_links">
+    {if $showCostOfActions}<a href="javascript://" id="credits-link-cost-of-actions">{text key='usercredits+cost_of_actions'}</a><br/>{/if}
+    {if $showHistory}<a href="javascript://" id="credits-link-history">{text key='usercredits+history'}</a>{/if}
+</div>

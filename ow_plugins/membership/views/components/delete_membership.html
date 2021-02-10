@@ -1,0 +1,30 @@
+<div class="ow_smallmargin">{text key='membership+after_deleting_membership'}</div>
+{form name='delete-membership-form'}
+<table class="ow_table_2 ow_smallmargin">
+    <tbody>
+    {if $availableTypes}
+    <tr class="ow_alt1">
+        <td style="width: 20px;">
+            {input name='type' value='custom'}
+        </td>
+        <td>
+            {text key='membership+membership'} {input name='newTypeId'}
+        </td>
+    </tr>
+    {/if}
+    <tr class="ow_alt1">
+        <td style="width: 20px;">
+            {input name='type' value='default' checked='checked'}
+        </td>
+        <td>
+            {text key='admin+default_role'}
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="clearfix">
+    <div class="ow_right">
+        {decorator name='button' langLabel='membership+delete' id='btn-confirm-type-delete' class='ow_ic_delete'}
+    </div>
+</div>
+{/form}

@@ -1,0 +1,73 @@
+{style}
+{literal}
+    .user_list_thumb {
+        width: 55px;
+        height: 45px;
+    }
+    
+    .user_list_thumb img {
+        width: 45px;
+        height: 45px;
+    }
+{/literal}
+{/style}
+
+{$menu}
+
+{if $types}
+<div class="ow_anno ow_center ow_stdmargin">
+    {text key='membership+displaying_members'}
+    <select name="ms_types" onchange="location.href = '{$route}/role/'+this.value;">
+    {foreach from=$types item='type'}
+        <option value="{$type.dto->roleId}"{if $type.dto->roleId == $roleId} selected="selected"{/if}>{$type.title}</option>
+    {/foreach}
+    </select>
+    {text key='membership+membership'}
+</div>
+{/if}
+
+{if isset($list)}
+
+{$paging}
+
+<table class="ow_table_1">
+<tr class="ow_tr_first {if empty($list)}ow_tr_last{/if}">
+    <th>{text key='admin+user'}</th>
+    <th width="20%">{text key='membership+expires'}</th>
+    <th width="1">{text key='membership+recurring'}</th>
+</tr>
+{foreach from=$list item='user' name="f"}
+{capture assign='userId'}{$user.userId}{/capture}
+{capture assign='username'}{$userNameList[$userId]}{/capture}
+    <tr class="ow_alt{cycle values='1,2'} {if $smarty.foreach.f.last}ow_tr_last{/if}">
+        <td>
+        <div class="clearfix">
+            <div class="ow_left ow_txtleft user_list_thumb">{decorator name='avatar_item' data=$avatars[$userId]}</div>
+            <div class="ow_left ow_txtleft">            
+            {user_link name=$displayNames[$userId] username=$userNameList[$userId]}<br />
+            <span class="ow_small">
+            {if !empty($questionList[$userId].sex)}
+                {question_value_lang name='sex' value=$questionList[$userId].sex}
+            {/if}
+            {if !empty($questionList[$userId].birthdate)}
+                {age dateTime=$questionList[$userId].birthdate}
+            {/if}
+            <br />
+            {if !empty($questionList[$userId].email)}
+                <span class="ow_remark">{$questionList[$userId].email}</span>
+            {/if}
+            </span>
+            </div>
+        </div>
+        </td>
+        <td>{membership_format_date timestamp=$user.expirationStamp}</td>
+        <td>{if $user.recurring}<div class="ow_marked_cell" style="width: 70px;">&nbsp;</div>{/if}</td>
+    </tr>
+{/foreach}
+</table>
+
+{$paging}
+
+{else}
+    <div class="ow_nocontent">{text key='admin+no_users'}</div>
+{/if}

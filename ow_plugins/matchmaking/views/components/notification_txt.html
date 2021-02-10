@@ -1,0 +1,22 @@
+{strip}
+    {text key="matchmaking+email_txt_head" userName=$userName}
+    {$nl}
+    {text key="matchmaking+email_html_description"}
+    {$nl}
+    {foreach from=$list item='user' name='userList'}
+        {$user.displayName}
+        {$nl}
+        {$user.sex} {$user.age}
+        {$nl}
+        {$user.googlemap_location}
+        {$nl}
+        {text key="matchmaking+compatibility"}: {$user.compatibility}%
+        {$nl}
+        {$nl}
+    {/foreach}
+    {$nl}
+	{text key="matchmaking+email_txt_bottom"}
+    {$nl}
+    {text key='base+massmailing_unsubscribe'}: {$unsubscribeUrl}
+{/strip}
+

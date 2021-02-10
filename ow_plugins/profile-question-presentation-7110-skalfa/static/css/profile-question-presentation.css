@@ -1,0 +1,13 @@
+.custom_presentation_item_div {
+    padding: 10px;
+}
+
+.custom_presentation_item_label {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.custom_presentation_item_value {
+    padding-top: 5px;
+}

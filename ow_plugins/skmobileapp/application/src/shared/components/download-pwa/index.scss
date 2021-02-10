@@ -1,0 +1,46 @@
+.sk-download-pwa-page {
+    .sk-steps-wrap {
+        .sk-step {
+            margin: 2rem auto 0;
+            text-align: center;
+
+            &:last-child {
+                padding-bottom: calc(100vh - 150%);
+            }
+            .sk-download-pwa-title {
+                font-size: 1.7rem;
+                color: $sk-download-pwa-title;
+                text-transform: uppercase;
+                font-weight: 600;
+                padding: 0.3rem 0 0.5rem;
+            }
+            .sk-download-pwa-text {
+                font-size: 1.6rem;
+                color: $sk-download-pwa-text;
+                margin: 0px 3rem;
+            }
+            .sk-download-pwa-img {
+                padding-left: 2.8rem;
+                padding-right: 2.8rem;
+                img {
+                    margin-top: 4.2vw;
+                    margin-bottom: 4.2vw;
+                    max-width: 80%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (min-height: 768px) {
+    .sk-download-pwa-page .sk-steps-wrap .sk-step:last-child {
+        padding-bottom: 0;
+    }
+    .sk-download-pwa-page .sk-steps-wrap .sk-step {
+        .sk-download-pwa-img {
+            img {
+                max-width: 50%;
+            }
+        }
+    }
+}

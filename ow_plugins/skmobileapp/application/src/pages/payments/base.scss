@@ -1,0 +1,35 @@
+.sk-payments-head {
+    font-size: 1.5rem;
+    background-color: transparent;
+
+    &.item {
+        &.item-block {        
+            .item-inner {
+                border: none;
+                padding: 0;
+
+                .sk-payments-info {
+                    color: color($colors, primary);
+                    margin: 0;
+                    
+                    &.button {
+                        font-size: 1.5rem;
+                        text-transform: uppercase;
+                        padding: 0;
+                        margin: 0;
+            
+                        .icon {
+                            font-size: 2.6rem;
+                            line-height: 1.1;
+                            @include padding(null, null, null, 0.6rem);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sk-payments-price {
+    color: color($colors, green);
+}

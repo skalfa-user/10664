@@ -1,0 +1,33 @@
+<svg width="186" height="140" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" fill-rule="evenodd">
+    <path fill="#CFD9E1" d="M31 46.5h15.5V31H31z"/>
+    <path fill="#C1CBD2" d="M46.5 46.5H62V31H46.5z"/>
+    <path fill="#CFD9E1" d="M62 46.5h15.5V31H62z"/>
+    <path fill="#C1CBD2" d="M77.5 46.5H93V31H77.5z"/>
+    <path fill="#CFD9E1" d="M46.5 31H62V15.5H46.5zM31 31h15.5V15.5H31zM62 31h15.5V15.5H62zM77.5 31H93V15.5H77.5z"/>
+    <path fill="#C1CBD2" d="M31 108.5h15.5V93H31z"/>
+    <path fill="#CFD9E1" d="M31 77.5h15.5V62H31zM46.5 77.5H62V62H46.5zM62 77.5h15.5V62H62z"/>
+    <path fill="#C1CBD2" d="M77.5 77.5H93V62H77.5z"/>
+    <path fill="#CFD9E1" d="M46.5 93H62V77.5H46.5zM62 93h15.5V77.5H62zM77.5 93H93V77.5H77.5zM31 93h15.5V77.5H31zM46.5 124H62v-15.5H46.5z"/>
+    <path fill="#C1CBD2" d="M62 124h15.5v-15.5H62zM77.5 124H93v-15.5H77.5z"/>
+    <path fill="#CFD9E1" d="M31 124h15.5v-15.5H31zM31 62h15.5V46.5H31zM15.5 77.5H31V62H15.5z"/>
+    <path fill="#C1CBD2" d="M0 77.5h15.5V62H0zM15.5 93H31V77.5H15.5z"/>
+    <path fill="#CFD9E1" d="M15.5 62H31V46.5H15.5zM62 62h15.5V46.5H62zM77.5 62H93V46.5H77.5zM139.5 46.5H155V31h-15.5z"/>
+    <path fill="#C1CBD2" d="M124 46.5h15.5V31H124z"/>
+    <path fill="#CFD9E1" d="M108.5 46.5H124V31h-15.5zM93 46.5h15.5V31H93zM124 31h15.5V15.5H124zM139.5 31H155V15.5h-15.5zM108.5 31H124V15.5h-15.5z"/>
+    <path fill="#C1CBD2" d="M93 31h15.5V15.5H93z"/>
+    <path fill="#CFD9E1" d="M77.5 15.5H93V0H77.5z"/>
+    <path fill="#C1CBD2" d="M93 15.5h15.501V0H93z"/>
+    <path fill="#CFD9E1" d="M139.5 108.5H155V93h-15.5z"/>
+    <path fill="#C1CBD2" d="M139.5 77.5H155V62h-15.5z"/>
+    <path fill="#CFD9E1" d="M124 77.5h15.5V62H124zM108.5 77.5H124V62h-15.5z"/>
+    <path fill="#C1CBD2" d="M93 77.5h15.5V62H93z"/>
+    <path fill="#CFD9E1" d="M124 93h15.5V77.5H124zM108.5 93H124V77.5h-15.5zM93 93h15.5V77.5H93zM139.5 93H155V77.5h-15.5zM124 124h15.5v-15.5H124z"/>
+    <path fill="#C1CBD2" d="M108.5 124H124v-15.5h-15.5z"/>
+    <path fill="#CFD9E1" d="M93 124h15.5v-15.5H93zM62 139.5h15.5V124H62zM77.5 139.5H93V124H77.5zM108.5 139.5H124V124h-15.5z"/>
+    <path fill="#C1CBD2" d="M93 139.5h15.501V124H93z"/>
+    <path fill="#CFD9E1" d="M139.5 124H155v-15.5h-15.5zM139.5 62H155V46.5h-15.5zM155 77.5h15.5V62H155zM170.5 77.5h15.501V62H170.5z"/>
+    <path fill="#C1CBD2" d="M155 93h15.5V77.5H155z"/>
+    <path fill="#CFD9E1" d="M155 62h15.5V46.5H155zM108.5 62H124V46.5h-15.5zM93 62h15.5V46.5H93z"/>
+  </g>
+</svg>

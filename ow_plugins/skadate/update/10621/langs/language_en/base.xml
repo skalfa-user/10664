@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="base" label="Base" language_tag="en" language_label="English">
+    <key name="meta_title_user_page"><value>{$user_name}, {$user_gender}, {$user_age} | {$user_location} | {$site_name}</value></key>
+    <key name="meta_desc_user_page"><value>Chat with {$user_name}, {$user_gender}, {$user_age} from {$user_location} at {$site_name}.</value></key>
+</prefix>

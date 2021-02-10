@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_rss</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-1011.000000, -2025.000000)" fill="#ffffff">
+            <g id="ic_rss" transform="translate(1011.000000, 2025.000000)">
+                <g id="Group">
+                    <path d="M0,8 C4.39,8 7.963,11.556 7.997,15.938 L10.997,15.938 C10.963,9.892 6.054,5 0,5 L0,8 Z" id="Shape"></path>
+                    <path d="M0,3 C7.147,3 12.963,8.798 12.997,15.938 L15.997,15.938 C15.963,7.13 8.815,0 0,0 L0,3 Z" id="Shape"></path>
+                    <circle id="Oval" cx="2.5" cy="13.5" r="2.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

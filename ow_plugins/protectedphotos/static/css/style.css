@@ -1,0 +1,69 @@
+/* Big photo */
+.ow_pass_protected_wrap {
+    position: relative;
+    background-color: #26262d;
+    width: 100%;
+}
+.ow_pass_protected_cont {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.ow_pass_protected_lang {
+    padding: 74px 10px 0px;
+    background-image: url(../images/ic_pass_protected.svg);
+    background-position: center 0;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+.floatbox_container .ow_pass_protected_lang {
+    font-size: 17px;
+}
+/* Album cover */
+.ow_photo_album_cover .ow_pass_protected_lang {
+    background-position: center 20px;
+    background-size: 40px 40px;
+}
+/* Lock icon in description */
+.ow_pass_protected_icon {
+    display: inline-block;
+    background-image: url(../images/ic_lock.svg);
+    background-position: 0 0;
+    background-size: 14px 14px;
+    width: 12px;
+    height: 12px;
+    vertical-align: baseline;
+}
+/* Lock icon on fullscreen */
+.floatbox_container .ow_photoview_bottom_menu .ow_pass_protected_icon {
+    background-image: url(../images/ic_lock_full.svg);
+    vertical-align: baseline;
+}
+
+.ow_newsfeed_item_picture .ow_protected_photo_widget_icon {
+    background-position: center;
+    background-color: rgba(38,38,45,0.5);
+    height: 400px;
+}
+
+.ow_photo_item_widget.ow_protected_photo_widget_icon {
+    background-size: 35px;
+    background-position: center;
+    background-color: rgba(38,38,45,0.5);
+}
+
+.ow_newsfeed_photo_grid_item .ow_protected_photo_widget_icon {
+    background-size: 80px;
+    background-position: center;
+    background-color: rgba(38,38,45,0.5);
+    background-repeat: no-repeat;
+}
+
+.ow_lp_albums .ow_protected_photo_widget_icon {
+    background-size: 35px;
+    background-position: center;
+    background: rgba(38,38,45,0.5) no-repeat;
+}

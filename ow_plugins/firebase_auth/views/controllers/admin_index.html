@@ -1,0 +1,47 @@
+
+{form name='settings_form' class='firebaseauth-form'}
+    <div class="clearfix">
+        <div class="ow_column ow_left">
+            {block_decorator name='box' langLabel='firebaseauth+api_settings_label'}
+                <div class="ow_stdmargin">{text key='firebaseauth+api_settings_desc'}</div>
+                <table class="ow_table_1 ow_form">
+                    <tr class="ow_alt1">
+                        <td class="ow_label">{label name='api_key'}</td>
+                        <td class="ow_value">{input name='api_key'}<br />{error name='api_key'}</td>
+                    </tr>
+                    <tr class="ow_alt1">
+                        <td class="ow_label">{label name='auth_domain'}</td>
+                        <td class="ow_value">{input name='auth_domain'}<br />{error name='auth_domain'}</td>
+                    </tr>
+                    <tr class="ow_alt1">
+                        <td class="ow_label">{label name='firebase_admin_key'}</td>
+                        <td class="ow_value">{input name='firebase_admin_key'}<br />{error name='firebase_admin_key'}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">{text key='firebaseauth+admin_key_file_description'}</td>
+                    </tr>
+                    <tr class="ow_alt1">
+                        <td class="ow_label">{label name='email_example'}</td>
+                        <td class="ow_value">{input name='email_example'}<br />{error name='email_example'}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">{text key='firebaseauth+form_email_example_description'}</td>
+                    </tr>
+                </table>
+            {/block_decorator}
+        </div>
+        <div class="ow_column ow_right">
+            {block_decorator name='box' langLabel='firebaseauth+social_networks_label'}
+                <div class="ow_stdmargin">{text key='firebaseauth+social_networks_desc'}</div>
+                {input name='enabled_providers'}
+                <div>{error name='enabled_providers'}</div>
+            {/block_decorator}
+        </div>
+    </div>
+
+    <div class="clearfix ow_stdmargin">
+        <div class="ow_right">
+            {submit name='submit'}
+        </div>
+    </div>
+{/form}

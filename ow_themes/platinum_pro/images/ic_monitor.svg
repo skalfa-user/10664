@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_monitor</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-749.000000, -2029.000000)" fill="#ffffff">
+            <g id="ic_monitor" transform="translate(749.000000, 2029.000000)">
+                <path d="M13.562,0 L2.488,0 C1.129,0 0.027,1.102 0.027,2.461 L0.027,8.539 C0.027,9.898 1.129,11 2.488,11 L6,11 L6,14.031 L4.488,14.031 C3.287,14.031 2.29,14.892 2.073,16.031 L13.978,16.031 C13.762,14.892 12.765,14.031 11.562,14.031 L10,14.031 L10,11 L13.564,11 C14.923,11 16.025,9.898 16.025,8.539 L16.025,2.461 C16.025,1.102 14.924,0 13.562,0 Z M14,9 L2,9 L2,2 L14,2 L14,9 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,39 @@
+/**
+ * Copyright (c) 2014, Skalfa LLC
+ * All rights reserved.
+ *
+ * ATTENTION: This commercial software is intended for exclusive use with SkaDate Dating Software (http://www.skadate.com) and is licensed under SkaDate Exclusive License by Skalfa LLC.
+ *
+ * Full text of this license can be found at http://www.skadate.com/sel.pdf
+ */
+
+.inactive_coefficient_list, .active_coefficient_list {
+    background: url("../images/stars.png") no-repeat scroll 0 -13px transparent;
+    display: inline-block;
+    height: 13px;
+    text-align: left;
+    width: 65px;
+}
+.active_coefficient_list {
+    background-position: 0 0;
+}
+.coefficients_cont a.coefficient_item {
+    background: url("../images/stars.png") no-repeat scroll 0 -13px transparent;
+    cursor: pointer;
+    float: left;
+    height: 13px;
+    text-decoration: none;
+    width: 13px;
+}
+.coefficients_cont a.active {
+    background-position: 0 0;
+}
+.coefficients_cont {
+    margin: 0 auto;
+    width: 65px;
+}
+
+span.ow_matchmaking_location
+{
+    margin-left: 6px;
+}

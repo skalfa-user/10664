@@ -1,0 +1,224 @@
+<style>
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+@media (min-width: 900px) {
+  .background {
+    padding: 0 0 25px;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 10px 0 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+.panel {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px 0px;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
+.pricing-table {
+   box-shadow: none;
+  display: flex;
+}
+
+.pricing-table * {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.pricing-plan {
+  padding: 10px;
+}
+
+.pricing-plan:last-child {
+  border-bottom: none;
+}
+
+
+  .pricing-plan:last-child {
+    border-right: none;
+  }
+}
+
+.pricing-img {
+  margin-bottom: 25px;
+  max-width: 100%;
+}
+
+.pricing-header {
+  color: #888;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.pricing-features {
+  color: #4a77c6;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 50px 0 25px;
+}
+
+.pricing-features-item {
+  border-top: 1px solid #e1f1ff;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 15px 0;
+  height: 14px;
+}
+
+.pricing-features-item:last-child {
+  border-bottom: 1px solid #e1f1ff;
+}
+
+.pricing-price {
+  color: #4a77c6;
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.pricing-button {
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+  color: #4a77c6;
+  display: inline-block;
+  margin: 25px 0;
+  padding: 15px 35px;
+  text-decoration: none;
+  transition: all 150ms ease-in-out;
+}
+
+.pricing-button:hover,
+.pricing-button:focus {
+color: #d9534f;
+  background-color: #f3f3f3;
+}
+
+.pricing-button.is-featured {
+  background-color: #4a77c6;
+  color: #fff;
+}
+
+.pricing-button.is-featured:hover,
+.pricing-button.is-featured:active {
+  background-color: #d9534f;
+}
+</style>
+
+
+<div class="custom-pricing-page">
+    <div class="ow_content_menu_wrap">
+        <ul class="ow_content_menu clearfix">
+ 	   <li class="_preference  active"><a href="https://www.a1mela.com/pricing/suppliers"><span class="ow_ic_gear_wheel">{text 
+               key='custompage+pricing_suppliers'}</span></a></li>
+          <li class="_email_notifications "><a href="https://www.a1mela.com/pricing/customers"><span class="ow_ic_mail">{text 
+               key='custompage+pricing_bridesgrooms'}</span>     
+               </a>
+          </li>    
+	</ul>
+
+           <div class="ow_custom_form ow_custom_preference_form"> 
+               <p style="margin-top:15px"> {text key='custompage+pricing_suppliers_introduction'}</p>
+                <div class="container">
+                    <div class="panel pricing-table"> 
+                       <div class="pricing-plan">
+                         <h2 class="pricing-header">{text key='custompage+pricing_suppliers_feature'}</h2>
+                              <ul class="pricing-features">
+                                  <li class="pricing-features-item">{text key='custompage+pricing_suppliers_benefit1'}</li>
+                                  <li class="pricing-features-item">{text key='custompage+pricing_suppliers_benefit2'}</li>
+                                  <li class="pricing-features-item">{text key='custompage+pricing_suppliers_benefit3'}</li>
+                                  <li class="pricing-features-item">{text key='custompage+pricing_suppliers_benefit4'}</li>
+                                  <li class="pricing-features-item">{text key='custompage+pricing_suppliers_benefit5'}</li>
+                                  <li class="pricing-features-item">{text key='custompage+pricing_suppliers_benefit6'}</li>
+                                  <li class="pricing-features-item">{text key='custompage+pricing_suppliers_benefit7'}</li>
+                                  <li class="pricing-features-item">{text key='custompage+pricing_suppliers_benefit8'}</li>
+                                  <li class="pricing-features-item">{text key='custompage+pricing_suppliers_benefit9'}</li>
+                              </ul>
+       
+                        </div>
+      
+                      {*<div class="pricing-plan">
+                          <h2 class="pricing-header">{text key='base+authorization_role_silver2'}</h2>
+                              <ul class="pricing-features">
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"></li>
+                                 <li class="pricing-features-item"></li>
+                                 <li class="pricing-features-item"></li>
+                             </ul>
+                         <span class="pricing-price">{text key='custompage+pricing_price1'} <span style="text-decoration:line-through;color: #e10505; font-size: 20px"> {text key='custompage+pricing_price1_crossed'}</span><br/> <br/><p style="font-size:10px;color:#4c4c4c">{text key='custompage+pricing_price_desc'}</p></span>
+                                <a href="https://www.a1mela.com/join" class="pricing-button is-featured">Sign Up</a>
+                      </div>
+      
+      <div class="pricing-plan">
+                          <h2 class="pricing-header">{text key='base+authorization_role_gold1'}</h2>
+                              <ul class="pricing-features">
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"></li>
+                                 <li class="pricing-features-item"></li>
+                             </ul>
+                         <span class="pricing-price">{text key='custompage+pricing_price2'} <span style="text-decoration:line-through;color: #e10505; font-size: 20px"> {text key='custompage+pricing_price2_crossed'}</span><br/> <br/><p style="font-size:10px;color:#4c4c4c">{text key='custompage+pricing_price_desc'}</p></span>
+                                <a href="https://www.a1mela.com/join" class="pricing-button is-featured">Sign Up</a>
+                      </div>
+
+<div class="pricing-plan">
+                          <h2 class="pricing-header">{text key='base+authorization_role_platinum'}</h2>
+                              <ul class="pricing-features">
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                             </ul>
+                         <span class="pricing-price">{text key='custompage+pricing_price3'} <span style="text-decoration:line-through;color: #e10505; font-size: 20px"> {text key='custompage+pricing_price3_crossed'}</span><br/> <br/><p style="font-size:10px;color:#4c4c4c">{text key='custompage+pricing_price_desc'}</p></span>
+                                <a href="https://www.a1mela.com/join" class="pricing-button is-featured">Sign Up</a>
+                      </div> *}
+      
+
+
+<div class="pricing-plan">
+                          <h2 class="pricing-header"> 6 Months Free <br/><span style="font-size:12px">(Limited Time Offer)</span></h2>
+                              <ul class="pricing-features" style="margin-top:15px">
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                                 <li class="pricing-features-item"><img src="https://www.a1mela.com/ow_static/plugins/customfields-6837-skalfa/img/subcribe-ok.png"></li>
+                             </ul>
+                         <span class="pricing-price">£0<span style="text-decoration:line-through;color: #e10505; font-size: 20px"></span><br/> <br/><p style="font-size:10px;color:#4c4c4c">6 months free</p></span>
+                                <a href="https://www.a1mela.com/join" class="pricing-button is-featured">Sign Up</a>
+                      </div>
+     
+
+    </div>
+    </div>
+</div>
+

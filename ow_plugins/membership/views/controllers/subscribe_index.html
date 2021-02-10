@@ -1,0 +1,119 @@
+{style}
+{literal}
+.ow_action_allowed {
+    display: block;
+    height: 16px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.ow_membership_column {
+    width: 110px;
+}
+
+td.ow_membership_plans {
+    text-align: left;
+    vertical-align: top;
+}
+
+.ow_membership_plans ul li {
+    margin-bottom: 5px;
+}
+
+.ow_table_1 tr td.ow_plans_td_empty,
+.ow_table_1 tr td.ow_gateways_td_empty {
+    border: none;
+}
+.ow_table_1 tr td.ow_plans_td_empty + td,
+.ow_table_1 tr td.ow_gateways_td_empty + td {
+    border-left-width: 1px;
+}
+{/literal}
+{/style}
+
+{if isset($current)}
+	{block_decorator name='box' type='empty' addClass="ow_stdmargin"}
+		{text key='membership+membership'}: <span class="ow_remark ow_small">{if isset($currentTitle)}{$currentTitle}{if $current->recurring} ({text key='membership+recurring'}){/if}{/if}</span><br />
+		{text key='membership+expires'}: <span class="ow_remark ow_small">{membership_format_date timestamp=$current->expirationStamp}</span>
+	{/block_decorator}
+{/if}
+{if !empty($menu)}
+<div class="ow_content_menu_wrap ow_padding">
+    {$menu}
+</div>
+{/if}
+
+{form name='subscribe-form'}
+<div class="ow_automargin ow_superwide">
+<table class="ow_stdmargin ow_table_1 ow_subscribe_table">
+
+<tr class="ow_tr_first ow_tr_last">
+    <th>{text key='membership+action'}</th>
+    {foreach from=$mTypePermissions item='mt'}
+    <th class="ow_membership_column {if $mt.current} ow_highbox{/if}">{$mt.title}</th>
+    {/foreach}
+</tr>
+
+<tr class="ow_tr_delimiter"><td></td></tr>
+
+{assign var="perm" value="permissions"}
+{foreach from=$groupActionList item='groupAction'}
+    {math equation="count" count=$groupAction.actions|@count assign=size}
+    {foreach from=$groupAction.actions item='action' name='itm'}
+	<tr class="ow_tr_first">
+        {if $smarty.foreach.itm.first}
+            <th colspan="{$typesNumber+1}" {*class="ow_alt1" rowspan="{$size}"*}>{if !empty($labels[$groupAction.name])}{$labels[$groupAction.name].label}{else}{$groupAction.name}{/if}</th>
+        {/if}
+	</tr>
+	<tr {if $smarty.foreach.itm.last}class="ow_tr_last"{/if}>
+        {capture assign='altClass'}{cycle values='ow_alt1,ow_alt2'}{/capture}
+        {capture assign='actionName'}{$action->name}{/capture}
+        <td class="{$altClass} ow_txtleft ow_small">{if !empty($labels[$groupAction.name].actions[$actionName])}{$labels[$groupAction.name].actions[$actionName]}{else}{$actionName}{/if}</td>
+        {assign var="actionId" value=$action->id}
+        {foreach from=$mTypePermissions item='mt'}
+        <td class="{$altClass}{if $mt.current} ow_highbox{/if}">
+            {if isset($mt.$perm.$actionId)}<span class="ow_action_allowed ow_ic_ok"> </span>{/if}
+        </td>
+        {/foreach}
+    </tr>
+    {/foreach}
+    <tr class="ow_tr_delimiter"><td></td></tr>
+{/foreach}
+{if $plansNumber}
+<tr class="ow_tr_first">
+    <td class="ow_plans_td_empty"></td>
+    {assign var='firstSet' value='0'}
+    {foreach from=$mTypePermissions item='mt'}
+    <td class="ow_alt1 ow_membership_plans{if $mt.current} ow_highbox{/if}">
+
+    <ul class="ow_small">
+        {foreach from=$mt.plans item='plan'}
+        <li>
+        {if !$firstSet}
+            {input name='plan' value=$plan.dto->id label=$plan.plan_format checked='checked'}
+            {assign var='firstSet' value='1'}
+        {else}
+            {input name='plan' value=$plan.dto->id label=$plan.plan_format}
+        {/if}
+        </li>
+        {/foreach}
+    </ul>
+
+    </td>
+    {/foreach}
+</tr>
+<tr class="ow_center ow_tr_last">
+    <td class="ow_gateways_td_empty" id="billing_gateway_extra_information">
+
+    </td>
+    <td colspan="{$typesNumber}">
+        {input name='gateway'}
+    </td>
+</tr>
+{/if}
+
+</table>
+{if $gatewaysActive && $plansNumber}<div class="clearfix ow_stdmargin"><div class="ow_right">{submit name='subscribe' class='ow_positive'}</div></div>{/if}
+</div>
+{/form}

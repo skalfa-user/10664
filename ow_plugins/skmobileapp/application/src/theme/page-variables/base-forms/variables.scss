@@ -1,0 +1,38 @@
+/* SK */
+$sk-section-color: #6D6D72;
+$sk-label-color: #030303;
+$sk-desc-color: #A9A9B1;
+$sk-question-warning-bg: #FFFCE4;
+$sk-divide-border-short-color: #D8D8D8;
+$sk-placeholder-color: #474747;
+$sk-searchbar-bg: #DEE0E3;
+$sk-compatibility-bg: #C0BCBC;
+
+/* Common ionic */
+$list-border-color: $sk-divide-border-short-color;
+$text-input-placeholder-color: $sk-desc-color;
+$item-md-divider-border-bottom: none;
+
+
+/* IOS ionic */
+$button-ios-height: 2.8em;
+$button-ios-font-size: 1.8rem;
+$label-ios-text-color: color($colors, dark);
+$datetime-ios-placeholder-color: $sk-desc-color;
+$select-ios-placeholder-color: $sk-desc-color;
+
+
+
+/* Android ionic */
+$text-input-md-show-success-highlight: false;
+$text-input-md-show-error-highlight: false;
+$text-input-md-show-focus-highlight: false;
+$button-md-text-transform: none;
+$button-md-height: 2.8em;
+$button-md-font-size: 1.8rem;
+$label-md-text-color: color($colors, dark);
+$label-md-text-color-focused: color($colors, dark);
+$list-md-border-color: $sk-divide-border-short-color;
+$datetime-md-placeholder-color: $sk-desc-color;
+$select-md-placeholder-color: $sk-desc-color;
+$range-md-knob-min-border: none;

@@ -1,0 +1,14 @@
+[{
+    "id": "191062_1000",
+    "isNew": false,
+    "isReply": false,
+    "isOpponentRead": false,
+    "lastMessageTimestamp": 0,
+    "previewText": "test",
+    "avatar": null,
+    "user": {
+        "id": 1000,
+        "userName": "test2",
+        "isBlocked": false
+    }
+}]

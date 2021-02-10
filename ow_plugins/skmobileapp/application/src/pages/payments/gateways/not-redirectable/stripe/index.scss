@@ -1,0 +1,26 @@
+.sk-billing-non-redirect-page {
+    background-color: color($colors, sk-page-bg);
+
+    .sk-stripe-fields {
+        .sk-stripe-item {
+            &-label {
+                font-size: 1.7rem;
+                white-space: normal;
+
+                span {
+                    font-size: 2rem;
+                    font-weight: 500;
+                    color: color($colors, primary);
+                }
+            }
+            &-content {
+                @include padding(null, null, null, 0);
+                background: transparent;
+
+                .item-inner {
+                    border: 0;
+                }
+            }
+        }
+    }
+}

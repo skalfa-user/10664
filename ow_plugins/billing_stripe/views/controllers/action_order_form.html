@@ -1,0 +1,62 @@
+<div class="ow_wide ow_automargin stripe-card-page">
+    <form method="post" id="{$formId}" action="{$formAction}">
+        {block_decorator name='box' capEnabled=false addClass='ow_credit_card ow_break_word ow_stdmargin'}
+        <div class="ow_smallmargin credit-card-info">
+            <span class="ow_outline">{$productString}</span>
+        </div>
+
+        <table class="ow_table_3">
+            <tbody>
+            <tr class="ow_tr_first">
+                <th colspan="2">{text key='billingstripe+card_details'}</th>
+            </tr>
+            <tr>
+                <td class="ow_label">{text key='billingstripe+card_number'}</td>
+                <td class="ow_value"><div id="card-element"></div></td>
+            </tr>
+            <tr class="ow_tr_last">
+                <td class="ow_label">{text key='billingstripe+name_on_card'}</td>
+                <td class="ow_value"><input id="cardholder-name" type="text" autocomplete="off" class="c-name" /></td>
+            </tr>
+            </tbody>
+        </table>
+        {if $requireData}
+        <table class="ow_table_3 ow_billing_info">
+            <tbody>
+            <tr class="ow_tr_first">
+                <th colspan="2">{text key='billingstripe+billing_info'}</th>
+            </tr>
+            <tr>
+                <td class="ow_label">{text key='billingstripe+country'}</td>
+                <td class="ow_value">
+                    <select class="billing-country">
+                        <option value="">{text key='billingstripe+choose_country'}</option>
+                        {foreach from=$countries item='label' key='code'}
+                        <option value="{$code}">{$label}</option>
+                        {/foreach}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="ow_label">{text key='billingstripe+state'}</td>
+                <td class="ow_value"><input type="text" class="billing-state"></td>
+            </tr>
+            <tr>
+                <td class="ow_label">{text key='billingstripe+address'}</td>
+                <td class="ow_value"><input type="text" class="billing-address1"></td>
+            </tr>
+            <tr class="ow_tr_last">
+                <td class="ow_label">{text key='billingstripe+zip_code'}</td>
+                <td class="ow_value"><input type="text" class="billing-zip" style="width: 80px;" /></td>
+            </tr>
+            </tbody>
+        </table>
+        {/if}
+        {/block_decorator}
+        <div class="clearfix ow_stdmargin">
+            <div class="ow_right">
+                {decorator name='button' id='card-button' langLabel='billingstripe+complete_order'}
+            </div>
+        </div>
+    </form>
+</div>

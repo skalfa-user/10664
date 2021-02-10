@@ -1,0 +1,12 @@
+
+<div class="ow_automargin ow_wide">
+	{block_decorator name='box' iconClass='ow_ic_warning' langLabel='admin+delete_content_warning'}
+	<form id="form_delete" method="post">
+        <input type="hidden" name="action" value="delete_rules" />
+	    <div class="ow_smallmargin">{text key='matchmaking+uninstall_confirm_text'}</div>
+	    <div class="ow_txtright">
+	    {decorator name='button' type='submit' id='btn-delete-rules' langLabel='matchmaking+btn_label_delete' class='ow_ic_delete ow_negative'}
+	    </div>
+	</form>
+	{/block_decorator}
+</div>

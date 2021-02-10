@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_calendar</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-191.000000, -2026.000000)" fill="#ffffff">
+            <g id="ic_calendar" transform="translate(191.000000, 2026.000000)">
+                <g id="Group">
+                    <path d="M14,2 L14,3 C14,4.103 13.104,5 12,5 C10.897,5 10,4.103 10,3 L10,2 L6,2 L6,3 C6,4.103 5.103,5 4,5 C2.897,5 2,4.103 2,3 L2,2 L0,2 L0,16 L16,16 L16,2 L14,2 M14,14 L2,14 L2,7 L14,7 L14,14" id="Shape"></path>
+                    <path d="M4,0 C3.448,0 3,0.448 3,1 L3,2 L3,3 C3,3.552 3.448,4 4,4 C4.552,4 5,3.552 5,3 L5,2 L5,1 C5,0.448 4.552,0 4,0" id="Shape"></path>
+                    <path d="M12,0 C11.448,0 11,0.448 11,1 L11,2 L11,3 C11,3.552 11.448,4 12,4 C12.553,4 13,3.552 13,3 L13,2 L13,1 C13,0.448 12.553,0 12,0" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

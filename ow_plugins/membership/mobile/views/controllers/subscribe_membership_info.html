@@ -1,0 +1,77 @@
+<section id="content">
+    <div class="owm_subscribe_page">
+        {if $showCurrentMembershipInfo == 1}
+        {if isset($current)}
+        <div class="owm_subscribe_table owm_credit_info_table owm_small_margin_bottom">
+        <table class="owm_tab_info">
+            <tbody><tr class="own_tr_first">
+                <td class="owm_td_label">{text key='membership+your_membership'}: {if isset($currentTitle)}{$currentTitle}{if $current->recurring} ({text key='membership+recurring'}){/if}{/if}</td>
+                <td class="owm_td_value"></td>
+            </tr>
+            <tr class="own_tr_last">
+                <td class="owm_td_label">{text key='membership+expires'}: {format_date timestamp=$current->expirationStamp}</td>
+                <td class="owm_td_value"></td>
+            </tr>
+            </tbody></table>
+            </div>
+        {else}
+        <div class="owm_subscribe_table owm_credit_info_table owm_small_margin_bottom">
+        <table class="owm_tab_info">
+            <tbody><tr class="own_tr_first">
+                <td class="owm_td_label">{text key='membership+your_membership'}: {$defaultTitle}</td>
+                <td class="owm_td_value"></td>
+            </tr>
+            </tbody></table>
+            </div>
+
+        {/if}
+        {else}
+
+        {/if}
+        <div class="owm_subscribe_packs owm_small_margin_bottom">
+            {foreach from=$mTypePermissions item='mt'}
+            {foreach from=$mt.plans item='plan'}
+            <div class="owm_subscribe_packs_item owm_btn_wide owm_btn_positive">
+                <input type="button" value="{$plan.plan_format}" onclick="window.location = '{$plan.link}'">
+            </div>
+            {/foreach}
+            {/foreach}
+        </div>
+
+        {assign var="perm" value="permissions"}
+        <div class="owm_subscribe_table owm_small_margin_bottom">
+            <table class="owm_tab_info">
+        {foreach from=$groupActionList item='groupAction'}
+                {assign var="actionGroupShowed" value=0}
+                {foreach from=$groupAction.actions item='action' name='itm'}
+                    {if isset($mTypePermissions[$membershipId].$perm[$action->id])}
+                        {if $actionGroupShowed == 0}
+                                 <th class="ow_section" colspan="2">
+                                     <span>
+                                         {if !empty($labels[$groupAction.name])}{$labels[$groupAction.name].label}{else}{$groupAction.name}{/if}
+                                     </span>
+                                 </th>
+                                 {assign var="actionGroupShowed" value=1}
+                    {/if}
+                    {capture assign='actionName'}{$action->name}{/capture}
+                    {assign var="actionId" value=$action->id}
+                    {foreach from=$mTypePermissions item='mt'}
+                        {if isset($mt.$perm.$actionId)}
+                            <tr class="{if $smarty.foreach.itm.first}own_tr_first{else if $smarty.foreach.itm.last}own_tr_last{/if}">
+                                <td class="owm_td_label owm_remark">
+                                    <span>
+                                        {if !empty($labels[$groupAction.name].actions[$actionName])}{$labels[$groupAction.name].actions[$actionName]}{else}{$actionName}{/if}
+                                    </span>
+                                </td>
+                                <td class="owm_td_value"><span class="owm_ico_check"></span></td>
+                            </tr>
+                        {/if}
+                    {/foreach}
+                    {/if}
+                    {/foreach}
+                {/foreach}
+            </table>
+        </div>
+    </div>
+</section>
+

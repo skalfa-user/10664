@@ -1,0 +1,71 @@
+{*
+
+/**
+* Copyright (c) 2014, Skalfa LLC
+* All rights reserved.
+*
+* ATTENTION: This commercial software is intended for exclusive use with SkaDate Dating Software (http://www.skadate.com) and is licensed under SkaDate Exclusive License by Skalfa LLC.
+*
+* Full text of this license can be found at http://www.skadate.com/sel.pdf
+*/
+
+/**
+*
+*
+* @author Kairat Bakitow <kainisoft@gmail.com>
+* @package ow_plugins.slpremiumtheme
+* @since 1.0
+*/
+
+*}
+
+{foreach $userList as $user}
+    {if $user@iteration <= 3}
+        {capture append='even'}
+    {else}
+        {capture append='odd'}
+    {/if}
+
+    <div class="ul_mosaic_item">
+        <div class="ul_mosaic_avatar" style="background-image: url('{$user.src}');">
+            <a href="{$user.url}"></a>
+        </div>
+
+        <div class="ul_mosaic_info">
+            <div class="ul_mosaic_info_row ul_mosaic_info_name"><a href="{$user.url}">{$user.displayName}</a></div>
+            <div class="ul_mosaic_info_line"></div>
+            <div class="ul_mosaic_info_row info_sex_age">
+                {if !empty($user.data.sex)}
+                    {$user.data.sex}{if !empty($user.data.age)},
+                        {$user.data.age}
+                    {/if}
+                {else}
+                    {if !empty($user.data.age)}
+                        {$user.data.age}
+                    {/if}
+                {/if}
+            </div>
+            <div class="ul_mosaic_info_row info_address">
+                {if !empty($user.data.address)}
+                    {$user.data.address}
+                {/if}
+            </div>
+        </div>
+    </div>
+    {/capture}
+{/foreach}
+
+<div id="fade-user-list" class="ul_mosaic">
+    <div class="ul_mosaic_row clearfix">
+        {foreach $even as $item}
+            {$item}
+        {/foreach}
+    </div>
+    <div class="ul_mosaic_row clearfix ul_mosaic_ralign">
+        {if !empty($odd)}
+            {foreach $odd as $item}
+                {$item}
+            {/foreach}
+        {/if}
+    </div>
+</div>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="videoim" label="Video Instant Messenger" language_tag="en" language_label="English">
+    <key name="mobile_timed_call_info"><value>{{amount}} credits per minute</value></key>
+</prefix>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="winks" label="Winks" language_tag="en" language_label="English">
+    <key name="wink_email_notifications_section_label"><value>Messages</value></key>
+</prefix>

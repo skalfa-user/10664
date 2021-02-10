@@ -1,0 +1,81 @@
+.sk-match-modal {
+    @include linear-gradient($sk-match-gradient-start, $sk-match-gradient-end, vertical);
+
+    .sk-match-modal-wrap {
+        padding: 4.8rem 2.4rem;
+
+        .sk-match-modal-top {
+            text-align: center;
+
+            h2 {
+                margin-bottom: 0;
+                color: $sk-match-title;
+                font-size: 5rem;
+                font-weight: bold;
+            }
+
+            span {
+                color: $sk-match-descr;
+                font-size: 1.9rem;
+            }
+
+            .sk-match-modal-users {
+                @include flex(flex, row, center, stretch);
+                padding: 3.2rem 0;
+
+                .sk-match-modal-avatar {
+                    position: relative;
+                    margin: 0 1.5rem;
+                    width: 30vw;
+                    height: 30vw;
+
+                    user-avatar {
+                        display: block;
+                        height: 100%;
+                        border-radius: 100%;
+                    }
+
+                    .sk-photo-pending {
+                        top: 0;
+                        border-radius: 100%;
+
+                        &>img {
+                            height: 15vw;
+                            width: 15vw;
+                        }
+                    }
+                    img {
+                        border-radius: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+        .sk-match-modal-bottom {
+            margin-top: 8vh;
+
+            .sk-buttons {
+                @include flex(flex, column, center, center);
+
+                button {
+                    margin-bottom: 1.5rem;
+                    padding: 0 2rem;
+                    border-width: 2px;
+                    border-color: $sk-match-btn-border-color;
+                    color: $sk-match-btn-color;
+                    font-size: 1.9rem;
+                    min-width: 66%;
+
+                    &:first-child {
+                        background: $sk-match-send-message-btn;
+                        border: none;
+                    }
+
+                    img {
+                        @include margin(null, 1.4rem, null, null);
+                    }
+                }
+            }
+        }
+    }
+}

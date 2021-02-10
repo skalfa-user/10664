@@ -1,0 +1,180 @@
+<div class="index_master_page_wrap custom_platinum_pro_index">
+    <div class="ow_page_wrap index_master_page">
+        <div class="ow_menu_fullpage">
+            <div class="ow_menu_fullpage_wrap">{$main_menu}</div>
+        </div>
+        <div class="ow_page_wrap_in">
+            <div class="ow_page_padding">
+                <div class="ow_site_panel_wrap">
+                    <div class="ow_site_panel">
+                        <div class="ow_nav_btn"></div>
+                        <div class="ow_logo_wrap">
+                            <a href="{$siteUrl}"></a>
+                        </div>
+                        {component class='BASE_CMP_Console'}
+                    </div>
+                </div>
+
+                <div class="header_img_wrapper">
+                    {component class='CUSTOMINDEX_CMP_Camera'}
+                </div>
+
+                <div class="scroll_wrapper">
+                    <div class="ow_nav_btn"></div>
+                    <div class="ow_menu_wrap">{component class='BASE_CMP_MainMenu' responsive=true}</div>
+
+                    <!--why join?-->
+                    <section class="ow_canvas clearfix">
+                        <div class="why_join">
+                            <div class="section_title">
+                                <!--customindex+text_block_why_join_title-->
+                                {text key='customindex+text_block_why_join_title'}
+                            </div>
+                            <div class="why_join_items">
+                                <div class="why_join_item_wrapper">
+                                    <div class="why_join_item">
+                                        <!--img Experience-->
+                                        <div class="img-experience"></div>
+                                        <!--customindex+why_join_item_content_1-->
+                                        {text key='customindex+why_join_item_content_1'}
+                                    </div>
+                                </div>
+                                <div class="why_join_item_wrapper">
+                                    <div class="why_join_item">
+                                        <!--img Exclusive-->
+                                        <div class="img-exclusive"></div>
+                                        <!--customindex+why_join_item_content_2-->
+                                        {text key='customindex+why_join_item_content_2'}
+                                    </div>
+                                </div>
+                                <div class="why_join_item_wrapper">
+                                    <div class="why_join_item">
+                                        <!--img Comparison-->
+                                        <div class="img-comparison"></div>
+                                        <!--customindex+why_join_item_content_3-->
+                                        {text key='customindex+why_join_item_content_3'}
+                                    </div>
+                                </div>
+                                <div class="why_join_item_wrapper">
+                                    <div class="why_join_item">
+                                        <!--img Feedback-->
+                                        <div class="img-feedback"></div>
+                                        <!--customindex+why_join_item_content_4-->
+                                        {text key='customindex+why_join_item_content_4'}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--why join?-->
+
+                    <!--hottest_users-->
+                    <section class="hottest_users">
+                        <div class="ow_canvas clearfix">
+                            {component class="BASE_CMP_UserList" count="15"}
+                        </div>
+                    </section>
+                    <!--hottest_users-->
+
+                    <!--articles-->
+                    <section class="articles">
+                        <div class="ow_canvas clearfix">
+                            {component class="ARTICLES_CMP_Index"}
+                        </div>
+                    </section>
+                    <!--articles-->
+                </div>
+
+                <div class="footer_helper"></div>
+
+                <div class="ow_footer">
+                    <div class="ow_canvas">
+                        <div class="ow_page clearfix">
+                            <div class="footer_item">
+                                <div class="footer_menu_links">
+                                    {$bottom_menu}
+                                </div>
+                            </div>
+                            <div class="footer_copyright">
+                                <div class="ow_copyright">
+                                    {text key='base+copyright'}
+                                </div>
+                                {$bottomPoweredByLink}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+{decorator name='floatbox'}
+
+<script type="text/javascript" src="{$themeStaticUrl}libs/jquery.simpleselect.js"></script>
+<link rel="stylesheet" type="text/css" href="{$themeStaticUrl}/libs/jquery.simpleselect.css" media="all">
+
+<script type="text/javascript" src="{$themeStaticUrl}libs/carouse_owl_carousel2/owl.carousel.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{$themeStaticUrl}/libs/carouse_owl_carousel2/assets/owl.carousel.min.css" media="all">
+
+<script type="text/javascript" src="{$themeStaticUrl}js/script.js"></script>
+<script>
+    $(document).ready(function() {
+        SmartMenuColor();
+        $(window).scroll(function() {
+            SmartMenuColor();
+        });
+        function SmartMenuColor() {
+            var winScroll = $(window).scrollTop();
+
+            //parallax
+            var qqq = - + (winScroll + 62);
+            $('.cameraCont').css("top", winScroll * 0.8);
+            $('.header_img_wrapper').css("top", qqq);
+
+            if (winScroll > 0) {
+                $('.ow_site_panel_wrap').addClass('site_panel_wrap_bg_color');
+            } else {
+                $('.ow_site_panel_wrap').removeClass('site_panel_wrap_bg_color');
+            }
+        }
+
+        $("#stories_carousel_selector").owlCarousel({
+            items:1,
+            loop:true,
+            margin:10,
+            dots: true,
+            autoplay:true,
+            autoplayTimeout:10000,
+            autoplayHoverPause:true,
+            smartSpeed: 500,
+            autoHeight:true
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).scroll(function() {
+        var $menuwrappos = $('.ow_menu_wrap').offset().top;
+        if ($(this).scrollTop() > $menuwrappos) {
+            $('.ow_page_wrap').addClass('ow_hidden_menu');
+        }
+        else {
+            $('.ow_page_wrap').removeClass('ow_hidden_menu');
+        }
+    });
+    $('.ow_nav_btn').click(function() {
+        if ($('body').hasClass('ow_menu_active')) {
+            $('body').removeClass('ow_menu_active');
+        }
+        else {
+            $('body').addClass('ow_menu_active');
+        }
+    })
+    $('.ow_menu_fullpage_wrap a').click(function() {
+        $('body').removeClass('ow_menu_active');
+    })
+</script>

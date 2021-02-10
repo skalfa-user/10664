@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_key</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-568.000000, -2029.000000)" fill="#ffffff">
+            <g id="ic_key" transform="translate(568.000000, 2029.000000)">
+                <g id="Group">
+                    <path d="M3.938,7.125 C1.763,7.125 0,8.888 0,11.062 C0,13.236 1.763,15 3.938,15 C6.113,15 7.875,13.237 7.875,11.062 C7.875,8.887 6.112,7.125 3.938,7.125 M3.885,8.98 C5.064,8.98 6.02,9.936 6.02,11.116 C6.02,12.296 5.064,13.251 3.885,13.251 C2.706,13.251 1.75,12.296 1.75,11.116 C1.75,9.936 2.706,8.98 3.885,8.98" id="Shape"></path>
+                    <path d="M12.522,0.882 L4.974,8.433 L6.829,10.289 L14.379,2.737 C14.379,2.737 15.316,2.055 14.261,1 C13.293,0.032 12.522,0.882 12.522,0.882" id="Shape"></path>
+                    <polygon id="Shape" transform="translate(12.482299, 4.626571) rotate(225.004051) translate(-12.482299, -4.626571) " points="10.2971658 2.12641799 14.667433 2.12641799 14.667433 7.12672361 10.2971658 7.12672361"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

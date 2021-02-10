@@ -1,0 +1,31 @@
+.sk-gdpr-page {
+    background-color: color($colors, sk-page-bg);
+
+    .sk-user-data-sections {
+        background-color: color($colors, light);
+        @include padding(null, null, null, 1.6rem);
+
+        .sk-user-data-section:last-child {
+            border: none;
+        }
+    }
+    .sk-gdpr-profile-edit-btn {
+        background-color: color($colors, light);
+        color: color($colors, primary);
+    }
+}
+
+.sk-gdpr-footer {
+    .sk-buttons {
+        button {
+            max-width: 100%;
+            background-color: color($colors, light);
+            margin-top: 0.6rem;
+            color: color($colors, primary);
+            
+            &.sk-user-data-deletion-btn {
+                color: color($colors, secondary);
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_dashboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-881.000000, -1997.000000)" fill="#ffffff">
+            <g id="ic_dashboard" transform="translate(880.000000, 1996.000000)">
+                <g id="Group">
+                    <path d="M8.998,2.998 C11.452,2.998 13.634,4.467 14.559,6.74 C15.805,9.804 14.326,13.312 11.261,14.559 C10.536,14.853 9.777,15.002 9.003,15.002 C6.549,15.002 4.366,13.533 3.442,11.261 C2.196,8.196 3.675,4.688 6.74,3.442 C7.464,3.147 8.224,2.998 8.998,2.998 L8.998,2.998 Z M8.997,0.998 C7.997,0.998 6.973,1.188 5.987,1.589 C1.895,3.254 -0.073,7.92 1.59,12.014 C2.853,15.12 5.845,17.002 9.004,17.002 C10.004,17.002 11.027,16.813 12.014,16.411 C16.107,14.746 18.074,10.079 16.411,5.986 C15.147,2.88 12.155,0.998 8.997,0.998 L8.997,0.998 Z" id="Shape"></path>
+                    <path d="M9,6.428 L7.809,12.382 C7.809,13.04 8.342,13.572 9,13.572 C9.658,13.572 10.19,13.04 10.19,12.382 C10.19,12.382 9.297,7.916 9,6.428" id="Shape"></path>
+                    <circle id="Oval" cx="7.493" cy="5.295" r="1"></circle>
+                    <circle id="Oval" cx="5.309" cy="7.459" r="1"></circle>
+                    <path d="M13.08,8.428 C12.57,8.636 11.986,8.389 11.779,7.876 C11.573,7.363 11.82,6.781 12.334,6.574 C12.843,6.367 13.428,6.615 13.634,7.127 C13.841,7.639 13.594,8.221 13.08,8.428" id="Shape"></path>
+                    <circle id="Oval" cx="10.549" cy="5.312" r="1"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

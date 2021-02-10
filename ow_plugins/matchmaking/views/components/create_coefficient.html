@@ -1,0 +1,7 @@
+<div>
+    <div class="coefficients_cont clearfix">
+        {section name=foo loop=$maxCoefficient}
+        <a href="javascript://" class="coefficient_item {if $coefficient >= $smarty.section.foo.iteration}active{/if}" id="{$cmpId}_item_{$smarty.section.foo.iteration}">&nbsp;</a>
+        {/section}
+    </div>
+</div>

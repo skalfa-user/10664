@@ -1,0 +1,50 @@
+.sk-blank-state {
+    &-wrap {
+        @include flex(flex, column, center, center);
+        min-height: 100%;
+
+        .sk-buttons {
+            margin-top: 5.6rem;
+        }
+    }
+
+    &-icon {
+        width: 60%;
+        margin-bottom: 2rem;
+    }
+
+    &-cont {
+        text-align: center;
+        color: $sk-blankstate-txt;
+        margin: 0 1rem 2rem;
+        font-size: 1.8rem;
+
+        h1, h2 {
+            font-size: 2rem;
+            color: $sk-blankstate-title;
+            margin: 0 0 0.9rem;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}
+
+.sk-blank-state-footer {
+    .toolbar-background {
+        border-color: $sk-blankstate-footer-border;
+        background: $sk-blankstate-footer-bg;
+    }
+
+    button {
+        color: $sk-blankstate-txt;
+    }
+}
+
+.sk-nothing-found,
+.sk-permission-denied {
+    .sk-blank-state-icon {
+        width: 20%;
+    }
+}

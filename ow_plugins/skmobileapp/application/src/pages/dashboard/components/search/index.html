@@ -1,0 +1,90 @@
+<div class="sk-search-tab sk-navigation-tab sk-height-wrap">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isDashboardLoading" name="card-list-with-search-input" repeatTimes="6"></skeleton-preloader>
+
+    <!-- user search -->
+    <ng-template [ngIf]="!isDashboardLoading">
+        <!-- search box -->
+        <div *ngIf="isSearchAllowed" padding-right padding-left class="sk-search-bar {{ !isSearchByUserNameAllowed ? 'sk-filter-only' : '' }}">
+            <ion-searchbar
+                [(ngModel)]="searchByUserNameFilter"
+                (search)="searchUsers()"
+                placeholder="{{ 'username_input' | translate }}">
+            </ion-searchbar>
+
+            <!-- filters -->
+            <div *ngIf="!isSearchByUserNameAllowed" class="sk-search-filter" (click)="showSearchFilterModal()">
+                {{ 'search_filter' | translate }}
+            </div>
+            <div *ngIf="isSearchByUserNameAllowed" class="sk-search-filter" (click)="showSearchFilterModal()"></div>
+        </div>
+
+        <!-- search is not allowed -->
+        <div *ngIf="!isSearchAllowed" class="sk-permission-denied sk-blank-state-wrap">
+            <img class="sk-blank-state-icon" src="./assets/img/ic-no-permission.svg" alt="" />
+            <div class="sk-blank-state-cont">
+                <h2>{{ 'permission_denied_header' | translate }}</h2>
+                <p *ngIf="payments.isPaymentsAvailable()">
+                    {{ 'permission_denied_alert_message' | translate }}
+                </p>
+            </div>
+            <div class="sk-buttons">
+                <button *ngIf="payments.isPaymentsAvailable()" class="sk-search-upgrade" ion-button outline round (click)="permissions.showAccessDeniedAlert()">
+                    <span class="sk-text-overflow">{{ 'upgrade' | translate }}</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- nothing found wrapper  -->
+        <div *ngIf="!userList.length && !isUserListLoading && isSearchAllowed" class="sk-nothing-found sk-blank-state-wrap">
+            <img class="sk-blank-state-icon" src="./assets/img/ic-not-found.svg" alt="" />
+            <div class="sk-blank-state-cont">
+                <h2>{{ 'empty_user_search_header' | translate }}</h2>
+            </div>
+            <div class="sk-buttons">
+                <button ion-button clear (click)="showSearchFilterModal()">
+                    <span class="sk-text-overflow">{{ 'empty_user_search_desc' | translate }}</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- user list -->
+        <ion-list *ngIf="isSearchAllowed && userList.length && !isUserListLoading" class="sk-card-list sk-card-list-searchmode">
+            <virtual-scroller #searchScroller [items]="userList" executeRefreshOutsideAngularZone="true" (vsUpdate)="ref.detectChanges()">
+                <ng-container *ngFor="let user of searchScroller.viewPortItems; trackBy: trackUserList">
+                    <div class="sk-card-wrap">
+                        <div class="sk-card">
+                            <user-avatar
+                                isUseBigAvatar="false"
+                                [url]="user.avatar?.url"
+                                [isAvatarActive]="user.avatar?.active"
+                                (tap)="viewProfile(user)">
+                            </user-avatar>
+                            <div class="{{ user.isOnline ? 'sk-card-bottom sk-user-online' : 'sk-card-bottom' }}">
+                                <div class="sk-card-info">
+                                    <div class="sk-name">
+                                        <span>{{ user.userName }}</span><b *ngIf="user.age">, {{ user.age }}</b>
+                                    </div>
+                                </div>
+                                <div class="sk-card-info">
+                                    <div *ngIf="user.distance?.unit" class="sk-info">
+                                        <location [distance]="user.distance.distance" [unit]="user.distance.unit"></location>
+                                    </div>
+                                    <div *ngIf="!user.distance?.unit" class="sk-info">
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </virtual-scroller>
+        </ion-list>
+
+        <!-- page skeleton -->
+        <skeleton-preloader *ngIf="isUserListLoading" class="sk-search-skeleton-inner" name="card-list" repeatTimes="6"></skeleton-preloader>
+
+        <!-- permissions -->
+        <permissions #permissions></permissions>
+    </ng-template>
+</div>

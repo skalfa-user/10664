@@ -1,0 +1,7 @@
+<span *ngIf="timer">
+    {{ timer.displayTime }}
+
+    <ng-container *ngIf="isTrackCreditsAllowed && cost !== 0">
+        ({{'vim_mobile_timed_call_info' | translate:{amount: cost} }})
+    </ng-container>
+</span>

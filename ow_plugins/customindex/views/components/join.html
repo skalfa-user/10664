@@ -1,0 +1,32 @@
+<div class="ow_qs ow_customindex-join">
+    {form name='joinForm'}
+
+        {foreach from=$questionArray key='section' item='questions' name='section'}
+
+            <!-- question list -->
+            {foreach from=$questions item='question' name='question'}
+                <div class="ow_qs_field {if !empty($question.trClass)}{$question.trClass}{/if} ow_qs_presentation_{$question.presentation}">
+                    <span class="ow_qs_label">{label name=$question.name}</span>
+                    <span class="ow_qs_value">{input name=$question.name}</span>
+                    <div>{error name=$question.name}</div>
+                </div>
+
+                <!-- repeat password -->
+                {if $question.name=='password'}
+                    <div class="ow_qs_field {if !empty($question.trClass)}{$question.trClass}{/if} ow_qs_presentation_{$question.presentation}">
+                        <span class="ow_qs_label">{label name='repeatPassword'}</span>
+                        <span class="ow_qs_value">{input name='repeatPassword'}</span>
+                        <div>{error name='repeatPassword'}</div>
+                    </div>
+                {/if}
+            {/foreach}
+
+        {/foreach}
+
+        <!-- submit button -->
+        <div class="clearfix ow_stdmargin ow_qs_btn">
+            {submit name='joinSubmit'}
+        </div>
+
+    {/form}
+</div>

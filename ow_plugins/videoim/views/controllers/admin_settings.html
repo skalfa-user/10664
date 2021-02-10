@@ -1,0 +1,21 @@
+{$menu}
+
+{form name='settings_form'}
+    <table class="ow_table_1 ow_form ow_admin_add_profile_question">
+        <tr class="{cycle values='ow_alt2,ow_alt1'} {if $smarty.foreach.f.first}ow_tr_first{/if} {if $smarty.foreach.f.last}ow_tr_last{/if}">
+            <td class="ow_label">
+                {label name='track_credits_type'}
+            </td>
+            <td class="ow_value">
+                {input name='track_credits_type'}
+                <br/>
+                {error name='track_credits_type'}
+            </td>
+        </tr>
+    </table>
+    <div class="clearfix ow_stdmargin">
+        <div class="ow_right">
+            {submit name='save'}
+        </div>
+    </div>
+{/form}

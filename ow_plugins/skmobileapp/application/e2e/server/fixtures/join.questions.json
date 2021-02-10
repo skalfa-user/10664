@@ -1,0 +1,71 @@
+{
+    "id": "1",
+    "questions": [
+        {
+            "order": 0,
+            "sectionId": 34,
+            "section": "Basic",
+            "items": [
+                {
+                    "type": "text",
+                    "key": "realname",
+                    "label": "Real name",
+                    "placeholder": "Real name",
+                    "values": [],
+                    "value": null,
+                    "validators": [
+                        {
+                            "name": "require"
+                        }
+                    ],
+                    "params": {
+                        "stacked": true
+                    }
+                },
+                {
+                    "type": "age",
+                    "key": "birthdate",
+                    "label": "Birthday",
+                    "placeholder": "Birthday",
+                    "values": [],
+                    "value": null,
+                    "validators": [
+                        {
+                            "name": "require"
+                        }
+                    ],
+                    "params": {
+                        "minDate": 1930,
+                        "maxDate": 1992
+                    }
+                },
+                {
+                    "type": "textarea",
+                    "key": "aboutme",
+                    "label": "About me",
+                    "placeholder": "About me",
+                    "values": [],
+                    "value": null,
+                    "validators": [
+                        {
+                            "name": "require"
+                        }
+                    ],
+                    "params": null
+                },
+                {
+                    "type": "googlemap_location",
+                    "key": "googlemap_location",
+                    "label": "Location",
+                    "placeholder": "Location",
+                    "values": [],
+                    "value": null,
+                    "validators": [],
+                    "params": {
+                        "stacked": true
+                    }
+                }
+            ]
+        }
+    ]
+}

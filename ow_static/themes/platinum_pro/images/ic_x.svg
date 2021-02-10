@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-692.000000, -2003.000000)" fill="#ffffff">
+            <g id="ic_x" transform="translate(691.000000, 2003.000000)">
+                <g id="Layer_1">
+                    <g id="Group">
+                        <path d="M1.301,1.756 C0.91,1.365 0.91,0.732 1.3,0.342 C1.691,-0.049 2.323,-0.049 2.714,0.342 L12.627,10.256 C13.018,10.647 13.018,11.279 12.627,11.67 C12.236,12.061 11.604,12.061 11.212,11.67 L1.301,1.756" id="Shape"></path>
+                        <path d="M11.141,0.401 C11.571,-0.029 12.235,-0.061 12.625,0.329 C13.016,0.72 12.982,1.384 12.555,1.814 L2.732,11.636 C2.303,12.065 1.638,12.098 1.247,11.707 C0.857,11.316 0.889,10.65 1.318,10.223 L11.141,0.401" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

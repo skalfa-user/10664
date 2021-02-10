@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_draft</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-223.000000, -2000.000000)" fill="#ffffff">
+            <g id="ic_draft" transform="translate(223.000000, 2000.000000)">
+                <g id="Group">
+                    <path d="M11,8 C11,9.657 9.657,11 8,11 C6.343,11 5,9.657 5,8 L0,8 L0,16 L16,16 L16,8 L11,8" id="Shape"></path>
+                    <path d="M12.438,2 L14,8.246 L14,14 L2,14 L2,8.246 L3.562,2 L12.438,2 L12.438,2 Z M14,0 L2,0 L0,8 L0,16 L16,16 L16,8 L14,0 L14,0 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

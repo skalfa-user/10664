@@ -1,0 +1,40 @@
+<div class="sk-dashboard-tabs">
+
+    <!-- profile tab -->
+    <div class="sk-tabs-item sk-tabs-profile {{ activeComponent == dashboard.profilePage ? 'active' : '' }}" (click)="changeComponent(dashboard.profilePage)">
+        <img class="sk-tab-ic-active" src="./assets/img/custom-images/ic-profile-active.svg" alt="Profile" />
+        <img class="sk-tab-ic-passive" src="./assets/img/custom-images/ic-profile-passive.svg" alt="Profile" />
+    </div>
+
+    <!-- search tab -->
+    <div class="sk-tabs-item {{ activeComponent == dashboard.searchPage ? 'active' : '' }} ">
+        <!-- hot list, tinder, search toggles -->
+        <div class="sk-tab-toggle">
+
+            <div *ngIf="siteConfigs.isPluginActive('hotlist')" class="sk-tab-toggle-item sk-tab-toggle-hot-list {{ activeSubComponent == dashboard.hotListPage ? 'active' : '' }}" (click)="changeComponent(dashboard.searchPage, dashboard.hotListPage)">
+                <img class="sk-toggle-ic-active" src="./assets/img/custom-images/ic-hotlist-active.svg" alt="Hotlist" />
+                <img class="sk-toggle-ic-passive" src="./assets/img/custom-images/ic-hotlist-passive.svg" alt="Hotlist" />
+            </div>
+
+            <div *ngIf="!siteConfigs.isBrowseSearchMode()" class="sk-tab-toggle-item sk-tab-toggle-tinder {{ activeSubComponent == dashboard.tinderPage ? 'active' : '' }}" (click)="changeComponent(dashboard.searchPage, dashboard.tinderPage)">
+                <img class="sk-toggle-ic-active" src="./assets/img/custom-images/ic-tinder-active.svg" alt="Tinder" />
+                <img class="sk-toggle-ic-passive" src="./assets/img/custom-images/ic-tinder-passive.svg" alt="Tinder" />
+            </div>
+
+            <div *ngIf="!siteConfigs.isTinderSearchMode()" class="sk-tab-toggle-item sk-tab-toggle-search {{ activeSubComponent == dashboard.browsePage ? 'active' : '' }}" (click)="changeComponent(dashboard.searchPage, dashboard.browsePage)">
+                <img class="sk-toggle-ic-active" src="./assets/img/custom-images/ic-search-active.svg" alt="Search" />
+                <img class="sk-toggle-ic-passive" src="./assets/img/custom-images/ic-search-passive.svg" alt="Search" />
+            </div>
+
+            <div class="sk-tab-toggle-active-background"></div>
+
+        </div>
+    </div>
+
+    <!-- conversations tab -->
+    <div class="sk-tabs-item sk-tabs-conversations {{ activeComponent == dashboard.conversationsPage ? 'active' : '' }} {{ (newConversationsCount$ | async) || (newMatchedUsersCount$ | async) ? 'sk-conversation-notification' : '' }}" (click)="changeComponent(dashboard.conversationsPage)">
+        <img class="sk-tab-ic-active" src="./assets/img/custom-images/ic-conversations-active.svg" alt="Conversations" />
+        <img class="sk-tab-ic-passive" src="./assets/img/custom-images/ic-conversations-passive.svg" alt="Conversations" />
+    </div>
+
+</div>

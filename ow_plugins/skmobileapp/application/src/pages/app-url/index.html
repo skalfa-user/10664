@@ -1,0 +1,27 @@
+<ion-header *ngIf="isUrlConfigured">
+    <ion-navbar [hideBackButton]="isAppUrlInProcessing">
+        <ion-title>
+            {{ 'change_site_url_page_header' | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-site-url-page sk-blank-state" padding>
+    <div class="sk-blank-state-wrap">
+        <img class="sk-blank-state-icon" src="./assets/img/logo.svg" alt="" />
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <ion-list class="sk-inputs">
+                <ion-icon name="ios-link"></ion-icon>
+                <question *ngFor="let question of questions" [question]="question" [form]="form"></question>
+            </ion-list>
+        </form>
+
+        <div class="sk-buttons">
+            <button ion-button round [disabled]="isAppUrlInProcessing || questionControl.isFormPending(form)" (click)="onSubmit()">
+                <span class="sk-text-overflow">{{ 'next' | translate }}</span>
+                <ion-spinner class="sk-spinner-btn" *ngIf="isAppUrlInProcessing" name="ios-small"></ion-spinner>
+            </button>
+        </div>
+    </div>
+</ion-content>

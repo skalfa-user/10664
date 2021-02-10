@@ -1,0 +1,25 @@
+{if $users}
+    {foreach from=$users item='userId'}
+        {capture assign='username'}{$userNameList[$userId]}{/capture}
+        <div class="{if $isSearch}user_item_to_add{else}user_item_added{/if}" data-user="{$userId}">
+
+            <div class="ow_txtleft user_list_thumb">{decorator name='avatar_item' data=$avatars[$userId]}</div>
+
+            <div class="ow_txtleft user_list_name">
+                {user_link name=$avatars[$userId].title username=$userNameList[$userId]}
+            </div>
+
+            {if !$isSearch}
+                <span class="remove_user_label">{text key='cvideoupload+remove_user_button_label'}</span>
+            {else}
+                <span hidden class="add_user_label">{text key='cvideoupload+add_user_label'}</span>
+            {/if}
+        </div>
+    {/foreach}
+{else}
+    {if $isSearch}
+        {block_decorator name='box' type='empty' addClass='ow_center'}
+            {text key='cvideoupload+no_users'}
+        {/block_decorator}
+    {/if}
+{/if}

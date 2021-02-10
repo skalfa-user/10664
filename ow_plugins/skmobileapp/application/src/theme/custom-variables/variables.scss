@@ -1,0 +1,83 @@
+// -- Custom theme variables --//
+
+$colors: (
+        primary:    #305CAC,
+        secondary:  #FF554D,
+        danger:     #f53d3d,
+        light:      #fff,
+        dark:       #000,
+        green:      #03D848,
+        yellow:     #FBF6DB,
+
+        sk-page-bg: #EFF1F3,
+        sk-button-invisible: #CFD8E0,
+        sk-user-avatar-bg: #F0F2F3,
+);
+
+//Common styles
+$sk-search-input-bg: #EDF1F4;
+$sk-online-color: #7ED321;
+$sk-compatibility-bg: #C0BCBC; /* back bg of compatibility */
+$sk-compatibility-bar-bg:  #7ED321;
+
+//Login page
+$sk-login-input-bg: transparent;
+$sk-login-input-border: #E8E8E8;
+$sk-login-input-fcolor: #DCDCDC;
+$sk-login-input-placeholder: #979AA1;
+$sk-login-inline-signin:  #DA1300;
+$sk-login-inline-btn-color:  rgba(255, 255, 255, 0.5);
+$sk-login-inline-signup:  rgba(255, 255, 255, 0.5);
+$sk-login-fb-label-color: color($colors, light);
+$sk-login-fb-border-color: rgba(216, 216, 216, 0.2);
+$sk-login-logo-width: 49vw;
+$sk-login-logo-height: auto;
+
+//Tabs
+$sk-tab-toggle-active-background: color($colors, primary);
+
+//Profile Tab 
+$sk-profile-tab-bg: #F2F2F2;
+$sk-profile-tab-avatar-border: #F2F2F2;
+$sk-profile-tab-user-head-shadow: #DFDFDF;
+
+$sk-profile-tab-buttons-border: #F2F2F2;
+$sk-profile-tab-button-color: color($colors, primary);
+$sk-profile-button-bg: transparent;
+
+$sk-profile-tab-name: #545454;
+$sk-profile-tab-about: #9A9A9A;
+
+$sk-guest-count: #DA1300;
+$sk-profile-link: #224990;
+
+//Tinder Cards
+$sk-radar-start-color: #305CAC;
+$sk-radar-end-color: #6E93D8;
+
+//Profile view
+$sk-profile-slider-back: color($colors, primary);
+$sk-profile-slider-bullet: color($colors, primary);
+
+//Messages
+$sk-conversations-bg: #F6F9FA;
+$sk-conversation-item-descr: #707070;
+$sk-badge-new: #DA1300;
+$sk-message-sent-time-color: rgba(255, 255, 255, 0.5);
+$sk-messages-down-counter-bg: #02C441;
+
+$sk-messages-footer-promoted-bg: rgba(color($colors, primary), 0.8);
+$sk-messages-footer-promoted-button-bg: color($colors, primary);
+$sk-messages-footer-promoted-placeholder: rgba(255, 255, 255, 0.5);
+
+//It's a match
+$sk-match-gradient-start: #1B3970;
+$sk-match-gradient-end: #305CAC;
+$sk-match-title: color($colors, light);
+$sk-match-descr: color($colors, light);
+$sk-match-btn-border-color: color($colors, light);
+$sk-match-btn-color: color($colors, light);
+$sk-match-send-message-btn: #DA1300;
+
+//Action sheet color of button text
+$action-sheet-ios-button-text-color: color($colors, primary);

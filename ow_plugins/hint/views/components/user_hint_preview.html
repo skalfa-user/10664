@@ -1,0 +1,124 @@
+{**
+ * Copyright (c) 2012, Sergey Kambalin
+ * All rights reserved.
+
+ * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
+ * and is licensed under Oxwall Store Commercial License.
+ * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ *}
+
+{**
+ *
+ * @author Sergey Kambalin <greyexpert@gmail.com>
+ * @package hint.view
+ **}
+
+{style}
+
+#{$uniqId} .uhint-avatar-image
+{
+    background-image: url({$user.avatar});
+}
+
+{if !empty($cover)}
+
+#{$uniqId} .uhint-body .uhb-head {
+    height: {$cover.height}px;
+}
+
+{/if}
+
+#h-preview-buttons li, #h-preview-buttons li a {
+    cursor: move;
+}
+
+{/style}
+
+{script}
+$( "#h-preview-buttons" ).sortable({
+    tolerance: "pointer",
+    stop: function( event, ui ) {
+        var pos = $(this).sortable("toArray");
+        $.get({$rspUrl}, { sort: JSON.stringify(pos) });
+    }
+});
+
+$( "#h-preview-buttons" ).disableSelection();
+{/script}
+
+<div id="{$uniqId}" class="hint-preview {if !$options.hasLines}hint-on-lines{/if} {if $options.has0line}hint-0-line{/if} hint-container hint-bottom-right">
+    <div class="hint-content ow_border ow_bg_color">
+        <div class="hint-corner-wrap hint-top-corner-wrap">
+            <div class="hint-corner">
+                {$renderedCover}
+            </div>
+        </div>
+
+        <div class="hint-corner-wrap hint-bottom-corner-wrap">
+            <div class="hint-corner"></div>
+        </div>
+
+        <div class="hint-body-wrap">
+            <div class="hint-body">
+
+                <div class="uhint-wrap {if empty($cover)}uhint-no-cover{else}uhint-has-cover{/if}">
+                    <div class="uhint-body">
+
+                        <div class="uhb-head ow_border">
+
+                            {if !empty($cover)}
+                                <img class="uhint-cover-img" src="{$cover.url}" style="{$cover.imageCss}" />
+                            {/if}
+
+                            <div class="uhb-head-text-wrap {if !empty($info.line0)}uhbht-extra-line{/if}">
+                                <div class="uhb-head-text">
+                                    <a href="{$user.url}" class="uhbht-title">
+                                        {$user.displayName}
+                                    </a>
+                                    {if !empty($info.line0)}
+                                        <div class="uhbht-info-line hb-info-line0 ow_small">{$info.line0}</div>
+                                    {/if}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uhb-info clearfix">
+
+                            <div class="uhint-avatar ow_avatar_console ow_bg_color ow_border">
+                                <div class="uhint-avatar-image">
+                                    {if isset($user.role.label)}
+                                        <span class="ow_avatar_label"{if isset($user.role.custom)} style="background-color: {$user.role.custom}"{/if}>
+                                            {$user.role.label}
+                                        </span>
+                                    {/if}
+
+                                    <div class="ow_miniic_live"><span class="ow_live_on"></span><span class="ow_lbutton ow_green">{text key='base+user_list_chat_now'}</span></div>
+                                </div>
+                            </div>
+                            <div class="hb-info-content">
+                                <div class="hb-info-line hb-info-line1">{$info.line1}</div>
+                                <div class="hb-info-line hb-info-line2">{$info.line2}</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {if !empty($buttons)}
+                    <div class="uhint-foot ow_border">
+                        <ul class="ow_bl clearfix" id="h-preview-buttons">
+                            {foreach from=$buttons item="button"}
+                                {if !empty($button.html)}
+                                    {$button.html}
+                                {else}
+                                    <li id="{$button.key}"><a {$button.attrs}>{$button.label}</a></li>
+                                {/if}
+                            {/foreach}
+                        </ul>
+                    </div>
+                    {/if}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

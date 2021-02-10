@@ -1,0 +1,76 @@
+{script}
+{literal}
+$(function(){
+    $("form[name='MainSearchForm'] [name='match_sex']").change(
+        function(){ OW.trigger("usearch.lookin_for_changed", $(this).val()); }
+    );
+});
+{/literal}
+{/script}
+
+{if isset($menu)}{$menu}{/if}
+
+{if isset($authMessage)}
+<div class="owm_nocontent">{$authMessage}</div>
+{else}
+<div class="owm_user_search_form">
+    <div class=" ">
+        {form name=MainSearchForm}
+        
+            {if $displayAccountType==true}
+                {if !empty($displayGender)}
+                    <div class="owm_field_container owm_std_margin_bottom">
+                        <div class="owm_form_label owm_small_margin_bottom">{label name='sex'}</div>
+                        <div class="owm_field_wrap owm_select_wrap">{input name='sex'}</div>
+                        <div class="owm_error_txt">{error name='sex'}</div>
+                    </div>
+                {/if}
+                <div class="owm_field_container owm_std_margin_bottom">
+                    <div class="owm_form_label owm_small_margin_bottom">{label name='match_sex'}</div>
+                    <div class="owm_field_wrap owm_select_wrap">{input name='match_sex'}</div>
+                    <div class="owm_error_txt">{error name='match_sex'}</div>
+                </div>
+                <div class="owm_field_container owm_std_margin_bottom">
+                    <div class="owm_form_label owm_small_margin_bottom">{label name='online'}</div>
+                    <div class="owm_checkbox_wrap"><div class="owm_checkbox_single">{input name='online'}</div></div>
+                    <div class="owm_error_txt">{error name='online'}</div>
+                </div>
+                <div class="owm_field_container owm_std_margin_bottom {$question_prefix}with_photo">
+                    <div class="owm_form_label owm_small_margin_bottom">{label name='with_photo'}</div>
+                    <div class="owm_checkbox_wrap"><div class="owm_checkbox_single">{input name='with_photo'}</div></div>
+                    <div class="owm_error_txt">{error name='with_photo'}</div>
+                </div>
+            {/if}
+            <div class="owm_preloader owm_std_margin_bottom usearch_preloader" style="display:none;"></div>
+            <div class="questions_div usearch_transition">
+                {foreach from=$questionList key='section' item='questions'}
+                    {if !empty($section) }
+                        <div class="owm_field_container owm_section owm_std_margin_bottom {$section_prefix}{$section} " {if empty($visibilityList['sections'][$section])}style="display:none;"{/if}>
+                            <span class="owm_section_label">{text key="base+questions_section_`$section`_label"}</span><div class="owm_section_border"></div>
+                        </div>
+                    {/if}
+                    {foreach from=$questions item='question' name='question'}
+                        {if in_array( $question.presentation, array('text') ) }
+                            <div class="owm_field_container owm_small_margin_bottom {$question_prefix}{$question.name} ow_question_tr  {if !empty($question.trClass)}{$question.trClass}{/if}" {if empty($visibilityList['questions'][$question.name])}style="display:none;"{/if}>
+                                <div class="{if !empty($presentationToClass[$question.presentation]) }{$presentationToClass[$question.presentation]}{else}owm_field_wrap{/if}">{input name=$question.name}</div>
+                                <div class="owm_error_txt">{error name=$question.name}</div>
+                            </div>
+                        {else}
+                            <div class="owm_field_container owm_std_margin_bottom {$question_prefix}{$question.name} ow_question_tr  {if !empty($question.trClass)}{$question.trClass}{/if}" {if empty($visibilityList['questions'][$question.name])}style="display:none;"{/if}>
+                                <div class="owm_form_label owm_small_margin_bottom">{label name=$question.name}</div>
+                                <div class="{if !empty($presentationToClass[$question.presentation]) }{$presentationToClass[$question.presentation]}{else}owm_field_wrap{/if}">
+                                    {input name=$question.name}
+                                </div>
+                                <div class="owm_error_txt">{error name=$question.name}</div>
+                            </div>
+                        {/if}
+                    {/foreach}
+                {/foreach}
+            </div>
+            <div class="owm_btn_wide owm_std_margin_top">
+                {submit name='SearchFormSubmit'}
+            </div>
+        {/form}
+    </div>
+</div>
+{/if}

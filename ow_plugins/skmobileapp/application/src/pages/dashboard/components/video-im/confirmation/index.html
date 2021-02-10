@@ -1,0 +1,66 @@
+<ion-content padding class="sk-videoim-window sk-videoim sk-videoim-incoming-call">
+    <div class="sk-videoim-cover" [ngStyle]="{'background-image': 'url(' + callerData?.avatar?.url + ')'}"></div>
+    <div class="sk-videoim-overlay"></div>
+    <div class="sk-videoim-cont">
+        <div class="sk-videoim-top">
+            <div class="sk-videoim-text">
+                <span>{{ 'vim_incoming_call' | translate }}</span>
+                <h2>{{ callerData.user.userName }}</h2>
+            </div>
+        </div>
+        <div class="sk-videoim-center">
+            <div class="sk-videoim-avatar">
+                <div class="circle"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+                <user-avatar
+                        [url]="callerData?.avatar?.url"
+                        [isAvatarActive]="callerData?.avatar?.active">
+                </user-avatar>
+            </div>
+        </div>
+
+        <div class="sk-videoim-bottom">
+            <div class="sk-videoim-controls">
+                <!-- Accept -->
+                <button (tap)="accept()" ion-button clear class="sk-videoim-icon sk-videoim-icon-accept">
+                    <svg version="1.1" id="videoim-accept" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    	 width="140px" height="140px" viewBox="160 0 140 140" enable-background="new 160 0 140 140" xml:space="preserve">
+                    <path fill="#FFFFFF" d="M198.812,41.056c-7.817,20.518,15.07,40.858,15.07,40.858l0.502,0.502l4.701,4.701
+                    	c0,0,20.342,22.889,40.859,15.071c0,0,10.259-5.372,7.325-8.792c-2.93-3.418-11.602-11.601-11.602-11.601s-2.676-4.144-9.031,2.448
+                    	c-6.354,6.588-12.896,2.628-14.973,1.042c-1.317-1.01-5.224-4.604-7.898-7.092c-2.894-3.081-7.043-7.542-8.051-8.857
+                    	c-1.587-2.078-5.547-8.619,1.042-14.973c6.589-6.357,2.447-9.032,2.447-9.032s-8.185-8.673-11.603-11.603
+                    	C204.184,30.797,198.812,41.056,198.812,41.056z"/>
+                    </svg>
+                </button>
+                <!-- Decline -->
+                <button (tap)="decline()" ion-button clear class="sk-videoim-icon sk-videoim-icon-hangup">
+                    <svg version="1.1" id="videoim-hangup" xmlns="http://www.w3.org/2000/svg"             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    	             width="140px" height="140px" viewBox="0 0 140 140" enable-background="new 0 0 140 140" xml:space="preserve">
+                        <path fill="#FFFFFF" d="M114.529,71.363c-8.98-20.036-39.548-18.234-39.548-18.234h-0.71h-6.649c0,0-30.568-1.801-39.548,18.234
+                        	c0,0-3.456,11.053,1.036,11.396c4.489,0.346,16.407,0,16.407,0s4.821,1.037,4.655-8.117c-0.166-9.152,7.26-10.977,9.851-11.324
+                        	c1.645-0.218,6.948-0.438,10.599-0.57c4.225,0.132,10.312,0.353,11.956,0.57c2.591,0.347,10.017,2.172,9.851,11.324
+                        	c-0.164,9.154,4.656,8.117,4.656,8.117s11.92,0.346,16.409,0C117.984,82.416,114.529,71.363,114.529,71.363z"/>
+                    </svg>
+                </button>
+                <!-- Block -->
+                <button (tap)="block()" ion-button clear class="sk-videoim-icon sk-videoim-icon-block">
+                    <svg version="1.1" id="videoim-block" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    	 width="140px" height="140px" viewBox="0 0 140 140" enable-background="new 0 0 140 140" xml:space="preserve">
+                        <g>
+                        	<path fill="#FFFFFF" fill-opacity=".4" d="M70-0.5C31.127-0.5-0.499,31.126-0.5,70c0.001,38.874,31.627,70.5,70.5,70.5
+                        		c38.875,0,70.502-31.626,70.502-70.5S108.875-0.5,70-0.5z M70,135.5c-36.116,0-65.499-29.383-65.5-65.5
+                        		C4.501,33.883,33.884,4.5,70,4.5c36.118,0,65.502,29.383,65.502,65.5C135.502,106.117,106.118,135.5,70,135.5z"/>
+                        	<path fill="#FFFFFF" fill-opacity=".4" d="M95.555,83.969C95.348,70.09,83.884,58.798,70,58.798c-13.884,0-25.348,11.292-25.552,25.145l-1.005,14.662
+                        		c-0.311,4.526,2.32,8.676,6.546,10.324c0.902,0.353,9.123,3.444,20.01,3.444c11.083,0,19.202-3.119,20.091-3.476
+                        		c4.178-1.67,6.776-5.807,6.468-10.293L95.555,83.969z"/>
+                        	<path fill="#FFFFFF" fill-opacity=".4" d="M70,56.7c8.53,0,15.471-6.94,15.471-15.471S78.53,25.758,70,25.758c-8.531,0-15.471,6.94-15.471,15.471
+                        		S61.469,56.7,70,56.7z"/>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</ion-content>

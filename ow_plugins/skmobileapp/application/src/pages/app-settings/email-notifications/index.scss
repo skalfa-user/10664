@@ -1,0 +1,16 @@
+.sk-email-notifications-page {
+    background-color: color($colors, sk-page-bg);
+        
+    .sk-email-notifications-email-wrap {
+        .item-inner {
+            border: none;
+        }
+    }
+
+    .sk-checkbox-question-presentation {
+        .label {
+            color: color($colors, dark);
+            font-size: 1.6rem;
+        }
+    }
+}

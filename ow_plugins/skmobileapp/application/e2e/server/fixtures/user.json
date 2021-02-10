@@ -1,0 +1,132 @@
+{
+    "id": 191062,
+    "userName": "Tester",
+    "email": "tester@mail.com",
+    "type": "808aa8ca354f51c5a3868dad5298cd72",
+    "aboutMe": "Test desc",
+    "age": 34,
+    "isOnline": true,
+    "isAdmin": true,
+    "compatibility": 0,
+    "isBlocked": false,
+    "distance": {
+        "distance": 1,
+        "unit": "miles"
+    },
+    "bookmark": null,
+    "matchAction": null,
+    "viewQuestions": null,
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTkxMDYyLCJuYW1lIjoidGVzdGVyIiwiZW1haWwiOiJ0ZXN0ZXJAbWFpbC5jb20iLCJleHAiOjE2MzE1MjM3NjF9.NUw7G7N8AyVTFvjL64af_A4gUwlRgfbtDCfabKW2hlA",
+    "avatar": null,
+    "permissions": [
+        {
+            "id": "191062_1",
+            "permission": "base_search_users",
+            "isAllowedAfterTracking": false,
+            "isAllowed": true,
+            "isPromoted": false,
+            "authorizedByCredits": false,
+            "creditsCost": 0,
+            "user": {
+                "id": 191062
+            }
+        },
+        {
+            "id": "191062_2",
+            "permission": "base_view_profile",
+            "isAllowedAfterTracking": false,
+            "isAllowed": true,
+            "isPromoted": false,
+            "authorizedByCredits": false,
+            "creditsCost": 0,
+            "user": {
+                "id": 191062
+            }
+        },
+        {
+            "id": "191062_3",
+            "permission": "ads_hide_ads",
+            "isAllowedAfterTracking": false,
+            "isAllowed": true,
+            "isPromoted": false,
+            "authorizedByCredits": false,
+            "creditsCost": 0,
+            "user": {
+                "id": 191062
+            }
+        },
+        {
+            "id": "191062_4",
+            "permission": "photo_upload",
+            "isAllowedAfterTracking": false,
+            "isAllowed": true,
+            "isPromoted": false,
+            "authorizedByCredits": false,
+            "creditsCost": 0,
+            "user": {
+                "id": 191062
+            }
+        },
+        {
+            "id": "191062_5",
+            "permission": "photo_view",
+            "isAllowedAfterTracking": false,
+            "isAllowed": true,
+            "isPromoted": false,
+            "authorizedByCredits": false,
+            "creditsCost": 0,
+            "user": {
+                "id": 191062
+            }
+        },
+        {
+            "id": "191062_6",
+            "permission": "mailbox_reply_to_chat_message",
+            "isAllowedAfterTracking": false,
+            "isAllowed": true,
+            "isPromoted": false,
+            "authorizedByCredits": false,
+            "creditsCost": 0,
+            "user": {
+                "id": 191062
+            }
+        },
+        {
+            "id": "191062_7",
+            "permission": "mailbox_send_chat_message",
+            "isAllowedAfterTracking": false,
+            "isAllowed": true,
+            "isPromoted": false,
+            "authorizedByCredits": false,
+            "creditsCost": 0,
+            "user": {
+                "id": 191062
+            }
+        },
+        {
+            "id": "191062_8",
+            "permission": "mailbox_read_chat_message",
+            "isAllowedAfterTracking": false,
+            "isAllowed": true,
+            "isPromoted": false,
+            "authorizedByCredits": false,
+            "creditsCost": 0,
+            "user": {
+                "id": 191062
+            }
+        },
+        {
+            "id": "191062_9",
+            "permission": "hotlist_add_to_list",
+            "isAllowedAfterTracking": false,
+            "isAllowed": true,
+            "isPromoted": false,
+            "authorizedByCredits": false,
+            "creditsCost": 0,
+            "user": {
+                "id": 191062
+            }
+        }
+    ],
+    "photos": null
+}

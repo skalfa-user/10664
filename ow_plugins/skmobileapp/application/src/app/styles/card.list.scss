@@ -1,0 +1,105 @@
+.sk-card-list {
+    @include padding(3% 2.5%);
+
+    .scrollable-content {
+        @include text-align('start');
+        font-size: 0; /* hack for spaces between cards*/
+    }
+}
+.sk-card-wrap {
+    display: inline-flex;
+    width: 50%;
+    vertical-align: top;
+    @include padding(0.8rem 2% 1rem 2%);
+
+    .sk-card {
+        @include flex(flex, column, flex-start, stretch);
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid $sk-divide-border-short-color;
+
+        user-avatar {
+            @include flex(flex, row, center, stretch);
+            height: 180px;
+            overflow: hidden;
+            touch-action: auto !important;
+            user-select: auto !important;
+            -webkit-user-drag: auto !important;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+
+            .sk-no-sm-avatar {
+                @include flex(flex, row, center, center);
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+
+                img {
+                    width: 55%;
+                    border-radius: 0;
+                    height: auto;
+                }
+            }
+
+            img {
+                width: 100%;
+                object-fit: cover;
+                border-radius: 0;
+            }
+        }
+
+        &-bottom {
+            font-size: 1.4rem;
+            background-color: color($colors, light);
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            padding: 1rem 1.2rem;
+            overflow: hidden;
+
+            .sk-card-info {
+                overflow: hidden;
+
+                .sk-name {
+                    display: inline-flex;
+                    font-size: 1.6rem;
+                    @include text-overflow;
+                    max-width: 100%;
+
+                    span {
+                        @include text-overflow;
+                    }
+
+                    b {
+                        font-weight: normal;
+                    }
+                }
+            }
+
+            .sk-info {
+                @include text-overflow;
+
+                span {
+                    color: $sk-desc-color;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 360px) {
+    .sk-card-wrap .sk-card user-avatar {
+        height: 140px;
+    }
+}
+@media screen and (min-width: 440px) and (max-width: 768px){
+    .sk-card-wrap {
+        width: 33.3%;
+
+        .sk-card user-avatar {
+            height: 140px;
+        }
+    }
+}
+@media screen and (min-width: 769px) {
+    .sk-card-wrap {
+        width: 25%;
+    }
+}

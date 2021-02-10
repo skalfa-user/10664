@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_aloud</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-1077.000000, -1997.000000)" fill="#ffffff">
+            <g id="ic_aloud" transform="translate(1077.000000, 1997.000000)">
+                <g id="Group">
+                    <path d="M9,0 C7.031,0 4,4 4,4 L2,4 C0.896,4 0,4.896 0,6 L0,8 L0,10 C0,11.104 0.896,12 2,12 L4,12 C4,12 7.03,16 9,16 L10,16 L10,8 L10,0 L9,0" id="Shape"></path>
+                    <polygon id="Shape" points="11 5 12 5 12 11 11 11"></polygon>
+                    <polygon id="Shape" points="13 3 14 3 14 13 13 13"></polygon>
+                    <polygon id="Shape" points="15 0.5 16 0.5 16 15.5 15 15.5"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

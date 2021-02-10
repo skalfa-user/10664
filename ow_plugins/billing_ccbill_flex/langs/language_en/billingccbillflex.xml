@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="billingccbillflex" label="Billing CCbill Flex" language_tag="en" language_label="English">
+    <key name="recurring_supported"><value>Recurring payments</value></key>
+    <key name="available"><value>available</value></key>
+    <key name="supported_currencies"><value>Supported currencies</value></key>
+    <key name="account_settings"><value>Account Settings</value></key>
+    <key name="subaccount_number"><value>Sub-account number</value></key>
+    <key name="salt_desc"><value>Dynamic Pricing salt key</value></key>
+    <key name="salt"><value>Salt</value></key>
+    <key name="datalink_username"><value>Data Link service username</value></key>
+    <key name="datalink_password"><value>Data Link service password</value></key>
+    <key name="btn_save"><value>Save</value></key>
+    <key name="account_number"><value>Account number</value></key>
+    <key name="flex_form_id_label"><value>Flex from ID</value></key>
+    <key name="sandbox"><value>Sandbox</value></key>
+    <key name="config_page_heading"><value>Configuration page</value></key>
+    <key name="settings_updated"><value>Configuration page</value></key>
+    <key name="some_recurring_parameters_missed"><value>Some of recurring parameters were missed</value></key>
+    <key name="billing_order_canceled"><value>Your order has been canceled. Please contact site administrator</value></key>
+    <key name="user_credit_plugin_version_problem"><value>Your current version of the User credits plugin is not compatible with the current CCBILL version, please update the User Credits plugin</value></key>
+    <key name="gateway_title"><value>Billing CCBIL Flex</value></key>
+</prefix>

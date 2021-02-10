@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ 'guests_page_header' | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-guests-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="!(isGuestsFetched$ | async)" name="circle-string-list" repeatTimes="6"></skeleton-preloader>
+
+    <div *ngIf="isGuestsFetched$ | async" class="sk-height-wrap">
+        <!-- nothing found wrapper  -->
+        <div *ngIf="!(guestList$ | async)?.length" class="sk-nothing-found sk-blank-state-wrap">
+            <img class="sk-blank-state-icon" src="./assets/img/ic-not-found.svg" alt="" />
+            <div class="sk-blank-state-cont">
+                <h2>{{ 'empty_user_search_header' | translate }}</h2>
+            </div>
+        </div>
+
+        <!-- users wrapper -->
+        <ng-container *ngIf="guestList$ | async; let guestList">
+            <ion-list *ngIf="guestList.length" class="sk-userlist sk-height-wrap">
+                <virtual-scroller #guestScroller  [items]="guestList" executeRefreshOutsideAngularZone="true" (vsUpdate)="ref.detectChanges()">
+                    <ion-item-sliding *ngFor="let guestData of guestScroller.viewPortItems; trackBy: trackGuestList">
+                        <ion-item (tap)="viewProfile(guestData)" [attr.data-status]="guests.isGuestNew(guestData) ? 'new' : 'read'">
+                            <ion-avatar item-left>
+                                <user-avatar
+                                    [url]="guestData.avatar?.url"
+                                    [isAvatarActive]="guestData.avatar?.active">
+                                </user-avatar>
+                            </ion-avatar>
+                            <h2>{{ guestData.user.userName }}</h2>
+                            <p>{{ guestData.guest.visitDate }}</p>
+                        </ion-item>
+                        <ion-item-options side="{{ application.isLanguageDirectionLtr() ? 'right' : 'left' }}">
+                            <button *ngIf="!guestData.matchAction?.id" ion-button color="green" (click)="likeUser(guestData)">
+                                {{ 'like' | translate }}
+                            </button>
+                            <button *ngIf="messages.isChatAllowed(guestData.user.id)" ion-button color="primary" (click)="showChat(guestData)">
+                                {{ 'send_message' | translate }}
+                            </button>
+                            <button ion-button color="secondary" (click)="removeGuestConfirmation(guestData)">
+                                {{ 'remove' | translate }}
+                            </button>
+                        </ion-item-options>
+                    </ion-item-sliding>
+                </virtual-scroller>
+            </ion-list>
+        </ng-container>
+
+        <!-- match actions component -->
+        <match-actions></match-actions>
+    </div>
+</ion-content>

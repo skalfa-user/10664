@@ -1,0 +1,27 @@
+<div class="ow_automargin ow_wide">
+    {form name="gdpr-settings-form"}
+        <table class="ow_table_1 ow_form">
+            <tr class="ow_tr_first">
+                <th class="ow_name ow_txtleft" colspan="2">
+                    <span class="ow_section_icon ow_ic_gear_wheel">
+                        {text key='gdpr+gdpr_setting'}
+                    </span>
+                </th>
+            </tr>
+            <tr class="{cycle values='ow_alt1, ow_alt2'} ow_tr_last">
+                <td>
+                    {label name='gdpr_third_party_services'}
+                </td>
+                <td>
+                    {input name='gdpr_third_party_services'}<br />
+                    {error name='gdpr_third_party_services'}
+                </td>
+            </tr>
+        </table>
+        <div class="clearfix ow_submit ow_stdmargin">
+            <div class="ow_right">
+                {submit name="gdpr-save"}
+            </div>
+        </div>
+    {/form}
+</div>

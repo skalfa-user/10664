@@ -1,0 +1,41 @@
+<ion-content class="sk-match-modal sk-height-wrap">
+    <div class="sk-match-modal-wrap sk-height-wrap">
+        <div class="sk-match-modal-top">
+            <!-- header -->
+            <div class="sk-match-modal-text">
+                <h2>{{ 'matched_user_page_header' | translate }}</h2>
+                <span>{{ 'matched_user_desc' | translate:{ userName: matchedUser.user.userName } }}</span>
+            </div>
+
+            <!-- users -->
+            <div class="sk-match-modal-users">
+                <div class="sk-match-modal-avatar">
+                    <user-avatar [url]="me?.avatar?.pendingUrl"></user-avatar>
+                    <div *ngIf="me?.avatar?.id && !me?.avatar?.active" class="sk-photo-pending">
+                        <img src="./assets/img/ic-pending.svg" alt="" />
+                    </div>
+                </div>
+                <div class="sk-match-modal-avatar">
+                    <user-avatar
+                        [url]="matchedUser?.avatar?.url"
+                        [isAvatarActive]="matchedUser?.avatar?.active">
+                    </user-avatar>
+                </div>
+            </div>
+        </div>
+
+        <!-- actions -->
+        <div class="sk-match-modal-bottom">
+            <div class="sk-buttons">
+                <button ion-button outline round (click)="close(true)">
+                    <img src="./assets/img/dashboard/components/matched-user/ic-match-send-message.svg" alt="">
+                    <span class="sk-text-overflow">{{ 'send_message' | translate }}</span>
+                </button>
+                <button ion-button outline round (click)="close()">
+                    <img src="./assets/img/dashboard/components/matched-user/ic-match-keep-play.svg" alt="">
+                    <span class="sk-text-overflow">{{ 'keep_playing' | translate }}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</ion-content>

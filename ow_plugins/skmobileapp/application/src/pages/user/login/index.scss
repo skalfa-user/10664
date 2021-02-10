@@ -1,0 +1,221 @@
+.sk-login-page {
+    background-image: url("../assets/img/custom-images/index.jpg");
+    background-size: cover;
+    background-position: center top;
+
+    &-cont {
+        @include flex(flex, column, flex-start, center);
+        height: calc(100% - 3rem);
+        margin-top: 3rem;
+
+        .sk-logo-wrap {
+            flex-grow: 2;
+            @include flex(flex, row, center, center);
+            margin-bottom: 1rem;
+
+            img {
+                width: $sk-login-logo-width;
+                height: $sk-login-logo-height;
+            }
+
+        }
+
+        form {
+            flex-grow: 2;
+            @include flex(flex, column, flex-start, stretch);
+            width: 70%;
+
+            .list {
+                margin-bottom: 1.5rem;
+
+                .sk-name {
+                    .item {
+                        margin-bottom: 2rem;
+                    
+                    .item-inner {
+                            background-image: url("../assets/img/custom-images/ic-login-name.svg");
+                        }
+                    }
+                }
+
+                .sk-password {
+                    .item-inner {
+                        background-image: url("../assets/img/custom-images/ic-login-pass.svg");
+                    }
+                }
+
+                ion-item.item {
+                    background-color: $sk-login-input-bg;
+                    border-bottom: 1px solid $sk-login-input-border;
+                    @include padding (null, null, null, 8px);
+
+                    .item-inner {
+                        border: 0;
+                        padding: 0;
+                        background-repeat: no-repeat;
+                        background-size: auto 2.4rem;
+                        @include background-position(start, center);
+
+                        .input-wrapper {
+                            margin: 0;
+
+                            .input {
+                                @include margin(null, 3.2rem, null, 2.4rem);
+
+                        input {
+                            font-size: 1.6rem;
+                                    text-align: center;
+                            color: $sk-login-input-fcolor;
+                            @include placeholder ($sk-login-input-placeholder);
+                        }
+                    }
+                }
+            }
+
+                    &~.sk-question-error {
+                        @include position(null, 0, null, null);
+                    }
+                }
+            }
+
+            .sk-buttons {
+                @include flex(flex, column, flex-start, stretch);
+                flex-grow: 1;
+
+                button {
+                    margin-bottom: 2rem;
+                    max-width: 100%;
+                    min-width: 0;
+
+                    &.sk-login {
+                       background-color: $sk-login-inline-signin;
+                       margin-bottom: 2rem;
+                       margin-top: 0;
+                    }
+                }
+
+                &-inline {
+                    @include flex(flex, row, space-between, stretch);
+
+                    button {
+                        height: 1.4em;
+                        font-size: 1.4rem;
+                        padding: 0;
+                        color: $sk-login-inline-btn-color;
+
+                        &.sk-signup {
+                            color: $sk-login-inline-signup;
+                        }
+                    }                   
+                }
+
+                .sk-firebase {
+                    text-align: center;
+                    margin-top: auto;
+                    margin-bottom: 2vh;
+
+                    &-label {
+                        overflow: hidden;
+                        color: $sk-login-fb-label-color;
+                        font-size: 1.2rem;
+                        text-transform: uppercase;
+                        margin-bottom: 1.3rem;
+
+                        &:after, &:before {
+                            background-color: $sk-login-fb-border-color;
+                            content: "";
+                            display: inline-block;
+                            height: 1px;
+                            position: relative;
+                            vertical-align: middle;
+                            width: 50%;
+                            @include position(null, null, null, 0.5rem);
+                            @include margin(null, -50%, null, null);
+                        }
+                        &:before {
+                            @include position(null, 0.5rem, null, auto);
+                            @include margin(null, 0, null, -50%);
+                        }
+                    }
+                    &-list {
+                        @include flex(flex, row, center, stretch);
+                    }
+                    &-button {
+                        margin: 0 1.3vw;
+                        width: 2.5em;
+                        height: 2.5em;
+                        padding: 0;
+                        min-width: 0;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        background-size: contain;
+                        border-radius: 0;
+
+                        &:first-child {
+                            @include margin(null, null, null, 0);
+                        }
+
+                        &:last-child {
+                            @include margin(null, 0, null, null);
+                        }
+
+                        &[data-firebase-provider="twitter.com"] {
+                            background-image: url("../assets/img/user/login/ic-firebase-twitter.svg");
+                        }
+                        &[data-firebase-provider="facebook.com"] {
+                            background-image: url("../assets/img/user/login/ic-firebase-fb.svg");
+                        }
+                        &[data-firebase-provider="google.com"] {
+                            background-image: url("../assets/img/user/login/ic-firebase-google.svg");
+                        }
+                        &[data-firebase-provider="linkedin.com"] {
+                            background-image: url("../assets/img/user/login/ic-firebase-linkedin.svg");
+                        }
+                        &.sk-firebase-common {
+                            background-image: url("../assets/img/user/login/ic-firebase-common.svg");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.sk-login-url {
+    button {
+        color: $sk-login-url-color;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .sk-login-page {
+        .sk-login-page-cont {
+            height: auto;
+
+            .sk-logo-wrap {
+                margin-bottom: 3rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .sk-login-page .sk-login-page-cont form .sk-buttons {
+        min-height: 240px;
+
+        .sk-login  {
+            margin-bottom: 1vh;
+        }
+    }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.25),
+only screen and ( min--moz-device-pixel-ratio: 1.25),
+only screen and ( -o-min-device-pixel-ratio: 1.25/1),
+only screen and ( min-device-pixel-ratio: 1.25),
+only screen and ( min-resolution: 200dpi),
+only screen and ( min-resolution: 1.25dppx) {
+    .sk-login-page {
+        background-image: url("../assets/img/custom-images/index@2x.jpg");
+    }
+}

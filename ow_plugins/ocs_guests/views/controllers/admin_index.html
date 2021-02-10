@@ -1,0 +1,27 @@
+
+<div class="clearfix">
+    <div class="ow_right ow_stdmargin"><a href="http://oxcandystore.com/?pk=ocsguests"><img src="{$logo}" /></a></div>
+</div>
+
+{$menu}
+
+<div class="ow_automargin ow_wide">
+{form name='config-form'}
+
+<table class="ow_table_1 ow_form">
+    <tr>
+        <th class="ow_name ow_txtleft" colspan="2">
+            <span class="ow_section_icon ow_ic_forum">{text key='ocsguests+general_settings'}</span>
+        </th>
+    </tr>
+    <tr class="ow_alt{cycle values='1,2'}">
+        <td class="ow_label" style="width: 50%;">{label name='months'}</td>
+        <td class="ow_value">
+            {input name='months' class='ow_settings_input'} {text key='ocsguests+months'}<br />{error name='months'}
+        </td>
+    </tr>
+    <tr><td colspan="2" class="ow_submit">{submit name='save'}</td></tr>
+</table>
+
+{/form}
+</div>

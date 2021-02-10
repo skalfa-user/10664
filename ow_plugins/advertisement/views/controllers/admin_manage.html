@@ -1,0 +1,68 @@
+{style}
+{literal}
+.fpage{
+    border: 1px solid #aaa;
+    padding: 10px;
+}
+.fcontent{
+    float:left;
+    width:68%;
+    background:#F8F8F8;
+    padding: 10px;
+    text-align:center;
+    height: 420px;
+}
+.fsidebar{
+    float:right;
+    width:27%;
+    padding:10px 0;
+    background: #F8F8F8;
+    text-align: center;
+    height: 420px;
+}
+.ads_banner_list{
+}
+{/literal}
+{/style}
+
+{$menu}
+<div class="ow_superwide ow_automargin ow_stdmargin">
+    <div style="padding: 10px; 0">{text key='ads+ads_manage_select_plugin_text'}&nbsp;&nbsp;
+        <select onchange="window.location = '?plugin='+$(this).val();">
+            {foreach from=$plugins key='pluginKey' item='plugin'}
+            <option value="{$pluginKey}"{if $pluginKey == $selected} selected="selected"{/if}>{$plugin}</option>
+            {/foreach}
+        </select>
+    </div>
+    <div class="fpage clearfix">
+        <div class="fcontent" style="{if $sidebarPosition == 'left'}float:right;{elseif $sidebarPosition == 'none'}width:auto;float:none;{/if}">
+            <a id="top_link" href="javascript://">{$top_link_label}</a>
+            <div style="height: 380px;"><h3 style="text-align: center;padding-top:170px;">Content</h3></div>
+            <a id="bottom_link" href="javascript://">{$bottom_link_label}</a>
+        </div>
+        <div class="fsidebar" style="{if $sidebarPosition == 'left'}float:left;{elseif $sidebarPosition == 'none'}display:none;{/if}"><h3>Sidebar</h3>
+            <div style="padding-top: 170px;"><a id="sidebar_link" href="javascript://">{$sidebar_link_label}</a></div>
+        </div>
+    </div>
+</div>
+
+<div style="display: none;">
+    <div id="top_form" style="padding: 10px;">
+    {form name='top_form'}
+        <div class="ads_banner_list">{input name='banners'}</div>
+        <div style="text-align: center;padding: 10px;">{submit name='submit'}</div>
+    {/form}
+</div>
+<div id="sidebar_form" style="padding: 10px;">
+    {form name='sidebar_form'}
+        <div class="ads_banner_list">{input name='banners'}</div>
+        <div style="text-align: center;padding: 10px;">{submit name='submit'}</div>
+    {/form}
+</div>
+<div id="bottom_form" style="padding: 10px;">
+    {form name='bottom_form'}
+        <div class="ads_banner_list">{input name='banners'}</div>
+        <div style="text-align: center;padding: 10px;">{submit name='submit'}</div>
+    {/form}
+</div>
+</div>

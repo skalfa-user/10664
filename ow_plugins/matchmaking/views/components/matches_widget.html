@@ -1,0 +1,10 @@
+<div class="ow_lp_avatars">
+    {if !empty($userList)}
+        {$userList}
+        {if !empty($toolbar)}
+        {decorator name='box_toolbar' itemList=$toolbar}
+        {/if}
+    {else}
+    <center>{text key='matchmaking+no_matches'}</center>
+    {/if}
+</div>

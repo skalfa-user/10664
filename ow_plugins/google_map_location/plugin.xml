@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin>
+    <name>Location Maps</name>
+    <key>googlelocation</key>
+    <description>This plugin allows users to add their Google Maps or Bing Maps location in profile details.
+        Plugin compatible with Oxwall 1.7.3 and upper
+    </description>
+    <author>Podyachev Evgeny</author>
+    <authorEmail>joker.OW2@gmail.com</authorEmail>
+    <authorUrl>http://www.oxwall.org/user/joker</authorUrl>
+    <developerKey>8697bdc9467df91a82092e3f1ffd199f</developerKey>
+    <build>11061</build>
+    <copyright>Copyright (c) 2013-2017, Podyachev Evgeny joker.OW2@gmail.com</copyright>
+    <license>OSCL</license>
+    <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+</plugin>

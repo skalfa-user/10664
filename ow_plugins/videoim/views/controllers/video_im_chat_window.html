@@ -1,0 +1,315 @@
+<div id="videoim-wrapper" class="ow_videoim_chat_window">
+    <div class="ow_videoim_bg" id="videoim-user-cover" style="background-image: url('{$recipientAvatar}');"></div>
+    <div class="ow_videoim_overlay"></div>
+    <div id="videoim-videos">
+        <video id="videoim-remote-video" autoplay></video>
+        <video id="videoim-local-video" class="ow_videoim_local_video" autoplay muted></video>
+    </div>
+    <a class="ow_videoim_btn ow_videoim_fullscreen_btn" href="javascript://" id="videoim-fullscreen">
+        <span class="ow_videoim_btn_icon"></span>
+        <span class="ow_videoim_hint_btn">{text key="videoim+enter_or_leave_fullscreen"}</span>
+    </a>
+    <div class="ow_videoim_cont">
+        <div class="ow_videoim_vert_block">
+            <h1 id="videoim-recipient-name">{$recipientName}</h1>
+            <div class="ow_videoim_caller_avatar animation_pulse" style="background-image: url('{$recipientAvatar}');"></div>
+            <div class="ow_videoim_controls">
+                <a class="ow_videoim_btn ow_videoim_audio_btn" href="javascript://" id="videoim-mute-audio">
+                    <span class="ow_videoim_btn_icon"></span>
+                    <span class="ow_videoim_hint_btn">{text key="videoim+mute_or_enable_audio"}</span>
+                </a>
+                <a class="ow_videoim_btn ow_videoim_video_btn" href="javascript://" id="videoim-mute-video">
+                    <span class="ow_videoim_btn_icon"></span>
+                    <span class="ow_videoim_hint_btn">{text key="videoim+mute_or_enable_video"}</span>
+                </a>
+                <a class="ow_videoim_btn ow_videoim_hangup_btn hidden" href="javascript://" id="videoim-hangup">
+                    <span class="ow_videoim_btn_icon"></span>
+                    <span class="ow_videoim_hint_btn">{text key="videoim+hangup"}</span>
+                </a>
+            </div>
+        </div>
+    <div id="videoim-connection-status" class="ow_videoim_connection_status">
+        {text key="videoim+connecting"}
+    </div>
+    <div id="videoim-timer" class="ow_videoim_timer">
+        <span class="ow_videoim_timer_counter">00:00</span>
+        {if $timedCallPrice <> 0}
+            <span class="ow_videoim_credits_info">({text key="videoim+timed_call_info" amount={$timedCallPrice}})</span>
+        {/if}
+    </div>
+</div>
+
+{script}
+
+    videoImRequest.setProcessingNotifications(false);
+    videoImRequest.setLoggedUserId({$loggedUserId});
+
+    /**
+     * Show disabled overlay
+     *
+     * @return void
+     */
+    function showDisabledOverlay()
+    {
+        $("#videoim-wrapper .ow_videoim_overlay").addClass("disable_window");
+        $("#videoim-wrapper .ow_videoim_caller_avatar").removeClass("animation_pulse");
+    }
+
+    /**
+     * Show user cover
+     *
+     * @return void
+     */
+    function showUserCover()
+    {
+        $("#videoim-wrapper .ow_videoim_caller_avatar").addClass("active");
+        $("#videoim-user-cover").show();
+        $("#videoim-wrapper .ow_videoim_overlay").show();
+    }
+
+    /**
+     * Hide  user cover
+     *
+     * @return void
+     */
+    function hideUserCover()
+    {
+        $("#videoim-wrapper .ow_videoim_caller_avatar").removeClass("active");
+        $("#videoim-user-cover").hide();
+        $("#videoim-wrapper .ow_videoim_overlay").hide();
+    }
+
+    /**
+     * Hide connection status
+     *
+     * @return void
+     */
+    function hideConnectionStatus()
+    {
+        $("#videoim-connection-status").hide();
+    }
+
+    /**
+     * Show connection status
+     *
+     * @return void
+     */
+    function showConnectionStatus()
+    {
+        $("#videoim-connection-status").show();
+    }
+
+    /**
+     * Show remote video
+     *
+     * @return void
+     */
+    function showRemoteVideo()
+    {
+        $("#videoim-remote-video").show();
+    }
+
+    /**
+     * Show local video
+     *
+     * @return void
+     */
+    function showLocalVideo()
+    {
+        $("#videoim-local-video").show();
+    }
+
+    /**
+     * Show local video
+     *
+     * @return void
+     */
+    function hideLocalVideo()
+    {
+        $("#videoim-local-video").hide();
+    }
+
+    /**
+     * Full screen on
+     *
+     * @return void
+     */
+    function fullScreenOn()
+    {
+        $("#videoim-wrapper").fullScreen(true);
+    }
+
+    /**
+     * Full screen on
+     *
+     * @return void
+     */
+    function fullScreenOff()
+    {
+        $("#videoim-wrapper").fullScreen(false);
+    }
+
+    /**
+     * Show timer
+     *
+     * @return void
+     */
+    function showTimer()
+    {
+        $("#videoim-timer").show().find(".ow_videoim_timer_counter").timer({
+            action:"start",
+            format: "%H:%M:%S"
+        });
+    }
+
+    /**
+     * Show timer
+     *
+     * @return void
+     */
+    function stopTimer()
+    {
+        $("#videoim-timer").find(".ow_videoim_timer_counter").timer("pause");
+    }
+
+    var videoIm = new VideoIm({
+        "credits_mode" : {if $timedCallPrice <> 0}true{else}false{/if},
+        "mobile_context" : false,
+        "notifications_lifetime" : {$notificationsLifetime},
+        "is_initiator" : {$isInitiator},
+        "recipient_id" : {$recipientId},
+        "session_id" : "{$sessionId}",
+        "base_url": "{url_for for="VIDEOIM_CTRL_VideoIm:"}",
+        "remote_video" : "#videoim-remote-video",
+        "local_video"  : "#videoim-local-video",
+        "langs" : {
+            "recipient_browser_doesnt_support_webrtc": "{text key="videoim+send_request_error_webrtc_not_supported" escape="quotes"}",
+            "user_browser_doesnt_support_webrtc": "{text key="videoim+webrtc_not_supported" escape="quotes"}",
+            "connection_expired_message" : "{text key="videoim+chat_no_response" escape="quotes"}",
+            "share_media_devices_error" : "{text key="videoim+share_media_devices_error" escape="quotes"}",
+            "request_blocked" : "{text key="videoim+request_blocked" escape="quotes"}",
+            "request_declined" : "{text key="videoim+request_declined" escape="quotes"}",
+            "session_close_confirm" : "{text key="videoim+session_close_confirm" escape="quotes"}",
+            "session_closed" : "{text key="videoim+session_closed" escape="quotes"}",
+            "chat_session_is_over" : "{text key="videoim+chat_session_is_over" escape="quotes"}",
+            "does_not_accept_incoming_calls" : "{text key="videoim+does_not_accept_incoming_calls" escape="quotes"}",
+            "you_ran_out_credits": "{text key="videoim+call_ended_you_ran_out_credits" escape="quotes"}",
+            "user_ran_out_credits": "{text key="videoim+call_ended_user_ran_out_credits" username={$recipientName|escape} escape="quotes"}"
+        },
+        "urls" : {
+            "mark_accepted_url" : "{url_for for="VIDEOIM_CTRL_VideoIm:ajaxNotificationsMarkAccepted"}",
+            "notification_url" : "{url_for for="VIDEOIM_CTRL_VideoIm:ajaxSendNotification"}",
+            "track_credits_url" : "{url_for for="VIDEOIM_CTRL_VideoIm:ajaxTrackCreditsTimingCall"}"
+        },
+
+        "callbacks" : {
+            "remote_session_started" : function() {
+                hideUserCover();
+                hideConnectionStatus();
+                showTimer();
+                showRemoteVideo();
+            },
+            "local_session_started" : function() {
+                showUserCover();
+                showConnectionStatus();
+
+                // show a local video
+                if ( this.isLocalVideoEnabled() )
+                {
+                    showLocalVideo();
+                }
+
+                // init chat controls
+                videoImChatControls.init({
+                    "audio_enabled" : this.isLocalAudioEnabled(),
+                    "video_enabled" : this.isLocalVideoEnabled()
+                });
+            },
+            "declined" : function() {
+                showUserCover();
+                hideConnectionStatus();
+                showDisabledOverlay();
+
+                videoImChatControls.hideAllControls();
+            },
+            "blocked" : function() {
+                showUserCover();
+                hideConnectionStatus();
+                showDisabledOverlay();
+
+                videoImChatControls.hideAllControls();
+            },
+            "session_closed" : function() {
+                showUserCover();
+                hideConnectionStatus();
+                stopTimer();
+                showDisabledOverlay();
+
+                videoImChatControls.hideAllControls();
+                videoImRequest.setActiveUserId();
+                videoImRequest.setLoggedUserId();
+            },
+            "window_closed" : function() {
+                videoImRequest.setActiveUserId();
+                videoImRequest.setLoggedUserId();
+            },
+            "notification_error" : function() {
+                showUserCover();
+                hideConnectionStatus();
+                stopTimer();
+                showDisabledOverlay();
+
+                videoImChatControls.hideAllControls();
+            }
+        },
+        "ice_servers"  : {$serverList}
+    });
+
+    var videoImChatControls = new VideoImChatControls({
+        "items_display" : "inline-block",
+        "recipient_name" : "#videoim-recipient-name",
+        "audio" : "#videoim-mute-audio",
+        "video" : "#videoim-mute-video",
+        "fullscreen" : "#videoim-fullscreen",
+        "hangup": "#videoim-hangup",
+        "callbacks" : {
+            "hangup" : function() {
+                if ( confirm("{text key="videoim+session_close_confirm" escape="quotes"}") )
+                {
+                    videoIm.hangup();
+                }
+            },
+            "mute_audio" : function() {
+                videoIm.muteLocalAudio();
+            },
+            "enable_audio" : function() {
+                videoIm.enableLocalAudio();
+            },
+            "mute_video" : function() {
+                videoIm.muteLocalVideo();
+                hideLocalVideo();
+            },
+            "enable_video" : function() {
+                videoIm.enableLocalVideo();
+
+                if ( !$(document).fullScreen() )
+                {
+                    showLocalVideo();
+                }
+            },
+            "fullscreen_out" : function() {
+                // show the local video and disable the fullscreen mode
+                if ( videoIm.isLocalVideoEnabled() )
+                {
+                    showLocalVideo();
+                }
+
+                fullScreenOff();
+            },
+            "fullscreen_in" : function() {
+                hideLocalVideo();
+                fullScreenOn();
+            }
+        }
+    });
+{/script}

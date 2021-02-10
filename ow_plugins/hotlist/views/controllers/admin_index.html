@@ -1,0 +1,12 @@
+<div class="ow_narrow ow_automargin">
+{block_decorator name='box' iconClass='ow_ic_gear_wheel' langLabel='hotlist+settings'}
+{form name='settingsForm'}
+<table class="ow_table_3">
+    <tr class="ow_tr_last">
+        <td class="ow_label ow_supernarrow">{label name='expiration_time'}</td><td class="ow_value">{input name='expiration_time'}<br />{error name='expiration_time'}</td>
+    </tr>
+</table>
+<div class="clearfix"><div class="ow_right">{submit name='save' class='ow_ic_add ow_positive'}</div></div>
+{/form}
+{/block_decorator}
+</div>

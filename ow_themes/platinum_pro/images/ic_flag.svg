@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_flag</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-409.000000, -2028.000000)" fill="#ffffff">
+            <g id="ic_flag" transform="translate(409.000000, 2028.000000)">
+                <g id="Group">
+                    <polygon id="Shape" points="0 0 2 0 2 16 0 16"></polygon>
+                    <path d="M16,12 C16,12 13.088,10.257 12,10 C11.026,9.771 8.98,10.189 8,10 C6.678,9.745 3,8 3,8 L3,0 C3,0 6.678,1.746 8,2 C8.982,2.189 11.03,1.77 12,2 C13.088,2.257 16,4 16,4 L16,12" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

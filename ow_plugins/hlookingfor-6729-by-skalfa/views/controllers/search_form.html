@@ -1,0 +1,134 @@
+{script}
+{literal}
+$(function(){
+    $("form[name='MainSearchForm'] [name='match_sex']").change(
+        function(){ OW.trigger("usearch.lookin_for_changed", $(this).val()); }
+    );
+});
+{/literal}
+{/script}
+
+{if isset($menu)}{$menu}{/if}
+
+{if isset($authMessage)}
+<div class="ow_anno ow_std_margin ow_nocontent">{$authMessage}</div>
+{else}
+<div class="clearfix">
+    <div class="ow_superwide ow_automargin">
+        {if $usernameSearchEnabled==true}
+            {form name=UsernameSearchForm}
+            <h3 class="ow_std_margin">{text key="usearch+search_by_username"}</h3>
+            <table class="ow_table_1 ow_form">
+                <tr class=" ow_tr_first ow_question_tr ow_tr_last">
+                    {cycle assign='alt' values='ow_alt1,ow_alt2'}
+                    <td class="{$alt} ow_label">
+                        {label name='username'}
+                    </td>
+                    <td class="{$alt} ow_value">
+                        {input name='username'}
+                        <div style="height:1px;"></div>
+                        {error name='username'}
+                    </td>
+                </tr>
+            </table>
+            <div class="clearfix userach_submit_button">
+                <div class="ow_right">
+                    {submit name='SearchFormSubmit'}
+                </div>
+            </div>
+            {/form}
+        {/if}
+        {form name=MainSearchForm}
+        {if $usernameSearchEnabled==true}
+            <h3 class="ow_std_margin">{text key="usearch+advanced_search"}</h3>
+        {/if}
+        <table class="ow_table_1 ow_form">
+            {if $displayAccountType==true}
+                {if !empty($displayGender)}
+                    <tr class=" ow_tr_first ow_question_tr ow_tr_last">
+                        {cycle assign='alt' values='ow_alt1,ow_alt2'}
+                        <td class="{$alt} ow_label">
+                            {label name='sex'}
+                        </td>
+                        <td class="{$alt} ow_value">
+                            {input name='sex'}
+                            <div style="height:1px;"></div>
+                            {error name='sex'}
+                        </td>
+                    </tr>
+                {/if}
+
+                {if empty($matchSexHiddenDisplay)}
+                    <tr class="ow_tr_first ow_question_tr {if !$authenticated && $isStudent}ow_hidden{/if}">
+                        {cycle assign='alt' values='ow_alt1,ow_alt2'}
+                        <td class="{$alt} ow_label">
+                            {label name='match_sex'}
+                        </td>
+                        <td class="{$alt} ow_value">
+                            {input name='match_sex'}
+                            <div style="height:1px;"></div>
+                            {error name='match_sex'}
+                        </td>
+                    </tr>
+                {/if}
+                <tr class="ow_question_tr">
+                    {cycle assign='alt' values='ow_alt1,ow_alt2'}
+                    <td class="{$alt} ow_label">
+                        {label name='online'}
+                    </td>
+                    <td class="{$alt} ow_value">
+                        {input name='online'}
+                        <div style="height:1px;"></div>
+                        {error name='online'}
+                    </td>
+                </tr>
+                
+                <tr class="ow_tr_last ow_question_tr {$question_prefix}with_photo">
+                    {cycle assign='alt' values='ow_alt1,ow_alt2'}
+                    <td class="{$alt} ow_label">
+                        {label name='with_photo'}
+                    </td>
+                    <td class="{$alt} ow_value">
+                        {input name='with_photo'}
+                        <div style="height:1px;"></div>
+                        {error name='with_photo'}
+                    </td>
+                </tr>
+            {/if}
+            </table>
+            <div class="ow_preloader ow_std_margin usearch_preloader" style="display:none;"></div>
+            <div class="questions_div usearch_transition">
+                <table class="ow_table_1 ow_form">
+                {if !empty($questionList)}
+                {foreach from=$questionList key='section' item='questions'}
+                    {if !empty($section) }
+                    <tr class="{$section_prefix}{$section} ow_tr_first {if empty($visibilityList['sections'][$section])}ow_hidden{/if}" ><th colspan="3">{text key="base+questions_section_`$section`_label"}</th></tr>
+                    {/if}
+                    {foreach from=$questions item='question' name='question'}
+                        <tr class="{$question_prefix}{$question.name} ow_question_tr {if $smarty.foreach.question.last}ow_tr_last{/if} {if empty($visibilityList['questions'][$question.name])}ow_hidden{/if}">
+                            {cycle assign='alt' values='ow_alt1,ow_alt2'}
+                            <td class="{$alt} ow_label">
+                                {label name=$question.name}
+                            </td>
+                            <td class="{$alt} ow_value">
+                                {input name=$question.name}
+                                <div style="height:1px;"></div>
+                                {error name=$question.name}
+                            </td>
+                        </tr>
+                    {/foreach}
+                    <tr class="{$section_prefix}{$section} ow_tr_delimiter {if empty($visibilityList['sections'][$section])}ow_hidden{/if}"><td></td></tr>
+                {/foreach}
+                {/if}
+                
+            </table>
+            <div class="clearfix userach_submit_button">
+                <div class="ow_right">
+                    {submit name='SearchFormSubmit'}
+                </div>
+            </div>
+            </div>
+        {/form}
+    </div>
+</div>
+{/if}

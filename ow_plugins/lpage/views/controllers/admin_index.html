@@ -1,0 +1,73 @@
+{style}
+{literal}
+.theme_controls input[type="text"]{
+	width:232px;
+	padding:4px;
+}
+
+.theme_control_image{
+	background-repeat:no-repeat;
+	background-position:0% 0%;
+	border:1px solid #ccc;
+	height:40px;
+	width:170px;
+    float:left;
+    cursor:pointer;
+}
+
+body table.theme_controls td.ow_label{
+	width:35%;
+}
+
+body table.theme_controls td.ow_input{
+	width:30%;
+}
+
+body table.theme_controls td.ow_desc{
+	text-align:left;
+	width:35%;
+}
+
+.color_input input[type="text"]{
+	width:170px;
+}
+
+.preview_graphics{
+    background-repeat:no-repeat;
+	background-position:50% 50%;
+	border:1px solid #ccc;
+    width:750px;
+    height:550px;
+    margin:0 auto;
+}
+
+{/literal}
+{/style}
+
+<div class="ow_stdmargin">
+{form name='settings'}
+<table class="ow_table_1 ow_form theme_controls">
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_gear_wheel">{text key="lpage+admin_section_label"}</span>
+        </th>
+    </tr>
+	<tr class="{cycle values='ow_alt2,ow_alt1'} ow_tr_first">
+		<td class="ow_label">{label name='label'}</td>
+		<td class="ow_value">{input name='label'}</td>
+		<td class="ow_desc">{desc name='label'}</td>
+	</tr>
+        <tr class="{cycle values='ow_alt2,ow_alt1'} ow_tr_first">
+		<td class="ow_label">{label name='logoFile'}</td>
+		<td class="ow_value">{input name='logoFile'}</td>
+		<td class="ow_desc">{desc name='logoFile'}</td>
+	</tr>
+        <tr class="{cycle values='ow_alt2,ow_alt1'} ow_tr_first">
+		<td class="ow_label">{label name='bgFile'}</td>
+		<td class="ow_value">{input name='bgFile'}</td>
+		<td class="ow_desc">{desc name='bgFile'}</td>
+	</tr>
+</table>
+<div class="clearfix"><div class="ow_right">{submit name='save' class='ow_button ow_ic_save ow_positive'}</div></div>
+{/form}
+</div>

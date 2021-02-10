@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ pageTitle }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [attr.page-blocker]="buyingPlanId ? 'true' : ''" class="sk-payments-inner-page">
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="isPageLoading" name="small-set" repeatTimes="2"></skeleton-preloader>
+
+    <ng-container *ngIf="!isPageLoading">
+        <!-- my membership info -->
+        <ion-item *ngIf="isMyMembershipVisible && myMembership" class="sk-payments-head" padding>
+            {{ myMembership.title }}:
+            <div *ngIf="myMembership.expire" item-end class="sk-payments-info sk-payments-expire-date">
+                {{ 'expires' | translate }} {{ myMembership.expire }}
+            </div>
+        </ion-item>
+
+        <!-- plans -->
+        <ion-list *ngIf="isPlanListVisible" mode="md" class="sk-payments-plan-list" no-lines padding-left padding-right margin-top>
+            <div *ngFor="let plan of membership?.plans" class="sk-payments-plan-item-container" (tap)="buyProduct(plan)">
+                <ion-item ion-item mode="md" class="sk-select-field-fake sk-payments-plan-item" margin-bottom>
+                    <div *ngIf="plan.price" class="sk-payments-plan-price sk-text-overflow" [innerHTML]="'membership_plan' | translate:{ 
+                        currency: currency,
+                        price: plan.price, 
+                        period: plan.period, 
+                        periodUnits: plan.periodUnits | translate} | trustHtml">
+                    </div>
+                    <div *ngIf="!plan.price" class="sk-payments-plan-price sk-text-overflow" [innerHTML]="'membership_trial_plan' | translate:{ 
+                        period: plan.period, 
+                        periodUnits: plan.periodUnits | translate} | trustHtml">
+                    </div>
+                    <ion-note *ngIf="plan.isRecurring" class="sk-text-overflow" item-end>{{ 'recurring' | translate }}</ion-note>
+                    <ion-icon *ngIf="!buyingPlanId" item-end name="ios-arrow-forward"></ion-icon>
+                    <ion-spinner *ngIf="buyingPlanId == plan.id" item-end name="ios-small"></ion-spinner>
+                </ion-item>
+            </div>
+        </ion-list>
+
+        <!-- actions -->
+        <div *ngFor="let action of membership?.actions" class="sk-payments-action-wrap">
+            <div class="sk-section">
+                <span>{{ action.label }}</span>
+            </div>
+            <ion-list mode="md">
+                <ion-item *ngFor="let permission of action?.permissions">
+                    {{ permission }}
+                </ion-item>
+            </ion-list>
+        </div>
+
+        <!-- nothing found CHECK THIS -->
+        <div *ngIf="!membership?.actions?.length && !membership?.plans?.length" padding>
+            {{ 'membership_actions_not_found' | translate }}
+        </div>
+    </ng-container>
+</ion-content>

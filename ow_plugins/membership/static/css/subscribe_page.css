@@ -1,0 +1,26 @@
+.ow_membership_ccbill_info_wrap .ow_ccbill_title {
+    margin-bottom: 4px;
+}
+.ow_membership_ccbill_info_wrap .ow_ccbill_text,
+.ow_membership_ccbill_info_wrap .ow_ccbill_link {
+    font-size: 11px;
+    line-height: 14px;
+}
+.velvet .ow_membership_ccbill_info_wrap .ow_ccbill_link a {
+    color: #f6d8ef;
+}
+.intense .ow_membership_ccbill_info_wrap .ow_ccbill_link a {
+    color: #f6d8ef;
+}
+.platinum_pro .ow_membership_ccbill_info_wrap .ow_ccbill_title {
+    font-weight: bold;
+}
+.lightshades .ow_membership_ccbill_info_wrap .ow_ccbill_title {
+    font-weight: bold;
+}
+.mosaic .ow_membership_ccbill_info_wrap .ow_ccbill_title {
+    font-weight: bold;
+}
+.turquoise .ow_membership_ccbill_info_wrap .ow_ccbill_text {
+    margin-bottom: 0;
+}

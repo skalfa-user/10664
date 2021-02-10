@@ -1,0 +1,21 @@
+<div class="sk-message-wrap sk-message-type-link">
+    <!-- date -->
+    <div *ngIf="message.date && (!prevMessage || prevMessage && prevMessage.date != message.date)" class="sk-message-date">
+        {{ message.dateLabel }}
+    </div>
+
+    <!-- message wrapper-->
+    <div class="sk-message {{ message.isAuthor ? 'sk-message-sent' : 'sk-message-received' }}">
+        <!-- message -->
+        <div [innerHTML]="getOembedMessage | nlbr | urlify | trustHtml"></div>
+
+        <!-- time -->
+        <div class="sk-message-time">
+            <span *ngIf="message.timeStamp">
+                {{ message.time }}
+                <img *ngIf="message.isAuthor && !message.isRecipientRead" class="sk-message-sent-icon" src="./assets/img/messages/ic-message-sent.svg" alt="" />
+                <img *ngIf="message.isAuthor && message.isRecipientRead" class="sk-message-received-icon" src="./assets/img/messages/ic-message-received.svg" alt="" />
+            </span>
+        </div>
+    </div>
+</div>

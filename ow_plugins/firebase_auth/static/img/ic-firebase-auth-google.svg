@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="04-CONNECT-VIA" transform="translate(-16.000000, -131.000000)">
+            <g id="google" transform="translate(16.000000, 120.000000)">
+                <g id="Group-3" transform="translate(0.000000, 11.000000)">
+                    <rect id="Rectangle" fill="#DF3B1F" x="0" y="0" width="36" height="36" rx="18"></rect>
+                    <path d="M10,18 C10,13.5888 13.5888,10 18,10 C19.7815619,10 21.4678095,10.573181 22.8764952,11.6576 L21.0174476,14.0725333 C20.1464381,13.4020571 19.1030095,13.047619 18,13.047619 C15.2692571,13.047619 13.047619,15.2692571 13.047619,18 C13.047619,20.7307429 15.2692571,22.952381 18,22.952381 C20.1993905,22.952381 22.068419,21.5113905 22.7125333,19.5238095 L18,19.5238095 L18,16.4761905 L26,16.4761905 L26,18 C26,22.4112 22.4112,26 18,26 C13.5888,26 10,22.4112 10,18 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

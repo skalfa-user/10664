@@ -1,0 +1,87 @@
+{$menu}
+
+<p class="ow_small" style="padding-left: 12px; margin-bottom: 6px;">{text key="matchmaking+admin_rules_manage_match_questions"}</p>
+<table width="100%" class="ow_margin ow_table_2">
+    <tbody>
+    <tr class="ow_alt2">
+        <th style="width: 33%;">
+            <div style="overflow:hidden;">{text key="matchmaking+admin_rules_title_question"}</div>
+        </th>
+        <th style="width: 33%;">
+            <div style="overflow:hidden;">{text key="matchmaking+admin_rules_title_coefficient"}</div>
+        </th>
+        {if $accTypeLabel}
+        <th style="width: 33%;">
+            <div style="overflow:hidden;">{text key="matchmaking+admin_rules_title_properties"}</div>
+        </th>
+        {/if}
+    </tr>
+    <!-- -------------------------------------TABLE CELLS---------------------------------------------- -->
+    <tr class="ow_tr_delimiter">
+        <td></td>
+    </tr>
+    <tr class="ow_tr_first">
+        <th class="section_value ow_admin_profile_question_dnd_cursor" colspan="9">
+            <div style="width:100%;overflow:hidden;margin:0 auto; position: relative;">{text key="matchmaking+admin_rules_manage_matched_questions"}</div>
+        </th>
+    </tr>
+    {foreach from=$list item='match'}
+    <tr class="{cycle values=" ow_alt2, ow_alt1"} ow_hover_catch" {if $match.required == false}onmouseover="$('span.del-cont', this).show();" onmouseout="$('span.del-cont', this).hide();"{/if}>
+    <td width="33%"><div style="overflow:hidden;">{$match.question_name}</div></td>
+    <td width="33%" class="ns-hover-block">
+        <div style="position: relative;">
+        {$match.edit_coefficient}
+        <div style="position:absolute; top: -1px; right: 0;">
+            <span class="del-cont ow_hover ow_nowrap" style="display: none;">
+                <a class="ow_lbutton ow_red section_delete_button" href="{$match.delete_url}"
+                   onclick="return confirm(OW.getLanguageText('matchmaking', 'confirm_delete_text')) ? true : false;">{text key='matchmaking+btn_label_remove'}</a>
+            </span>
+        </div>
+        </div>
+    </td>
+    {if $accTypeLabel}
+    <td style="width: 33%;" class="ow_alt1 ow_small">{$match.acc_type_label}</td>
+    {/if}
+    </tr>
+    {/foreach}
+
+    <tr class="ow_tr_delimiter">
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="ow_open_match_section" id="matchQuestionFormBtn"><span>{text key="matchmaking+admin_rules_create_match_question"}</span>
+    <div></div>
+</div>
+<div id="matchQuestionForm" class="ow_hidden">
+<div class="ow_small" style="padding-left: 12px; margin-bottom: 6px;">{text key="matchmaking+admin_rules_manage_create_desc"}</div>
+<table class="ow_table_2">
+    <tbody>
+    <tr class="ow_tr_first">
+        <th class="section_value ow_admin_profile_question_dnd_cursor" colspan="9"><div style="width:100%;overflow:hidden;margin:0 auto; position: relative;">{text key="matchmaking+admin_rules_manage_create_other"}</div></th>
+        </th>
+    </tr>
+
+    {foreach from=$otherList item='item'}
+    <tr>
+        <td style="width: 33%;" class="ow_alt1"><div style="overflow:hidden;">{$item.question_name}</div></td>
+        <td style="width: 33%;" class="ow_alt1">
+            {$item.create_coefficient}
+        </td>
+        {if $otherListAccTypeLabel}
+        <td style="width: 33%;" class="ow_alt1 ow_small">{$item.acc_type_label}</td>
+        {/if}
+    </tr>
+    {/foreach}
+
+    <tr class="question_tr no_question" style="display: none;">
+        <td colspan="9"></td>
+    </tr>
+
+    <tr class="ow_tr_delimiter">
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+</div>

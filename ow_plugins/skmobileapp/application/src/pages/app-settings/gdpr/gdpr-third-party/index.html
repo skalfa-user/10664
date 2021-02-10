@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{ 'gdpr_third_party_page_title' | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-gdpr-third-party-page sk-gdpr-page">
+    <div class="sk-user-data-note sk-description" text-uppercase padding>
+        <span>
+            {{ 'gdpr_third_party_note_title' | translate }}
+        </span>
+    </div>
+    <div class="sk-user-data-note">
+        <div [innerHTML]="'gdpr_third_party_note' | translate" padding-left padding-right></div>
+    </div>
+</ion-content>
+
+<ion-footer class="sk-gdpr-footer">
+    <ion-toolbar transparent>
+        <div class="sk-buttons">
+            <button mode="ios" (tap)="showModal()" class="sk-third-data-deletion-btn" ion-button full full>
+                {{ 'gdpr_request_deletion_btn' | translate }}
+            </button>
+        </div>
+    </ion-toolbar>
+</ion-footer>

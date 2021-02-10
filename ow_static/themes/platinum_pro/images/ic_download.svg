@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="16px" viewBox="0 0 12 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_download</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-255.000000, -2000.000000)" fill="#ffffff">
+            <g id="ic_download" transform="translate(255.000000, 2000.000000)">
+                <g id="Group">
+                    <polygon id="Shape" points="4 0 8 0 8 11 4 11"></polygon>
+                    <polygon id="Shape" transform="translate(8.092964, 9.235375) rotate(44.991897) translate(-8.092964, -9.235375) " points="6.88597526 5.0709153 9.29995214 5.0709153 9.29995214 13.3998355 6.88597526 13.3998355"></polygon>
+                    <polygon id="Shape" transform="translate(3.905893, 9.235006) rotate(134.983794) translate(-3.905893, -9.235006) " points="2.69840478 5.07104552 5.11338172 5.07104552 5.11338172 13.398966 2.69840478 13.398966"></polygon>
+                    <polygon id="Shape" points="0.625 14 11.375 14 11.375 16 0.625 16"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

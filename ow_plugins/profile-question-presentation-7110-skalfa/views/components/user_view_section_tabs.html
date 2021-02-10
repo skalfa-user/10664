@@ -1,0 +1,14 @@
+<div class="custom_presentation_main_div ow_nomargin section_{$sectionName} data_table" {if empty($display)}style="display:none;"{/if}>
+    {foreach  from=$questions key='sort' item='question' name='question'}
+        {if isset( $questionsData[$question.name] ) }
+        <div class="custom_presentation_item_div">
+            <div class="custom_presentation_item_label">
+                {if empty($labels[$question.name])}{text key="base+questions_question_`$question.name`_label"}{else}{$labels[$question.name]}{/if}
+            </div>
+            <div class="custom_presentation_item_value">
+                <span class="{if !empty($question.hidden)}ow_field_eye ow_remark profile_hidden_field{/if}">{$questionsData[$question.name]}</span>
+            </div>
+        </div>
+        {/if}
+    {/foreach}
+</div>

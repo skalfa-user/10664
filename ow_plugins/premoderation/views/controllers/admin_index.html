@@ -1,0 +1,27 @@
+<div class="ow_automargin ow_wide">
+    
+    {form name="contentTypes"}
+    <table class="ow_table_2 ow_margin">
+        <tbody>
+            <tr class="ow_tr_first">
+                <th style="width: 50%">{text key="moderation+type_of_content_label"}</th>
+                <th style="width: 50%">{text key="moderation+require_premoderation_label"}</th>
+            </tr>
+                
+            {foreach from=$groups item="group"}
+                <tr class="ow_alt1">
+                    <td>
+                        {$group.label}
+                    </td>
+                    <td>
+                        <input name="groups[]" value="{$group.name}" type="checkbox" {if $group.requireApproval}checked="checked"{/if} />
+                    </td>
+                </tr>
+            {/foreach}
+        </tbody>
+    </table>
+    <div class="clearfix ow_stdmargin"><div class="ow_right">
+        {submit name='save'}
+    </div></div>
+    {/form}
+</div>

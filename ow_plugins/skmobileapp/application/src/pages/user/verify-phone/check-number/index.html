@@ -1,0 +1,31 @@
+<ion-content class="sk-verify-phone-check-number-page sk-blank-state sk-height-wrap" padding>
+
+    <!-- page skeleton -->
+    <skeleton-preloader *ngIf="!formReady" name="verify-phone-check-number-page"></skeleton-preloader>
+
+    <div *ngIf="formReady" class="sk-blank-state-wrap">
+        <img class="sk-blank-state-icon" src="./assets/img/user/verify-email/ic-success.svg" alt="" />
+        <div class="sk-blank-state-cont">
+            <h2>{{ 'verify_phone_registration_successful' | translate }}</h2>
+            <p>{{ 'verify_phone_check_phone_page_desc' | translate }}</p>
+        </div>
+        <ion-list class="sk-inputs">
+            <question *ngFor="let question of questions" [question]="question" [form]="form"></question>
+        </ion-list>
+        <div class="sk-buttons">
+            <button *ngIf="formReady" ion-button round [disabled]="isRequestLoading || questionControl.isFormPending(form)" (click)="submit()">
+                <span class="sk-text-overflow">{{ 'verify_phone_send_button' | translate }}</span>
+                <ion-spinner class="sk-spinner-btn" *ngIf="isRequestLoading" name="ios-small"></ion-spinner>
+            </button>
+        </div>
+    </div>
+</ion-content>
+
+<ion-footer *ngIf="formReady" class="sk-back-footer sk-blank-state-footer">
+    <ion-toolbar>
+        <button type="button" ion-button block clear icon-start (click)="openLoginPage()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+            <span class="sk-text-overflow">{{ 'verify_phone_back_button' | translate }}</span>
+        </button>
+    </ion-toolbar>
+</ion-footer>

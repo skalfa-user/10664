@@ -1,0 +1,13 @@
+.sk-complete-account-type-page {
+    background-color: color($colors, sk-page-bg);
+
+    .sk-question-list:first-child {
+        .sk-question-section {
+            .item-inner {
+                .label {
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+.sk-auth-providers-page {
+    background-color: color($colors, sk-page-bg);
+
+    .sk-auth-providers-results {
+        ion-item {
+            min-height: 5.8rem;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            background-size: 3.6rem;
+            @include background-position(start, 1.6rem, center);
+
+            .item-inner {
+                @include margin(null, null, null, 5.2rem);
+
+                .label {
+                    &::first-letter {
+                        text-transform: capitalize;
+                    }
+                }
+            }
+            
+            &[data-firebase-provider="twitter.com"] {
+                background-image: url("../assets/img/user/login/ic-firebase-twitter.svg");
+            }
+            &[data-firebase-provider="facebook.com"] {
+                background-image: url("../assets/img/user/login/ic-firebase-fb.svg");
+            }
+            &[data-firebase-provider="google.com"] {
+                background-image: url("../assets/img/user/login/ic-firebase-google.svg");
+            }
+            &[data-firebase-provider="linkedin.com"] {
+                background-image: url("../assets/img/user/login/ic-firebase-linkedin.svg");
+            }
+            &[data-firebase-provider="instagram.com"] {
+                background-image: url("../assets/img/user/login/ic-firebase-instagram.svg");
+            }
+        }
+    }
+}

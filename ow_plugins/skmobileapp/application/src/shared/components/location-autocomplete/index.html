@@ -1,0 +1,39 @@
+<ion-header class="sk-location-header">
+    <ion-navbar>
+        <ion-buttons start>
+            <button ion-button clear (click)="cancel()">
+                {{ 'cancel' | translate }}
+            </button>
+        </ion-buttons>
+
+        <ion-title>
+            {{ 'choose_location_page_header' | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="sk-location-content">
+    <ion-searchbar
+            [(ngModel)]="searchQuery"
+            (ionInput)="updateSearch()"
+            [debounce]="debounceTime"
+            placeholder="{{ 'search' | translate }}">
+    </ion-searchbar>
+    <ion-list class="sk-autocomplete-results">
+        <ion-item *ngIf="autocompleteLoading">
+            <ion-spinner name="ios-small"></ion-spinner>
+        </ion-item>
+
+        <ion-item *ngFor="let location of autocompleteItems" tappable class="sk-autocomplete-result" (click)="chooseItem(location)">
+            {{ location }}
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-footer *ngIf="!isQuestionRequired" class="sk-location-footer">
+    <ion-toolbar text-center>
+        <button ion-button round outline margin-bottom color="sk-button-invisible" (click)="keepEmpty()">
+            <span class="sk-text-overflow">{{ 'keep_empty' | translate }}</span>
+        </button>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,133 @@
+{literal}
+<script language="javascript" type="text/javascript">
+    $(function(){
+        $(".unregister_profile_button").click(
+            function() { window.location = {/literal}"{$unregisterProfileUrl}"{literal} }
+            );
+    });
+</script>
+{/literal}
+
+{if !empty($changePassword)}
+    <div class="ow_block ow_stdmargin clearfix">
+        <div class="ow_right">{$changePassword}</div>
+    </div>
+{/if}
+
+{if isset($editSynchronizeHook)}
+    <div class="ow_block">
+        <h3 class="ow_block_title">
+            {text key="base+edit_remote_field_synchronize_title"}
+        </h3>
+    </div>
+    <div class="ow_block">
+        <h3 class="ow_block_title">
+            {text key="base+join_or"}
+        </h3>
+    </div>
+{/if}
+
+{form name=editForm}
+    <div class="ow_custom_form ow_edit_profile_form">
+        {if $displayAccountType}
+            <div class="ow_row">
+                <div class="ow_custom_form_label">
+                    {label name='accountType'}
+                </div>
+                <div class="ow_custom_form_field">
+                    {input name='accountType'}
+                </div>
+                <div class="ow_custom_form_error">
+                    <span>{error name='accountType'}</span>
+                </div>
+            </div>
+        {/if}
+        {foreach from=$questionArray key='section' item='questions' name='question'}
+            {if !empty($section)}
+            <div class="ow_content_menu_wrap">
+                <ul class="ow_content_menu clearfix">
+                    <li class="active">
+                        <a href="#">
+                            <span>{text key="base+questions_section_`$section`_label"}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            {/if}
+            {foreach from=$questions item='question' name='question'}
+                <div class="ow_row {if $question.type == 'datetime'}ow_datetime{/if}">
+                    <div class="ow_custom_form_label">
+                        {label name=$question.name}
+                    </div>
+                    <div class="ow_custom_form_field">
+                        {if $question.type == 'datetime'}
+                            {input name=$question.name class='ow_datetime_field'}
+                        {else}
+                            {input name=$question.name}
+                        {/if}
+                    </div>
+                    <div class="ow_custom_form_error">
+                        <span>{error name=$question.name}</span>
+                    </div>
+                </div>
+            {/foreach}
+        {/foreach}
+        <!-- <div class="ow_content_menu_wrap">
+            <ul class="ow_content_menu clearfix">
+                <li class="active">
+                    <a href="#">
+                        <span>{text key='base+questions_section_user_photo_label'}</span>
+                    </a>
+                </li>
+            </ul>
+        </div> -->
+        <div class="ow_row">
+            <div class="ow_custom_form_label">
+                {label name='avatar'}
+            </div>
+            <div class="ow_custom_form_field">
+                {input name='avatar'}
+            </div>
+            <div class="ow_custom_form_error">
+                {error name='avatar'}
+            </div>
+        </div>
+        {if $adminMode}
+            {if !$isUserApproved && !$isEditedUserModerator}
+                <div class="ow_row">
+                    <div class="ow_custom_form_field">
+                        {decorator name="button" class="delete_user_by_moderator ow_ic_delete ow_red ow_negative" langLabel='base+delete_profile'}
+                    </div>
+                </div>
+            {/if}
+            {if !$isUserApproved}
+                <div class="ow_row">
+                    <div class="ow_custom_form_field">
+                        {decorator name="button" class="write_message_button ow_green ow_positive" langLabel='base+write_message'}
+                    </div>
+                </div>
+                <div class="ow_row ow_submit_row">
+                    <div class="ow_submit_field">
+                        {submit name='saveAndApprove'}
+                    </div>
+                </div>
+            {else}
+                <div class="ow_row ow_submit_row">
+                    <div class="ow_submit_field">
+                        {submit name='editSubmit'}
+                    </div>
+                </div>
+            {/if}
+        {else}
+            <div class="ow_row ow_submit_row clearfix">
+                <div class="ow_submit_field ow_right">
+                    {submit name='editSubmit'}
+                </div>
+            </div>
+        {/if}
+    </div>
+{/form}
+
+{script}
+$(document).ready(function() { window.jcf ? jcf.replaceAll() : console.warn('JCF is not initialized properly.'); });
+{/script}

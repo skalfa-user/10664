@@ -1,0 +1,75 @@
+{style}
+.ow_page_container, .ow_canvas {
+min-width: 85%;
+}
+
+.div_search {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+}
+.search_by_user_name, .search_from_to, .search_bad_word {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+}
+{/style}
+
+{$menu}
+
+<div class="ow_stdmargin clearfix">
+    <div class="ow_right ow_superwide ow_txtright">
+        <div class="ow_box ow_admin_search_box ow_smallmargin">
+
+            {form name='SearchByUserName'}
+            <div class="div_search">
+                <div class="search_by_user_name">
+                    <div class="ow_inline ">{label name='userName'}</div>
+                    <div class="ow_inline ">{input name='userName'}</div>
+                </div>
+
+                <div class="search_by_user_name">
+                    {submit name='submit'}
+                </div>
+
+            </div>
+            {/form}
+
+            {form name='SearchFromTo'}
+            <div class="div_search">
+                <div class="search_from_to">
+                    <div class="ow_inline ">{label name='userNameFrom'}</div>
+                    <div class="ow_inline ">{input name='userNameFrom'}</div>
+                </div>
+
+                <div class="search_from_to">
+                    <div class="ow_inline ">{label name='userNameTo'}</div>
+                    <div class="ow_inline ">{input name='userNameTo'}</div>
+                </div>
+
+                <div class="search_from_to">
+                    {submit name='submit'}
+                </div>
+
+            </div>
+            {/form}
+
+            {form name='SearchBadWord'}
+            <div class="div_search">
+                <div class="search_bad_word">
+                    <div class="ow_inline ">{label name='badWord'}</div>
+                    <div class="ow_inline ">{input name='badWord'}</div>
+                </div>
+
+                <div class="search_bad_word">
+                    {submit name='submit'}
+                </div>
+
+            </div>
+            {/form}
+        </div>
+
+    </div>
+</div>
+
+{$messageList}

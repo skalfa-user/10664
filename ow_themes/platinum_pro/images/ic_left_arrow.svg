@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_left_arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-782.000000, -1999.000000)" fill="#ffffff">
+            <g id="ic_left_arrow" transform="translate(781.000000, 1999.000000)">
+                <g id="Group">
+                    <path d="M1.959,9 C1.406,9 0.959,8.553 0.959,8.001 C0.959,7.448 1.406,7.001 1.959,7.001 L15.958,7.001 C16.51,7.001 16.958,7.448 16.958,8.001 C16.958,8.553 16.51,9.001 15.958,9.001 L1.959,9.001" id="Shape"></path>
+                    <path d="M1.252,8.708 C0.861,8.317 0.861,7.684 1.252,7.294 C1.642,6.904 2.275,6.903 2.666,7.294 L9.564,14.192 C9.955,14.583 9.955,15.217 9.564,15.606 C9.174,15.997 8.541,15.997 8.15,15.606 L1.252,8.708" id="Shape"></path>
+                    <path d="M2.666,8.708 C2.275,9.099 1.642,9.099 1.252,8.708 C0.861,8.318 0.861,7.685 1.252,7.294 L8.15,0.395 C8.541,0.004 9.174,0.005 9.565,0.395 C9.955,0.786 9.956,1.418 9.565,1.809 L2.666,8.708" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

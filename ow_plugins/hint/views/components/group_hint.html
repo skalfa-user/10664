@@ -1,0 +1,76 @@
+{**
+ * Copyright (c) 2012, Sergey Kambalin
+ * All rights reserved.
+
+ * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
+ * and is licensed under Oxwall Store Commercial License.
+ * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ *}
+
+{**
+ *
+ * @author Sergey Kambalin <greyexpert@gmail.com>
+ * @package hint.view
+ **}
+
+{style}
+
+#{$uniqId} .uhint-avatar-image
+{
+    background-image: url({$group.avatar});
+}
+
+{/style}
+
+<div id="{$uniqId}" class="ghint-wrap uhint-wrap {if !$options.hasLines}hint-on-lines{/if} {if $options.has0line}hint-0-line{/if} {if empty($cover)}uhint-no-cover{else}uhint-has-cover{/if}">
+    <div class="uhint-body">
+
+        <div class="uhb-head ow_border" {if !empty($cover)}style="height: {$cover.height}px;"{/if}>
+
+            {if !empty($cover)}
+                <img class="uhint-cover-img" src="{$cover.url}" style="{$cover.imageCss}" />
+            {/if}
+
+            <div class="uhb-head-text-wrap {if !empty($info.line0)}uhbht-extra-line{/if}">
+                <div class="uhb-head-text">
+                    <a href="{$group.url}" class="uhbht-title">
+                        {$group.title}
+                    </a>
+                    
+                    {if !empty($info.line0)}
+                        <div class="uhbht-info-line hb-info-line0 ow_small {if empty($cover)}ow_remark{/if}">{$info.line0}</div>
+                    {/if}
+                </div>
+            </div>
+        </div>
+
+        <div class="uhb-info clearfix">
+
+            <div class="uhint-avatar ow_avatar_console ow_bg_color ow_border">
+                <div class="uhint-avatar-image">
+                </div>
+            </div>
+            <div class="hb-info-content">
+                <div class="hb-info-line hb-info-line1">
+                    {$info.line1}
+                </div>
+                <div class="hb-info-line hb-info-line2">{$info.line2}</div>
+            </div>
+        </div>
+
+    </div>
+
+    {if !empty($buttons)}
+    <div class="uhint-foot ow_border">
+        <ul class="ow_bl clearfix">
+            {foreach from=$buttons item="button"}
+                {if !empty($button.html)}
+                    {$button.html}
+                {else}
+                    <li><a {$button.attrs}>{$button.label}</a></li>
+                {/if}
+            {/foreach}
+        </ul>
+    </div>
+    {/if}
+</div>

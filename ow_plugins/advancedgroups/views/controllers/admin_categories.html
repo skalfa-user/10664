@@ -1,0 +1,48 @@
+{$menu}
+{if count($allCategories) eq 0}
+No categories found <br/><br/>
+{else}
+<div class="ow_automargin">
+<p>
+    <span class="ow_mild_green">Drag'n'drop</span> items to order the category.
+</p>
+    <table class="ow_table_1 ow_form ow_automargin data" id="sort">
+    	<thead>
+    		<tr>	 	
+	    		<th width="50">Options</th>
+	            <th width="100">Category</th>
+	            <th>Description</th>
+            </tr>
+    	</thead>
+        {foreach from=$allCategories item=category}
+        <tr class="{cycle values='ow_alt1,ow_alt2'}" style="cursor: move;" data-id="{$category.id}">
+            <td>
+            	<a href="{{$deleteUrls[$category.id]}}" onclick="return confirm('Are you sure? All groups belong this category are also removed, and no way to get they back.');"
+            		 style="width:16px; height:16px; display:block; margin:0 auto;background-repeat:no-repeat;background-position: 50% 50%; float: left; margin-right: 10px" 
+            		 class="ow_ic_delete" title="Delete"></a> 
+            </td>
+            <td>{text_edit key="advancedgroups+category_title_`$category.id`"}</td>
+            <td>{text_edit key="advancedgroups+category_description_`$category.id`"}</td>
+        </tr>
+        {/foreach}
+    </table>
+</div>
+{/if}
+
+<div class="ow_automargin ow_superwide">
+
+    {form name='categoriesForm'}
+    <table class="ow_table_1 ow_form">
+        <tr> 
+            <td class="ow_value">{input name="categoryName"} {error name='categoryName'}</td>
+        </tr>
+        <tr> 
+            <td class="ow_value">{input name="categoryDesc"} {error name='categoryDesc'}</td>
+        </tr>
+        <tr>
+            <td class="ow_center">{submit name='add' class='ow_button ow_ic_save'}</td>
+        </tr>
+    </table>
+    {/form}
+
+</div>

@@ -1,0 +1,108 @@
+{style}
+{literal}
+
+.simplesecurity-action
+{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+{/literal}
+{/style}
+
+<div class="ow_stdmargin">
+    {form name="consorForm"}
+        <table class="ow_table_2 ow_form">
+            <tr>
+                <td class="ow_label">Replace all bad words by:</td>
+                <td class="ow_value">
+                    {input name="censor"}
+                    {error name="censor"}
+                </td>
+            </tr>
+            <tr>
+                <td class="ow_label">Text color:</td>
+                <td class="ow_value">
+                    {input name="censorColor"}
+                    {error name="censorColor"}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    {submit name="save"}
+                </td>
+            </tr>
+        </table>
+    {/form}
+</div>
+
+<div class="ow_stdmargin">
+    <div id="badwords-content">
+        <div id="badwords-tab-word">            
+            <div class="ow_stdmargin">
+                {decorator name="button_list_item" label="Add bad words" class="add-badwords-btn"}
+            </div>
+            
+            {$paging}
+            
+            <form method="POST" action="{url_for_route for="badwords.admin"}">
+                <input type="hidden" name="command" value="word" />
+                <table class="ow_table_2">
+                    <tbody>
+                        {foreach from=$badwords item="item"}
+                            <tr id="{$item->id}" class="{cycle values="ow_alt1,ow_alt2"}">
+                                <td width="1"><input type="checkbox" name="word[]" value="{$item->id}" text="{$item->text}" /></td>
+                                <td class="ow_txtleft">
+                                    {$item->text}
+                                </td>
+                            </tr>
+                        {foreachelse}
+                            <tr class="ow_alt1">
+                                <td colspan="2">No items</td>
+                            </tr>
+                        {/foreach}
+
+                        <tr class="ow_tr_last">
+                            <td width="1"><input type="checkbox" name="badwords-select-all" value="badwords-tab-word"/></td>
+                            <td>
+                                {decorator name="button_list_item" label="Edit" class="editBadwords" buttonName="word"}
+                                {decorator name="button_list_item" type="submit" label="Delete" onclick="return confirm('Are you sure?')"}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            
+            {$paging}
+            
+        </div>
+    </div>
+</div>
+
+<div style="display: none">
+    <div id="add-badwords-form">
+        {form name="badwordsForm"}
+            <table class="ow_table_1 ow_form">
+                <tbody>
+                    <tr class="ow_alt1">
+                        <td width="1" class="ow_label">
+                            Bad words
+                        </td>
+                        <td class="ow_value">
+                            {input name="badwords"}
+                            {error name="badwords"}
+                        </td>
+                        <td class="ow_desc ow_small">New line - new word</td>
+                    </tr>
+                    </tr>
+
+                    <tr class="ow_tr_last ow_center">
+                        <td colspan="3">
+                            {submit name="save"}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        {/form}
+    </div>
+</div>

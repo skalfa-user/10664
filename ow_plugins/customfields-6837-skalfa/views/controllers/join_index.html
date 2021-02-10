@@ -1,0 +1,134 @@
+{if isset($notValidInviteCode)}
+    {block_decorator name="box" type="empty" addClass="ow_center" style="padding:15px;"}
+        {text key="base+join_not_valid_invite_code"}
+    {/block_decorator}
+{else}
+    {if $step == 1}
+        <div class="ow_custom_promo ow_stdmargin">
+            <span>{text key="base+join_promo"}</span>
+            {component class='BASE_CMP_SignInButtonList'}
+        </div>
+    {/if}
+    <!-- <div class="ow_custom_form_title">
+        <span>{text key="base+join_form_title"}</span>
+    </div> -->
+    {form name=joinForm}
+        <div class="ow_custom_form ow_custom_join_form">
+            {foreach from=$questionArray key='section' item='questions' name='section'}
+                {if !empty($section)}
+                <div class="ow_content_menu_wrap">
+                    <ul class="ow_content_menu clearfix">
+                        <li class="active">
+                            <a href="#">
+                                <span>
+                                    {text key="base+questions_section_`$section`_label"}
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                {/if}
+                {foreach from=$questions item='question' name='question'}
+                    <div class="ow_row {if !empty($question.trClass)}{$question.trClass}{/if} {if $question.type == 'datetime'}ow_datetime{/if}">
+                        <div class="ow_custom_form_label">
+                            {label name=$question.name}
+                        </div>
+                        <div class="ow_custom_form_field">
+                            {if $question.type == 'datetime'}
+                                {input name=$question.name class='ow_datetime_field'}
+                            {else}
+                                {input name=$question.name}
+                            {/if}
+                        </div>
+                        <div class="ow_custom_form_error">
+                            <span>{error name=$question.name}</span>
+                        </div>
+                    </div>
+                    {if $question.name == 'password'}
+                        <div class="ow_row">
+                            <div class="ow_custom_form_label">
+                                {label name='repeatPassword'}
+                            </div>
+                            <div class="ow_custom_form_field">
+                                {input name='repeatPassword'}
+                            </div>
+                            <div class="ow_custom_form_error">
+                                <span>{error name='repeatPassword'}</span>
+                            </div>
+                        </div>
+                    {/if}
+                {/foreach}
+            {/foreach}
+            {if $isLastStep}
+                {if $display_photo}
+                    <!-- <div class="ow_custom_section">
+                        <span>{text key="base+questions_section_user_photo_label"}</span>
+                    </div> -->
+                    <div class="ow_row">
+                        <div class="ow_custom_form_label">
+                            {label name='userPhoto'}
+                        </div>
+                        <div class="ow_custom_form_field">
+                            {input name='userPhoto'}
+                        </div>
+                        <div class="ow_custom_form_error">
+                            {error name='userPhoto'}
+                        </div>
+                    </div>
+                {/if}
+                {if $display_terms_of_use}
+                    <!-- <div class="ow_custom_section">
+                        <span>{text key="base+questions_section_terms_of_use_label"}</span>
+                    </div> -->
+                    <div class="ow_row margin-bottom-0">
+                        <div class="ow_custom_form_label">
+                            {text key="base+questions_section_terms_of_use_label"}
+                        </div>
+                    </div>
+                    <div class="ow_row termsofuse flex flex-wrap">
+                        <div class="ow_custom_form_field">
+                            {input name='termOfUse'}
+                        </div>
+                        <div class="ow_custom_form_label">
+                            {label name='termOfUse'}
+                        </div>
+                        <div class="ow_custom_form_error">
+                            {error name='termOfUse'}
+                        </div>
+                    </div>
+                {/if}
+                {if $display_captcha}
+                    <!-- <div class="ow_custom_section">
+                        <span>{text key="base+questions_section_captcha_label"}</span>
+                    </div> -->
+                    <div class="ow_row captcha">
+                        <div class="ow_custom_form_label">
+                            {text key="base+questions_section_captcha_label"}
+                        </div>
+                        <div class="ow_custom_form_field">
+                            {input name='captchaField'}
+                        </div>
+                        <div class="ow_custom_form_error">
+                            {error name='captchaField'}
+                        </div>
+                    </div>
+                {/if}
+            {/if}
+        </div>
+        <div class="ow_row ow_submit_row clearfix">
+            <div class="ow_submit_field ow_right">
+                {submit name='joinSubmit'}
+            </div>
+        </div>
+    {/form}
+{/if}
+
+{script}
+$(document).ready(function() { window.jcf ? jcf.replaceAll() : console.warn('JCF is not initialized properly.'); });
+{/script}
+
+{script}
+$(document).ready(function() {
+    setTimeout(() => $('.ow_datetime select').addClass('ow_datetime_select'), 150);
+});
+{/script}

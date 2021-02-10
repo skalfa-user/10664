@@ -1,0 +1,460 @@
+/*Lia footer permanent css */
+
+.ow_footer {background-color: #2e3e4f;}
+.ow_footer_menu a {color: #ffffff;}
+.ow_footer_menu a:hover{color: #ffffff;}
+.ow_footer .ow_copyright  {color: #ffffff;}
+.footer_copyright { border-top: 1px solid #ffffff;text-align: center;}
+
+/* Lia headers permanent css */
+html body div .ow_page h1 {
+    font-size: 20px; color: #0080b7;font-weight: bold;text-align:left;
+}
+
+/* Lia widgets permanent css */
+.ow_box_cap_empty {
+    border-top: 4px solid #337ab7;
+}
+
+.ow_box {
+    color: #ffffff;
+    border-color: #ccc;
+}
+/* Lia removing icons css */
+html body div .ow_ic_user {
+    background-image: none;
+}
+html body div .ow_ic_up_arrow {
+    background-image: none;
+}
+
+html body div .ow_ic_picture {
+    background-image: none;
+}
+html body div .ow_ic_gear_wheel{
+    background-image: none;
+}
+.ow_content_menu span {
+    background-image: none;
+    padding: 15px 15px 15px 10px;
+}
+
+html body div .ow_ic_script {
+    background-image: none;
+}
+
+/* Lia various general css */
+.ow_page_container .ow_page {
+    padding: 2px 16px 16px;
+}
+
+.ow_content_menu li.active {
+    border-color: #007CB2;
+}
+
+.ow_context_action_value {
+    color: #515862;
+}
+
+.ow_bl.ow_box_toolbar li a {
+    background: #007CB2;
+}
+.ow_bl a {
+    color: #515862;
+    border: 1px solid #eee;
+}
+
+.ow_tooltip .ow_tooltip_body {
+    border: 1px solid #eee;
+}
+
+.ow_highbox_table .ow_highbox, .ow_highbox {
+    background-color: #66cb9e;
+}
+
+th {
+    background: transparent;
+}
+/*Lia main menu permanent css */
+.ow_menu_wrap {
+    display: block;
+    padding-left: 17%;
+    border-top: solid 1px #eee;
+    line-height: 46px;
+    height: 58px;
+}
+
+
+.ow_main_menu li a {
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #515862;
+    font-size: 16px;
+}
+
+.ow_main_menu li.active a, .ow_main_menu li a:hover {
+    color: #515862;
+    border-bottom: 3px solid #007CB2;
+}
+
+.ow_main_menu li a:hover {
+    border-bottom: 3px solid #007CB2;
+}
+
+/*Lia global background permanent css */
+.ow_bg_color {
+    background-color: #f7f7f7;
+}
+body, .ow {
+    background-color:#f7f7f7;
+}
+.ow_page_padding {
+    background-color:#f7f7f7;
+}
+.ow_alt1, tr.ow_alt1 td {
+    background-color: transparent;
+}
+.ow_alt2, tr.ow_alt2 td {
+    background-color: transparent;
+}
+
+/* Lia SkaDate table permanent styles */
+
+.ow_table_1 tr:last-child td:last-child, .ow_table_1 tr.alt1:last-child td:last-child, .ow_table_1 tr.ow_tr_last td:last-child, .ow_table_1 tr.ow_tr_last th:last-child, .ow_table_2 tr:last-child td:last-child, .ow_table_2 tr.alt1:last-child td:last-child, .ow_table_2 tr.ow_tr_last td:last-child, .ow_table_2 tr.ow_tr_last th:last-child {
+    border-bottom: none;
+    border-right: none;
+}
+
+.ow_table_1 tr td:last-child, .ow_table_2 tr td:last-child {
+    border-bottom: none;
+    border-right: none;
+}
+
+tr.usearch_section_location {
+    display:none;
+}
+
+.questions_div.usearch_transition .ow_table_1 tr.ow_tr_first th:last-child, .ow_table_2 tr.ow_tr_first th:last-child {
+    display:none;
+}
+
+/* Lia permanent CSS border for boxes */
+select {
+    border: 1px solid #ccc;
+}
+input[type="text"], input[type="password"], textarea, select, div.jhtmlarea, .ow_photo_upload_description, .ow_photo_preview_edit .CodeMirror {
+    border: 1px solid #ccc;
+}
+
+
+
+/* Lia SkaDate TEMP styles */
+
+.header_slogan {
+    display:none !important;
+}
+.ow_header {
+    background-color: white;
+
+}
+
+
+.ow_landing_wrap.right_pos {
+    background-size: contain;
+}
+
+.ow_header {
+    min-height: 154px;
+    background-size:contain;
+}
+
+
+
+html body div .ow_page h1 {
+    font-size: 20px; color: #0080b7;font-weight: bold;text-align:left;
+}
+
+.ow_logo_wrap a {
+    display: none;
+}
+
+.ow_table_1 tr:first-child td:last-child, .ow_table_1 tr:first-child th:last-child, .ow_table_2 tr:first-child td:last-child, .ow_table_2 tr:first-child th:last-child {
+    border:none;
+}
+
+.ow_site_panel_wrap.site_panel_wrap_bg_color {
+    display: none;
+}
+
+table.ow_form td.ow_label {
+    border: none;
+}
+
+table.ow_form td.ow_label {
+    color: #515862;
+}
+span.ow_button {
+    background-color: #337ab7;
+}
+span.ow_button:hover {
+    background-color: #a10303;
+}
+
+html body div .ow_ic_mail {
+    background-image:none;
+}
+
+/* end of TEMP styles*/
+
+.ow_landing_logo {
+    display: none;
+}
+
+
+.footer_social_item ul {
+    display:none;
+}
+
+table.ow_form td.ow_label{
+    color: #8e8d8d;
+    text-align: left;
+    width: 20%;
+    white-space: pre-line;
+}
+
+.ow_table_3 td.ow_label:after{
+    content: '\A';
+    white-space: pre;
+}
+
+
+/*wqefwefqwfwqef*/
+/*Lia footer permanent css */
+
+.ow_footer {background-color: #2e3e4f;}
+.ow_footer_menu a {color: #ffffff;}
+.ow_footer_menu a:hover{color: #ffffff;}
+.ow_footer .ow_copyright  {color: #ffffff;}
+.footer_copyright { border-top: 1px solid #ffffff;text-align: center;}
+
+/* Lia headers permanent css */
+html body div .ow_page h1 {
+    font-size: 20px; color: #0080b7;font-weight: bold;text-align:left;
+}
+
+/* Lia widgets permanent css */
+.ow_box_cap_empty {
+    border-top: 4px solid #337ab7;
+}
+
+.ow_box {
+    color: #ffffff;
+    border-color: #ccc;
+}
+/* Lia removing icons css */
+html body div .ow_ic_user {
+    background-image: none;
+}
+html body div .ow_ic_up_arrow {
+    background-image: none;
+}
+
+html body div .ow_ic_picture {
+    background-image: none;
+}
+html body div .ow_ic_gear_wheel{
+    background-image: none;
+}
+.ow_content_menu span {
+    background-image: none;
+    padding: 15px 15px 15px 10px;
+}
+
+html body div .ow_ic_script {
+    background-image: none;
+}
+
+/* Lia various general css */
+.ow_page_container .ow_page {
+    padding: 2px 16px 16px;
+}
+
+.ow_content_menu li.active {
+    border-color: #007CB2;
+}
+
+.ow_context_action_value {
+    color: #515862;
+}
+
+.ow_bl.ow_box_toolbar li a {
+    background: #007CB2;
+}
+.ow_bl a {
+    color: #515862;
+    border: 1px solid #eee;
+}
+
+.ow_tooltip .ow_tooltip_body {
+    border: 1px solid #eee;
+}
+
+.ow_highbox_table .ow_highbox, .ow_highbox {
+    background-color: #66cb9e;
+}
+
+th {
+    background: transparent;
+}
+/*Lia main menu permanent css */
+.ow_menu_wrap {
+    display: block;
+    padding-left: 17%;
+    border-top: solid 1px #eee;
+    line-height: 46px;
+    height: 58px;
+}
+
+
+.ow_main_menu li a {
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #515862;
+    font-size: 16px;
+}
+
+.ow_main_menu li.active a, .ow_main_menu li a:hover {
+    color: #515862;
+    border-bottom: 3px solid #007CB2;
+}
+
+.ow_main_menu li a:hover {
+    border-bottom: 3px solid #007CB2;
+}
+
+/*Lia global background permanent css */
+.ow_bg_color {
+    background-color: #f7f7f7;
+}
+body, .ow {
+    background-color:#f7f7f7;
+}
+.ow_page_padding {
+    background-color:#f7f7f7;
+}
+.ow_alt1, tr.ow_alt1 td {
+    background-color: transparent;
+}
+.ow_alt2, tr.ow_alt2 td {
+    background-color: transparent;
+}
+
+/* Lia SkaDate table permanent styles */
+
+.ow_table_1 tr:last-child td:last-child, .ow_table_1 tr.alt1:last-child td:last-child, .ow_table_1 tr.ow_tr_last td:last-child, .ow_table_1 tr.ow_tr_last th:last-child, .ow_table_2 tr:last-child td:last-child, .ow_table_2 tr.alt1:last-child td:last-child, .ow_table_2 tr.ow_tr_last td:last-child, .ow_table_2 tr.ow_tr_last th:last-child {
+    border-bottom: none;
+    border-right: none;
+}
+
+.ow_table_1 tr td:last-child, .ow_table_2 tr td:last-child {
+    border-bottom: none;
+    border-right: none;
+}
+
+tr.usearch_section_location {
+    display:none;
+}
+
+.questions_div.usearch_transition .ow_table_1 tr.ow_tr_first th:last-child, .ow_table_2 tr.ow_tr_first th:last-child {
+    display:none;
+}
+
+/* Lia permanent CSS border for boxes */
+select {
+    border: 1px solid #ccc;
+}
+input[type="text"], input[type="password"], textarea, select, div.jhtmlarea, .ow_photo_upload_description, .ow_photo_preview_edit .CodeMirror {
+    border: 1px solid #ccc;
+}
+
+
+
+/* Lia SkaDate TEMP styles */
+
+.header_slogan {
+    display:none !important;
+}
+.ow_header {
+    background-color: white;
+
+}
+
+
+.ow_landing_wrap.right_pos {
+    background-size: contain;
+}
+
+.ow_header {
+    min-height: 154px;
+    background-size:contain;
+}
+
+
+
+html body div .ow_page h1 {
+    font-size: 20px; color: #0080b7;font-weight: bold;text-align:left;
+}
+
+.ow_logo_wrap a {
+    display: none;
+}
+
+.ow_table_1 tr:first-child td:last-child, .ow_table_1 tr:first-child th:last-child, .ow_table_2 tr:first-child td:last-child, .ow_table_2 tr:first-child th:last-child {
+    border:none;
+}
+
+.ow_site_panel_wrap.site_panel_wrap_bg_color {
+    display: none;
+}
+
+table.ow_form td.ow_label {
+    border: none;
+}
+
+table.ow_form td.ow_label {
+    color: #515862;
+}
+span.ow_button {
+    background-color: #337ab7;
+}
+span.ow_button:hover {
+    background-color: #a10303;
+}
+
+html body div .ow_ic_mail {
+    background-image:none;
+}
+
+/* end of TEMP styles*/
+
+.ow_landing_logo {
+    display: none;
+}
+
+
+.footer_social_item ul {
+    display:none;
+}
+
+table.ow_form td.ow_label{
+    color: #8e8d8d;
+    text-align: left;
+    width: 20%;
+    white-space: pre-line;
+}
+
+.ow_table_3 td.ow_label:after{
+    content: '\A';
+    white-space: pre;
+}
+/*wefqwefwqefwe*/

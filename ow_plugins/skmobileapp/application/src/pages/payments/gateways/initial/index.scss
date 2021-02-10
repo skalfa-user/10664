@@ -1,0 +1,26 @@
+.sk-gateways {
+    background-color: color($colors, sk-page-bg);
+
+    .col {
+        padding: 10px;
+    }
+    
+    .sk-gateway-wrap {
+        @include flex(flex, column, center, center);
+        border-radius: 8px;
+        border: 1px solid $sk-gateway-border-color;
+        background-color: color($colors, light);
+        height: calc(((100vw - 10px) / 2) - 20px);
+        position: relative;
+
+        img {
+            width: 70%;
+        }
+
+        ion-spinner {
+            position: absolute;
+            @include position(50%, null, null, 50%);
+            transform: translate(-50%, -50%);
+        }
+    }
+}

@@ -1,0 +1,92 @@
+{style}
+{literal}
+    .user_list_thumb {
+        width: 55px;
+        height: 45px;
+    }
+    .user_list_prof {
+        min-width: 240px;
+    }
+{/literal}
+{/style}
+
+{if $messagesList}
+
+<div class="clearfix ow_smallmargin">
+    <div class="ow_left">{$paging}</div>
+    {if $total}<div class="ow_right">{text key='sktextcr+found_messages' count=$total}</div>{/if}
+</div>
+
+{$paging}
+
+
+<table class="ow_table_2">
+    <tr class="ow_tr_first">
+        <th>{text key='sktextcr+admin_send_by_label'}</th>
+        <th>{text key='sktextcr+admin_to_label'}</th>
+        <th>{text key='sktextcr+admin_message_label'}</th>
+        <th>{text key='sktextcr+admin_date_label'}</th>
+    </tr>
+
+    {foreach from=$messagesList item='message'}
+
+        {capture assign='senderId'}{$message.senderId}{/capture}
+        {capture assign='recipientId'}{$message.recipientId}{/capture}
+        {capture assign='username'}{$userNameList[$senderId]}{/capture}
+        {capture assign='username'}{$userNameList[$recipientId]}{/capture}
+
+        <tr class="{cycle values='ow_alt1,ow_alt2'}">
+            <td class="user_list_prof">
+                <div class="clearfix">
+                    <div class="ow_left ow_txtleft user_list_thumb">{decorator name='avatar_item' data=$avatars[$senderId]}</div>
+                    <div class="ow_left ow_txtleft">
+                        {user_link name=$avatars[$senderId].title username=$userNameList[$senderId]}<br />
+                        <span class="ow_small">
+                        {if !empty($sexList[$senderId])}
+                            {$sexList[$senderId]}
+                        {/if}
+                        {if !empty($questionList[$senderId].birthdate)}
+                            {age dateTime=$questionList[$senderId].birthdate}
+                        {/if}
+                        {if !empty($sexList[$senderId]) || !empty($questionList[$senderId].birthdate)}<br />{/if}
+                        {if !empty($questionList[$senderId].email)}
+                            <span class="ow_remark">{$questionList[$senderId].email}</span>
+                        {/if}
+                        </span>
+                    </div>
+                </div>
+            </td>
+
+            <td class="user_list_prof">
+                <div class="clearfix">
+                    <div class="ow_left ow_txtleft user_list_thumb">{decorator name='avatar_item' data=$avatars[$recipientId]}</div>
+                    <div class="ow_left ow_txtleft">
+                        {user_link name=$avatars[$recipientId].title username=$userNameList[$recipientId]}<br />
+                        <span class="ow_small">
+                        {if !empty($sexList[$recipientId])}
+                            {$sexList[$recipientId]}
+                        {/if}
+                        {if !empty($questionList[$recipientId].birthdate)}
+                            {age dateTime=$questionList[$recipientId].birthdate}
+                        {/if}
+                        {if !empty($sexList[$recipientId]) || !empty($questionList[$recipientId].birthdate)}<br />{/if}
+                        {if !empty($questionList[$recipientId].email)}
+                            <span class="ow_remark">{$questionList[$recipientId].email}</span>
+                        {/if}
+                        </span>
+                    </div>
+                </div>
+            </td>
+
+            <td>{if $message.text}{$message.text}{/if}</td>
+            <td class="ow_small">{if $message.timeStamp}{format_date timestamp=$message.timeStamp}{/if}</td>
+        </tr>
+    {/foreach}
+
+</table>
+
+{else}
+    {block_decorator name='box' addClass='ow_stdmargin clearfix ow_italic ow_center'}
+        {text key='sktextcr+messages_not_found'}
+    {/block_decorator}
+{/if}

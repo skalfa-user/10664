@@ -1,0 +1,6 @@
+config.xml
+cordova-js-src*
+plugins*
+cordova_plugins.js
+cordova.js
+*.gzip

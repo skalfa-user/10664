@@ -1,0 +1,25 @@
+[{
+    "id": "1", 
+    "name": "realname", 
+    "value": "test", 
+    "type": "text", 
+    "params": null
+}, {
+    "id": "2", 
+    "name": "birthdate", 
+    "value": "1984-16-03", 
+    "type": "age", 
+    "params": null
+}, {
+    "id": "3", 
+    "name": "aboutme", 
+    "value": "test", 
+    "type": "textarea", 
+    "params": null
+}, {
+    "id": "4", 
+    "name": "googlemap_location", 
+    "value": "test", 
+    "type": "googlemap_location", 
+    "params": null
+}]

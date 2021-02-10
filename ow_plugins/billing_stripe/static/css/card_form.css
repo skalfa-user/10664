@@ -1,0 +1,54 @@
+/* Form Styles */
+
+.ow_credit_card {
+    border-radius: 6px;
+    padding: 2vw 2vw;
+}
+.ow_credit_card .credit-card-info {
+    padding-left: 5px;
+}
+.ow_credit_card th {
+    background: none;
+    padding: 8px 0px;
+    text-align: left;
+}
+.ow_credit_card .ow_table_3 td {
+    border: none;
+}
+.ow_credit_card .ow_table_3 td.ow_label {
+    vertical-align: middle;
+    text-align: left;
+    width: 25% !important;
+}
+.ow_credit_card .ow_table_3 td.ow_value {
+    width: auto;
+}
+.ow_credit_card .stripe_card {
+    padding: 6px 4px;
+}
+.ow_credit_card .ow_billing_info {
+    margin-bottom: 0;
+}
+.ow_credit_card .billing-zip {
+    width: 80px;
+}
+.ow_credit_card .billing-country {
+    height: 30px;
+    width: 100%;
+}
+
+/* for Themes */
+
+.panda .stripe_card {
+    background: #fff;
+    border: 1px solid #cecece;
+    font-family: "Lucida Grande", "Verdana";
+    font-size: 13px;
+    color: #645757;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.intense .stripe_card {
+    background: #fff;
+}

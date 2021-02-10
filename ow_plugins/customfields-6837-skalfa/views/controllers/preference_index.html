@@ -1,0 +1,44 @@
+<div class="custom-preference-page">
+    {$contentMenu}
+
+    {if empty($preferenceList)}
+        <div class="ow_custom_promo">
+            <span>{text key="base+preference_no_items"}</span>
+        </div>
+    {else}
+        {form name='preferenceForm'}
+            <div class="ow_custom_form ow_custom_preference_form">
+                {foreach from=$preferenceList key='section' item='preferences'}
+                    <!-- <div class="ow_custom_section">
+                        {if !empty($sectionLabels.$section.label)}
+                            <span>{$sectionLabels.$section.label}</span>
+                        {else}
+                            <span>{$section}</span>
+                        {/if}
+                    </div> -->
+                    {foreach from=$preferences item='preference' name='preference'}
+                        <div class="ow_row">
+                            <div class="ow_custom_form_label">
+                                {label name=$preference}
+                            </div>
+                            <div class="ow_custom_form_field">
+                                {input name=$preference}
+                            </div>
+                            <div class="ow_custom_form_error">
+                                {error name=$preference}
+                            </div>
+                        </div>
+                    {/foreach}
+                {/foreach}
+            </div>
+            <div class="ow_row ow_submit_row clearfix">
+                <div class="ow_submit_field ow_right">
+                    {submit name='preferenceSubmit'}
+                </div>
+            </div>
+        {/form}
+    {/if}
+</div>
+{script}
+$(document).ready(function() { window.jcf ? jcf.replaceAll() : console.warn('JCF is not initialized properly.'); });
+{/script}

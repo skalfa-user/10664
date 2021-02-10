@@ -1,0 +1,5 @@
+<div class="ow_index_app_banner ow_center">
+    {foreach $promos as $promo}
+        <a href="{$promo.app_url}" class="{if $promo@key == 'skadateios'}ow_index_app_banner_ios{else}ow_index_app_banner_and{/if}"></a>
+    {/foreach}
+</div>

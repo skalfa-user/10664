@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_server</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-282.000000, -2057.000000)">
+            <g id="ic_server" transform="translate(282.000000, 2057.000000)">
+                <g id="Group">
+                    <g fill="#ffffff" id="Shape">
+                        <polygon points="0 8 16 8 16 16 0 16"></polygon>
+                        <path d="M12.438,2 L14,8.246 L14,14 L2,14 L2,8.246 L3.562,2 L12.438,2 L12.438,2 Z M14,0 L2,0 L0,8 L0,16 L16,16 L16,8 L14,0 L14,0 Z"></path>
+                    </g>
+                    <g transform="translate(0.000000, 10.000000)" fill="#FFFFFF" id="Shape">
+                        <polygon points="0 2 16 2 16 3 0 3"></polygon>
+                        <polygon points="1 0 2 0 2 1 1 1"></polygon>
+                        <polygon points="3 0 4 0 4 1 3 1"></polygon>
+                        <polygon points="5 0 6 0 6 1 5 1"></polygon>
+                        <polygon points="1 4 2 4 2 5 1 5"></polygon>
+                        <polygon points="3 4 4 4 4 5 3 5"></polygon>
+                        <polygon points="5 4 6 4 6 5 5 5"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

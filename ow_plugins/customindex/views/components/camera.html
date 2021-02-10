@@ -1,0 +1,57 @@
+<style>
+    .camera_wrap .header_slogan {
+        display: none;
+    }
+</style>
+{if $banners_count == 0}
+    <div class="ow_header">
+        <div class="container_wrap">
+            <div class="header_slogan">
+                {text key='slpremiumtheme+slogan_page'}
+                {component class='BASE_CMP_JoinButton' cssClass='index_join_button'}
+            </div>
+        </div>
+    </div>
+{else}
+    <div class="camera_wrap">
+        {foreach $banners as $banner}
+        <div data-src="{$url}{$banner->name}">
+            <div class="container_wrap">
+                <div class="header_slogan">
+                    {text key=$banner->html}
+                    <!--<div class="camera_custom_slogan">-->
+                        <!--<div class="camera_custom_slogan_1">-->
+                            <!--welcome to shaadisapna.com-->
+                        <!--</div>-->
+                        <!--<div class="camera_custom_slogan_2">-->
+                            <!--Join our growing site, <br>-->
+                            <!--& meet dozens of singles today!-->
+                        <!--</div>-->
+                        <!--<div class="camera_custom_slogan_3">-->
+                            <!--Enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea-->
+                            <!--commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse-->
+                            <!--cillum dolore eu fugiat nulla pariatur.-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+        {/foreach}
+    </div>
+    {script}
+        function AddStyleInHeaderSlogan() {
+            jQuery('.camera_wrap .header_slogan').css("display", "block");
+        }
+        jQuery('.camera_wrap').camera({
+            pagination: false,
+            height: '553',
+            hover: false,
+            {if $banners_count == 1}
+            navigation: false,
+            playPause: false,
+            autoAdvance: false,
+            {/if}
+            onLoaded:function() { AddStyleInHeaderSlogan() }
+        });
+    {/script}
+{/if}

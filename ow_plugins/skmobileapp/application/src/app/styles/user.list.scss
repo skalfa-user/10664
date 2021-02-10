@@ -1,0 +1,21 @@
+.sk-userlist {
+    ion-item[data-status="new"] {
+        background-color: color($colors, yellow);
+    }
+
+    ion-item {
+        user-avatar {
+            border-radius: 100%;
+
+            img {
+                object-fit: cover;
+                object-position: center top;
+            }
+        }
+        ion-label {
+            h2 {
+                white-space: normal;
+            }
+        }
+    }
+}

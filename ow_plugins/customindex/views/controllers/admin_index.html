@@ -1,0 +1,59 @@
+{$menu}
+
+{if $banners}
+    <table class="ow_table_2 ow_form">
+        {foreach $banners as $banner}
+            {if $banner@first}
+                <tr class="ow_tr_first">
+                    <th>
+                        {text key='customindex+banner_label'}
+                    </th>
+                    <th>
+                        {text key='customindex+content_label'}
+                    </th>
+                    <th width="1"></th>
+                </tr>
+            {/if}
+            <tr class="{cycle values='ow_alt1,ow_alt2'}" id="banner-{$banner->id}">
+                <td class="ow_label">
+                    <img width="300" src="{$url}{$banner->name}">
+                </td>
+                <td class="ow_value">
+                    {text key=$banner->html}
+                </td>
+                <td>
+                    <a href="{url_for_route for="customindex.admin-banner-id:[id=>`$banner->id`]"}" class="ow_green">{text key='customindex+edit_banner_label'}</a>
+                    <a href="javascript://" onclick="customindexDeleteBanner({$banner->id})" class="ow_red">{text key='customindex+delete_banner_label'}</a>
+                </td>
+            </tr>
+        {/foreach}
+    </table>
+{else}
+    <div class="ow_anno ow_center">
+        {text key='customindex+banner_list_empty'}
+    </div>
+{/if}
+
+<br />
+<div class="clearfix ow_stdmargin">
+    <div class="ow_right">
+        {decorator name='button' class='ow_ic_add' langLabel='customindex+add_banner' onclick="location = '{url_for_route for="customindex.admin-banner"}'"}
+    </div>
+</div>
+
+<script>
+    window.customindexDeleteBanner = function(bannerId) {
+        if (!bannerId) return;
+
+        if (!confirm('{text key='customindex+are_you_sure'}')) {
+            return;
+        }
+
+        $('#banner-' + bannerId).remove();
+
+        $.ajax({
+            url: "{url_for_route for="customindex.admin-banner-delete"}" + "?bannerId=" + bannerId,
+            method: "post"
+        });
+    }
+</script>

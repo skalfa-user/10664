@@ -1,0 +1,39 @@
+{$menu}
+
+<form method="post">
+<div class="ow_admin_permissions ow_superwide ow_automargin ow_center">
+<table class="ow_table_1 ow_form ow_stdmargin">
+
+<tr class="ow_tr_first ow_tr_last">
+    <th align="left">Action</th>
+    <th width="20%">{text key='membership+show_on_subscribe'}</th>
+</tr>
+
+<tr class="ow_tr_delimiter"><td></td></tr>
+{foreach from=$groupActionList item='groupAction' name='group'}
+	{math equation="count" count=$groupAction.actions|@count assign=size}
+	{foreach from=$groupAction.actions item='action' name='itm'}
+	<tr class="ow_tr_first">
+	    {if $smarty.foreach.itm.first}
+            <th colspan="2" {*class="ow_alt1" rowspan="{$size}"*}>{if !empty($labels[$groupAction.name])}{$labels[$groupAction.name].label}{else}{$groupAction.name}{/if}</th>
+	    {/if}
+	</tr>
+	<tr {if $smarty.foreach.itm.last}class="ow_tr_last"{/if}>
+	    {capture assign='altClass'}{cycle values='ow_alt1,ow_alt2'}{/capture}
+        {capture assign='actionName'}{$action->name}{/capture}
+	    <td class="{$altClass} ow_txtleft">{if !empty($labels[$groupAction.name].actions[$actionName])}{$labels[$groupAction.name].actions[$actionName]}{else}{$actionName}{/if}</td>
+        <td class="{$altClass}">
+            {assign var='actionId' value=$action->id}
+            <input type="hidden" name="actions[{$actionId}]" value="0" />
+            <input type="checkbox" name="actions[{$actionId}]" {if !in_array($actionId, $hidden)}checked="checked"{/if} value="1" />
+        </td>
+	</tr>
+	{/foreach}
+	{if !$smarty.foreach.group.last}<tr class="ow_tr_delimiter"><td colspan="3"></td></tr>{/if}
+{/foreach}
+
+</table>
+<div class="clearfix ow_stdmargin ow_submit"><div class="ow_right">{decorator name="button" type="submit" langLabel="admin+save_btn_label" class="ow_ic_save ow_positive"}</div></div>
+</div>
+
+</form> 

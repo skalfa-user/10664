@@ -1,0 +1,23 @@
+{if isset($menu)}{$menu}{/if}
+
+{*<div class="ow_stdmargin">
+    {decorator name="button" buttonName="back_to_search" class="back_to_search_button ow_ic_left_arrow" langLabel="base+user_search_back_to_search"}
+</div>*}
+
+{add_content key="base.content.user_list_top" listType='usearch_search_result'}
+
+{if isset($searchResultMenu)}
+    {$searchResultMenu}
+{/if}
+{if $page > 1}
+    <div class="ow_fw_menu ow_center usearch_load_earlier_profiles">
+        <a href="javascript://">{text key="usearch+load_earlier_profiles"}</a>
+    </div>
+{/if}
+{if $itemCount}
+    <div class="ow_search_results_photo_gallery_container ow_photo_list_wrap ow_photo_userlist">
+        {$cmp}
+    </div>
+{else}
+    <div class="ow_nocontent">{text key="usearch+no_users_found" searchUrl=$searchUrl}</div>
+{/if}

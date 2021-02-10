@@ -1,0 +1,10 @@
+.sk-preferences-page {
+    background-color: color($colors, sk-page-bg);
+    
+    .sk-checkbox-question-presentation {
+        .label {
+            color: color($colors, dark);
+            font-size: 1.6rem;
+        }
+    }
+}

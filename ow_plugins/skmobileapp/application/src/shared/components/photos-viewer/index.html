@@ -1,0 +1,24 @@
+<div class="sk-photos-viewer sk-height-wrap">
+    <ion-header mode="ios" no-border>
+        <ion-navbar mode="ios" transparent>
+            <ion-buttons start>
+                <button *ngIf="isFlagActive" ion-button icon-start (click)="flagPhoto()">
+                    <ion-icon name="flag" class="ios-flag-outline"></ion-icon>
+                </button>
+            </ion-buttons>
+            <ion-buttons end>
+                <button ion-button icon-end (click)="cancel()">
+                    <ion-icon name="close"></ion-icon>
+                </button>
+            </ion-buttons>
+        </ion-navbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-slides #photosViewerSlider [dir]="application.getLanguageDirection()" pager="false" [initialSlide]="activeIndex" (ionSlideDidChange)="photosSliderDidChange()">
+            <ion-slide *ngFor="let url of urls">
+                <user-image [url]="url"></user-image>
+            </ion-slide>
+        </ion-slides>
+    </ion-content>
+</div>

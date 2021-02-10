@@ -1,0 +1,18 @@
+.header .sk-dashboard-toolbar {
+    align-items: flex-start;
+    padding: 0;
+}
+
+.sk-dashboard-page {
+    .sk-components-slider-wrapper {
+        width: 100%;
+
+        .swiper-slide {
+            align-items: flex-start;
+
+            &>.slide-zoom {
+                height: $sk-height-100;
+            }
+        }
+    }
+}

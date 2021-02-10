@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="16px" viewBox="0 0 13 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_mobile</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-721.000000, -2029.000000)" fill="#ffffff">
+            <g id="ic_mobile" transform="translate(721.000000, 2029.000000)">
+                <path d="M9.562,1.33226763e-15 L2.492,1.33226763e-15 C1.133,1.33226763e-15 0.031,1.102 0.031,2.461 L0.031,13.541 C0.031,14.9 1.133,16.002 2.492,16.002 L9.572,16.002 C10.931,16.002 12.033,14.9 12.033,13.541 L12.033,2.461 C12.033,1.102 10.932,0 9.57,0 M6.008,14.865 C5.455,14.865 5.008,14.418 5.008,13.865 C5.008,13.312 5.456,12.865 6.008,12.865 C6.56,12.865 7.008,13.312 7.008,13.865 C7.008,14.418 6.56,14.865 6.008,14.865 M10.008,12 L2.008,12 L2.008,2 L10.008,2 L10.008,12" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,49 @@
+{style}{literal}
+    input.ms_period_input { width: 40px; margin-left: 5px; }
+{/literal}{/style}
+{form name='set-membership-form'}
+<table class="ow_table_2 ow_form ow_stdmargin ow_center">
+    <tbody>
+    <tr class="ow_alt1 ow_tr_first">
+        <td style="width: 30%;">
+            {label name='type'}
+        </td>
+        <td>
+            <ul class="ow_txtleft">
+                <li style="width: 100%;">
+                    {if empty($current)}
+                    {input name='type' value=$default.value label=$default.label checked='checked'}
+                    {else}
+                    {input name='type' value=$default.value label=$default.label}
+                    {/if}
+                </li>
+                {foreach from=$memberships item='ms' key='id'}
+                <li style="width: 100%;">
+                {if !empty($current) && $current->typeId == $id}
+                    {input name='type' value=$id label=$ms checked='checked'}
+                    <span class="ow_remark ow_small" style="margin-left: 5px;">{text key='membership+days_left' days=$remaining}</span>
+                {else}
+                    {input name='type' value=$id label=$ms}
+                {/if}
+                </li>
+                {/foreach}
+                {error name='type'}
+            </ul>
+        </td>
+    </tr>
+    <tr class="ow_alt1 ow_tr_last" id="period-cont"{if empty($current)} style="display:none;"{/if}>
+        <td>
+            <span>{label name='period'}</span>
+        </td>
+        <td class="ow_txtleft">
+            <div>{input name='period' class='ms_period_input'} <span>{text key='membership+days'}</span></div>
+            {error name='period'}
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="clearfix ow_smallmargin">
+    <div class="ow_right">{submit name='set'}</div>
+</div>
+{/form}

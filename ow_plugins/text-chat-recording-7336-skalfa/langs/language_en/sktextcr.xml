@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="sktextcr" label="Text chat recording" language_tag="en" language_label="English">
+    <key name="messages_not_found"><value>Messages not found</value></key>
+    <key name="found_messages"><value>Found: &lt;b&gt;{$count}&lt;/b&gt; messages</value></key>
+    <key name="admin_search_by_username"><value>Send by (username):</value></key>
+    <key name="admin_search_bag_word"><value>Contains bad word:</value></key>
+    <key name="admin_search_from"><value>Send by (username):</value></key>
+    <key name="admin_search_to"><value>to (username):</value></key>
+    <key name="admin_all_message"><value>All messages</value></key>
+    <key name="admin_all_message_heading"><value>All messages</value></key>
+    <key name="admin_search_message"><value>Search</value></key>
+    <key name="admin_search_message_heading"><value>Search messages</value></key>
+    <key name="admin_go_sender_button"><value>Go</value></key>
+    <key name="admin_go_from_to_button"><value>Go</value></key>
+    <key name="admin_go_bag_word_button"><value>Go</value></key>
+    <key name="admin_send_by_label"><value>Send by</value></key>
+    <key name="admin_to_label"><value>To</value></key>
+    <key name="admin_message_label"><value>Message</value></key>
+    <key name="admin_date_label"><value>Date</value></key>
+
+    <key name="admin_menu_all_messages"><value>All messages</value></key>
+    <key name="admin_menu_search_messages"><value>Search</value></key>
+</prefix>

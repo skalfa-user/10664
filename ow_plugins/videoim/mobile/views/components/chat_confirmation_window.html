@@ -1,0 +1,116 @@
+<div class="owm_videoim_confirmation_window" id="videoim-confirmation-window-{$senderId}">
+    <div class="owm_videoim_cont">
+        <h1>{text key="videoim+incoming_call_from"} {$senderName}</h1>
+        <div class="owm_videoim_caller_avatar animation_pulse" style="background-image: url('{$senderAvatar}');">
+            <a href="{$senderUrl}" class="owm_videoim_caller_avatar_link"></a>
+        </div>
+        <div class="owm_videoim_controls">
+            <a class="owm_videoim_btn owm_videoim_mute_btn owm_videoim_mute_btn_active" href="javascript://" data-action="sound_off">
+                <span class="owm_videoim_btn_icon"></span>
+            </a>
+            {if !$isSuperModerator}
+                <a class="owm_videoim_btn owm_videoim_block_btn" href="javascript://" data-action="block">
+                    <span class="owm_videoim_btn_icon"></span>
+                </a>
+            {/if}
+            <a class="owm_videoim_btn owm_videoim_accept_btn" href="javascript://" data-action="accept">
+                <span class="owm_videoim_btn_icon"></span>
+            </a>
+            <a class="owm_videoim_btn owm_videoim_decline_btn" href="javascript://" data-action="decline">
+                <span class="owm_videoim_btn_icon"></span>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+{script}
+    // hide all sidebars
+    OWM.showContent();
+
+    // close the window automatically
+    var closeInterval = setTimeout(function()
+    {
+        showMissedCallNotification();
+    }, {$closeTime});
+
+    if ( !videoImRequest.isSoundManualMuted() )
+    {
+        videoImRequest.startSound();
+    }
+    else {
+        // make a mute button as inactive
+        $(".owm_videoim_mute_btn").removeClass("owm_videoim_mute_btn_active").addClass("owm_videoim_mute_btn_not_active");
+    }
+
+    // stop the audio signaling
+    _scope.floatBox.bind("close", function(params)
+    {
+        videoImRequest.stopSound();
+        clearTimeout(closeInterval);
+        OW.unbind("videoim.request_dialog_end");
+    });
+
+    // hide the current confirmation window
+    OW.bind("videoim.request_dialog_end", function(data)
+    {
+        if (data.user == {$senderId})
+        {
+            showMissedCallNotification();
+        }
+    });
+
+    /**
+     * Show missed incomming calling notification
+     *
+     * @return void
+     */
+    function showMissedCallNotification()
+    {
+        _scope.floatBox && _scope.floatBox.close();
+        OW.message('{text key="videoim+missed_incoming_call_from" escape="quotes" url=$senderUrl name=$senderName}', "warning", 10000000000);
+    }
+
+    $("#videoim-confirmation-window-{$senderId}").find("a").unbind().click(function(e)
+    {
+        switch ( $(this).attr("data-action") )
+        {
+            case "accept" :
+                videoImRequest.getChatWindow({$senderId}, false, "{$sessionId}");
+                _scope.floatBox && _scope.floatBox.close();
+                break;
+
+            case "decline" :
+                videoImRequest.declineRequest({$senderId});
+                _scope.floatBox && _scope.floatBox.close();
+                break;
+
+            case "block" :
+                if ( confirm("{text key="videoim+block_user_confirmation" escape="quotes"}") )
+                {
+                    videoImRequest.blockUser({$senderId});
+                    _scope.floatBox && _scope.floatBox.close();
+                }
+                break;
+
+            case "sound_off" :
+                    if ( !videoImRequest.isSoundManualMuted() )
+                    {
+                        videoImRequest.muteSound();
+                        videoImRequest.stopSound();
+
+                        $(".owm_videoim_mute_btn").removeClass("owm_videoim_mute_btn_active").addClass("owm_videoim_mute_btn_not_active");
+                    }
+                    else
+                    {
+                        videoImRequest.unmuteSound();
+                        videoImRequest.startSound();
+
+                        $(".owm_videoim_mute_btn").removeClass("owm_videoim_mute_btn_not_active").addClass("owm_videoim_mute_btn_active");
+                    }
+                break;
+
+            default :
+        }
+    });
+{/script}

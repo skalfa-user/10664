@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_ok</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ThemeStyles" transform="translate(-848.000000, -2029.000000)" fill="#ffffff">
+            <g id="ic_ok" transform="translate(848.000000, 2029.000000)">
+                <g id="Group">
+                    <path d="M15.815,2 C15.171,1.356 7.157,7.829 7.157,7.829 C7.157,7.829 4.306,6.597 3.322,6.597 C3.184,6.597 3.072,6.631 2.994,6.709 C2.494,7.209 7.167,12.749 7.167,12.749 C7.167,12.749 16.589,2.772 15.815,1.999" id="Shape"></path>
+                    <path d="M13.859,6.721 C13.949,7.133 14,7.561 14,8 C14,11.309 11.309,14 8,14 C4.691,14 2,11.309 2,8 C2,4.691 4.691,2 8,2 C9.252,2 10.415,2.387 11.378,3.045 C11.977,2.59 12.551,2.174 13.08,1.82 C11.698,0.683 9.929,0 8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,6.902 15.778,5.856 15.378,4.903 C14.932,5.479 14.414,6.093 13.859,6.721" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

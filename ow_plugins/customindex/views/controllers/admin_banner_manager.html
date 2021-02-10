@@ -1,0 +1,26 @@
+{$menu}
+
+{form name='banner-manager'}
+    <table class="ow_table_1 ow_form">
+        <tr class="ow_alt1 ow_tr_first">
+            <td class="ow_label">{label name='banner-file'}</td>
+            <td class="ow_value">{input name='banner-file'}<br>{error name='banner-file'}</td>
+            <td class="ow_desc">{desc name='banner-file'}</td>
+        </tr>
+        <tr class="ow_alt2">
+            <td class="ow_label">{label name='banner-content'}</td>
+            <td class="ow_value">{input name='banner-content'}</td>
+            <td class="ow_desc">{desc name='banner-content'}</td>
+        </tr>
+        <tr class="ow_alt1 ow_tr_last">
+            <td class="ow_label" colspan="3">
+                {submit name='banner-submit' class='ow_ic_save'}
+            </td>
+        </tr>
+    </table>
+    {if !empty($banner)}
+        <div class="ow_center">
+            <img width="300" src="{$url}{$banner->name}">
+        </div>
+    {/if}
+{/form}
